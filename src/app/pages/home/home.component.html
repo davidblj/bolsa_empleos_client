@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+<div class="container-fluid bg-no-overlay">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <span class="header">Always exceed your goals</span>
+        <span>Find The Job That Fits Your Life</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row card-list" *ngFor="let company of companies">
+    <div class="col-sm-9">
+      <div class="card">
+
+        <div class="row">
+          <div class="col-sm-3 media">
+
+          </div>
+          <div class="col content">
+            <span class="title">{{company.companyName}}</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+    <div class="col-xs-12">
+      <div [hidden]="companies || errMess">
+        <h4>Stand by</h4>
+      </div>
+    </div>
+
+    <div class="col-xs-12">
+      <div *ngIf="errMess">
+        {{errMess}}
+      </div>
+    </div>
+
+</div>
