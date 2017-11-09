@@ -33,7 +33,7 @@ section {
 .companyDetails {
   padding: {
     top: 2em;
-    bottom: 3em;
+    bottom: 2.5em;
     left: 1.5em;
     right: 1em;
   }
@@ -144,6 +144,8 @@ section {
     top: 1.5em;
     bottom: 1.2em;
   }
+
+  // todo: draw a this line inside a div
   border-bottom: {
       style: solid;
       color: #CCD0D5  ;
@@ -173,7 +175,7 @@ section {
 }
 
 .card {
-  box-shadow: 1px 1px 1px $grey;
+  box-shadow: 1px 3px 1px $grey;
   border: {
     style: none;
   }
@@ -198,4 +200,42 @@ section {
         font-size: 20px;
       }
     }
+}
+
+.about {
+
+  .title {
+    display: block;
+    margin-left: 0.7em;
+    font-size: $text-size;
+    color: $title-color;
+    font-weight: bold;
+  }
+
+  .info {
+    display: block;
+    margin-left: 0.7em;
+    margin-top: 1em;
+    font-size: $text-size;
+    color: $text-color;
+  }
+}
+
+.job-list {
+  margin-top: 1.5em;
+
+  .list {
+
+    .list-item {
+
+    }
+  }
+}
+
+.horizontal-line {
+  border-top: {
+    style: solid;
+    color: $light-grey;
+    width: 0.7px;
+  }
 }
