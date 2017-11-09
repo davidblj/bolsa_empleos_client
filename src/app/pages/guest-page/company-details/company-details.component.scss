@@ -1,6 +1,6 @@
 @media (min-width: 1200px) {
   .container{
-    max-width: 95em;
+    max-width: 75%;
   }
 }
 
@@ -8,14 +8,26 @@ $light-grey: #F9E7EA;
 $venus: #948C8D;
 $title-color: #303D54;
 $text-color: #848CA0;
+$text-size: 15px;
 $highlight-color: #6BCB98;
 $card-color: #FBFCFE;
 $background-color: #DADFE5;
+$follow-color: #E65F64;
+
+.go-back {
+  font-size: $text-size;
+  font-weight: 500;
+  margin: {
+    top: 1.5em;
+    bottom:1.5em;
+    left: 1em;
+  };
+}
 
 .companyDetails {
   padding: {
     top: 2em;
-    bottom: 2em;
+    bottom: 3em;
     left: 1.5em;
     right: 1em;
   }
@@ -23,9 +35,10 @@ $background-color: #DADFE5;
 
 
   .img {
+
     .img-circle {
       border-radius: 50%;
-      box-shadow: 1px 1px $light-grey;
+      box-shadow: 2px 2px $light-grey;
     }
 
     .img-responsive {
@@ -55,12 +68,12 @@ $background-color: #DADFE5;
       color: $light-grey;
     };
 
-    span {
+    & > span {
       display: block;
     }
 
     .companyName {
-      margin-top: 0.5em;
+      margin-top: 0.3em;
       color: $title-color;
       font-size: 50px;
       letter-spacing: 1.2px;
@@ -68,8 +81,8 @@ $background-color: #DADFE5;
 
     .description {
       color: $text-color;
-      font-size: 15px;
-      margin-bottom: 3.2em;
+      font-size: $text-size;
+      margin-bottom: 2.1em;
     }
 
     .btn-contact {
@@ -86,8 +99,74 @@ $background-color: #DADFE5;
         right: 35px;
       }
     }
+
+    .follow {
+      font-size: $text-size;
+      color: $follow-color;
+      margin-left: 1em;
+
+      i {
+        position: relative;
+        top: 5px;
+        margin-left: 0.3em;
+        font-size: 25px;
+      }
+    }
+  }
+
+  .statistics {
+    padding: {
+      top: 4em;
+      left: 2em;
+      right: 7em;
+    };
+    font-size: $text-size;
+
+    .tag-column {
+      color: $title-color;
+    }
+
+    .value-column {
+      color: $text-color  ;
+    }
   }
 }
+
+.tabs {
+
+  margin: {
+    top: 2em;
+    bottom: 1em;
+  }
+
+  border-bottom: {
+      style: solid;
+      color: #CCD0D5  ;
+      width: 0.7px;
+  }
+
+  .active {
+    padding-bottom: 0.5em;
+    border-bottom: {
+      style: solid;
+      color: #3E918F  ;
+      width: 3px;
+    };
+    margin-bottom: 0;
+  }
+
+  .header {
+    margin: {
+      left: 1em;
+      bottom: 1em !important;
+    };
+    margin-bottom: 0;
+  }
+}
+
+
+
+
 
 
 
