@@ -41,12 +41,13 @@ export class RegisterComponent implements OnInit {
     password: {
       required: 'This field is required',
       minlength: 'This field must be at least 4 characters long',
-      maxlength: 'This field cannot be more than 25 characters long',
+      maxlength: 'This field cannot be more than 15 characters long',
       pattern: 'Non alphanumeric values are not allowed'
     },
     companyDetails: {
       required: 'This field is required'
     },
+    // todo: add a regex for this field
     website: {
       required: 'This field is required'
     },
@@ -99,7 +100,6 @@ export class RegisterComponent implements OnInit {
       workingRole: '',
       nit: ['', Validators.required],
       employmentSector: ['', Validators.required],
-      role: 'company'
     });
 
     this.registerForm.valueChanges

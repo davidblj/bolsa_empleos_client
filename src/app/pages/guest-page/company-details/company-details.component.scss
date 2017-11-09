@@ -1,0 +1,93 @@
+@media (min-width: 1200px) {
+  .container{
+    max-width: 95em;
+  }
+}
+
+$light-grey: #F9E7EA;
+$venus: #948C8D;
+$title-color: #303D54;
+$text-color: #848CA0;
+$highlight-color: #6BCB98;
+$card-color: #FBFCFE;
+$background-color: #DADFE5;
+
+.companyDetails {
+  padding: {
+    top: 2em;
+    bottom: 2em;
+    left: 1.5em;
+    right: 1em;
+  }
+  height: auto;
+
+
+  .img {
+    .img-circle {
+      border-radius: 50%;
+      box-shadow: 1px 1px $light-grey;
+    }
+
+    .img-responsive {
+      display: block;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .ratio {
+      background: {
+        image: url("google.jpg");
+        position: center center;
+        repeat: no-repeat;
+        size: contain;
+      }
+      height: 0;
+      padding-bottom: 100%;
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  .details {
+    border-right: {
+      width: 1px;
+      style: solid;
+      color: $light-grey;
+    };
+
+    span {
+      display: block;
+    }
+
+    .companyName {
+      margin-top: 0.5em;
+      color: $title-color;
+      font-size: 50px;
+      letter-spacing: 1.2px;
+    }
+
+    .description {
+      color: $text-color;
+      font-size: 15px;
+      margin-bottom: 3.2em;
+    }
+
+    .btn-contact {
+      background: $highlight-color;
+      color: $card-color;
+      font: {
+        size: 15px;
+        weight: bold;
+      }
+      padding: {
+        top: 10px;
+        bottom: 10px;
+        left: 35px;
+        right: 35px;
+      }
+    }
+  }
+}
+
+
+
