@@ -5,15 +5,40 @@
 }
 
 $light-grey: #F9E7EA;
+$divider: #CCD0D5;
 $grey: #E4E2E6;
 $title-color: #303D54;
 $text-color: #848CA0;
 $text-size: 15px;
+$small-text-size: 13px;
 $highlight-color: #6BCB98;
-$secondory-hightlight-color: #8CC1A3;
+$secondary-hightlight-color: #3E918F;
 $card-color: #FBFCFE;
 $background-color: #F6F4F6;    // winter tones
 $follow-color: #E65F64;
+
+// globals
+
+.title {
+  display: block;
+  color: $title-color;
+  font-weight: bold;
+}
+
+.text {
+  display: block;
+  font-size: $text-size;
+  color: $text-color;
+}
+
+.small-text {
+  display: block;
+  font-size: $small-text-size;
+  font-weight: bold;
+  color: $text-color;
+}
+
+// utilities
 
 .go-back {
   font-size: $text-size;
@@ -25,8 +50,25 @@ $follow-color: #E65F64;
   };
 }
 
+.horizontal-line {
+  padding-bottom: 1em;
+  border-bottom: {
+    style: solid;
+    color: $divider;
+    width: 1px;
+  }
+}
+
+.horizontal-line:last-child {
+  margin-top: 0;
+  border-style: none;
+}
+
+// components
+
 section {
-  height:100vh;
+  height: auto;
+  min-height: 100%;
   background: $background-color;
 }
 
@@ -86,8 +128,6 @@ section {
     }
 
     .description {
-      color: $text-color;
-      font-size: $text-size;
       margin-bottom: 2.1em;
     }
 
@@ -148,16 +188,16 @@ section {
   // todo: draw a this line inside a div
   border-bottom: {
       style: solid;
-      color: #CCD0D5  ;
+      color: $divider  ;
       width: 0.7px;
   }
 
   .active {
-    color: $secondory-hightlight-color !important;
+    color: $highlight-color !important;
     padding-bottom: 0.6em;
     border-bottom: {
       style: solid;
-      color: $secondory-hightlight-color;
+      color: $highlight-color;
       width: 4px;
     };
   }
@@ -183,23 +223,11 @@ section {
 
 .websites {
 
-    .title {
-      font-size: $text-size;
-      color: $title-color;
-      font-weight: bold;
-    }
-
-    span {
-      display: block;
-      font-size: $text-size;
-      color: $text-color;
-
-      i {
-        position: relative;
-        top: 2px;
-        font-size: 20px;
-      }
-    }
+  i {
+    position: relative;
+    top: 2px;
+    font-size: 20px;
+  }
 }
 
 .about {
@@ -207,35 +235,57 @@ section {
   .title {
     display: block;
     margin-left: 0.7em;
-    font-size: $text-size;
-    color: $title-color;
-    font-weight: bold;
   }
 
   .info {
-    display: block;
     margin-left: 0.7em;
     margin-top: 1em;
-    font-size: $text-size;
-    color: $text-color;
   }
 }
 
 .job-list {
-  margin-top: 1.5em;
+  box-shadow: -1px -1px 3px #E4E2E6;
+  margin: {
+    top: 1.5em;
+    bottom: 1.5em;
+  }
 
   .list {
+    padding: {
+      left: 1.5em;
+      right: 1.5em;
+    }
 
     .list-item {
+      margin-top: 1em;
 
+      &:hover {
+
+        .title {
+          color: $secondary-hightlight-color;
+        }
+
+        .expiry-date {
+          color: $secondary-hightlight-color;
+        }
+      }
+
+      .role {
+        color: $secondary-hightlight-color;
+      }
     }
   }
 }
 
-.horizontal-line {
-  border-top: {
-    style: solid;
-    color: $light-grey;
-    width: 0.7px;
+.recommendations {
+
+  .img {
+    background: {
+      image: url("facebook.jpg");
+      position: center center;
+      repeat: no-repeat;
+      size: cover;
+    }
   }
 }
+
