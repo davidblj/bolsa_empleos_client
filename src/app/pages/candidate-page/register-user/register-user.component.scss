@@ -1,5 +1,11 @@
+$highlight-color: #6BCB98;
+$title-color: #464650;
 $text-color: #757575;
 $language-color: #74C3E0;
+$grey: #E4E2E6;
+
+$tag-size: 13px;
+$tag-color: #303D54;
 
 .section {
   width: 100%;
@@ -23,7 +29,7 @@ $language-color: #74C3E0;
   }
 
   .title {
-    color: #464650;
+    color: $title-color;
     font-size: 20px;
     font-weight: bold;
   }
@@ -41,6 +47,23 @@ $language-color: #74C3E0;
     margin-top: 1em;
     width: 100%;
     height: 2.7em;
+
+    outline: none;
+    padding-left: 0.5em;
+    border-radius: 5px;
+    border: {
+      style: solid;
+      width: 2px;
+      color: $grey;
+    };
+
+    &:focus {
+      border: {
+        style: solid;
+        width: 2px;
+        color: $highlight-color;
+      };
+    }
   }
 }
 
@@ -64,6 +87,34 @@ $language-color: #74C3E0;
       margin: {
         top: 0.5em;
       }
+
+      & .selected{
+        background: $language-color;
+        color: white;
+      }
+    }
+  }
+}
+
+.personal-info {
+  padding: {
+    left: 12em;
+    right: 12em;
+  }
+
+  .row {
+    margin-top: 1em;
+
+    input {
+      margin: {
+        top: 5px;
+      }
+    }
+
+    .tag {
+      font-weight: bold;
+      font-size: $tag-size;
+      color: $text-color;
     }
   }
 }
@@ -71,7 +122,7 @@ $language-color: #74C3E0;
 .dropdown {
 
   i{
-   position: relative;
+    position: relative;
     top: -36px;
     right: -90%;
   }
