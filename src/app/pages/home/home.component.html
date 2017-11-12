@@ -1,34 +1,44 @@
 <app-header></app-header>
 
-<div class="container-fluid bg-no-overlay">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <span class="header">Always exceed your goals</span>
-        <span>Find The Job That Fits Your Life</span>
+<section>
+  <div class="container-fluid bg-no-overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <span class="header">Always exceed your goals</span>
+          <span>Find The Job That Fits Your Life</span>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="container">
+  <div class="container">
 
-  <div class="row card-list" *ngFor="let company of companies">
-    <div class="col-sm-9">
-      <div class="card">
+    <div class="row card-list" *ngFor="let company of companies">
+      <div class="col">
+        <div class="card">
 
-        <div class="row">
-          <div class="col-sm-3 media">
+          <div class="row">
 
-          </div>
-          <div class="col content">
-            <span class="title">{{company.companyName}}</span>
+            <div class="col-sm-3 media"></div>
+
+            <div class="col content">
+              <span class="title">{{company.companyName}}</span>
+              <span class="description">{{company.companyDetails}}</span>
+
+              <button class="btn btn-details">View Details</button>
+            </div>
+
+            <!-- todo: get the total of job offers from a company -->
+            <div class="col-sm-2 jobs">
+              <span class="amount">4</span>
+              <span class="tag">jobs</span>
+            </div>
+
           </div>
         </div>
-
       </div>
     </div>
-  </div>
 
     <div class="col-xs-12">
       <div [hidden]="companies || errMess">
@@ -42,4 +52,5 @@
       </div>
     </div>
 
-</div>
+  </div>
+</section>
