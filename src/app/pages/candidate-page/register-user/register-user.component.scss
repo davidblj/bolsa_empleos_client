@@ -87,11 +87,15 @@ $tag-color: #303D54;
       margin: {
         top: 0.5em;
       }
+    }
 
-      & .selected{
-        background: $language-color;
-        color: white;
-      }
+    .selected{
+      background: $language-color !important;
+      color: white !important;
+    }
+
+    button:focus {
+      outline: none;
     }
   }
 }

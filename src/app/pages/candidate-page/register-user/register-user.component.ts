@@ -13,8 +13,8 @@ export class RegisterUserComponent implements OnInit {
   skills = [];
 
   maximun = [
-    'Javascript', 'Typescript', 'Java', 'Python', '.Net', 'C / C++', 'HTML/CSS', 'Android', 'SQL / MySQL',
-    'NoSql / MongoDB', 'R+', 'Scala'
+    'Javascript', 'Typescript', 'Java', 'Python', '.Net', 'C / C++', 'Haskell', 'PHP', 'HTML/CSS', 'Android', 'SQL / MySQL',
+    'NoSql / MongoDB', 'R+', 'Scala', 'NodeJS', 'Laravel'
   ];
 
   formErrors = {
@@ -23,7 +23,7 @@ export class RegisterUserComponent implements OnInit {
     username: '',
     jobTitle: '',
     location: '',
-    fullName: '',
+    applicantName: '',
     id: '',
     age: '',
     cellphone: ''
@@ -45,7 +45,7 @@ export class RegisterUserComponent implements OnInit {
     location: {
       required: 'This field is required'
     },
-    fullName: {
+    applicantName: {
       required: 'This field is required'
     },
     id: {
@@ -70,7 +70,7 @@ export class RegisterUserComponent implements OnInit {
       username: ['', Validators.required],
       jobTitle: ['', Validators.required],
       location: ['', Validators.required],
-      fullName: ['', Validators.required],
+      applicantName: ['', Validators.required],
       id: ['', Validators.required],
       age: ['', Validators.required],
       cellphone: ['', Validators.required]
@@ -128,19 +128,18 @@ export class RegisterUserComponent implements OnInit {
     } else {
       this.skills.splice(i, 1);
     }
-
-    console.log(this.skills);
   }
 
-  toggleStyle(index) {
-    // todo: to think
+  toggleStyle(language: string) {
+
+    return this.skills.some((value) => {
+      return value === language;
+    });
   }
 
   onSubmit() {
-    console.log(this.registerForm.value);
     this.formData = this.registerForm.value;
-
-    this.formData['skills']  = this.skills;
+    this.formData['skills'] = this.skills;
     console.log(this.formData);
   }
 }

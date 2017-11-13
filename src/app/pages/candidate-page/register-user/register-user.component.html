@@ -6,6 +6,7 @@
       <div class="card">
 
         <!-- todo: add a global style for invalid fields-->
+        <!-- todo: verify the username and email existance -->
         <div class="card-header">Account details</div>
         <div class="card-body">
 
@@ -55,8 +56,8 @@
             <div class="col-sm-9">
               <span>pick up your relevant skills</span>
               <div class="languages">
-                <button type="button" *ngFor="let language of maximun; let index = index" class="btn btn-language" (click)="onSkillSelected(language)"
-                [ngClass]="{'selected': toggleStyle(index)}">{{language}}</button>
+                <button type="button" *ngFor="let language of maximun" class="btn btn-language" (click)="onSkillSelected(language)"
+                [ngClass]="{'selected': toggleStyle(language)}">{{language}}</button>
               </div>
             </div>
           </div>
@@ -78,7 +79,7 @@
 
               <div class="col-sm-6">
                 <span class="tag">Full name</span>
-                <input formControlName="fullName" placeholder="i.e. John Doe">
+                <input formControlName="applicantName" placeholder="i.e. John Doe">
               </div>
 
               <div class="col-sm-6">
@@ -119,7 +120,7 @@
             </a>
           </div>
 
-          <!-- todo: assign an "state" drop down: working, un-employed and undergraduate -->
+          <!-- todo: assign an "state" drop down: employed, un-employed and undergraduate -->
           <!--<div class="row align">
             <div class="  dropdown">
               <input placeholder="state">
