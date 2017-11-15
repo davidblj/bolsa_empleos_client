@@ -6,8 +6,10 @@ import { CompanyDashboardComponent} from '../pages/employer-page/company-dashboa
 import { CompanyAuthGuard} from './guards/companyAuthGuard';
 import { DashboardTableComponent } from '../pages/employer-page/dashboard-table/dashboard-table.component';
 import { RegisterUserComponent } from '../pages/candidate-page/register-user/register-user.component';
+import { ApplicantDashboardComponent } from '../pages/candidate-page/applicant-dashboard/applicant-dashboard.component';
 
 export const routes: Routes = [
+  {path: 'search', component: ApplicantDashboardComponent},
   {path: 'home', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'userRegistration', component: RegisterUserComponent},
