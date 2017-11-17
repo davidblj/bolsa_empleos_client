@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RegisterApplicantService } from '../../../services/applicant/register-applicant.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-user',
@@ -59,7 +61,9 @@ export class RegisterUserComponent implements OnInit {
     }
   };
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private registerApplicantService: RegisterApplicantService,
+              private router: Router) {
     this.createForm();
   }
 
@@ -139,7 +143,17 @@ export class RegisterUserComponent implements OnInit {
 
   onSubmit() {
     this.formData = this.registerForm.value;
-    this.formData['skills'] = this.skills;
+    this.formData['skills'] = JSON.stringify(this.skills);
+
+    console.log(this.formData);
+    this.registerApplicantService.submitUser(this.formData).subscribe(
+      () => {
+        this.router.navigate(['/search']);
+      },
+      () => {
+        // todo: display an error message
+      }
+    );
     console.log(this.formData);
   }
 }

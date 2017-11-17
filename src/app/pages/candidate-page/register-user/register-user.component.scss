@@ -161,5 +161,9 @@ $tag-color: #303D54;
   color: #E4E8E6;
   border-radius: 20px;
   box-shadow: 1px 4px 4px rgba(0,0,0,0.2);
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
