@@ -10,7 +10,9 @@ import { CompanyService } from '../../../services/organizacion/company.service';
 })
 export class CompanyDetailsComponent implements OnInit {
 
-  companyDetails;
+  company: any = {};
+  jobs;
+  totalJobs;
 
   constructor(private route: ActivatedRoute,
               private companyService: CompanyService) { }
@@ -21,9 +23,10 @@ export class CompanyDetailsComponent implements OnInit {
         return this.companyService.getCompanyDetails(params['companyName']);
     });
 
-    companies.subscribe((companyName) => {
-      console.log(companyName);
-    })
+    companies.subscribe((company) => {
+      this.company = company.company;
+      this.jobs = company.jobs;
+      this.totalJobs = this.jobs.length;
+    });
   }
-
 }

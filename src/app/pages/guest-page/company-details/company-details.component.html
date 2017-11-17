@@ -13,8 +13,8 @@
                 </div>
 
                 <div class="col-sm-6 details">
-                    <span class="companyName">Google</span>
-                    <span class="text description">Software development</span>
+                    <span class="companyName">{{company.companyName}}</span>
+                    <span class="text description">{{company.employmentSector}}</span>
                     <div style="display: inline">
                       <button class="btn btn-contact ">Contacto</button>
                       <span class="follow">follow<i class="fa fa-heart-o"></i></span>
@@ -26,7 +26,7 @@
                   <div class="statistics">
                     <div class="row no-gutters">
 
-                      <div class="col-sm-5 tag-column">
+                      <div class="col-sm-4 tag-column">
                         <div class="d-flex flex-column">
                           <div class="p-1">Job offers:</div>
                           <div class="p-1">Location:</div>
@@ -34,10 +34,10 @@
                         </div>
                       </div>
 
-                      <div class="col-sm-6 value-column">
+                      <div class="col value-column">
                         <div class="d-flex flex-column">
-                          <div class="p-1">4</div>
-                          <div class="p-1">Medellin, Antioquia</div>
+                          <div class="p-1">{{totalJobs}}</div>
+                          <div class="p-1">{{company.city}}</div>
                           <div class="p-1">4.0</div>
                         </div>
                       </div>
@@ -63,7 +63,7 @@
         <div class="card">
           <div class="card-body">
             <span class="title">WEBSITES</span>
-            <span class="text"><i class="fa fa-globe mr-2 mt-2"></i>Website</span>
+            <a class="text" [href]="company.website"><i class="fa fa-globe mr-2 mt-2"></i>Website</a>
             <span class="text"><i class="fa fa-linkedin-square mr-2 mt-2"></i>Admin page</span>
           </div>
         </div>
@@ -74,10 +74,7 @@
           <div class="card-body about">
                 <span class="title">ABOUT</span>
                 <span class="text info">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar nisi ac elit condimentum porttitor.
-                  Fusce ac est mauris. Donec pretium tellus eu lobortis consectetur. Nullam mauris massa, porta ac imperdiet vel,
-                  mollis ac nulla. Vivamus feugiat lobortis varius. Nulla facilisi. Sed sit amet dignissim est.
-                  Integer lorem dui, scelerisque non eros vel, euismod suscipit massa. Maecenas accumsan enim sit amet lectus varius tempor.
+                  {{company.companyDetails}}
                 </span>
           </div>
         </div>
@@ -87,44 +84,24 @@
 
             <span>JOBS (2)</span>
             <div class="list">
-              <div class="list-item horizontal-line">
+              <div *ngFor="let job of jobs" class="list-item horizontal-line">
 
                 <div class="d-flex justify-content-end">
-                  <span class="mr-auto title">Android developer</span>
-                  <span class="small-text expiry-date">26/12/2017</span>
+                  <span class="mr-auto title">{{job.jobName}}</span>
+                  <span class="small-text expiry-date">{{job.expiryDate}}</span>
                 </div>
 
                 <div>
-                  <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eros lacus, convallis
-                    id scelerisque vel, pulvinar sed quam. Nulla mollis arcu non mauris congue rhoncus. Nulla facilisi ...
+                  <span class="text">
+                    {{job.description}}
                   </span>
                 </div>
 
                 <div class="d-flex justify-content-end">
-                  <span class="small-text role">Developer</span>
+                  <span class="small-text role">{{job.technicalRole}}</span>
                 </div>
 
               </div>
-
-              <div class="list-item horizontal-line">
-
-                <div class="d-flex justify-content-end">
-                  <span class="mr-auto title">Java developer</span>
-                  <span class="small-text expiry-date">12/11/2017</span>
-                </div>
-
-                <div>
-                  <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eros lacus, convallis
-                    id scelerisque vel, pulvinar sed quam. Nulla mollis arcu non mauris congue rhoncus. Nulla facilisi ...
-                  </span>
-                </div>
-
-                <div class="d-flex justify-content-end">
-                  <span class="small-text role">Developer</span>
-                </div>
-
-              </div>
-
             </div>
           </div>
         </div>

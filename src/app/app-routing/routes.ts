@@ -12,7 +12,7 @@ export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'userRegistration', component: RegisterUserComponent},
-  {path: 'company.details/:companyName', component: CompanyDetailsComponent},
+  {path: 'company-details/:companyName', component: CompanyDetailsComponent},
   {path: 'dashboard', component: CompanyDashboardComponent, canActivate: [CompanyAuthGuard], children: [
     {path: '', component: DashboardTableComponent },
   ]},
