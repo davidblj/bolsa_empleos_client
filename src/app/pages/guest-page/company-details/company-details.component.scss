@@ -1,0 +1,290 @@
+@media (min-width: 1200px) {
+  .container{
+    max-width: 75%;
+  }
+}
+
+$light-grey: #F9E7EA;
+$divider: #CCD0D5;
+$grey: #E4E2E6;
+$title-color: #303D54;
+$text-color: #848CA0;
+$text-size: 15px;
+$small-text-size: 13px;
+$highlight-color: #6BCB98;
+$secondary-hightlight-color: #3E918F;
+$card-color: #FBFCFE;
+$background-color: #F6F4F6;    // winter tones
+$follow-color: #E65F64;
+
+// globals
+
+.title {
+  display: block;
+  color: $title-color;
+  font-weight: bold;
+}
+
+.text {
+  display: block;
+  font-size: $text-size;
+  color: $text-color !important;
+}
+
+.small-text {
+  display: block;
+  font-size: $small-text-size;
+  font-weight: bold;
+  color: $text-color;
+}
+
+// utilities
+
+.go-back {
+  font-size: $text-size;
+  font-weight: 500;
+  margin: {
+    top: 1.5em;
+    bottom:1.5em;
+    left: 1em;
+  };
+}
+
+.horizontal-line {
+  padding-bottom: 1em;
+  border-bottom: {
+    style: solid;
+    color: $divider;
+    width: 1px;
+  }
+}
+
+.horizontal-line:last-child {
+  margin-top: 0;
+  border-style: none;
+}
+
+// components
+
+section {
+  height: auto;
+  min-height: 100%;
+  background: $background-color;
+}
+
+.companyDetails {
+  padding: {
+    top: 2em;
+    bottom: 2.5em;
+    left: 1.5em;
+    right: 1em;
+  }
+  height: auto;
+
+
+  .img {
+
+    .img-circle {
+      border-radius: 50%;
+      box-shadow: 2px 2px $light-grey;
+    }
+
+    .img-responsive {
+      display: block;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .ratio {
+      background: {
+        image: url("404.jpg");
+        position: center center;
+        repeat: no-repeat;
+        size: cover;
+      }
+      height: 0;
+      padding-bottom: 100%;
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  .details {
+    border-right: {
+      width: 1px;
+      style: solid;
+      color: $light-grey;
+    };
+
+    & > span {
+      display: block;
+    }
+
+    .companyName {
+      margin-top: 0.3em;
+      color: $title-color;
+      font-size: 50px;
+      letter-spacing: 1.2px;
+    }
+
+    .description {
+      margin-bottom: 2.1em;
+    }
+
+    .btn-contact {
+      background: $highlight-color;
+      color: $card-color;
+      font: {
+        size: 15px;
+        weight: bold;
+      }
+      padding: {
+        top: 10px;
+        bottom: 10px;
+        left: 35px;
+        right: 35px;
+      }
+    }
+
+    .follow {
+      font-size: $text-size;
+      color: $follow-color;
+      margin-left: 1em;
+
+      i {
+        position: relative;
+        top: 5px;
+        margin-left: 0.3em;
+        font-size: 25px;
+      }
+    }
+  }
+
+  .statistics {
+    padding: {
+      top: 4em;
+      left: 2em;
+    };
+    font-size: $text-size;
+
+    .tag-column {
+      color: $title-color;
+    }
+
+    .value-column {
+      color: $text-color  ;
+    }
+  }
+}
+
+.tabs {
+  padding-bottom: 0.5em;
+  margin: {
+    top: 1.5em;
+    bottom: 1.2em;
+  }
+
+  // todo: draw a this line inside a div
+  border-bottom: {
+      style: solid;
+      color: $divider  ;
+      width: 0.7px;
+  }
+
+  .active {
+    color: $highlight-color !important;
+    padding-bottom: 0.6em;
+    border-bottom: {
+      style: solid;
+      color: $highlight-color;
+      width: 4px;
+    };
+  }
+
+  .header {
+    color: $text-color;
+    padding: {
+      left: 1em;
+      right: 1em;
+    };
+    margin: {
+      bottom: 1em;
+    };
+  }
+}
+
+.card {
+  box-shadow: 1px 3px 1px $grey;
+  border: {
+    style: none;
+  }
+}
+
+.websites {
+
+  i {
+    position: relative;
+    top: 2px;
+    font-size: 20px;
+  }
+}
+
+.about {
+
+  .title {
+    display: block;
+    margin-left: 0.7em;
+  }
+
+  .info {
+    margin-left: 0.7em;
+    margin-top: 1em;
+  }
+}
+
+.job-list {
+  box-shadow: -1px -1px 3px #E4E2E6;
+  margin: {
+    top: 1.5em;
+    bottom: 1.5em;
+  }
+
+  .list {
+    padding: {
+      left: 1.5em;
+      right: 1.5em;
+    }
+
+    .list-item {
+      margin-top: 1em;
+
+      &:hover {
+
+        .title {
+          color: $secondary-hightlight-color;
+        }
+
+        .expiry-date {
+          color: $secondary-hightlight-color;
+        }
+      }
+
+      .role {
+        color: $secondary-hightlight-color;
+      }
+    }
+  }
+}
+
+.recommendations {
+
+  .img {
+    background: {
+      image: url("facebook.jpg");
+      position: center center;
+      repeat: no-repeat;
+      size: cover;
+    }
+  }
+}
+

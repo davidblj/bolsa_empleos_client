@@ -12,11 +12,12 @@
     </div>
   </div>
 
-  <div class="container">
+  <!-- todo: replace this container for a router-outlet-->
+<div class="container">
 
     <div class="row card-list" *ngFor="let company of companies">
       <div class="col">
-        <div class="card">
+        <div class="card" [routerLink]="['/company-details', company.companyName]">
 
           <div class="row">
 

@@ -11,6 +11,7 @@ export class JobListService {
   private jobSubject = new Subject<Job>();
   public jobEvent = this.jobSubject.asObservable();
 
+  // todo(service): merge this file with "register-job.service"
   constructor(private restangular: Restangular) { }
 
   triggerEvent(job: Job) {
