@@ -44,6 +44,7 @@ section {
 }
 
 .btn-details {
+  cursor: pointer;
   margin-top: 1.7em;
   padding: {
     left: 3em;
@@ -59,6 +60,11 @@ section {
   font-weight: bold;
   color: $secondary-highlight-color;
   background: white;
+
+  &:hover {
+    color: white;
+    background: $secondary-highlight-color;
+  }
 }
 
 // components

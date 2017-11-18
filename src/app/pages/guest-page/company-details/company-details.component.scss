@@ -41,6 +41,7 @@ $follow-color: #E65F64;
 // utilities
 
 .go-back {
+  cursor: pointer;
   font-size: $text-size;
   font-weight: 500;
   margin: {
@@ -48,6 +49,10 @@ $follow-color: #E65F64;
     bottom:1.5em;
     left: 1em;
   };
+
+  &:hover {
+    color: $text-color;
+  }
 }
 
 .horizontal-line {

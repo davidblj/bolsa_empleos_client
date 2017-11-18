@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import 'rxjs/add/operator/switchMap';
 import { ActivatedRoute, Params } from '@angular/router';
 import { CompanyService } from '../../../services/organizacion/company.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-company-details',
@@ -15,7 +16,8 @@ export class CompanyDetailsComponent implements OnInit {
   totalJobs;
 
   constructor(private route: ActivatedRoute,
-              private companyService: CompanyService) { }
+              private companyService: CompanyService,
+              private location: Location) { }
 
   ngOnInit() {
 
@@ -28,5 +30,9 @@ export class CompanyDetailsComponent implements OnInit {
       this.jobs = company.jobs;
       this.totalJobs = this.jobs.length;
     });
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

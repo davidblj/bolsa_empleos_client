@@ -1,7 +1,7 @@
 <section>
   <div class="container">
     <div class="row">
-      <span class="go-back"><i class="fa fa-chevron-left mr-2"></i>Back to search more companies</span>
+      <span class="go-back" (click)="goBack()"><i class="fa fa-chevron-left mr-2"></i>Back to search more companies</span>
 
       <div class="col-sm-12">
         <div class="card">
@@ -82,7 +82,7 @@
         <div class="card job-list">
           <div class="card-body">
 
-            <span>JOBS (2)</span>
+            <span>JOBS ({{totalJobs}})</span>
             <div class="list">
               <div *ngFor="let job of jobs" class="list-item horizontal-line">
 
