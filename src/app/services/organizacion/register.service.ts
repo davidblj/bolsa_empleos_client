@@ -9,6 +9,7 @@ export class RegisterService {
 
   constructor(private restangular: Restangular) { }
 
+  // todo: use a model
   submitUser(user: data): Observable<ResponseMessage>  {
 
     return this.restangular.all('organizacion/registrar').post(user);

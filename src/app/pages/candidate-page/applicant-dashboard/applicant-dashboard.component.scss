@@ -1,0 +1,119 @@
+$search-background-color: #3E918F;
+$background-color: #F6F4F6;    // winter tones
+$title-color: #303D54;
+$title-size: 14px;
+$text-color: #848CA0;
+$text-size: 12px;
+$small-text-color: #6BCB98;
+$small-text-size: 11px;
+
+.side-menu {
+  position: fixed;
+  width: 19%;
+  height: 100%;
+  background: $search-background-color;
+}
+
+.side-body {
+  padding-left: 19%;
+  padding-right: 0;
+  height: 100%;
+
+  .row {
+    height: 100%;
+  }
+
+  .results {
+    background: $background-color;
+    height: 100%;
+
+    // for images with a resolution of 1080p
+    .company {
+      height: auto;
+      margin: {
+        top: 0.7em;
+        bottom: 0.7em;
+        left: 0.5em;
+        right: 0.5em;
+      }
+      padding: {
+        top: 0.7em;
+        bottom: 0.7em;
+        left: 0.5em;
+        right: 0.5em;
+      };
+
+      .media {
+        border-radius: 5px;
+        background: {
+          image: url('google.jpg');
+          repeat: no-repeat;
+          size: cover;
+          position: center center;
+        }
+      }
+
+      // todo: remove this rule
+      .placeholder {
+        border-radius: 5px;
+        background: {
+          image: url('amazon.jpg');
+          repeat: no-repeat;
+          size: cover;
+          position: center center;
+        }
+      }
+
+      .info {
+        padding: {
+          left: 0.5em;
+          top: 0.5em;
+        }
+
+        .title {
+          display: block;
+          color: $title-color;
+          font-size: $title-size;
+          font-weight: bold;
+        }
+
+        .company-name {
+          display: block;
+          color: $text-color;
+          font-size: $text-size;
+          font-weight: bold;
+        }
+
+        .salary {
+          display: block;
+          color: $small-text-color;
+          font-size: $small-text-size;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .active {
+      background: #F9E7EA;
+      border: {
+        radius: 5px;
+        style: solid;
+        width: 1.5px;
+        color: #F9E7EA;
+      };
+    }
+
+    .header {
+      padding: 2em;
+    }
+
+    .company {
+
+    }
+
+  }
+
+  .company-details {
+    background-color: #464650;
+  }
+}

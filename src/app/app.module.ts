@@ -20,6 +20,8 @@ import { DashboardTableComponent } from './pages/employer-page/dashboard-table/d
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import { RegisterUserComponent } from './pages/employee-page/register-user/register-user.component';
 import { PickSidesComponent } from './pages/guest-page/pick-sides/pick-sides.component';
+import { ApplicantDashboardComponent } from './pages/candidate-page/applicant-dashboard/applicant-dashboard.component';
+import { CompanyDetailsComponent } from './pages/guest-page/company-details/company-details.component';
 
 // servicios
 
@@ -28,6 +30,7 @@ import { RegisterService } from './services/organizacion/register.service';
 import { LoginService } from './services/organizacion/login.service';
 import { RegisterJobService } from './services/organizacion/register-job.service';
 import { JobListService } from './services/organizacion/job-list.service';
+import { RegisterApplicantService } from './services/applicant/register-applicant.service';
 
 // values
 
@@ -37,7 +40,6 @@ import { baseURL } from './shared/baseurl';
 
 import { RestangularConfigFactory } from './shared/restConfig';
 import { CompanyAuthGuard } from './app-routing/guards/companyAuthGuard';
-import { CompanyDetailsComponent } from './pages/guest-page/company-details/company-details.component';
 
 
 @NgModule({
@@ -52,7 +54,8 @@ import { CompanyDetailsComponent } from './pages/guest-page/company-details/comp
     DashboardTableComponent,
     RegisterUserComponent,
     CompanyDetailsComponent,
-    PickSidesComponent
+    PickSidesComponent,
+    ApplicantDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +77,7 @@ import { CompanyDetailsComponent } from './pages/guest-page/company-details/comp
     RegisterJobService,
     CompanyAuthGuard,
     JobListService,
+    RegisterApplicantService,
     { provide: 'BaseURL', useValue: baseURL }
   ],
   bootstrap: [AppComponent]

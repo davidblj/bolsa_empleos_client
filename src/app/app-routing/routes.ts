@@ -8,8 +8,10 @@ import { DashboardTableComponent } from '../pages/employer-page/dashboard-table/
 import { RegisterUserComponent } from '../pages/employee-page/register-user/register-user.component';
 import { CompanyDetailsComponent } from '../pages/guest-page/company-details/company-details.component';
 import { PickSidesComponent } from '../pages/guest-page/pick-sides/pick-sides.component';
+import { ApplicantDashboardComponent } from '../pages/candidate-page/applicant-dashboard/applicant-dashboard.component';
 
 export const routes: Routes = [
+  {path: 'search', component: ApplicantDashboardComponent},
   {path: 'home', component: HomeComponent},
   {path: 'pick-sides',
     children: [
