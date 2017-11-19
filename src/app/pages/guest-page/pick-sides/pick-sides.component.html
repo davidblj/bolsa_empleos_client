@@ -1,0 +1,22 @@
+<router-outlet></router-outlet>
+
+<section>
+  <div class="container-fluid bg-no-overlay">
+    <div class="container-fluid opaque">
+
+      <!-- todo: change the font sizes to be set dynamically -->
+      <div class="header display-1 d-flex justify-content-center">Who are you ?</div>
+
+      <div class="options-container d-flex">
+        <div class="mr-auto">
+          <div class="display-4">A Job Seeker</div>
+          <i class="left fa fa-chevron-circle-left" [routerLink]="['user-registration']"></i>
+        </div>
+        <div>
+          <div class="display-4">An Employeer</div>
+          <i class="right fa fa-chevron-circle-right" [routerLink]="['company-registration']"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

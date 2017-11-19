@@ -2,3 +2,35 @@
   margin-right: 0.5em;
 }
 
+.options {
+  a{
+    outline: 0;
+  }
+}
+
+.auth {
+
+  a {
+
+    &:hover {
+      cursor: pointer;
+      background: white;
+      color: black;
+    }
+  }
+
+  button {
+    padding: {
+      left: 16px;
+      right: 16px;
+      top: 6px;
+      bottom: 6px;
+    };
+
+    &:hover {
+      cursor: pointer;
+      background: white;
+      color: black;
+    }
+  }
+}

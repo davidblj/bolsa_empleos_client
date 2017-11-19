@@ -7,11 +7,17 @@ import { CompanyAuthGuard} from './guards/companyAuthGuard';
 import { DashboardTableComponent } from '../pages/employer-page/dashboard-table/dashboard-table.component';
 import { RegisterUserComponent } from '../pages/employee-page/register-user/register-user.component';
 import { CompanyDetailsComponent } from '../pages/guest-page/company-details/company-details.component';
+import { PickSidesComponent } from '../pages/guest-page/pick-sides/pick-sides.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'userRegistration', component: RegisterUserComponent},
+  {path: 'pick-sides',
+    children: [
+      {path: '', component: PickSidesComponent},
+      {path: 'user-registration', component: RegisterUserComponent},
+      {path: 'company-registration', component: RegisterComponent}
+    ]
+  },
   {path: 'company-details/:companyName', component: CompanyDetailsComponent},
   {path: 'dashboard', component: CompanyDashboardComponent, canActivate: [CompanyAuthGuard], children: [
     {path: '', component: DashboardTableComponent },
