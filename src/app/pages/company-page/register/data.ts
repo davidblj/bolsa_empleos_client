@@ -1,4 +1,4 @@
-export class data {
+export class Data {
   companyName: string;
   password: string;
   compnayDetails: string;

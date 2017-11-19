@@ -25,7 +25,7 @@
 
             <div class="col content">
               <span class="title">{{company.companyName}}</span>
-              <span class="description">{{company.companyDetails}}</span>
+              <span class="description">{{trimDetails(company.companyDetails)}}</span>
 
               <button class="btn btn-details" [routerLink]="['/company-details', company.companyName]">View Details</button>
             </div>

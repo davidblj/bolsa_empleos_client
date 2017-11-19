@@ -25,4 +25,12 @@ export class HomeComponent implements OnInit {
           this.errMess = <any>errmess;
         });
   }
+
+  trimDetails(details: string) {
+
+    if (details.length > 150) {
+      return details.slice(0, 150) + ' ...';
+    }
+    return details;
+  }
 }

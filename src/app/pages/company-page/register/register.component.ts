@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { data} from './data';
+import { Data} from './data';
 import { ResponseMessage } from '../../../shared/ResponseMessage';
 import { RegisterService} from '../../../services/organizacion/register.service';
 import { AbstractControl } from '@angular/forms';
@@ -13,7 +13,7 @@ import { AbstractControl } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
-  registerData: data;
+  registerData: Data;
   message: ResponseMessage;
   errmess: string;
   regex  = '^[a-zA-Z0-9]*$';
