@@ -10,17 +10,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // componentes
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
-import { HeaderComponent } from './components/header/header.component';
-import { CompanyDashboardComponent } from './pages/employer-page/company-dashboard/company-dashboard.component';
-import { RegisterComponent } from './pages/authentication/register/register.component';
-import { LoginComponent } from './pages/authentication/login/login.component';
-import { JobFormComponent } from './pages/employer-page/job-form/job-form.component';
-import { DashboardTableComponent } from './pages/employer-page/dashboard-table/dashboard-table.component';
+import { HomeComponent } from './pages/guest-page/home/home.component';
+import { HeaderComponent } from './pages/guest-page/header/header.component';
+import { CompanyDashboardComponent } from './pages/company-page/company-dashboard/company-dashboard.component';
+import { RegisterComponent } from './pages/company-page/register/register.component';
+import { LoginComponent } from './pages/guest-page/login/login.component';
+import { JobFormComponent } from './pages/company-page/job-form/job-form.component';
+import { DashboardTableComponent } from './pages/company-page/dashboard-table/dashboard-table.component';
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
-import { RegisterUserComponent } from './pages/employee-page/register-user/register-user.component';
+import { RegisterUserComponent } from './pages/applicant-page/register-user/register-user.component';
 import { PickSidesComponent } from './pages/guest-page/pick-sides/pick-sides.component';
-import { ApplicantDashboardComponent } from './pages/candidate-page/applicant-dashboard/applicant-dashboard.component';
+import { ApplicantDashboardComponent } from './pages/applicant-page/applicant-dashboard/applicant-dashboard.component';
 import { CompanyDetailsComponent } from './pages/guest-page/company-details/company-details.component';
 
 // servicios

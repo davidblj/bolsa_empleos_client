@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { data } from '../../pages/authentication/login/data';
+import { data } from '../../pages/guest-page/login/data';
 import { Observable } from 'rxjs/Observable';
 import { Restangular } from 'ngx-restangular';
 import {ResponseMessage} from '../../shared/ResponseMessage';

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Restangular } from 'ngx-restangular';
-import { Data } from '../../pages/employer-page/job-form/data';
+import { Data } from '../../pages/company-page/job-form/data';
 import { Observable } from 'rxjs/Observable';
 import { ResponseMessage } from '../../shared/ResponseMessage';
 

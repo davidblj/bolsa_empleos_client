@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import { Company } from '../../models/organizacion/company';
-import { CompanyService } from '../../services/organizacion/company.service';
+import { Company } from '../../../models/organizacion/company';
+import { CompanyService } from '../../../services/organizacion/company.service';
 
 @Component({
   selector: 'app-home',
@@ -25,5 +25,4 @@ export class HomeComponent implements OnInit {
           this.errMess = <any>errmess;
         });
   }
-
 }
