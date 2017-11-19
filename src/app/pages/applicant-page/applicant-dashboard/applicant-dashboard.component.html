@@ -1,5 +1,33 @@
 <!-- todo: profile icons -->
-<div class="side-menu"></div>
+<div class="side-menu">
+  <div class="option-list">
+
+    <div class="search-bar">
+      <input title="search" class="form-control" />
+    </div>
+
+    <div class="checkbox-group">
+      <span class="title">Role</span>
+
+      <div class="checkbox-list btn-group-vertical">
+        <!--<input type="checkbox" autocomplete="off">
+        <input type="checkbox" autocomplete="off">-->
+      </div>
+
+    </div>
+
+    <div class="checkbox-group d-flex flex-column">
+      <span class="title">Additional lenguages</span>
+    </div>
+
+    <div class="checkbox-group d-flex flex-column">
+      <span class="title">Job Type</span>
+    </div>
+
+    <button class="btn urgency">high</button>
+
+  </div>
+</div>
 
 <div class="container-fluid side-body">
   <div class="row no-gutters">
@@ -9,20 +37,21 @@
 
         <div class="header"></div>
 
-        <div class="company">
+        <div class="company" *ngFor="let offer of offers">
 
           <div class="row no-gutters">
             <div class="col-sm-2 media"></div>
             <div class="col info">
-              <span class="title">Full Engineer, Tools and Infrastructure</span>
-              <span class="company-name">Google</span>
-              <span class="salary">$94k</span>
+              <span class="title">{{offer.jobName}}</span>
+              <span class="company-name">{{offer.ownerCompany}}</span>
+              <span class="salary">${{offer.salary}}k</span>
             </div>
           </div>
 
         </div>
 
         <div class="company active">
+
           <div class="row no-gutters">
             <div class="col-sm-2 placeholder"></div>
             <div class="col info">
@@ -31,8 +60,8 @@
               <span class="salary">$150k</span>
             </div>
           </div>
-        </div>
 
+        </div>
 
       </div>
     </div>

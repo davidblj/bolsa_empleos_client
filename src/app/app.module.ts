@@ -31,6 +31,7 @@ import { LoginService } from './services/organizacion/login.service';
 import { RegisterJobService } from './services/organizacion/register-job.service';
 import { JobListService } from './services/organizacion/job-list.service';
 import { RegisterApplicantService } from './services/applicant/register-applicant.service';
+import { SearchService } from './services/guest/search.service';
 
 // values
 
@@ -78,6 +79,7 @@ import { CompanyAuthGuard } from './app-routing/guards/companyAuthGuard';
     CompanyAuthGuard,
     JobListService,
     RegisterApplicantService,
+    SearchService,
     { provide: 'BaseURL', useValue: baseURL }
   ],
   bootstrap: [AppComponent]

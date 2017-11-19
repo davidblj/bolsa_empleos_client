@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from '../../../services/guest/search.service';
 
 @Component({
   selector: 'app-applicant-dashboard',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplicantDashboardComponent implements OnInit {
 
-  constructor() { }
+  offers;
+
+  constructor(private searchService: SearchService) { }
 
   ngOnInit() {
+    this.searchService.getAllAvailableOffers().subscribe(
+      (offers) => {
+        this.offers = offers;
+      }
+    )
   }
 
 }

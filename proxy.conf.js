@@ -8,6 +8,7 @@ const PROXY_CONFIG = [
       "/organizacion/nuevaOferta",
       "/organizacion/listarOfertas",
       "/guest/getCompanyDetails",
+      "/guest/getAvailableOffers",
       "/applicant/applicantRegistration"
     ],
     "target": "http://localhost:3000",

@@ -12,6 +12,79 @@ $small-text-size: 11px;
   width: 19%;
   height: 100%;
   background: $search-background-color;
+
+  .option-list {
+    margin-top: 5em;
+
+    .search-bar {
+      input {
+        margin: {
+          left: 2em;
+        };
+        border: {
+          style: none;
+        };
+        width: 80%;
+        background: rgba(black, 0.2);
+
+        &:focus {
+          outline: none;
+          border: none !important;
+          box-shadow: none !important;
+        }
+      }
+    }
+
+    .checkbox-group {
+      margin: {
+        top: 3em;
+        left: 2em;
+      };
+
+      .title {
+        display: block;
+        color: white;
+        font: {
+          size: $text-size;
+          weight: bold;
+        }
+      }
+
+      .checkbox-list {
+        margin: {
+          top: 0.5em;
+        };
+
+        input {
+          margin-bottom: 0.5em;
+          padding: {
+            left: 1em;
+          };
+        }
+      }
+    }
+
+    .urgency {
+
+      font-size: $small-text-size;
+      color: white;
+      background: rgba(black, 0.2);
+      margin: {
+        top: 3em;
+        left: 2em;
+      };
+      padding: {
+        left: 20px;
+        right: 20px;
+      };
+
+      border-radius: 25px;
+      border: {
+        style: solid;
+        width: 2px;
+      };
+    }
+  }
 }
 
 .side-body {
