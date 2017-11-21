@@ -11,7 +11,7 @@ export class CompanyService {
   // todo(refactoring): search in to "typed object validation" with typescript
   getEmpresas(): Observable<Company[]> {
 
-    return this.restangular.all('organizacion/listarEmpresas').getList();
+    return this.restangular.all('company/listarEmpresas').getList();
   }
 
   // todo: move this request to a shared module

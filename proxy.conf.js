@@ -2,13 +2,14 @@
 const PROXY_CONFIG = [
   {
     "context": [
-      "/organizacion/listar",
-      "/organizacion/registrar",
-      "/organizacion/login",
-      "/organizacion/nuevaOferta",
-      "/organizacion/listarOfertas",
+      "/company/listar",
+      "/company/registrar",
+      "/company/login",
+      "/company/nuevaOferta",
+      "/company/listarOfertas",
       "/guest/getCompanyDetails",
       "/guest/getAvailableOffers",
+      "/guest/getJobDetails",
       "/applicant/applicantRegistration"
     ],
     "target": "http://localhost:3000",

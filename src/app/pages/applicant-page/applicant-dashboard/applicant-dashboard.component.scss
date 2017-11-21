@@ -100,20 +100,26 @@ $small-text-size: 11px;
     background: $background-color;
     height: 100%;
 
-    // for images with a resolution of 1080p
+    // for images with a resolution of 1920x1080p
     .company {
       height: auto;
       margin: {
-        top: 0.7em;
-        bottom: 0.7em;
+        top: 0.9em;
+        bottom: 0.9em;
         left: 0.5em;
         right: 0.5em;
       }
       padding: {
-        top: 0.7em;
-        bottom: 0.7em;
+        top: 0.9em;
+        bottom: 0.9em;
         left: 0.5em;
         right: 0.5em;
+      };
+      border: {
+        radius: 5px;
+        style: solid;
+        width: 2px;
+        color: $background-color;
       };
 
       .media {
@@ -164,15 +170,25 @@ $small-text-size: 11px;
           font-weight: bold;
         }
       }
+
+      &:hover {
+        cursor: pointer;
+        border: {
+          radius: 5px;
+          style: solid;
+          width: 2px;
+          color: #CEE1E6;
+        };
+      }
     }
 
     .active {
-      background: #F9E7EA;
+      background: #ededed;
       border: {
         radius: 5px;
         style: solid;
-        width: 1.5px;
-        color: #F9E7EA;
+        width: 2px;
+        color: #54B3BE !important;
       };
     }
 
@@ -184,9 +200,11 @@ $small-text-size: 11px;
 
     }
 
+    // todo: include a box shadow
+    box-shadow: 10em 0 15em rgba(black, 0.1)
   }
 
   .company-details {
-    background-color: #464650;
+    height: 100%;
   }
 }

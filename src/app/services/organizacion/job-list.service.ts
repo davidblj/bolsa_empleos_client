@@ -20,6 +20,6 @@ export class JobListService {
 
   getJobs(token: string): Observable<Job[]> {
 
-    return this.restangular.all('organizacion/listarOfertas').getList({}, {'x-access-token': token});
+    return this.restangular.all('company/listarOfertas').getList({}, {'x-access-token': token});
   }
 }

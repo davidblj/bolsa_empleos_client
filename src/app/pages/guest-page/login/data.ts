@@ -1,4 +1,4 @@
 export class data {
-  companyName: string;
+  username: string;
   password: string;
 }

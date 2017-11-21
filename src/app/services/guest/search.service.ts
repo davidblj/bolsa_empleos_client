@@ -9,6 +9,12 @@ export class SearchService {
   constructor(private restangular: Restangular) { }
 
   getAllAvailableOffers(): Observable<any> {
+
     return this.restangular.all('guest/getAvailableOffers').getList();
+  }
+
+  getJobDetails(jobId: string) {
+
+    return this.restangular.one('guest/getJobDetails').get({'jobId': jobId});
   }
 }

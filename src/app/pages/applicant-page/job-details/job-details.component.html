@@ -1,0 +1,41 @@
+<section>
+  <div class="d-flex justify-content-end header pr-3">
+    <button class="btn">Apply now</button>
+  </div>
+
+  <div class="job-details-container">
+
+    <div class="row no-gutters banner">
+      <div class="col-sm-2 media"></div>
+      <div class="col">
+        <div class="info">
+          <div class="title">{{job.jobName}}</div>
+          <div class="company">{{job.ownerCompany}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex job-details">
+      <div class="item d-flex flex-column">
+        <div class="label">{{job.technicalRole}}</div>
+        <div class="tag">ROLE</div>
+      </div>
+
+      <div class="item d-flex flex-column">
+        <div class="label">{{job.jobType}}</div>
+        <div class="tag">JOB TYPE</div>
+      </div>
+
+      <div class="item d-flex flex-column">
+        <div class="label">{{job.languages}}</div>
+        <div class="tag">LANGUAGE</div>
+      </div>
+    </div>
+
+    <div class="d-flex description">
+      {{job.description}}
+    </div>
+
+  </div>
+
+</section>

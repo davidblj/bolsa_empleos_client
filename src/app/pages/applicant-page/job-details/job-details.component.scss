@@ -1,0 +1,115 @@
+$header-color: #F2F3F6;
+$highlight-color: #6BCB98;
+$button-text-size: 15px;
+$job-title-size: 30px;
+$company-title-color: #54B3BE;
+$title-color: #303D54;
+$title-size: 25px;
+$label-color: #848CA0;
+$label-size: 13px;
+$value-size: 15px;
+$tag-color: #BFC4CE;
+$text-color: #424144;
+
+section {
+  height: 100%;
+
+  .header {
+    padding: {
+      top: 1em;
+      bottom: 1em;
+    }
+    background: $header-color;
+    // box-shadow: 10em 0 15em rgba(0, 0, 0, 0.1);
+
+    button {
+      color: white;
+      background: $highlight-color;
+
+      padding: {
+        left: 1.5em;
+        right: 1.5em;
+      };
+
+      font: {
+        weight: bold;
+        size: $button-text-size;
+      }
+
+      border: {
+        radius: 5px;
+      };
+    }
+  }
+
+  .job-details-container {
+
+    padding-left: 2.5em;
+
+    .banner {
+      margin-top: 2.5em;
+      height: 125px;
+
+      .media {
+        border-radius: 5px;
+        background: {
+          image: url('amazon.jpg');
+          repeat: no-repeat;
+          size: cover;
+          position: center center;
+        }
+      }
+
+      .info {
+        margin-left: 1.5em;
+
+        .title {
+          font-size: $job-title-size;
+          color: $title-color;
+        }
+
+        .company {
+          font-size: $title-size;
+          font-weight: bold;
+          color: $company-title-color;
+        }
+      }
+
+    }
+
+    .job-details {
+      margin-top: 2em;
+
+      .item:first-child {
+
+        & ~ .item {
+         margin-left: 3em;
+        }
+      }
+
+      .label {
+        color: $label-color;
+        font: {
+          size: $value-size;
+          weight: bold;
+        }
+      }
+
+      .tag {
+        color: $tag-color;
+        font: {
+          weight: bold;
+          size: $label-size;
+        }
+      }
+    }
+
+    .description {
+      margin: {
+        top: 3em;
+        right: 2em;
+      }
+      color: $text-color;
+    }
+  }
+}

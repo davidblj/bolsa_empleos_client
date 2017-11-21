@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { data } from '../../pages/guest-page/login/data';
 import { Observable } from 'rxjs/Observable';
 import { Restangular } from 'ngx-restangular';
-import {ResponseMessage} from '../../shared/ResponseMessage';
-import {UserToken} from '../../shared/UserToken';
+import { ResponseMessage } from '../../shared/ResponseMessage';
+import { UserToken } from '../../shared/UserToken';
 
 
 @Injectable()
@@ -16,13 +16,11 @@ export class LoginService {
 
   authenticate(user: data): Observable<Boolean> {
 
-    return this.restangular.all('organizacion/login').post(user)
+    return this.restangular.all('company/login').post(user)
       .map(
         response => {
           this.userToken = new UserToken(response.user, response.role, response.token);
           this.userToken.setLocalStorage();
-          // console.log(JSON.stringify(this.userToken));
-
           return true;
         },
         errmess => {

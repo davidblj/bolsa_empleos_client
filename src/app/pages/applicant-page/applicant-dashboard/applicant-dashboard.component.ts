@@ -8,6 +8,7 @@ import { SearchService } from '../../../services/guest/search.service';
 })
 export class ApplicantDashboardComponent implements OnInit {
 
+  jobId;
   offers;
 
   constructor(private searchService: SearchService) { }
@@ -20,4 +21,7 @@ export class ApplicantDashboardComponent implements OnInit {
     )
   }
 
+  showDetails(job) {
+    this.jobId = job._id;
+  }
 }

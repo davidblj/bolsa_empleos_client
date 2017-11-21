@@ -37,14 +37,14 @@
 
         <div class="header"></div>
 
-        <div class="company" *ngFor="let offer of offers">
+        <div class="company" *ngFor="let offer of offers" (click)="showDetails(offer)">
 
           <div class="row no-gutters">
             <div class="col-sm-2 media"></div>
             <div class="col info">
               <span class="title">{{offer.jobName}}</span>
               <span class="company-name">{{offer.ownerCompany}}</span>
-              <span class="salary">${{offer.salary}}k</span>
+              <span class="salary">${{offer.salary}}</span>
             </div>
           </div>
 
@@ -68,7 +68,7 @@
 
     <div class="col">
       <div class="company-details">
-        <p>Details</p>
+        <app-job-details [jobId]="jobId"></app-job-details>
       </div>
     </div>
 

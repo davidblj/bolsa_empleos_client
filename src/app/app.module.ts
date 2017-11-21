@@ -41,6 +41,7 @@ import { baseURL } from './shared/baseurl';
 
 import { RestangularConfigFactory } from './shared/restConfig';
 import { CompanyAuthGuard } from './app-routing/guards/companyAuthGuard';
+import { JobDetailsComponent } from './pages/applicant-page/job-details/job-details.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { CompanyAuthGuard } from './app-routing/guards/companyAuthGuard';
     RegisterUserComponent,
     CompanyDetailsComponent,
     PickSidesComponent,
-    ApplicantDashboardComponent
+    ApplicantDashboardComponent,
+    JobDetailsComponent
   ],
   imports: [
     BrowserModule,

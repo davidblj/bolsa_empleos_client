@@ -4,12 +4,13 @@
   }
 }
 
-
-$title-color: #303D54;
-$highlighted-title-color: #5A6875;
+$light-grey: #F9E7EA;
+$divider: #CCD0D5;
 $highlight-color: #6BCB98;
-$highlight-title-size: 17px;
+$title-color: #303D54;
+$secondary-title-color: #5A6875;
 $title-size: 16px;
+$secondary-title-size: 17px;
 $text-size: 15px;
 $text-color: #848CA0;
 
@@ -20,14 +21,15 @@ $text-color: #848CA0;
     margin-left: 8em;
 
     .link {
+      letter-spacing: 1px;
       cursor: pointer;
-      color: $title-color;
+      color: $secondary-title-color;
       font: {
         size: $title-size;
-        // weight: bold;
       }
 
       i {
+        color: $title-color;
         position: relative;
         top: 0.1em;
         margin-right: 0.5em;
@@ -37,18 +39,13 @@ $text-color: #848CA0;
       }
 
       &:hover {
-        font-size: $highlight-title-size;
-        color: $highlighted-title-color;
-        i {
-          color: $highlight-color;
-        }
+        font-size: $secondary-title-size;
+        color: $title-color;
       }
-
     }
 
     .active {
-
-      color: $highlighted-title-color;
+      color: $title-color;
 
       i {
         color: $highlight-color !important;
@@ -59,7 +56,23 @@ $text-color: #848CA0;
 
 .content {
 
-  .auxiliary {
+  .profile-toolbar {
+    margin-top: 1em;
+    margin-bottom: 0;
+
+    .bell {
+      font-size: 1.2em;
+    }
+
+    .profile {
+      padding-left: 0.5em;
+      font-size: 2.2em;
+    }
+  }
+
+  .auxiliary-navigation {
+    margin-left: 1em;
+    letter-spacing: 1px;
 
     a {
       color: $title-color;
@@ -67,21 +80,16 @@ $text-color: #848CA0;
     }
 
     .active {
-      font-weight: bold ;
+      font-weight: bold;
+      border-bottom: {
+        style: solid;
+        color: $highlight-color;
+        width: 1px;
+      };
     }
   }
 }
 
-
-.nav-header {
-  margin-top: 1em;
-  margin-bottom: 0;
-}
-
-.icon {
-  padding-left: 0.7em;
-  font-size: 1.6em;
-}
 
 #accountPopover {
   cursor: pointer;

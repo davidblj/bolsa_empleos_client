@@ -9,6 +9,7 @@
           <div class="d-flex flex-column">
             <span class="nav-link link active" href="#"> <i class="fa fa-bookmark"></i> Offers</span>
             <span class="nav-link link"> <i class="fa fa-child"></i> Applicants</span>
+            <span class="nav-link link"> <i class="fa fa-area-chart"></i> Charts</span>
           </div>
 
       </div>
@@ -16,22 +17,22 @@
 
     <div class="col-sm-9 content">
 
-      <nav class="navbar navbar-light navbar-expand-md nav-header">
+      <nav class="navbar navbar-light navbar-expand-md profile-toolbar">
 
         <div class="navbar-nav mr-auto"></div>
         <div class="navbar-nav">
-          <a><i class="fa fa-bell-o"></i></a>
+          <a><i class="fa fa-bell-o bell"></i></a>
         </div>
 
         <div class="navbar-nav">
           <a id="accountPopover" [ngbPopover]="popContent"  #p="ngbPopover" placement="bottom-right">
-            <i class="fa fa-user-circle-o icon fa-lg"></i>
+            <i class="fa fa-user-circle-o profile"></i>
           </a>
         </div>
 
       </nav>
 
-      <ul class="nav auxiliary">
+      <ul class="nav auxiliary-navigation">
 
         <!-- todo: set this as an auxiliary route -->
         <li class="nav-item">
