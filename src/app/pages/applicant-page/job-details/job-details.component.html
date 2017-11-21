@@ -11,6 +11,7 @@
         <div class="info">
           <div class="title">{{job.jobName}}</div>
           <div class="company">{{job.ownerCompany}}</div>
+          <div class="expiry">{{job.expiryDate}}</div>
         </div>
       </div>
     </div>
@@ -26,9 +27,14 @@
         <div class="tag">JOB TYPE</div>
       </div>
 
-      <div class="item d-flex flex-column">
+      <div class="item d-flex flex-column mr-auto">
         <div class="label">{{job.languages}}</div>
         <div class="tag">LANGUAGE</div>
+      </div>
+
+      <div class="item d-flex flex-column mr-4">
+        <div class="label">${{job.salary | number:'.0-2'}}</div>
+        <div class="tag">COMPENSATION</div>
       </div>
     </div>
 

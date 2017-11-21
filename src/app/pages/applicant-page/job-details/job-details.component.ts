@@ -6,7 +6,7 @@ import { SearchService } from '../../../services/guest/search.service';
   templateUrl: './job-details.component.html',
   styleUrls: ['./job-details.component.scss']
 })
-export class JobDetailsComponent implements OnChanges{
+export class JobDetailsComponent implements OnChanges {
 
   @Input() jobId;
   job;
@@ -16,15 +16,17 @@ export class JobDetailsComponent implements OnChanges{
   ngOnChanges(changes) {
     if (changes.jobId) {
 
-      console.log('input changed');
-      this.searchService.getJobDetails(this.jobId).subscribe(
-        (job) => {
-          this.job = job
-        },
-        () => {
-          // todo: handle an error response
-        }
-      )
+      this.fetchJobDetails(this.jobId);
     }
+  }
+
+  fetchJobDetails(jobId: string) {
+    this.searchService.getJobDetails(jobId).subscribe(
+      (job) => {
+        this.job = job
+      },
+      () => {
+        // todo: handle an error response
+      })
   }
 }

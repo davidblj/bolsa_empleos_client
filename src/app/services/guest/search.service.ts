@@ -13,7 +13,7 @@ export class SearchService {
     return this.restangular.all('guest/getAvailableOffers').getList();
   }
 
-  getJobDetails(jobId: string) {
+  getJobDetails(jobId: string): Observable<any> {
 
     return this.restangular.one('guest/getJobDetails').get({'jobId': jobId});
   }

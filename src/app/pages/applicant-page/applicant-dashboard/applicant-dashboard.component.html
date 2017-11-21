@@ -29,7 +29,7 @@
   </div>
 </div>
 
-<div class="container-fluid side-body">
+<div class="container-fluid side-body" id="list">
   <div class="row no-gutters">
 
     <div class="col-sm-4">
@@ -37,27 +37,17 @@
 
         <div class="header"></div>
 
-        <div class="company" *ngFor="let offer of offers" (click)="showDetails(offer)">
+        <div class="company"
+             *ngFor="let offer of offers; let index = index"
+             (click)="showDetails(offer, index)"
+             [ngClass] = "{ 'active': toggleStyle(index) }">
 
           <div class="row no-gutters">
             <div class="col-sm-2 media"></div>
             <div class="col info">
               <span class="title">{{offer.jobName}}</span>
               <span class="company-name">{{offer.ownerCompany}}</span>
-              <span class="salary">${{offer.salary}}</span>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="company active">
-
-          <div class="row no-gutters">
-            <div class="col-sm-2 placeholder"></div>
-            <div class="col info">
-              <span class="title">Senior UI engineering</span>
-              <span class="company-name">Amazon</span>
-              <span class="salary">$150k</span>
+              <span class="salary">${{offer.salary | number:'.0-2'}}</span>
             </div>
           </div>
 
@@ -66,7 +56,7 @@
       </div>
     </div>
 
-    <div class="col">
+    <div class="col-sm-8">
       <div class="company-details">
         <app-job-details [jobId]="jobId"></app-job-details>
       </div>

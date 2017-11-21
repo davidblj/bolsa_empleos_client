@@ -1,10 +1,10 @@
 $header-color: #F2F3F6;
 $highlight-color: #6BCB98;
 $button-text-size: 15px;
-$job-title-size: 30px;
+$job-title-size: 40px;
 $company-title-color: #54B3BE;
 $title-color: #303D54;
-$title-size: 25px;
+$title-size: 20px;
 $label-color: #848CA0;
 $label-size: 13px;
 $value-size: 15px;
@@ -13,6 +13,9 @@ $text-color: #424144;
 
 section {
   height: 100%;
+  position: fixed;
+  // todo: make this component a sibling of the applicant dashboard and set a 100% width
+  width: 54%;
 
   .header {
     padding: {
@@ -73,6 +76,11 @@ section {
           font-weight: bold;
           color: $company-title-color;
         }
+
+        .expiry {
+          font-size: small;
+          font-weight: bold;
+        }
       }
 
     }
@@ -84,6 +92,13 @@ section {
 
         & ~ .item {
          margin-left: 3em;
+        }
+      }
+
+      .item:last-child {
+
+        .label {
+          color: $highlight-color;
         }
       }
 
