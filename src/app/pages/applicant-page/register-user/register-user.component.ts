@@ -148,7 +148,8 @@ export class RegisterUserComponent implements OnInit {
     console.log(this.formData);
     this.registerApplicantService.submitUser(this.formData).subscribe(
       () => {
-        this.router.navigate(['/search']);
+        // todo: set a modal with a success response
+        this.router.navigate(['/home']);
       },
       () => {
         // todo: display an error message

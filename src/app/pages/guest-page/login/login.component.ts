@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginData: data;
 
   // todo: display this variable as an alert
-  errmess: string;
+  errmess;
 
   constructor(public activeModal: NgbActiveModal,
               private formBuilder: FormBuilder,
@@ -41,13 +41,22 @@ export class LoginComponent implements OnInit {
 
     this.loginService.authenticate(this.loginData)
       .subscribe(response => {
-          if (response) {
+
+        if (response) {
             this.activeModal.close();
-            this.router.navigate(['/dashboard']);
+            this.redirectTo();
           } else {
             this.errmess = 'Incorrect User or Password';
           }
         }
       );
+  }
+
+  private redirectTo() {
+    const user = localStorage.getItem('currentUser');
+    const role = JSON.parse(user).role;
+
+    if (role === 'student') { this.router.navigate(['/search']); }
+    if (role === 'company') { this.router.navigate(['dashboard']); }
   }
 }

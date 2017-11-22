@@ -12,6 +12,6 @@ export class RegisterService {
   // todo: use a model
   submitUser(user: Data): Observable<ResponseMessage>  {
 
-    return this.restangular.all('organizacion/registrar').post(user);
+    return this.restangular.all('company/registrar').post(user);
   }
 }

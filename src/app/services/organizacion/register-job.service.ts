@@ -11,6 +11,6 @@ export class RegisterJobService {
 
   submitJob(job: Data): Observable<ResponseMessage> {
 
-    return this.restangular.all('organizacion/nuevaOferta').post(job);
+    return this.restangular.all('company/nuevaOferta').post(job);
   }
 }

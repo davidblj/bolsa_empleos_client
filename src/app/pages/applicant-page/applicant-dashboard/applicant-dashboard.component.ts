@@ -16,6 +16,12 @@ export class ApplicantDashboardComponent implements OnInit {
   offers;
   isSelected;
 
+  // todo: store this information in the database
+  roles = ['Analyst', 'Developer', 'Tester', 'Management', 'Architect'];
+  jobType = ['Full time', 'Part time', 'Contract', 'Temporary', 'Apprentice'];
+  languages = ['English', 'Portuguese', 'German', 'French', 'Italian'];
+
+
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {

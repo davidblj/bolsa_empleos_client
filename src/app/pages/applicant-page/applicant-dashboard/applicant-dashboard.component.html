@@ -7,21 +7,51 @@
     </div>
 
     <div class="checkbox-group">
+
       <span class="title">Role</span>
+      <div class="checkbox-list">
 
-      <div class="checkbox-list btn-group-vertical">
-        <!--<input type="checkbox" autocomplete="off">
-        <input type="checkbox" autocomplete="off">-->
+        <ul>
+          <li class="checkbox-item" *ngFor="let role of roles">
+            <input type="checkbox" autocomplete="off">
+            <div class="check"></div>
+            <span class="label">{{role}}</span>
+          </li>
+        </ul>
+
       </div>
-
     </div>
 
     <div class="checkbox-group d-flex flex-column">
+
       <span class="title">Additional lenguages</span>
+      <div class="checkbox-list">
+
+        <ul>
+          <li class="checkbox-item" *ngFor="let language of languages">
+            <input type="checkbox" autocomplete="off">
+            <div class="check"></div>
+            <span class="label">{{language}}</span>
+          </li>
+        </ul>
+
+      </div>
     </div>
 
     <div class="checkbox-group d-flex flex-column">
+
       <span class="title">Job Type</span>
+      <div class="checkbox-list">
+
+        <ul>
+          <li class="checkbox-item" *ngFor="let type of jobType">
+            <input type="checkbox" autocomplete="off">
+            <div class="check"></div>
+            <span class="label">{{type}}</span>
+          </li>
+        </ul>
+
+      </div>
     </div>
 
     <button class="btn urgency">high</button>

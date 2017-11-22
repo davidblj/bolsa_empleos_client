@@ -4,6 +4,7 @@ import { Data} from './data';
 import { ResponseMessage } from '../../../shared/ResponseMessage';
 import { RegisterService} from '../../../services/organizacion/register.service';
 import { AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -79,7 +80,8 @@ export class RegisterComponent implements OnInit {
   };
 
   constructor(private formBuilder: FormBuilder,
-              private registerService: RegisterService) {
+              private registerService: RegisterService,
+              private router: Router) {
     this.createForm();
   }
 
@@ -120,6 +122,7 @@ export class RegisterComponent implements OnInit {
     this.registerService.submitUser(this.registerData)
       .subscribe(
         message => {
+          this.router.navigate(['/home']);
           this.message = message;
         },
         errmess => {
