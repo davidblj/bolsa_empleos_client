@@ -9,6 +9,7 @@ import { Job } from '../../../models/organizacion/job';
 // servicios
 
 import { JobListService } from '../../../services/organizacion/job-list.service';
+import { ModalService } from '../../shared/modal.service';
 
 @Component({
   selector: 'app-dashboard-table',
@@ -19,8 +20,10 @@ import { JobListService } from '../../../services/organizacion/job-list.service'
 export class DashboardTableComponent implements OnInit {
 
   jobs: Job[];
+  jobDetailsId = 'jobDetails';
 
-  constructor(private modalService: NgbModal,
+  constructor(private ngbModal: NgbModal,
+              private modalService: ModalService,
               private jobListService: JobListService) {
 
     const user = localStorage.getItem('currentUser');
@@ -34,6 +37,10 @@ export class DashboardTableComponent implements OnInit {
   }
 
   open() {
-    const modalRef = this.modalService.open(JobFormComponent, {windowClass: 'modal-style', keyboard: false});
+    const modalRef = this.ngbModal.open(JobFormComponent, {windowClass: 'modal-style', keyboard: false});
+  }
+
+  openJobDetails() {
+    this.modalService.open(this.jobDetailsId);
   }
 }

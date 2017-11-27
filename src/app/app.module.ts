@@ -43,6 +43,10 @@ import { RestangularConfigFactory } from './shared/restConfig';
 import { CompanyAuthGuard } from './app-routing/guards/companyAuthGuard';
 import { JobDetailsComponent } from './pages/applicant-page/job-details/job-details.component';
 
+// modules
+
+import { SharedModule } from './pages/shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -67,7 +71,8 @@ import { JobDetailsComponent } from './pages/applicant-page/job-details/job-deta
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
-    Ng4GeoautocompleteModule.forRoot()
+    Ng4GeoautocompleteModule.forRoot(),
+    SharedModule
   ],
   entryComponents: [
     LoginComponent,

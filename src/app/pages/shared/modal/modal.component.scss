@@ -1,0 +1,43 @@
+
+.modal-overlay {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.closed {
+
+  .modal {
+    // for a transition animation
+    top: -50%;
+  }
+
+  .modal-overlay {
+    display: none;
+  }
+}
+
+.modal {
+  display: block;
+  z-index: 1100;
+  overflow-y: auto;
+
+  position: fixed;
+  top: 10em;
+  left: calc(50% - 300px);
+
+  background-color: white;
+  width: 600px;
+  height: 300px;
+
+  transition: all .5s ease;
+
+  .body {
+    padding: 1.2em;
+  }
+}
