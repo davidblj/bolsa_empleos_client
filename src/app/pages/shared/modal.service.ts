@@ -28,6 +28,17 @@ export class ModalService {
     }
   }
 
+  close(modalId: string, checkBlocking = false): void {
+    const modal = this.findModal(modalId);
+
+    if (modal) {
+      if (checkBlocking) {
+        return;
+      }
+    }
+    modal.isOpen = false
+  }
+
   private findModal(modalId: string): ModalComponent {
 
     for (const modal of this.modals) {

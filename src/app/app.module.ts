@@ -46,6 +46,7 @@ import { JobDetailsComponent } from './pages/applicant-page/job-details/job-deta
 // modules
 
 import { SharedModule } from './pages/shared/shared.module';
+import { JobComponent } from './pages/company-page/job/job.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { SharedModule } from './pages/shared/shared.module';
     CompanyDetailsComponent,
     PickSidesComponent,
     ApplicantDashboardComponent,
-    JobDetailsComponent
+    JobDetailsComponent,
+    JobComponent
   ],
   imports: [
     BrowserModule,

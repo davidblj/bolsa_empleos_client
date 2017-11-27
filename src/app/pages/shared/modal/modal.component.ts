@@ -16,4 +16,8 @@ export class ModalComponent implements OnInit {
   ngOnInit() {
     this.modalService.registerModal(this);
   }
+
+  close(checkBlocking = false): void {
+    this.modalService.close(this.modalId, checkBlocking)
+  }
 }
