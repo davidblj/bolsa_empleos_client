@@ -1,8 +1,10 @@
+$background-color: #ededed;
+
 .closed {
 
   .modal {
     // for a transition animation
-    top: -50%;
+    top: -100%;
   }
 
   .modal-overlay {
@@ -22,18 +24,20 @@
 }
 
 .modal {
+  // todo: set the width and height dynamically
   display: block;
   z-index: 1100;
   overflow-y: auto;
   max-height: calc(100% - 10em);
 
   position: fixed;
-  top: 10em;
-  left: calc(50% - 300px);
+  top: 5em;
+  left: calc(50% - 30%);
 
-  background-color: white;
-  width: 600px;
-  height: 300px;
+  background-color: $background-color;
+  width: 55%;
+  height: 80%;
+  border-radius: 35px;
 
   transition: all .3s ease;
 

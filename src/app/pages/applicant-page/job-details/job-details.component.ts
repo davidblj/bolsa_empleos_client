@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { SearchService } from '../../../services/guest/search.service';
+import { ApplyService } from '../../../services/applicant/apply.service';
 
 @Component({
   selector: 'app-job-details',
@@ -11,7 +12,8 @@ export class JobDetailsComponent implements OnChanges {
   @Input() jobId;
   job;
 
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService,
+              private applyService: ApplyService) { }
 
   ngOnChanges(changes) {
     if (changes.jobId) {
@@ -21,6 +23,7 @@ export class JobDetailsComponent implements OnChanges {
   }
 
   fetchJobDetails(jobId: string) {
+    this.jobId = jobId;
     this.searchService.getJobDetails(jobId).subscribe(
       (job) => {
         this.job = job
@@ -28,5 +31,13 @@ export class JobDetailsComponent implements OnChanges {
       () => {
         // todo: handle an error response
       })
+  }
+
+  apply() {
+    this.applyService.apply(this.jobId).subscribe(
+      () => {
+        // todo: change the button message
+      }
+    )
   }
 }

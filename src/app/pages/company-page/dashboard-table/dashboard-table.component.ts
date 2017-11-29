@@ -21,6 +21,7 @@ export class DashboardTableComponent implements OnInit {
 
   jobs: Job[];
   jobDetailsId = 'jobDetails';
+  jobId;
 
   constructor(private ngbModal: NgbModal,
               private modalService: ModalService,
@@ -40,7 +41,8 @@ export class DashboardTableComponent implements OnInit {
     const modalRef = this.ngbModal.open(JobFormComponent, {windowClass: 'modal-style', keyboard: false});
   }
 
-  openJobDetails() {
+  openJobDetails(job) {
+    this.jobId = job._id;
     this.modalService.open(this.jobDetailsId);
   }
 }

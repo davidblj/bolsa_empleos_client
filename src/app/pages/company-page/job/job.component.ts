@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { JobService } from '../../../services/organizacion/job.service';
 
 @Component({
   selector: 'app-job',
   templateUrl: './job.component.html',
   styleUrls: ['./job.component.scss']
 })
-export class JobComponent implements OnInit {
+export class JobComponent implements OnChanges {
 
-  constructor() { }
+  @Input() jobId;
+  job;
 
-  ngOnInit() {
+  constructor(private jobService: JobService) { }
+
+  ngOnChanges(changes) {
+    if (changes.jobId) {
+
+      this.jobService.getJobDetails(this.jobId).subscribe(
+        (job) => {
+          this.job = job;
+        }
+      )
+    }
   }
-
 }

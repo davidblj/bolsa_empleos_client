@@ -22,6 +22,7 @@ import { RegisterUserComponent } from './pages/applicant-page/register-user/regi
 import { PickSidesComponent } from './pages/guest-page/pick-sides/pick-sides.component';
 import { ApplicantDashboardComponent } from './pages/applicant-page/applicant-dashboard/applicant-dashboard.component';
 import { CompanyDetailsComponent } from './pages/guest-page/company-details/company-details.component';
+import { JobComponent } from './pages/company-page/job/job.component';
 
 // servicios
 
@@ -32,6 +33,8 @@ import { RegisterJobService } from './services/organizacion/register-job.service
 import { JobListService } from './services/organizacion/job-list.service';
 import { RegisterApplicantService } from './services/applicant/register-applicant.service';
 import { SearchService } from './services/guest/search.service';
+import { ApplyService } from './services/applicant/apply.service';
+import { JobService } from './services/organizacion/job.service';
 
 // values
 
@@ -46,7 +49,6 @@ import { JobDetailsComponent } from './pages/applicant-page/job-details/job-deta
 // modules
 
 import { SharedModule } from './pages/shared/shared.module';
-import { JobComponent } from './pages/company-page/job/job.component';
 
 
 @NgModule({
@@ -89,6 +91,8 @@ import { JobComponent } from './pages/company-page/job/job.component';
     JobListService,
     RegisterApplicantService,
     SearchService,
+    ApplyService,
+    JobService,
     { provide: 'BaseURL', useValue: baseURL }
   ],
   bootstrap: [AppComponent]
