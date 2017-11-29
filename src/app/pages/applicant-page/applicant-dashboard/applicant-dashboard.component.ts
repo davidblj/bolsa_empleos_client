@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SearchService } from '../../../services/guest/search.service';
 import { JobDetailsComponent } from '../job-details/job-details.component';
+import { ApplyService } from '../../../services/applicant/apply.service';
 
 @Component({
   selector: 'app-applicant-dashboard',
@@ -21,8 +22,8 @@ export class ApplicantDashboardComponent implements OnInit {
   jobType = ['Full time', 'Part time', 'Contract', 'Temporary', 'Apprentice'];
   languages = ['English', 'Portuguese', 'German', 'French', 'Italian'];
 
-
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService,
+              private applyService:  ApplyService) { }
 
   ngOnInit() {
     this.searchService.getAllAvailableOffers().subscribe(
@@ -36,6 +37,12 @@ export class ApplicantDashboardComponent implements OnInit {
           });
         this.isSelected[0] = true;
         this.jobComponent.fetchJobDetails(offers[0]._id);
+      }
+    );
+
+    this.applyService.getAppliedJobs().subscribe(
+      () => {
+        // todo: store the id of applied jobs
       }
     )
   }

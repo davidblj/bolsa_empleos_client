@@ -15,7 +15,11 @@ export class ApplyService {
 
   getAppliedJobs(): Observable<any> {
 
-    return this.restangular.all('applicant/apply').getList();
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    const token = user.token;
+
+    // -->
+    return this.restangular.all('applicant/appliedJobs').getList();
   }
 
   // todo: move this to its own class
