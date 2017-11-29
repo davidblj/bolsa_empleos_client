@@ -10,6 +10,7 @@ export class JobComponent implements OnChanges {
 
   @Input() jobId;
   job;
+  candidates;
 
   constructor(private jobService: JobService) { }
 
@@ -19,6 +20,7 @@ export class JobComponent implements OnChanges {
       this.jobService.getJobDetails(this.jobId).subscribe(
         (job) => {
           this.job = job;
+          this.candidates = job.candidates;
         }
       )
     }

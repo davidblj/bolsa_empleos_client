@@ -1,16 +1,16 @@
 <div class="body">
-  <!--job works!-->
 
   <div class="row">
-    <div class="col-sm-4">
+
+    <div class="col-sm-4" *ngFor="let candidate of candidates">
       <div class="card">
         <div class="card-body">
           <div class="header d-flex justify-content-center">
-            <div class="name">David Jaramillo</div>
+            <div class="name">{{candidate.applicantName}}</div>
           </div>
           <div class="contact-info d-flex flex-column align-items-center">
-            <div class="email">david.blj95@gmail.com</div>
-            <div class="cellphone">3003102703</div>
+            <div class="email">{{candidate.email}}</div>
+            <div class="cellphone">{{candidate.cellphone}}</div>
           </div>
           <div class="options d-flex justify-content-center">
             <div class="download">
@@ -19,12 +19,7 @@
           </div>
         </div>
       </div>
+
     </div>
-
   </div>
-
-  <!--{{jobId}}
-  <div *ngIf="job">
-    {{job.jobName}}
-  </div>-->
 </div>
