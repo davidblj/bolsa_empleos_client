@@ -5,6 +5,8 @@ import { Observable} from 'rxjs/Observable';
 @Injectable()
 export class ApplyService {
 
+  tempAppliedJobs: string[] = [];
+
   constructor(private restangular: Restangular) { }
 
   apply(jobId): Observable<any> {
@@ -13,17 +15,24 @@ export class ApplyService {
     return this.restangular.all('applicant/apply').post(requestData);
   }
 
+  // todo: move the token logic to global shared module
   getAppliedJobs(): Observable<any> {
 
-    const user = JSON.parse(localStorage.getItem('currentUser'));
-    const token = user.token;
-
-    // -->
-    return this.restangular.all('applicant/appliedJobs').getList();
+    const token = JSON.parse(localStorage.getItem('currentUser')).token;
+    return this.restangular.one('applicant/getAppliedJobs').get({}, {'x-access-token': token});
   }
 
-  // todo: move this to its own class
+  public saveAppliedJob(jobId) {
+    this.tempAppliedJobs.push(jobId);
+  }
+
+  public isApplying(jobId): Boolean {
+    return this.tempAppliedJobs.includes(jobId);
+  }
+
+  // todo: move the token logic to global shared module
   private buildRequestData(jobId) {
+
     const user = JSON.parse(localStorage.getItem('currentUser'));
 
     return {

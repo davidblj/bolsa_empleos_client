@@ -26,25 +26,46 @@ export class ApplicantDashboardComponent implements OnInit {
               private applyService:  ApplyService) { }
 
   ngOnInit() {
-    this.searchService.getAllAvailableOffers().subscribe(
-      (offers) => {
-
-        this.offers = offers;
-
-        this.isSelected = Array.apply(null, Array(offers.length))
-          .map(function() {
-            return false
-          });
-        this.isSelected[0] = true;
-        this.jobComponent.fetchJobDetails(offers[0]._id);
-      }
-    );
 
     this.applyService.getAppliedJobs().subscribe(
-      () => {
-        // todo: store the id of applied jobs
+      (appliedJobs) => {
+
+        this.searchService.getAllAvailableOffers().subscribe(
+          (offers) => {
+
+            this.hideAppliedJobs(appliedJobs, offers);
+
+            // create an empty array to store the available jobs
+            this.isSelected = Array.apply(null, Array(this.offers.length))
+              .map(function() {
+                return false
+              });
+
+            // change the highlighted job tile style
+            this.isSelected[0] = true;
+            this.jobComponent.fetchJobDetails(this.offers[0]._id);
+          }
+        );
       }
-    )
+    );
+  }
+
+  hideAppliedJobs(appliedJobs, offers) {
+
+    if (appliedJobs) {
+
+      offers = offers.filter((offer) => {
+
+        for (const appliedJob of appliedJobs.jobs) {
+          if (appliedJob === offer._id) {
+            return false;
+          }
+        }
+        return true;
+      });
+    }
+
+    this.offers = offers;
   }
 
   showDetails(job, index) {

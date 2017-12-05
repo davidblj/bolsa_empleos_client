@@ -12,7 +12,8 @@ const PROXY_CONFIG = [
       "/guest/getAvailableOffers",
       "/guest/getJobDetails",
       "/applicant/applicantRegistration",
-      "/applicant/apply"
+      "/applicant/apply",
+      "/applicant/getAppliedJobs"
     ],
     "target": "http://localhost:3000",
     "secure": false

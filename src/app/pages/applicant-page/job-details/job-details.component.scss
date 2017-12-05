@@ -28,6 +28,7 @@ section {
     button {
       color: white;
       background: $highlight-color;
+      box-shadow: 1px 1px 5px rgba(black,0.5);
 
       padding: {
         left: 1.5em;
@@ -42,6 +43,18 @@ section {
       border: {
         radius: 5px;
       };
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .applied {
+      box-shadow: none;
+
+      &:hover {
+        cursor: default;
+      }
     }
   }
 

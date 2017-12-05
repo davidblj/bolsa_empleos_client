@@ -1,9 +1,10 @@
 <section>
   <div class="d-flex justify-content-end header pr-3">
-    <button class="btn" (click)="apply()">Apply now</button>
+    <button class="btn" (click)="apply()" [ngClass]="{'applied': applied}">{{applyMessage}}</button>
   </div>
 
-  <div class="job-details-container">
+  <!-- todo: put an spinner -->
+  <div class="job-details-container" *ngIf="job">
 
     <div class="row no-gutters banner">
       <div class="col-sm-2 media"></div>
