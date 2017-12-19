@@ -1,4 +1,13 @@
 <!-- todo: profile icons -->
+<!-- todo: new filter: date posted -->
+<!-- todo: organize: most recent, highest pay, lowest pay, most relevant -->
+
+<!-- todo: css refactoring -->
+<!-- todo: search bar-->
+<!-- todo: salary range -->
+<!-- todo: category highlight -->
+<!-- todo: folding -->
+
 <div class="side-menu">
   <div class="option-list">
 
@@ -13,8 +22,9 @@
 
         <ul>
           <li class="checkbox-item" *ngFor="let role of roles">
-            <input type="checkbox" autocomplete="off">
-            <div class="check"></div>
+            <div class="check-outer-box">
+              <div class="check-inner-box"></div>
+            </div>
             <span class="label">{{role}}</span>
           </li>
         </ul>
@@ -28,9 +38,10 @@
       <div class="checkbox-list">
 
         <ul>
-          <li class="checkbox-item" *ngFor="let language of languages">
-            <input type="checkbox" autocomplete="off">
-            <div class="check"></div>
+          <li class="checkbox-item" *ngFor="let language of languages" (click)="add()">
+            <div class="check-outer-box">
+              <div class="check-inner-box"></div>
+            </div>
             <span class="label">{{language}}</span>
           </li>
         </ul>
@@ -45,8 +56,9 @@
 
         <ul>
           <li class="checkbox-item" *ngFor="let type of jobType">
-            <input type="checkbox" autocomplete="off">
-            <div class="check"></div>
+            <div class="check-outer-box">
+              <div class="check-inner-box"></div>
+            </div>
             <span class="label">{{type}}</span>
           </li>
         </ul>

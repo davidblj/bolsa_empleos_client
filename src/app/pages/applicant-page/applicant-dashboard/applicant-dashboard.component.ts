@@ -27,6 +27,7 @@ export class ApplicantDashboardComponent implements OnInit {
 
   ngOnInit() {
 
+    // todo: verify signed user
     this.applyService.getAppliedJobs().subscribe(
       (appliedJobs) => {
 
@@ -78,5 +79,10 @@ export class ApplicantDashboardComponent implements OnInit {
 
   toggleStyle(index) {
     return this.isSelected[index];
+  }
+
+  add() {
+
+    // todo: build query
   }
 }
