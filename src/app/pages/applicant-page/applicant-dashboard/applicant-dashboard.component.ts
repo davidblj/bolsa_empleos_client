@@ -13,9 +13,14 @@ export class ApplicantDashboardComponent implements OnInit {
   @ViewChild(JobDetailsComponent)
   private jobComponent: JobDetailsComponent;
 
+  // jobList
   jobId;
   offers;
-  isSelected;
+  jobSelection;
+
+  // sidebar rendering
+  categorySelection = Array(3).fill(false);   // 3 categories
+  query = {};
 
   // todo: store this information in the database
   roles = ['Analyst', 'Developer', 'Tester', 'Management', 'Architect'];
@@ -37,13 +42,13 @@ export class ApplicantDashboardComponent implements OnInit {
             this.hideAppliedJobs(appliedJobs, offers);
 
             // create an empty array to store the available jobs
-            this.isSelected = Array.apply(null, Array(this.offers.length))
+            this.jobSelection = Array.apply(null, Array(this.offers.length))
               .map(function() {
                 return false
               });
 
             // change the highlighted job tile style
-            this.isSelected[0] = true;
+            this.jobSelection[0] = true;
             this.jobComponent.fetchJobDetails(this.offers[0]._id);
           }
         );
@@ -72,17 +77,75 @@ export class ApplicantDashboardComponent implements OnInit {
   showDetails(job, index) {
     this.jobId = job._id;
 
-    this.isSelected.forEach((value, i) => {
-      this.isSelected[i] = i === index;
+    this.jobSelection.forEach((value, i) => {
+      this.jobSelection[i] = i === index;
     });
   }
 
-  toggleStyle(index) {
-    return this.isSelected[index];
+  // job selection
+  toggleStyle(index): any {
+    return this.jobSelection[index];
   }
 
-  add() {
+  // category selection
+  toggleContent(index) {
+    this.categorySelection[index] = !this.categorySelection[index];
+  }
 
-    // todo: build query
+  shouldFold(index) {
+    return this.categorySelection[index];
+  }
+
+  // option selection
+  toggleCheck(option: string, category: string) {
+
+    const queryByField = this.query[category];
+
+    if (queryByField) {
+
+      // todo: refactor in to an standalone method
+      const queryByFieldArray = queryByField.split(',');
+      const index = queryByFieldArray.findIndex((element) => {
+        return element === option;
+      });
+
+      if (index !== -1) {
+        queryByFieldArray.splice(index, 1);
+
+      } else {
+        queryByFieldArray.push(option);
+      }
+
+      this.query[category] = queryByFieldArray.join(',');
+
+    } else {
+
+      this.query[category] = option;
+    }
+
+    // send request
+  }
+
+  shouldDisplayBlock(option: string, category: string) {
+
+    const queryByField = this.query[category];
+
+    if (queryByField) {
+
+      const queryByFieldArray = queryByField.split(',');
+      const index = queryByFieldArray.findIndex((element) => {
+        return element === option;
+      });
+
+      return (index === -1);
+
+    } else {
+
+      return true;
+    }
+  }
+
+  findOptionInQuery() {
+
   }
 }

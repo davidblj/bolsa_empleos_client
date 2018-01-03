@@ -45,6 +45,7 @@ $label-text-size: 12px;
       .title {
         display: block;
         color: white;
+        cursor: pointer;
         font: {
           size: $text-size;
           weight: bold;

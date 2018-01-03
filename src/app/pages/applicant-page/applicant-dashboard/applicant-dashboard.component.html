@@ -1,12 +1,11 @@
 <!-- todo: profile icons -->
 <!-- todo: new filter: date posted -->
+<!-- todo: caching -->
 <!-- todo: organize: most recent, highest pay, lowest pay, most relevant -->
 
-<!-- todo: css refactoring -->
-<!-- todo: search bar-->
-<!-- todo: salary range -->
 <!-- todo: category highlight -->
-<!-- todo: folding -->
+<!-- todo: search bar animations-->
+<!-- todo: salary range: custom directives, slider component -->
 
 <div class="side-menu">
   <div class="option-list">
@@ -17,13 +16,18 @@
 
     <div class="checkbox-group">
 
-      <span class="title">Role</span>
-      <div class="checkbox-list">
+      <!-- optional: use a directive on our checkbox list that hides its content based on an event fired from 'title'-->
+      <span class="title" (click)="toggleContent(0)">Role</span>
+      <div class="checkbox-list" [hidden]="shouldFold(0)">
 
+        <!-- optional: use a directive that appends a 'check inner box' div-->
         <ul>
-          <li class="checkbox-item" *ngFor="let role of roles">
+          <li class="checkbox-item"
+              *ngFor="let role of roles"
+              (click)="toggleCheck(role,'roles')">
+
             <div class="check-outer-box">
-              <div class="check-inner-box"></div>
+              <div class="check-inner-box" [hidden]="shouldDisplayBlock(role,'roles')"></div>
             </div>
             <span class="label">{{role}}</span>
           </li>
@@ -34,13 +38,16 @@
 
     <div class="checkbox-group d-flex flex-column">
 
-      <span class="title">Additional lenguages</span>
-      <div class="checkbox-list">
+      <span class="title" (click)="toggleContent(1)">Additional lenguages</span>
+      <div class="checkbox-list" [hidden]="shouldFold(1)">
 
         <ul>
-          <li class="checkbox-item" *ngFor="let language of languages" (click)="add()">
+          <li class="checkbox-item"
+              *ngFor="let language of languages"
+              (click)="toggleCheck(language, 'languages')">
+
             <div class="check-outer-box">
-              <div class="check-inner-box"></div>
+              <div class="check-inner-box" [hidden]="shouldDisplayBlock(language, 'languages')"></div>
             </div>
             <span class="label">{{language}}</span>
           </li>
@@ -51,13 +58,16 @@
 
     <div class="checkbox-group d-flex flex-column">
 
-      <span class="title">Job Type</span>
-      <div class="checkbox-list">
+      <span class="title" (click)="toggleContent(2)">Job Type</span>
+      <div class="checkbox-list" [hidden]="shouldFold(2)">
 
         <ul>
-          <li class="checkbox-item" *ngFor="let type of jobType">
+          <li class="checkbox-item"
+              *ngFor="let type of jobType"
+              (click)="toggleCheck(type, 'jobType')">
+
             <div class="check-outer-box">
-              <div class="check-inner-box"></div>
+              <div class="check-inner-box" [hidden]="shouldDisplayBlock(type, 'jobType')"></div>
             </div>
             <span class="label">{{type}}</span>
           </li>
