@@ -10,14 +10,17 @@
 <div class="side-menu">
   <div class="option-list">
 
-    <div class="search-bar">
-      <input title="search" class="form-control" />
+    <div class="search-bar py-3">
+      <i class="fas fa-search"></i><input>
     </div>
 
-    <div class="checkbox-group">
+    <div class="checkbox-group d-flex flex-column">
 
       <!-- optional: use a directive on our checkbox list that hides its content based on an event fired from 'title'-->
-      <span class="title" (click)="toggleContent(0)">Role</span>
+      <span class="title" (click)="toggleContent(0)">
+        Role<i class="fas fa-angle-up float-right"
+               [ngClass] = "{ 'arrow-down': !shouldFold(0), 'arrow-up': shouldFold(0) }"></i>
+      </span>
       <div class="checkbox-list" [hidden]="shouldFold(0)">
 
         <!-- optional: use a directive that appends a 'check inner box' div-->
@@ -38,7 +41,10 @@
 
     <div class="checkbox-group d-flex flex-column">
 
-      <span class="title" (click)="toggleContent(1)">Additional lenguages</span>
+      <span class="title" (click)="toggleContent(1)">
+        Additional lenguages<i class="fas fa-angle-up float-right"
+                               [ngClass] = "{ 'arrow-down': !shouldFold(1), 'arrow-up': shouldFold(1) }"></i>
+      </span>
       <div class="checkbox-list" [hidden]="shouldFold(1)">
 
         <ul>
@@ -58,7 +64,10 @@
 
     <div class="checkbox-group d-flex flex-column">
 
-      <span class="title" (click)="toggleContent(2)">Job Type</span>
+      <span class="title" (click)="toggleContent(2)">
+        Job Type<i class="fas fa-angle-up float-right"
+                   [ngClass] = "{ 'arrow-down': !shouldFold(2), 'arrow-up': shouldFold(2) }"></i>
+      </span>
       <div class="checkbox-list" [hidden]="shouldFold(2)">
 
         <ul>

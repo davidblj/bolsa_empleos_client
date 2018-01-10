@@ -5,7 +5,7 @@
   },
   "apps": [
     {
-      "root": "./src",
+      "root": "src",
       "outDir": "dist",
       "assets": [
         "assets",
@@ -20,7 +20,8 @@
       "prefix": "app",
       "styles": [
         "styles.scss",
-        "../node_modules/font-awesome/scss/font-awesome.scss",
+        "../node_modules/@fortawesome/fontawesome-free-webfonts/css/fontawesome.css",
+        "../node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-solid.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [],

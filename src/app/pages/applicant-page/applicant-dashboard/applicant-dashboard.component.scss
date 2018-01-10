@@ -8,6 +8,14 @@ $small-text-color: #6BCB98;
 $small-text-size: 11px;
 $label-text-size: 12px;
 
+$white: #fff;
+$dim-white: #f2f3f6;
+
+$black: #000;
+$weak-black: #282a2c;
+$dim-black: rgba($black, .2);
+$strong-black: rgba($weak-black, .5);
+
 .side-menu {
   position: fixed;
   width: 19%;
@@ -15,46 +23,95 @@ $label-text-size: 12px;
   background: $search-background-color;
 
   .option-list {
-    margin-top: 5em;
+    margin: {
+      top: 3em;
+      left: 2em;
+      right: 2em;
+    }
 
     .search-bar {
+
+      background-color: $dim-black;
+      margin: {
+        left: 0;
+        right: 0;
+        bottom: 1em;
+      }
+      padding: {
+        left: 0;
+        right: 0;
+      }
+
+      i {
+        color: $dim-white;
+        font-size: 20px;
+        width: calc(100% - 85%);
+
+        // centering alignment
+        text-align: center;
+        position: relative;
+        top: 2px;
+        left: 2px;
+      }
+
       input {
-        margin: {
-          left: 2em;
-        }
+        background-color: unset;
         border: {
-          style: none;
+          style: unset;
         }
-        width: 80%;
-        background: rgba(black, 0.2);
+        color: $dim-white;
+        display: inline-block;
+        width: calc(100% - 20%);
 
         &:focus {
-          outline: none;
-          border: none !important;
-          box-shadow: none !important;
+          border: 0;
+          outline: unset;
         }
       }
     }
 
     .checkbox-group {
       margin: {
-        top: 2em;
-        left: 2em;
+        top: 0.25em;
       }
 
       .title {
+        background: $strong-black;
+        color: $white;
         display: block;
-        color: white;
-        cursor: pointer;
         font: {
           size: $text-size;
           weight: bold;
         }
+        padding: 1.3em;
+
+        i {
+          font-size: 1.25em;
+        }
+
+        .arrow-down {
+          animation: {
+            name: arrow-down;
+            fill-mode: forwards;
+            duration: 0.4s;
+          }
+        }
+
+        .arrow-up {
+          animation: {
+            name: arrow-up;
+            fill-mode: forwards;
+            duration: 0.4s;
+          }
+        }
       }
 
       .checkbox-list {
-        margin-top: 1em;
-        margin-left: 0.5em;
+        margin: {
+          top: 1.5em;
+          left: 1em;
+          bottom: 0.5em;
+        };
 
         ul {
           list-style: none;
@@ -240,5 +297,25 @@ $label-text-size: 12px;
 
   .company-details {
     height: 100%;
+  }
+}
+
+@keyframes arrow-down {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes arrow-up {
+  0% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
   }
 }

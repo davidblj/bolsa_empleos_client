@@ -32,7 +32,7 @@ export class ApplicantDashboardComponent implements OnInit {
 
   ngOnInit() {
 
-    // todo: verify signed user
+    // todo: verify signed user, async-await
     this.applyService.getAppliedJobs().subscribe(
       (appliedJobs) => {
 
@@ -123,7 +123,7 @@ export class ApplicantDashboardComponent implements OnInit {
       this.query[category] = option;
     }
 
-    // send request
+    // todo: send request
   }
 
   shouldDisplayBlock(option: string, category: string) {
@@ -143,9 +143,5 @@ export class ApplicantDashboardComponent implements OnInit {
 
       return true;
     }
-  }
-
-  findOptionInQuery() {
-
   }
 }
