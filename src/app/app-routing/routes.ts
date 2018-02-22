@@ -10,8 +10,13 @@ import { CompanyDetailsComponent } from '../pages/guest-page/company-details/com
 import { PickSidesComponent } from '../pages/guest-page/pick-sides/pick-sides.component';
 import { ApplicantDashboardComponent } from '../pages/applicant-page/applicant-dashboard/applicant-dashboard.component';
 
+import { RegisterCardComponent } from '../feature/register-company/components/register-card/register-card.component';
+
 // todo: rename all the routes with a meaningful name
 export const routes: Routes = [
+
+  {path: 'dev', component: RegisterCardComponent},
+
   {path: 'search', component: ApplicantDashboardComponent},
   {path: 'home', component: HomeComponent},
   {path: 'pick-sides',

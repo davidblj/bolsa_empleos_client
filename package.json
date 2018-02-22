@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "startProxy": "ng serve --proxy-config ./proxy.conf.js"
+    "proxy": "ng serve --proxy-config ./proxy.conf.js"
   },
   "repository": {
     "type": "git",

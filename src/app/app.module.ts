@@ -7,6 +7,10 @@ import { AppRoutingModule} from './app-routing/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+// modules
+
+import { FeatureModule } from './feature/feature.module';
+
 // componentes
 
 import { AppComponent } from './app.component';
@@ -49,6 +53,8 @@ import { JobDetailsComponent } from './pages/applicant-page/job-details/job-deta
 // modules
 
 import { SharedModule } from './pages/shared/shared.module';
+import { ApplicantModule } from './pages/applicant-page/applicant.module';
+
 
 
 @NgModule({
@@ -69,6 +75,8 @@ import { SharedModule } from './pages/shared/shared.module';
     JobComponent
   ],
   imports: [
+    FeatureModule,
+
     BrowserModule,
     RestangularModule.forRoot(RestangularConfigFactory),
     AppRoutingModule,
@@ -76,7 +84,8 @@ import { SharedModule } from './pages/shared/shared.module';
     ReactiveFormsModule,
     NgbModule.forRoot(),
     Ng4GeoautocompleteModule.forRoot(),
-    SharedModule
+    SharedModule,
+    ApplicantModule
   ],
   entryComponents: [
     LoginComponent,

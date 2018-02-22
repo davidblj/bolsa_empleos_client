@@ -137,8 +137,6 @@ export class RegisterComponent implements OnInit {
 
     const form = this.registerForm;
 
-    // todo: send a request to check for a unique email or a unique company username
-
     for (const field of Object.keys(this.formErrors)) {
 
       this.formErrors[field] = '';
