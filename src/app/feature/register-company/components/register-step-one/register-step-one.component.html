@@ -1,14 +1,16 @@
 <div class="form">
   <div class="form__header">
-    <h2>Detalles de tu cuenta</h2>
+    <p>Detalles de tu cuenta</p>
   </div>
 
   <div class="form__body">
-    <app-logo></app-logo>
+    <app-file-upload></app-file-upload>
     <app-username></app-username>
     <app-password></app-password>
   </div>
+
+  <div class="form__footer d-flex justify-content-end">
+    <app-register-button>{{ 'Siguiente' | uppercase }}</app-register-button>
+  </div>
 </div>
-
-
 

@@ -1,0 +1,29 @@
+$mountainMist: #928d96;
+$easternBlue: #17A2B8;
+
+.stepper {
+
+  font-size: 1.4rem;
+
+  &__number {
+
+    color: $mountainMist;
+    line-height: 2.4em;
+    width: 3.5rem;
+    height: 3.5rem;
+
+    &_current {
+
+      width: 3.5rem;
+      height: 3.5rem;
+      color: $easternBlue;
+      box-shadow: 0 0 1px $easternBlue;
+      border: {
+        style: solid;
+        radius: 50%;
+        width: 2px;
+        color: $easternBlue;
+      }
+    }
+  }
+}

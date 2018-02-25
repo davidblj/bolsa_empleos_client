@@ -1,0 +1,26 @@
+$blueChill: #138496;
+
+// grey scale
+$athensGray: #f8f9fa;
+$geyser: #CDD9DC;
+$mountainMist: #928D96;
+
+
+.logo {
+
+  height: 7.7rem;
+  color: $blueChill;
+  background: $athensGray;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: {
+    style: dashed;
+    width: 2px;
+    color: $geyser;
+  }
+
+  &:hover {
+    cursor: pointer;
+    border-color: $mountainMist;
+  }
+}

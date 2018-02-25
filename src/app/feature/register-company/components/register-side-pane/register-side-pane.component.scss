@@ -1,0 +1,31 @@
+.side-pane {
+  margin: 0 5rem;
+  text-align: center;
+
+  &__header {
+    margin: 5rem 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  &__body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__footer {
+    margin: 5rem 0;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0);
+  }
+}
+
+.info {
+  font-size: 1.4rem;
+}

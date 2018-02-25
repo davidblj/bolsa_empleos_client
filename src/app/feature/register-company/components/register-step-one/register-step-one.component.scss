@@ -1,10 +1,15 @@
 .form {
 
   &__header {
-
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
   }
 
   &__body {
 
+  }
+
+  &__footer {
+    margin-top: 5rem;
   }
 }

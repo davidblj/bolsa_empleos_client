@@ -7,9 +7,10 @@ import { AppRoutingModule} from './app-routing/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-// modules
+// conf: modules
 
 import { FeatureModule } from './feature/feature.module';
+import { SharedDModule } from './shared-d/shared-d.module';
 
 // componentes
 
@@ -55,8 +56,6 @@ import { JobDetailsComponent } from './pages/applicant-page/job-details/job-deta
 import { SharedModule } from './pages/shared/shared.module';
 import { ApplicantModule } from './pages/applicant-page/applicant.module';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,8 +74,11 @@ import { ApplicantModule } from './pages/applicant-page/applicant.module';
     JobComponent
   ],
   imports: [
+
+    // refactoring modules
     FeatureModule,
 
+    // app modules
     BrowserModule,
     RestangularModule.forRoot(RestangularConfigFactory),
     AppRoutingModule,

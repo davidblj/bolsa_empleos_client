@@ -1,0 +1,5 @@
+
+<img [src]="url" *ngIf="uploaded; else fallback">
+<ng-template #fallback>
+  <ng-content></ng-content>
+</ng-template>
