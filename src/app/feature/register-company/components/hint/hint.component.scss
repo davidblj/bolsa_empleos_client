@@ -1,0 +1,16 @@
+$alto: #abaaaa;
+
+.hint {
+
+  margin-bottom: 0.8rem;
+  margin-left: 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  &__message {
+
+    &_resolved {
+      color: $alto;
+    }
+  }
+}

@@ -1,16 +1,21 @@
-$mischka: #e4e2e6;
-$tuna: #373738;
-$blueChill: #138496;
+@import "variables.scss";
 
 .register-field {
 
+  position: relative;
   font-size: 1.5rem;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1rem;
 
   &__label {
 
     color: $tuna;
-    font-size: 1.5rem;
+  }
+
+  &__warning {
+
+    position: absolute;
+    top: 50%;
+    left: -3.5rem;
   }
 
   &__input {

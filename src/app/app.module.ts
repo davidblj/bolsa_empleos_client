@@ -10,7 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // conf: modules
 
 import { FeatureModule } from './feature/feature.module';
-import { SharedDModule } from './shared-d/shared-d.module';
+import { PopoverModule } from 'ngx-bootstrap/popover';
 
 // componentes
 
@@ -56,6 +56,7 @@ import { JobDetailsComponent } from './pages/applicant-page/job-details/job-deta
 import { SharedModule } from './pages/shared/shared.module';
 import { ApplicantModule } from './pages/applicant-page/applicant.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,6 +78,7 @@ import { ApplicantModule } from './pages/applicant-page/applicant.module';
 
     // refactoring modules
     FeatureModule,
+    NgbModule.forRoot(),
 
     // app modules
     BrowserModule,
@@ -84,7 +86,6 @@ import { ApplicantModule } from './pages/applicant-page/applicant.module';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule.forRoot(),
     Ng4GeoautocompleteModule.forRoot(),
     SharedModule,
     ApplicantModule

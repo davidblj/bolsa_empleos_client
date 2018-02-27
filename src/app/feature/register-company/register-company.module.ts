@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+
 // components
 import { RegisterCardComponent } from './components/register-card/register-card.component';
 import { RegisterFormComponent } from './containers/register-form/register-form.component';
@@ -13,12 +14,20 @@ import { FileUploadComponent } from './containers/file-upload/file-upload.compon
 import { RegisterButtonComponent } from './components/register-button/register-button.component';
 import { RegisterStepperComponent } from './components/register-stepper/register-stepper.component';
 import { RegisterInfoComponent } from './components/register-info/register-info.component';
+import { WarningComponent } from './components/warning/warning.component';
+import { HintComponent } from './components/hint/hint.component';
+
+// modules
 import { SharedDModule } from '../../shared-d/shared-d.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedDModule,
+    ReactiveFormsModule,
+    NgbModule
   ],
   exports: [
     RegisterCardComponent
@@ -34,7 +43,9 @@ import { SharedDModule } from '../../shared-d/shared-d.module';
     FileUploadComponent,
     RegisterButtonComponent,
     RegisterStepperComponent,
-    RegisterInfoComponent
+    RegisterInfoComponent,
+    WarningComponent,
+    HintComponent
   ]
 })
 export class RegisterCompanyModule { }

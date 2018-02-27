@@ -1,0 +1,8 @@
+<div class="hint">
+  <div
+    *ngFor="let hint of hints"
+    class="hint__message"
+    [ngClass]="{'hint__message_resolved': hint.resolved}">
+    {{ hint.message }}
+  </div>
+</div>

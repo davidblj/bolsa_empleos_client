@@ -5,7 +5,10 @@
 
   <div class="form__body">
     <app-file-upload></app-file-upload>
-    <app-username></app-username>
+    <app-username
+      [parent]="form"
+      class="register-field"
+    ></app-username>
     <app-password></app-password>
   </div>
 
