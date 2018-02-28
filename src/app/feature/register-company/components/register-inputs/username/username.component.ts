@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl } from '@angular/forms';
+
+// utils
 import { Error } from '../../../error.interface';
+import { ValidationManager } from '../../../validation.model';
+import { definitions } from '../../../definitions.variables';
 
 @Component({
   selector: 'app-username',
@@ -11,28 +15,39 @@ export class UsernameComponent implements OnInit {
   @Input()
   parent: FormGroup;
 
-  // controls
+  // control
   username: AbstractControl;
-  length: number;
 
   // error handling variables
   showMessages = false;
-  hints: Error[] = [
-    { key: 'length', message: 'tiene que estar entre los 3 y 15 caracteres', resolved: false }
-  ];
-  warnings: Error[] = [
-    { key: 'required', message: 'el campo es requerido', resolved: false },
-    { key: 'requirements', message: 'no se cumplen con los requisitos', resolved: false }
-  ];
+  hints: Error[];
+  warnings: Error[];
+  validationManger: ValidationManager;
 
   ngOnInit(): void {
+
     this.username = this.parent.get('username');
-    this.username.valueChanges.subscribe((username: string) => {
-      this.length = username.length;
+    this.initErrorMessaging();
+
+    this.username.valueChanges.subscribe(() => {
       this.updateLengthStatus();
       this.updateRequiredStatus();
       this.updateRequirementsStatus();
     });
+  }
+
+  initErrorMessaging() {
+
+    this.hints = [
+      definitions.length(3, 15)
+    ];
+
+    this.warnings = [
+      definitions.required,
+      definitions.requirements
+    ];
+
+    this.validationManger = new ValidationManager(this.hints, this.warnings, this.username);
   }
 
   changeMessageVisibility() {
@@ -40,45 +55,20 @@ export class UsernameComponent implements OnInit {
   }
 
   updateLengthStatus() {
-    const hasErrors = this.getLengthStatus();
-    this.setHintStatus('length', hasErrors);
+    this.validationManger.updateLengthStatus();
   }
 
   updateRequiredStatus() {
-    const hasErrors = this.getRequiredStatus();
-    this.setWarningStatus('required', hasErrors);
+    this.validationManger.updateRequiredStatus();
   }
 
   updateRequirementsStatus() {
-    const hasErrors = this.warningsArePresent;
-    this.setWarningStatus('requirements', hasErrors);
+    this.validationManger.updateRequirementsStatus();
   }
 
-  get warningsArePresent() {
-    const hasErrors = this.getLengthStatus() ||
-      this.getRequiredStatus();
+  get displayWarnings() {
+    const hasErrors = this.validationManger.warningStatus;
     const isTouched =  this.username.touched;
     return hasErrors && isTouched;
-  }
-
-  getLengthStatus() {
-    return (
-      this.username.hasError('minlength') ||
-      this.username.hasError('maxlength') ||
-      this.length === 0);
-  }
-
-  getRequiredStatus() {
-    return this.username.hasError('required')
-  }
-
-  setHintStatus(key: string, hasErrors: boolean) {
-    const selectedHint = this.hints.find(hint => hint.key === key);
-    hasErrors ? selectedHint.resolved = false : selectedHint.resolved = true;
-  }
-
-  setWarningStatus(key: string, hasErrors: boolean) {
-    const selectedWarning = this.warnings.find(warning => warning.key === key);
-    hasErrors ? selectedWarning.resolved = false : selectedWarning.resolved = true;
   }
 }

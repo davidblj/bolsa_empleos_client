@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { Error } from '../../error.interface';
 import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 
@@ -18,11 +18,15 @@ export class WarningComponent implements OnChanges  {
   @ViewChild('popover')
   popover: NgbPopover;
 
-  constructor() { }
-
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('status changed: ', changes.status.currentValue);
     const status = changes.status;
-    status.currentValue ? this.popover.open() : this.popover.close();
+
+    // the popover always stays open when
+    // focus is "true"
+    if (status.currentValue) {
+      this.popover.open();
+    } else {
+      this.popover.close();
+    }
   }
 }
