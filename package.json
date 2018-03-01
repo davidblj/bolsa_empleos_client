@@ -27,6 +27,8 @@
   "dependencies": {
     "@angular/animations": "^5.0.0",
     "@angular/common": "^5.0.0",
+    "@angular/cli": "^1.6.2",
+    "@angular/compiler-cli": "^5.0.0",
     "@angular/compiler": "^5.0.0",
     "@angular/core": "^5.0.0",
     "@angular/forms": "^5.0.0",
@@ -47,8 +49,6 @@
     "zone.js": "^0.8.16"
   },
   "devDependencies": {
-    "@angular/cli": "^1.6.2",
-    "@angular/compiler-cli": "^5.0.0",
     "@angular/language-service": "^5.0.0",
     "@types/jasmine": "^2.6.0",
     "@types/jasminewd2": "~2.0.2",
