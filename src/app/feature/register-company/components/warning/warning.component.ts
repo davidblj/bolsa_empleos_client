@@ -7,7 +7,7 @@ import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './warning.component.html',
   styleUrls: ['./warning.component.scss']
 })
-export class WarningComponent implements OnChanges  {
+export class WarningComponent implements OnChanges {
 
   @Input()
   warnings: Error[];
@@ -21,8 +21,6 @@ export class WarningComponent implements OnChanges  {
   ngOnChanges(changes: SimpleChanges): void {
     const status = changes.status;
 
-    // the popover always stays open when
-    // focus is "true"
     if (status.currentValue) {
       this.popover.open();
     } else {

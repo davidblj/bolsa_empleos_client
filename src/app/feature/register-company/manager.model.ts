@@ -1,7 +1,7 @@
 import { Error } from './error.interface';
 import { AbstractControl } from '@angular/forms';
 
-export class ValidationManager {
+export class Manager {
 
   hints: Error[];
   warnings: Error[];
@@ -34,18 +34,27 @@ export class ValidationManager {
     this.setWarningStatus('required', hasErrors);
   }
 
+  get numberStatus(): boolean {
+    return this.field.hasError('number')
+  }
+
+  updateNumberStatus() {
+    const hasErrors = this.numberStatus;
+    this.setHintStatus('number', hasErrors);
+  }
+
   get warningStatus() {
 
-    let status = false;
+    let currentStatus = false;
 
     // check for every hint condition
     this.hints.forEach((hint) => {
-    status = (status || !hint.resolved);
+    currentStatus = (currentStatus || !hint.resolved);
     });
 
     // and at least for one of the warnings
-    status = (status || this.requiredStatus);
-    return status;
+    currentStatus = (currentStatus || this.requiredStatus);
+    return currentStatus;
   }
 
   updateRequirementsStatus() {

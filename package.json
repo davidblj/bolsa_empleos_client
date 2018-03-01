@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config ./proxy.conf.js",
+    "start": "node server.js",
+    "start-angular": "ng serve --proxy-config ./proxy.conf.js",
+    "post-install": "ng build -op prod-build --prod --base-href /",
     "build": "ng build ngc --watch",
     "test": "ng test",
     "lint": "ng lint",
@@ -36,10 +38,12 @@
     "@fortawesome/fontawesome-free-webfonts": "^1.0.2",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.8",
     "core-js": "^2.5.0",
+    "express": "^4.16.2",
     "ng4-geoautocomplete": "0.0.9",
     "ngx-bootstrap": "^2.0.2",
     "ngx-restangular": "^2.0.2",
     "rxjs": "^5.5.2",
+    "typescript": "~2.4.2",
     "zone.js": "^0.8.16"
   },
   "devDependencies": {
@@ -60,7 +64,10 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
     "ts-node": "~3.0.4",
-    "tslint": "~5.3.2",
-    "typescript": "~2.4.2"
+    "tslint": "~5.3.2"
+  },
+  "engines": {
+    "node": "9.3.0",
+    "npm": "5.5.1"
   }
 }

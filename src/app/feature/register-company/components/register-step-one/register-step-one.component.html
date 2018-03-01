@@ -6,10 +6,11 @@
   <div class="form__body">
     <app-file-upload></app-file-upload>
     <app-username
-      [parent]="form"
-      class="register-field"
-    ></app-username>
-    <app-password></app-password>
+      [parent]="form">
+    </app-username>
+    <app-password
+      [parent]="form">
+    </app-password>
   </div>
 
   <div class="form__footer d-flex justify-content-end">

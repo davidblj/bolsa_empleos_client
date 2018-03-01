@@ -3,8 +3,8 @@ import { FormGroup, AbstractControl } from '@angular/forms';
 
 // utils
 import { Error } from '../../../error.interface';
-import { ValidationManager } from '../../../validation.model';
-import { definitions } from '../../../definitions.variables';
+import { Manager } from '../../../manager.model';
+import { Definitions } from '../../../definitions.variables';
 
 @Component({
   selector: 'app-username',
@@ -21,8 +21,8 @@ export class UsernameComponent implements OnInit {
   // error handling variables
   showMessages = false;
   hints: Error[];
-  warnings: Error[];
-  validationManger: ValidationManager;
+  inputWarnings: Error[];
+  validationManger: Manager;
 
   ngOnInit(): void {
 
@@ -39,15 +39,15 @@ export class UsernameComponent implements OnInit {
   initErrorMessaging() {
 
     this.hints = [
-      definitions.length(3, 15)
+      Definitions.length(3, 15)
     ];
 
-    this.warnings = [
-      definitions.required,
-      definitions.requirements
+    this.inputWarnings = [
+      Definitions.required,
+      Definitions.requirements
     ];
 
-    this.validationManger = new ValidationManager(this.hints, this.warnings, this.username);
+    this.validationManger = new Manager(this.hints, this.inputWarnings, this.username);
   }
 
   changeMessageVisibility() {
@@ -68,7 +68,7 @@ export class UsernameComponent implements OnInit {
 
   get displayWarnings() {
     const hasErrors = this.validationManger.warningStatus;
-    const isTouched =  this.username.touched;
+    const isTouched = this.username.touched;
     return hasErrors && isTouched;
   }
 }

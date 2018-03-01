@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+// utils
+import { CustomValidations } from '../../custom-validations.functions';
 
 @Component({
   selector: 'app-register-step-one',
@@ -30,7 +33,12 @@ export class RegisterStepOneComponent {
       ],
       password: [
         '',
-        Validators.required
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.maxLength(16),
+          CustomValidations.containNumbers
+        ]
       ]
     })
   }
