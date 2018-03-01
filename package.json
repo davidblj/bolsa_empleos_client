@@ -7,7 +7,7 @@
     "ng": "ng",
     "start": "node server.js",
     "start-angular": "ng serve --proxy-config ./proxy.conf.js",
-    "post-install": "ng build -op prod-build --prod --base-href /",
+    "postinstall": "ng build -op prod-build --prod --base-href /",
     "build": "ng build ngc --watch",
     "test": "ng test",
     "lint": "ng lint",
