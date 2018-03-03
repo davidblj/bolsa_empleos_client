@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-register-button',
   templateUrl: './register-button.component.html',
   styleUrls: ['./register-button.component.scss']
 })
-export class RegisterButtonComponent implements OnInit {
+export class RegisterButtonComponent {
 
-  constructor() { }
+  @Input()
+  enabled: boolean;
 
-  ngOnInit() {
-  }
+  @Output()
+  next = new EventEmitter<boolean>();
 
 }

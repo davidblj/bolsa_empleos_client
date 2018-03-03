@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl } from '@angular/forms';
 
 // utils
@@ -21,7 +21,7 @@ export class UsernameComponent implements OnInit {
   // error handling variables
   showMessages = false;
   hints: Error[];
-  inputWarnings: Error[];
+  warnings: Error[];
   validationManger: Manager;
 
   ngOnInit(): void {
@@ -39,15 +39,15 @@ export class UsernameComponent implements OnInit {
   initErrorMessaging() {
 
     this.hints = [
-      Definitions.length(3, 15)
+      Definitions.length(3, 15),
     ];
 
-    this.inputWarnings = [
-      Definitions.required,
-      Definitions.requirements
+    this.warnings = [
+      Definitions.required(),
+      Definitions.requirements()
     ];
 
-    this.validationManger = new Manager(this.hints, this.inputWarnings, this.username);
+    this.validationManger = new Manager(this.hints, this.warnings, this.username);
   }
 
   changeMessageVisibility() {
@@ -67,8 +67,6 @@ export class UsernameComponent implements OnInit {
   }
 
   get displayWarnings() {
-    const hasErrors = this.validationManger.warningStatus;
-    const isTouched = this.username.touched;
-    return hasErrors && isTouched;
+    return this.validationManger.displayWarnings();
   }
 }

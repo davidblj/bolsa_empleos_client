@@ -1,6 +1,4 @@
-$blueChill: #138496;
-$easternBlue: #17A2B8;
-$white: #fff;
+@import "variables";
 
 .btn {
 
@@ -8,25 +6,29 @@ $white: #fff;
   letter-spacing: 2px;
   width: auto;
   font-size: 1.3rem;
+  color: $white;
+  transition: all .2s;
+
+  padding: {
+    bottom: 1.1rem;
+    left: 4rem;
+    right: 3rem;
+    top: 1.1rem;
+  }
 
   &_action-next {
 
-    color: $white;
     background-color: $easternBlue;
-    padding: {
-      bottom: 1.1rem;
-      left: 4rem;
-      right: 3rem;
-      top: 1.1rem;
-    }
 
     &:hover {
       background-color: $blueChill;
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
     }
   }
 
-  &_action-back {
-
+  &_disabled {
+    background: rgba($blueChill, 0.75);;
   }
 }
 
@@ -34,9 +36,5 @@ $white: #fff;
 
   &_direction-right {
     padding-left: 2.5rem;
-  }
-
-  &_direction-left {
-
   }
 }

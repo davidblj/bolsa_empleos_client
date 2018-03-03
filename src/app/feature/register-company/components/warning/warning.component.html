@@ -1,21 +1,7 @@
 
-<i class="icon fas fa-exclamation-circle"
-   [ngbPopover]="popContent"
-   #popover="ngbPopover"
-   triggers="manual"
-   placement="left"
-   container="body">
+<i class="icon fas fa-exclamation-circle">
+  <app-popover
+    [hidden]="!focus"
+    [warnings]="warnings">
+  </app-popover>
 </i>
-
-<ng-template #popContent>
-
-  <div class="warning">
-    <div
-      *ngFor="let warning of warnings"
-      class="warning__message"
-      [hidden]="warning.resolved">
-      {{warning.message}}
-    </div>
-  </div>
-
-</ng-template>

@@ -12,6 +12,7 @@ import { CustomValidations } from '../../custom-validations.functions';
 export class RegisterStepOneComponent {
 
   form: FormGroup;
+  passwordStatus = false;
 
   constructor(private fb: FormBuilder) {
     this.createForm()
@@ -20,8 +21,7 @@ export class RegisterStepOneComponent {
   private createForm() {
     this.form = this.fb.group({
       logo: [
-        '',
-        Validators.required
+        ''
       ],
       username: [
         '',
@@ -41,5 +41,15 @@ export class RegisterStepOneComponent {
         ]
       ]
     })
+  }
+
+  onUpdatePassword(status: boolean) {
+    this.passwordStatus = status;
+  }
+
+  get formStatus() {
+    console.log('password status', this.passwordStatus);
+    console.log('form status', this.form.valid);
+    return (this.passwordStatus && this.form.valid);
   }
 }

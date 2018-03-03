@@ -7,7 +7,7 @@ export class Manager {
   warnings: Error[];
   field: AbstractControl;
 
-  constructor(hints: Error[], warnings: Error[], field: AbstractControl) {
+  constructor(hints: Error[], warnings: Error[], field?: AbstractControl) {
     this.warnings = warnings;
     this.hints = hints;
     this.field = field;
@@ -63,6 +63,12 @@ export class Manager {
   }
 
   // utils
+  displayWarnings() {
+    const hasErrors = this.warningStatus;
+    const isTouched = this.field.touched;
+    return hasErrors && isTouched;
+  }
+
   setHintStatus(key: string, hasErrors: boolean) {
     const selectedHint = this.hints.find(hint => hint.key === key);
     hasErrors ? selectedHint.resolved = false : selectedHint.resolved = true;
@@ -72,9 +78,4 @@ export class Manager {
     const selectedWarning = this.warnings.find(warning => warning.key === key);
     hasErrors ? selectedWarning.resolved = false : selectedWarning.resolved = true;
   }
-
-  /*checkPresence(key: string): boolean {
-    const result = this.errors.find(error => error.key === key);
-    return !!result;
-  }*/
 }

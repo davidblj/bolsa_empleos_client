@@ -9,12 +9,16 @@
       [parent]="form">
     </app-username>
     <app-password
-      [parent]="form">
+      [parent]="form"
+      (update)="onUpdatePassword($event)">
     </app-password>
   </div>
 
   <div class="form__footer d-flex justify-content-end">
-    <app-register-button>{{ 'Siguiente' | uppercase }}</app-register-button>
+    <app-register-button
+      [enabled]="formStatus">
+      {{ 'Siguiente' | uppercase }}
+    </app-register-button>
   </div>
 </div>
 

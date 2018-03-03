@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 
 // utils
 import { Error } from '../../../error.interface';
@@ -15,66 +15,138 @@ export class PasswordComponent implements OnInit {
   @Input()
   parent: FormGroup;
 
+  @Output()
+  update = new EventEmitter<boolean>();
+
   // control
   password: AbstractControl;
+  passwordConfirmation = new FormControl();
 
   // error handling variables
-  showMessages = false;
-  hints: Error[];
+  showPasswordMessages = false;
+  passwordHints: Error[];
   passwordWarnings: Error[];
-  validationManger: Manager;
+  passwordValidationManger: Manager;
+
+  showCheckPasswordMessages = false;
+  checkPasswordHints: Error[];
+  checkPasswordWarnings: Error[];
+  checkPasswordValidationManger: Manager;
 
   ngOnInit() {
 
     this.password = this.parent.get('password');
-    this.initErrorMessaging();
 
+    this.initPasswordErrorMessaging();
     this.password.valueChanges.subscribe(() => {
       this.updateLengthStatus();
       this.updateRequiredStatus();
       this.updateNumberStatus();
       this.updateRequirementsStatus();
     });
+
+    this.initCheckPasswordErrorMessaging();
+    this.passwordConfirmation.valueChanges.subscribe((value) => {
+      this.updateMatchingStatus(value);
+      this.updateConfirmationStatus(value);
+      this.updateRequirementsStatus();
+      this.updateFieldStatus(value)
+    });
   }
 
-  initErrorMessaging() {
+  initPasswordErrorMessaging() {
 
-    this.hints = [
+    this.passwordHints = [
       Definitions.length(8, 16),
-      Definitions.number
+      Definitions.number()
     ];
 
     this.passwordWarnings = [
-      Definitions.required,
-      Definitions.requirements
+      Definitions.required(),
+      Definitions.requirements()
     ];
 
-    this.validationManger = new Manager(this.hints, this.passwordWarnings, this.password);
+    this.passwordValidationManger = new Manager(
+      this.passwordHints,
+      this.passwordWarnings,
+      this.password);
   }
 
-  changeMessageVisibility() {
-    this.showMessages = !this.showMessages;
+  initCheckPasswordErrorMessaging() {
+
+    this.checkPasswordHints = [
+      Definitions.match(),
+    ];
+
+    this.checkPasswordWarnings = [
+      Definitions.required(),
+      Definitions.requirements()
+    ];
+
+    this.checkPasswordValidationManger = new Manager(
+      this.checkPasswordHints,
+      this.checkPasswordWarnings,
+      this.passwordConfirmation);
+  }
+
+  changePasswordMessageVisibility() {
+    this.showPasswordMessages = !this.showPasswordMessages;
+  }
+
+  changeCheckPasswordMessageVisibility() {
+    this.showCheckPasswordMessages = !this.showCheckPasswordMessages;
   }
 
   updateLengthStatus() {
-    this.validationManger.updateLengthStatus();
+    this.passwordValidationManger.updateLengthStatus();
   }
 
   updateRequiredStatus() {
-    this.validationManger.updateRequiredStatus();
+    this.passwordValidationManger.updateRequiredStatus();
   }
 
   updateNumberStatus() {
-    this.validationManger.updateNumberStatus();
+    this.passwordValidationManger.updateNumberStatus();
   }
 
   updateRequirementsStatus() {
-    this.validationManger.updateRequirementsStatus();
+    this.passwordValidationManger.updateRequirementsStatus();
+  }
+
+  updateMatchingStatus(password: string) {
+    if (this.passwordsAreEqual(password)) {
+      this.checkPasswordValidationManger.setHintStatus('match', false);
+    } else {
+      this.checkPasswordValidationManger.setHintStatus('match', true);
+    }
+  }
+
+  updateConfirmationStatus(password: string) {
+    if (password.length > 0) {
+      this.checkPasswordValidationManger.setWarningStatus('required', false);
+    } else {
+      this.checkPasswordValidationManger.setWarningStatus('required', true);
+    }
   }
 
   get displayWarnings() {
-    const hasErrors = this.validationManger.warningStatus;
-    const isTouched = this.password.touched;
-    return hasErrors && isTouched;
+    return this.passwordValidationManger.displayWarnings();
+  }
+
+  get displayConfirmationWarnings() {
+    return this.checkPasswordValidationManger.displayWarnings();
+  }
+
+  passwordsAreEqual(password: string) {
+    return (
+      this.password.value === password &&
+      password.length !== 0);
+  }
+
+  updateFieldStatus(password: string) {
+    const passwordsAreEqual = this.passwordsAreEqual(password);
+    const hasErrors = this.passwordValidationManger.displayWarnings();
+    const isValid = !hasErrors && passwordsAreEqual;
+    isValid ? this.update.emit(true) : this.update.emit(false);
   }
 }

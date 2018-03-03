@@ -1,0 +1,10 @@
+
+<div class="popover">
+  <span
+    *ngFor="let warning of warnings"
+    class="popover__message"
+    [hidden]="warning.resolved">
+    {{warning.message}}
+  </span>
+  <div class="arrow"></div>
+</div>

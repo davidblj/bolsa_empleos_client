@@ -10,7 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // conf: modules
 
 import { FeatureModule } from './feature/feature.module';
-import { PopoverModule } from 'ngx-bootstrap/popover';
+import { PopoverModule } from 'ngx-bootstrap';
 
 // componentes
 
@@ -79,6 +79,7 @@ import { ApplicantModule } from './pages/applicant-page/applicant.module';
     // refactoring modules
     FeatureModule,
     NgbModule.forRoot(),
+    PopoverModule.forRoot(),
 
     // app modules
     BrowserModule,

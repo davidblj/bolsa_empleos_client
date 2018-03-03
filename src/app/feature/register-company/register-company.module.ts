@@ -20,14 +20,12 @@ import { HintComponent } from './components/hint/hint.component';
 // modules
 import { SharedDModule } from '../../shared-d/shared-d.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedDModule,
-    ReactiveFormsModule,
-    NgbModule
+    ReactiveFormsModule
   ],
   exports: [
     RegisterCardComponent
