@@ -236,6 +236,10 @@
   version "2.53.43"
   resolved "https://registry.yarnpkg.com/@types/selenium-webdriver/-/selenium-webdriver-2.53.43.tgz#2de3d718819bc20165754c4a59afb7e9833f6707"
 
+"@types/validator@^9.4.0":
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/@types/validator/-/validator-9.4.0.tgz#a4a80a31d3e4e094806ec446557808423379858d"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -5935,6 +5939,10 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^2.0.4"
     spdx-expression-parse "^3.0.0"
+
+validator@^9.4.1:
+  version "9.4.1"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-9.4.1.tgz#abf466d398b561cd243050112c6ff1de6cc12663"
 
 vary@~1.1.2:
   version "1.1.2"
