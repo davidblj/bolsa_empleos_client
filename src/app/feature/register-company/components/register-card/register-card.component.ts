@@ -5,11 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './register-card.component.html',
   styleUrls: ['./register-card.component.scss']
 })
-export class RegisterCardComponent implements OnInit {
+export class RegisterCardComponent {
 
-  constructor() { }
+  currentStep = 1;
 
-  ngOnInit() {
+  onNextStep() {
+    this.currentStep++;
   }
-
 }

@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // utils
-import { CustomValidations } from '../../custom-validations.functions';
+import { CustomValidators } from '../../custom-validators.functions';
 
 @Component({
   selector: 'app-register-step-one',
-  templateUrl: './register-step-one.component.html',
-  styleUrls: ['./register-step-one.component.scss']
+  templateUrl: './register-step-one.component.html'
 })
 export class RegisterStepOneComponent {
 
   form: FormGroup;
   passwordStatus = false;
+
+  @Output()
+  submit = new EventEmitter<any>();
 
   constructor(private fb: FormBuilder) {
     this.createForm()
@@ -20,9 +22,6 @@ export class RegisterStepOneComponent {
 
   private createForm() {
     this.form = this.fb.group({
-      logo: [
-        ''
-      ],
       username: [
         '',
         [
@@ -37,7 +36,7 @@ export class RegisterStepOneComponent {
           Validators.required,
           Validators.minLength(8),
           Validators.maxLength(16),
-          CustomValidations.containNumbers
+          CustomValidators.containNumbers
         ]
       ]
     })
@@ -47,9 +46,11 @@ export class RegisterStepOneComponent {
     this.passwordStatus = status;
   }
 
+  onSubmit() {
+    this.submit.emit(this.form.value);
+  }
+
   get formStatus() {
-    console.log('password status', this.passwordStatus);
-    console.log('form status', this.form.valid);
     return (this.passwordStatus && this.form.valid);
   }
 }

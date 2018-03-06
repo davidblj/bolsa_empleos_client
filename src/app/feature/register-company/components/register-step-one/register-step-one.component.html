@@ -1,10 +1,12 @@
+
+<!-- consider using a new component that receives our inputs through ng-content -->
+
 <div class="form">
   <div class="form__header">
     <p>Detalles de tu cuenta</p>
   </div>
 
   <div class="form__body">
-    <app-file-upload></app-file-upload>
     <app-username
       [parent]="form">
     </app-username>
@@ -16,7 +18,8 @@
 
   <div class="form__footer d-flex justify-content-end">
     <app-register-button
-      [enabled]="formStatus">
+      [enabled]="formStatus"
+      (next)="onSubmit()">
       {{ 'Siguiente' | uppercase }}
     </app-register-button>
   </div>

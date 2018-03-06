@@ -3,6 +3,8 @@
     *ngFor="let hint of hints"
     class="hint__message"
     [ngClass]="{'hint__message_resolved': hint.resolved}">
+    <i  class="icon fas fa-check"
+        [hidden]="!hint.resolved"></i>
     {{ hint.message }}
   </div>
 </div>

@@ -1,0 +1,26 @@
+import { FormControl } from '@angular/forms';
+import * as validator from 'validator';
+
+const containNumbers = (control: FormControl): { [s: string]: boolean } => {
+  if (!control.value.match(/\d/)) {
+    return {number: true}
+  }
+};
+
+const isAnEmail = (control: FormControl): { [s: string]: boolean }  => {
+  if (!validator.isEmail(control.value)) {
+    return {email: true}
+  }
+};
+
+const isURL = (control: FormControl): { [s: string]: boolean }  => {
+  if (!validator.isURL(control.value)) {
+    return {website: true}
+  }
+};
+
+export const CustomValidators = {
+  containNumbers,
+  isAnEmail,
+  isURL,
+};

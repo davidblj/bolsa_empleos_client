@@ -1,4 +1,4 @@
-@import "variables";
+@import "variables.scss";
 
 .btn {
 
@@ -28,7 +28,7 @@
   }
 
   &_disabled {
-    background: rgba($blueChill, 0.75);;
+    background: rgba($blueChill, 0.5);;
   }
 }
 

@@ -1,4 +1,4 @@
-<div [ngSwitch]="currentStep">
+<div [ngSwitch]="step">
 
   <div *ngSwitchCase="1" class="info">
     <app-img>
@@ -8,14 +8,16 @@
     <p class="info__tip">Detalles de la sesión e información general</p>
   </div>
 
-  <div *ngSwitchCase="2">
-    <i></i>
-    <p></p>
+  <div *ngSwitchCase="2" class="info">
+    <i class="info__icon fas fa-archive"></i>
+    <h2 class="info__header">Información de la empresa</h2>
+    <p class="info__tip">¿A quien representas? Esta información siempre será editable</p>
   </div>
 
-  <div *ngSwitchCase="3">
-    <i></i>
-    <p></p>
+  <div *ngSwitchCase="3" class="info">
+    <i class="info__icon fas fa-paper-plane"></i>
+    <h2 class="info__header">Información personal</h2>
+    <p class="info__tip">¿Quien eres tu?</p>
   </div>
 
 </div>

@@ -1,15 +1,8 @@
-$blueChill: #138496;
-
-// grey scale
-$athensGray: #f8f9fa;
-$geyser: #CDD9DC;
-$mountainMist: #928D96;
-
+@import "variables";
 
 .logo {
 
   height: 7.7rem;
-  color: $blueChill;
   background: $athensGray;
   font-size: 1.2rem;
   font-weight: 600;
@@ -17,6 +10,19 @@ $mountainMist: #928D96;
     style: dashed;
     width: 2px;
     color: $geyser;
+  }
+
+  & > div {
+    display: block;
+  }
+
+  &__message {
+    color: $blueChill;
+  }
+
+  &__hint {
+    $abbey: #464650;
+    padding-left: 0.5rem;
   }
 
   &:hover {

@@ -11,6 +11,9 @@ export class RegisterButtonComponent {
   enabled: boolean;
 
   @Output()
-  next = new EventEmitter<boolean>();
+  next = new EventEmitter<any>();
 
+  submit() {
+    this.next.emit();
+  }
 }

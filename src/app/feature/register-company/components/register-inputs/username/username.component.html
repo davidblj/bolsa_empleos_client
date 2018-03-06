@@ -1,6 +1,11 @@
+
+<!-- consider using a new component that just receives the data. -->
+
 <div class="register-field" [formGroup]="parent">
-  <label class="register-field__label label">Tu compañia</label>
-  <input  class="register-field__input form-control"
+  <label class="register-field__label label">Nombre de usuario</label>
+  <input  class="register-field__input
+                 register-field__input_type-default
+                 form-control"
           formControlName="username"
           (focus)="changeMessageVisibility()"
           (blur)="changeMessageVisibility()">

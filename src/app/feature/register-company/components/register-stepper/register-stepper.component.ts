@@ -1,21 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-register-stepper',
   templateUrl: './register-stepper.component.html',
   styleUrls: ['./register-stepper.component.scss']
 })
-export class RegisterStepperComponent implements OnInit {
+export class RegisterStepperComponent {
 
-  currentStep = 1;
+  @Input()
+  step;
+
   steps = [1, 2, 3];
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
   isSelected(step: number): boolean {
-    return step === this.currentStep;
+    return step === this.step;
   }
 }

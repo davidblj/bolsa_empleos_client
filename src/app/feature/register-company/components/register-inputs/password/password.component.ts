@@ -10,6 +10,10 @@ import { Manager } from '../../../manager.model';
   selector: 'app-password',
   templateUrl: './password.component.html'
 })
+
+// consider splitting this component in to 2 components:
+// as stated by:  https://toddmotto.com/component-architecture-reactive-forms-angular
+
 export class PasswordComponent implements OnInit {
 
   @Input()
@@ -42,17 +46,27 @@ export class PasswordComponent implements OnInit {
       this.updateLengthStatus();
       this.updateRequiredStatus();
       this.updateNumberStatus();
-      this.updateRequirementsStatus();
+      this.updateRequirementsStatus(this.passwordValidationManger);
+
+      // update the password status in
+      // the "check password" field
+      // and the overall component status
+      this.updateMatchingStatus();
+      this.updateFieldStatus()
     });
 
     this.initCheckPasswordErrorMessaging();
-    this.passwordConfirmation.valueChanges.subscribe((value) => {
-      this.updateMatchingStatus(value);
-      this.updateConfirmationStatus(value);
-      this.updateRequirementsStatus();
-      this.updateFieldStatus(value)
+    this.passwordConfirmation.valueChanges.subscribe(() => {
+      this.updateConfirmationStatus();
+      this.updateRequirementsStatus(this.checkPasswordValidationManger);
+      this.updateMatchingStatus();
+
+      // update the overall component status
+      this.updateFieldStatus()
     });
   }
+
+  // password field functions
 
   initPasswordErrorMessaging() {
 
@@ -72,6 +86,28 @@ export class PasswordComponent implements OnInit {
       this.password);
   }
 
+  changePasswordMessageVisibility() {
+    this.showPasswordMessages = !this.showPasswordMessages;
+  }
+
+  get displayWarnings() {
+    return this.passwordValidationManger.displayWarnings();
+  }
+
+  updateLengthStatus() {
+    this.passwordValidationManger.updateLengthStatus();
+  }
+
+  updateRequiredStatus() {
+    this.passwordValidationManger.updateRequiredStatus();
+  }
+
+  updateNumberStatus() {
+    this.passwordValidationManger.updateNumberStatus();
+  }
+
+  // check password field functions
+
   initCheckPasswordErrorMessaging() {
 
     this.checkPasswordHints = [
@@ -89,64 +125,46 @@ export class PasswordComponent implements OnInit {
       this.passwordConfirmation);
   }
 
-  changePasswordMessageVisibility() {
-    this.showPasswordMessages = !this.showPasswordMessages;
-  }
-
   changeCheckPasswordMessageVisibility() {
     this.showCheckPasswordMessages = !this.showCheckPasswordMessages;
   }
 
-  updateLengthStatus() {
-    this.passwordValidationManger.updateLengthStatus();
+  get displayCheckPasswordWarnings() {
+    return this.checkPasswordValidationManger.displayWarnings();
   }
 
-  updateRequiredStatus() {
-    this.passwordValidationManger.updateRequiredStatus();
-  }
-
-  updateNumberStatus() {
-    this.passwordValidationManger.updateNumberStatus();
-  }
-
-  updateRequirementsStatus() {
-    this.passwordValidationManger.updateRequirementsStatus();
-  }
-
-  updateMatchingStatus(password: string) {
-    if (this.passwordsAreEqual(password)) {
+  updateMatchingStatus() {
+    if (this.passwordsAreEqual()) {
       this.checkPasswordValidationManger.setHintStatus('match', false);
     } else {
       this.checkPasswordValidationManger.setHintStatus('match', true);
     }
   }
 
-  updateConfirmationStatus(password: string) {
-    if (password.length > 0) {
+  updateConfirmationStatus() {
+    if (this.passwordConfirmation.value.length > 0) {
       this.checkPasswordValidationManger.setWarningStatus('required', false);
     } else {
       this.checkPasswordValidationManger.setWarningStatus('required', true);
     }
   }
 
-  get displayWarnings() {
-    return this.passwordValidationManger.displayWarnings();
+  // general purpose functions
+
+  updateRequirementsStatus(manager: Manager) {
+    manager.updateRequirementsStatus();
   }
 
-  get displayConfirmationWarnings() {
-    return this.checkPasswordValidationManger.displayWarnings();
-  }
-
-  passwordsAreEqual(password: string) {
+  passwordsAreEqual() {
     return (
-      this.password.value === password &&
-      password.length !== 0);
+      this.password.value === this.passwordConfirmation.value &&
+      this.password.value.length !== 0);
   }
 
-  updateFieldStatus(password: string) {
-    const passwordsAreEqual = this.passwordsAreEqual(password);
+  updateFieldStatus() {
+    const passwordsAreEqual = this.passwordsAreEqual();
     const hasErrors = this.passwordValidationManger.displayWarnings();
-    const isValid = !hasErrors && passwordsAreEqual;
-    isValid ? this.update.emit(true) : this.update.emit(false);
+    const componentIsValid = !hasErrors && passwordsAreEqual;
+    componentIsValid ? this.update.emit(true) : this.update.emit(false);
   }
 }

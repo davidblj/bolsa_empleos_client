@@ -1,3 +1,12 @@
-<div class="logo form-group d-flex justify-content-center align-items-center">
-  SUBE UN LOGO
-</div>
+
+<input type="file"
+       accept=".jpg, .jpeg, .png"
+       id="fileInput"
+       style="display: none"
+       (change)="onFileUpload($event)">
+
+<label for="fileInput"
+       class="logo form-group d-flex justify-content-center align-items-center">
+  <span class="logo__message">{{message}}</span>
+  <span class="logo__hint">{{hint}}</span>
+</label>

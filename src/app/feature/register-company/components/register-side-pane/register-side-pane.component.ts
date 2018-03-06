@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-register-side-pane',
   templateUrl: './register-side-pane.component.html',
   styleUrls: ['./register-side-pane.component.scss']
 })
-export class RegisterSidePaneComponent implements OnInit {
+export class RegisterSidePaneComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Input()
+  step: number;
 
 }

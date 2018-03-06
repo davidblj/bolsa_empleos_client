@@ -3,10 +3,14 @@
 
   <div class="register-card row no-gutters">
     <div class="register-card__body col-md-8">
-      <app-register-form></app-register-form>
+      <app-register-form
+        (next)="onNextStep()">
+      </app-register-form>
     </div>
     <div class="register-card__pane col-md-4">
-      <app-register-side-pane></app-register-side-pane>
+      <app-register-side-pane
+        [step]="currentStep">
+      </app-register-side-pane>
     </div>
   </div>
 

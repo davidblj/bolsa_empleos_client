@@ -13,6 +13,8 @@ export class Manager {
     this.field = field;
   }
 
+  // length error update
+
   get lengthStatus(): boolean {
     return (
       this.field.hasError('minlength') ||
@@ -25,6 +27,8 @@ export class Manager {
     this.setHintStatus('length', hasErrors);
   }
 
+  // required error update
+
   get requiredStatus(): boolean {
     return this.field.hasError('required');
   }
@@ -34,6 +38,8 @@ export class Manager {
     this.setWarningStatus('required', hasErrors);
   }
 
+  // numeric error update
+
   get numberStatus(): boolean {
     return this.field.hasError('number')
   }
@@ -42,6 +48,8 @@ export class Manager {
     const hasErrors = this.numberStatus;
     this.setHintStatus('number', hasErrors);
   }
+
+  // requirements error update
 
   get warningStatus() {
 
@@ -62,7 +70,21 @@ export class Manager {
     this.setWarningStatus('requirements', hasErrors);
   }
 
+  // website error update
+
+  get webSiteStatus() {
+    return (
+      this.field.hasError('website') ||
+      this.field.value.length === 0);
+  }
+
+  updateWebSiteStatus() {
+    const hasErrors = this.webSiteStatus;
+    this.setHintStatus('website', hasErrors);
+  }
+
   // utils
+
   displayWarnings() {
     const hasErrors = this.warningStatus;
     const isTouched = this.field.touched;

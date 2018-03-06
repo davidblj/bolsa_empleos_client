@@ -1,0 +1,35 @@
+
+<div class="form">
+  <div class="form__header">
+    <p>Detalles de tu empresa</p>
+  </div>
+
+  <div class="form__body  ">
+    <app-logo
+      (upload)="onUpload($event)">
+    </app-logo>
+    <app-company
+      [parent]="form">
+    </app-company>
+    <app-webpage
+      [parent]="form">
+    </app-webpage>
+    <app-details
+      [parent]="form">
+    </app-details>
+    <app-sector
+      [parent]="form">
+    </app-sector>
+    <app-nit
+      [parent]="form">
+    </app-nit>
+  </div>
+
+  <div class="form__footer d-flex justify-content-end">
+    <app-register-button
+      [enabled]="formStatus"
+      (next)="onSubmit()">
+      {{ 'Siguiente' | uppercase }}
+    </app-register-button>
+  </div>
+</div>

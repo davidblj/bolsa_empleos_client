@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-register-info',
@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterInfoComponent implements OnInit {
 
-  currentStep = 1;
+  @Input()
+  step = 1;
 
   constructor() { }
 

@@ -1,0 +1,39 @@
+
+<div class="register-field">
+  <label class="register-field__label label">{{fieldName}}</label>
+  <input  class="register-field__input
+                 register-field__input_type-default
+                 form-control"
+          *ngIf="isType('input')"
+          [placeholder]="placeholder"
+          [formControl]="field"
+          (focus)="changeMessageVisibility()"
+          (blur)="changeMessageVisibility();
+                  toggleTouch()">
+
+  <textarea class="register-field__input
+                   register-field__input_type-text
+                   form-control"
+            *ngIf="isType('text-area')"
+            rows="3"
+            [placeholder]="placeholder"
+            [formControl]="field"
+            (focus)="changeMessageVisibility()"
+            (blur)="changeMessageVisibility();
+                  toggleTouch()">
+  </textarea>
+
+  <div [hidden]="!warningStatus"
+       class="register-field__warning">
+    <app-warning
+      [focus]="showMessages"
+      [warnings]="warnings">
+    </app-warning>
+  </div>
+</div>
+
+<div *ngIf="showMessages">
+  <app-hint
+    [hints]="hints">
+  </app-hint>
+</div>
