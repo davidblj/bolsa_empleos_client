@@ -8,6 +8,7 @@ export class User {
   private website: string;
   private details: string;
   private sector: string;
+  private city: string;
   private nit: string;
   private admin: string;
   private contact: string;
@@ -41,6 +42,10 @@ export class User {
 
   setSector(value: string) {
     this.sector = value;
+  }
+
+  setCity(value: string) {
+    this.city = value;
   }
 
   setNit(value: string) {

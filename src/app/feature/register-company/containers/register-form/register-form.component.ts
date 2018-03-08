@@ -27,13 +27,14 @@ export class RegisterFormComponent {
     this.user.setPassword(password);
   }
 
-  addStepTwo({logo, name, website, details, sector, nit}) {
+  addStepTwo({logo, name, website, details, sector, city, nit}) {
     this.nextStep();
     this.user.setLogo(logo);
     this.user.setName(name);
     this.user.setWebsite(website);
     this.user.setDetails(details);
     this.user.setSector(sector);
+    this.user.setCity(city);
     this.user.setNit(nit);
   }
 

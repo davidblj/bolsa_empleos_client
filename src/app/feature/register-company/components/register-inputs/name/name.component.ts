@@ -29,7 +29,7 @@ export class NameComponent implements OnInit {
   initErrorMessaging() {
 
     this.hints = [
-      definitions.length(2, 20)
+      definitions.length(3, 30)
     ];
 
     this.warnings = [
