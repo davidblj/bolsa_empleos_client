@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CustomValidators } from '../../custom-validators.functions';
+import { CustomValidators } from '../../shared/custom-validators.functions';
 
 @Component({
   selector: 'app-register-step-two',
@@ -23,7 +23,7 @@ export class RegisterStepTwoComponent implements OnInit {
 
   private createForm() {
     this.form = this.fb.group({
-      company: [
+      name: [
         '',
         [
           Validators.required,
@@ -45,6 +45,12 @@ export class RegisterStepTwoComponent implements OnInit {
         ]
       ],
       sector: [
+        '',
+        [
+          Validators.required
+        ]
+      ],
+      city: [
         '',
         [
           Validators.required

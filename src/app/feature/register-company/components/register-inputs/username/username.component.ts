@@ -1,10 +1,10 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl } from '@angular/forms';
 
 // utils
-import { Error } from '../../../error.interface';
-import { Manager } from '../../../manager.model';
-import { Definitions } from '../../../definitions.variables';
+import { Error } from '../../../shared/error.interface';
+import { Manager } from '../../../shared/manager.model';
+import { definitions } from '../../../shared/definitions.variables';
 
 @Component({
   selector: 'app-username',
@@ -39,12 +39,12 @@ export class UsernameComponent implements OnInit {
   initErrorMessaging() {
 
     this.hints = [
-      Definitions.length(3, 15),
+      definitions.length(3, 15),
     ];
 
     this.warnings = [
-      Definitions.required(),
-      Definitions.requirements()
+      definitions.required(),
+      definitions.requirements()
     ];
 
     this.validationManger = new Manager(this.hints, this.warnings, this.username);

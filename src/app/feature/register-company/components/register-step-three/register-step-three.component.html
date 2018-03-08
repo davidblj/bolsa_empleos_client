@@ -1,0 +1,29 @@
+
+<!-- consider using a new component that receives our inputs through ng-content -->
+
+<div class="form">
+  <div class="form__header">
+    <p>Detalles del administrador</p>
+  </div>
+
+  <div class="form__body">
+    <app-admin
+      [parent]="form">
+    </app-admin>
+    <app-email
+      [parent]="form">
+    </app-email>
+    <app-contact
+     [parent]="form">
+   </app-contact>
+  </div>
+
+  <div class="form__footer d-flex justify-content-end">
+    <app-register-button
+      [enabled]="formStatus"
+      (next)="onSubmit()">
+      {{ 'Finalizar' | uppercase }}
+    </app-register-button>
+  </div>
+</div>
+

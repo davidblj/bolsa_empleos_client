@@ -6,18 +6,12 @@
   "scripts": {
     "ng": "ng",
     "start:node": "node server.js",
-    "start:angular": "ng serve --proxy-config ./proxy.conf.js",
+    "start:angular": "ng serve",
+    "start:angular-proxy": "ng serve --proxy-config ./proxy.conf.js",
     "build:prod": "ng build -op prod-build --prod --base-href /",
-    "heroku-postbuild": "yarn run build:prod",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "heroku-postbuild": "yarn run build:prod"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/davidblj/Bolsa-de-Empleos.git"
-  },
-  "author": "",
+  "author": "davidblj",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/davidblj/Bolsa-de-Empleos/issues"
@@ -25,10 +19,10 @@
   "homepage": "https://github.com/davidblj/Bolsa-de-Empleos#readme",
   "dependencies": {
     "@angular/animations": "^5.0.0",
-    "@angular/cli": "^1.6.2",
-    "@angular/compiler-cli": "^5.0.0",
+    "@angular/cli": "1.7.2",
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
+    "@angular/compiler-cli": "^5.0.0",
     "@angular/core": "^5.0.0",
     "@angular/forms": "^5.0.0",
     "@angular/http": "^5.0.0",

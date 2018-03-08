@@ -1,15 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Manager } from '../../../shared/manager.model';
 import { AbstractControl, FormGroup } from '@angular/forms';
-import { Error } from '../../../error.interface';
-import { Definitions } from '../../../definitions.variables';
-import { Manager } from '../../../manager.model';
+import { Error } from '../../../shared/error.interface';
+import { definitions } from '../../../shared/definitions.variables';
 
 @Component({
-  selector: 'app-company',
-  templateUrl: './company.component.html',
-  styleUrls: ['./company.component.scss']
+  selector: 'app-email',
+  templateUrl: './email.component.html'
 })
-export class CompanyComponent implements OnInit {
+export class EmailComponent implements OnInit {
 
   @Input()
   parent: FormGroup;
@@ -17,47 +16,48 @@ export class CompanyComponent implements OnInit {
   hints: Error[];
   warnings: Error[];
 
-  fieldName = 'Nombre';
-  company: AbstractControl;
+  fieldName = 'Correo electronico';
+
+  email: AbstractControl;
   validationManager: Manager;
 
   ngOnInit() {
-    this.company = this.parent.get('company');
-    this.company.markAsUntouched();
+    this.email = this.parent.get('email');
+    this.email.markAsUntouched();
     this.initErrorMessaging();
   }
 
   initErrorMessaging() {
 
     this.hints = [
-      Definitions.length(2, 20)
+      definitions.email()
     ];
 
     this.warnings = [
-      Definitions.required(),
-      Definitions.requirements()
+      definitions.required(),
+      definitions.requirements()
     ];
 
     this.validationManager = new Manager(
       this.hints,
       this.warnings,
-      this.company
+      this.email
     )
   }
 
-  onInput(value: string) {
-    this.company.setValue(value);
-    this.updateLengthStatus();
+  onInput(value) {
+    this.email.setValue(value);
+    this.updateEmailStatus();
     this.updateRequiredStatus();
     this.updateRequirementsStatus();
   }
 
   onTouch() {
-    this.company.markAsTouched();
+    this.email.markAsTouched();
   }
 
-  updateLengthStatus() {
-    this.validationManager.updateLengthStatus();
+  updateEmailStatus() {
+    this.validationManager.updateEmailStatus();
   }
 
   updateRequiredStatus() {

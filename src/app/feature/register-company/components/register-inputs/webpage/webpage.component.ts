@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
-import { Error } from '../../../error.interface';
-import { Manager } from '../../../manager.model';
-import { Definitions } from '../../../definitions.variables';
+import { Error } from '../../../shared/error.interface';
+import { Manager } from '../../../shared/manager.model';
+import { definitions } from '../../../shared/definitions.variables';
 
 @Component({
   selector: 'app-webpage',
@@ -30,12 +30,12 @@ export class WebpageComponent implements OnInit {
   initErrorMessaging() {
 
     this.hints = [
-      Definitions.website()
+      definitions.website()
     ];
 
     this.warnings = [
-      Definitions.required(),
-      Definitions.requirements()
+      definitions.required(),
+      definitions.requirements()
     ];
 
     this.validationManager = new Manager(

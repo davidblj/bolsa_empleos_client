@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 import { Error } from '../../../shared/error.interface';
-import { Manager } from '../../../shared/manager.model';
 import { definitions } from '../../../shared/definitions.variables';
+import { Manager } from '../../../shared/manager.model';
 
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.component.html'
+  selector: 'app-name',
+  templateUrl: './name.component.html'
 })
-export class DetailsComponent implements OnInit {
+export class NameComponent implements OnInit {
 
   @Input()
   parent: FormGroup;
@@ -16,47 +16,55 @@ export class DetailsComponent implements OnInit {
   hints: Error[];
   warnings: Error[];
 
-  fieldName = 'Detalles';
-  type = 'text-area';
-  placeholder = '¿A que se dedica tu empresa? Haz una breve descripción.';
-
-  details: AbstractControl;
+  fieldName = 'Nombre';
+  name: AbstractControl;
   validationManager: Manager;
 
-  constructor() { }
-
   ngOnInit() {
-    this.details = this.parent.get('details');
-    this.details.markAsUntouched();
+    this.name = this.parent.get('name');
+    this.name.markAsUntouched();
     this.initErrorMessaging();
   }
 
   initErrorMessaging() {
 
-    this.hints = [];
+    this.hints = [
+      definitions.length(2, 20)
+    ];
 
     this.warnings = [
-      definitions.required()
+      definitions.required(),
+      definitions.requirements()
     ];
 
     this.validationManager = new Manager(
       this.hints,
       this.warnings,
-      this.details
+      this.name
     )
   }
 
   onInput(value: string) {
-    this.details.setValue(value);
+    this.name.setValue(value);
+    this.updateLengthStatus();
     this.updateRequiredStatus();
+    this.updateRequirementsStatus();
   }
 
   onTouch() {
-    this.details.markAsTouched();
+    this.name.markAsTouched();
+  }
+
+  updateLengthStatus() {
+    this.validationManager.updateLengthStatus();
   }
 
   updateRequiredStatus() {
     this.validationManager.updateRequiredStatus();
+  }
+
+  updateRequirementsStatus() {
+    this.validationManager.updateRequirementsStatus();
   }
 
   get displayWarnings() {

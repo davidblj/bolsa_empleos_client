@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { RegisterService } from '../../shared/register.service';
+import { User } from '../../shared/user.model';
 
 @Component({
   selector: 'app-register-form',
@@ -11,7 +13,9 @@ export class RegisterFormComponent {
   next = new EventEmitter<number>();
 
   step = 1;
-  user = {};
+  user = new User();
+
+  constructor(private registerService: RegisterService) {}
 
   showStep(step: number) {
     return this.step === step;
@@ -19,18 +23,32 @@ export class RegisterFormComponent {
 
   addStepOne({username, password}) {
     this.nextStep();
-    this.user['username'] = username;
-    this.user['password'] = password;
+    this.user.setUsername(username);
+    this.user.setPassword(password);
   }
 
-  addStepTwo({logo, company, website, details, sector, nit}) {
+  addStepTwo({logo, name, website, details, sector, nit}) {
     this.nextStep();
-    this.user['logo'] = logo;
-    this.user['company'] = company;
-    this.user['website'] = website;
-    this.user['details'] = details;
-    this.user['sector'] = sector;
-    this.user['nit'] = nit;
+    this.user.setLogo(logo);
+    this.user.setName(name);
+    this.user.setWebsite(website);
+    this.user.setDetails(details);
+    this.user.setSector(sector);
+    this.user.setNit(nit);
+  }
+
+  addStepThree({admin, contact, email}) {
+    this.user.setAdmin(admin);
+    this.user.setContact(contact);
+    this.user.setEmail(email);
+    this.submit();
+  }
+
+  submit() {
+    this.registerService.addUser(this.user).subscribe(
+      () => { console.log('sent') },
+      (error) => { console.log(error) }
+    );
   }
 
   nextStep() {

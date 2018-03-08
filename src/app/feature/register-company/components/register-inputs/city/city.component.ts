@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Manager } from '../../../shared/manager.model';
 import { AbstractControl, FormGroup } from '@angular/forms';
 import { Error } from '../../../shared/error.interface';
-import { Manager } from '../../../shared/manager.model';
 import { definitions } from '../../../shared/definitions.variables';
 
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.component.html'
+  selector: 'app-city',
+  templateUrl: './city.component.html'
 })
-export class DetailsComponent implements OnInit {
+export class CityComponent implements OnInit {
 
   @Input()
   parent: FormGroup;
@@ -16,18 +16,16 @@ export class DetailsComponent implements OnInit {
   hints: Error[];
   warnings: Error[];
 
-  fieldName = 'Detalles';
-  type = 'text-area';
-  placeholder = '¿A que se dedica tu empresa? Haz una breve descripción.';
+  fieldName = 'Ciudad';
 
-  details: AbstractControl;
+  city: AbstractControl;
   validationManager: Manager;
 
   constructor() { }
 
   ngOnInit() {
-    this.details = this.parent.get('details');
-    this.details.markAsUntouched();
+    this.city = this.parent.get('city');
+    this.city.markAsUntouched();
     this.initErrorMessaging();
   }
 
@@ -42,17 +40,17 @@ export class DetailsComponent implements OnInit {
     this.validationManager = new Manager(
       this.hints,
       this.warnings,
-      this.details
+      this.city
     )
   }
 
-  onInput(value: string) {
-    this.details.setValue(value);
+  onInput(value) {
+    this.city.setValue(value);
     this.updateRequiredStatus();
   }
 
   onTouch() {
-    this.details.markAsTouched();
+    this.city.markAsTouched();
   }
 
   updateRequiredStatus() {

@@ -1,17 +1,14 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-// utils
 import { CustomValidators } from '../../shared/custom-validators.functions';
 
 @Component({
-  selector: 'app-register-step-one',
-  templateUrl: './register-step-one.component.html'
+  selector: 'app-register-step-three',
+  templateUrl: './register-step-three.component.html'
 })
-export class RegisterStepOneComponent {
+export class RegisterStepThreeComponent {
 
   form: FormGroup;
-  passwordStatus = false;
 
   @Output()
   submit = new EventEmitter<any>();
@@ -20,30 +17,30 @@ export class RegisterStepOneComponent {
     this.createForm()
   }
 
-  private createForm() {
+  createForm() {
     this.form = this.fb.group({
-      username: [
+      admin: [
         '',
         [
           Validators.required,
           Validators.minLength(3),
-          Validators.maxLength(15)
+          Validators.maxLength(30)
         ]
       ],
-      password: [
+      email: [
         '',
         [
           Validators.required,
-          Validators.minLength(8),
-          Validators.maxLength(16),
-          CustomValidators.containNumbers
+          CustomValidators.isAnEmail
+        ]
+      ],
+      contact: [
+        '',
+        [
+          Validators.required
         ]
       ]
     })
-  }
-
-  onUpdatePassword(status: boolean) {
-    this.passwordStatus = status;
   }
 
   onSubmit() {
@@ -51,6 +48,6 @@ export class RegisterStepOneComponent {
   }
 
   get formStatus() {
-    return (this.passwordStatus && this.form.valid);
+    return this.form.valid;
   }
 }

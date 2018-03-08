@@ -5,12 +5,16 @@
        to prevent code duplication -->
 
   <app-register-step-one
-    *ngIf="showStep(2)"
+    *ngIf="showStep(1)"
     (submit)="addStepOne($event)">
   </app-register-step-one>
   <app-register-step-two
-    *ngIf="showStep(1)"
+    *ngIf="showStep(2)"
     (submit)="addStepTwo($event)">
   </app-register-step-two>
+  <app-register-step-three
+    *ngIf="showStep(3)"
+    (submit)="addStepThree($event)">
+  </app-register-step-three>
 
 </div>

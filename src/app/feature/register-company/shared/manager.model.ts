@@ -13,6 +13,10 @@ export class Manager {
     this.field = field;
   }
 
+  // do a function that iterates through every hint and every warning
+  // make a new function, that maps
+  // to the corresponding type of "get" status
+
   // length error update
 
   get lengthStatus(): boolean {
@@ -41,7 +45,7 @@ export class Manager {
   // numeric error update
 
   get numberStatus(): boolean {
-    return this.field.hasError('number')
+    return this.field.hasError('number');
   }
 
   updateNumberStatus() {
@@ -81,6 +85,19 @@ export class Manager {
   updateWebSiteStatus() {
     const hasErrors = this.webSiteStatus;
     this.setHintStatus('website', hasErrors);
+  }
+
+  // email error update
+
+  get emailStatus() {
+    return (
+      this.field.hasError('email') ||
+      this.field.value.length === 0);
+  }
+
+  updateEmailStatus() {
+    const hasErrors = this.emailStatus;
+    this.setHintStatus('email', hasErrors);
   }
 
   // utils

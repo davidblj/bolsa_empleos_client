@@ -2,9 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 
 // utils
-import { Error } from '../../../error.interface';
-import { Definitions } from '../../../definitions.variables';
-import { Manager } from '../../../manager.model';
+import { Error } from '../../../shared/error.interface';
+import { definitions } from '../../../shared/definitions.variables';
+import { Manager } from '../../../shared/manager.model';
 
 @Component({
   selector: 'app-password',
@@ -71,13 +71,13 @@ export class PasswordComponent implements OnInit {
   initPasswordErrorMessaging() {
 
     this.passwordHints = [
-      Definitions.length(8, 16),
-      Definitions.number()
+      definitions.length(8, 16),
+      definitions.number()
     ];
 
     this.passwordWarnings = [
-      Definitions.required(),
-      Definitions.requirements()
+      definitions.required(),
+      definitions.requirements()
     ];
 
     this.passwordValidationManger = new Manager(
@@ -111,12 +111,12 @@ export class PasswordComponent implements OnInit {
   initCheckPasswordErrorMessaging() {
 
     this.checkPasswordHints = [
-      Definitions.match(),
+      definitions.match(),
     ];
 
     this.checkPasswordWarnings = [
-      Definitions.required(),
-      Definitions.requirements()
+      definitions.required(),
+      definitions.requirements()
     ];
 
     this.checkPasswordValidationManger = new Manager(

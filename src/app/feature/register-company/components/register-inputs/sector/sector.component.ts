@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
-import { Error } from '../../../error.interface';
-import { Manager } from '../../../manager.model';
-import { Definitions } from '../../../definitions.variables';
+import { Error } from '../../../shared/error.interface';
+import { Manager } from '../../../shared/manager.model';
+import { definitions } from '../../../shared/definitions.variables';
 
 @Component({
   selector: 'app-sector',
@@ -35,7 +35,7 @@ export class SectorComponent implements OnInit {
     this.hints = [];
 
     this.warnings = [
-      Definitions.required()
+      definitions.required()
     ];
 
     this.validationManager = new Manager(

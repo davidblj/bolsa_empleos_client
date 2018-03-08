@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Manager } from '../../../shared/manager.model';
 import { AbstractControl, FormGroup } from '@angular/forms';
 import { Error } from '../../../shared/error.interface';
-import { Manager } from '../../../shared/manager.model';
 import { definitions } from '../../../shared/definitions.variables';
 
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.component.html'
+  selector: 'app-contact',
+  templateUrl: './contact.component.html'
 })
-export class DetailsComponent implements OnInit {
+export class ContactComponent implements OnInit {
 
   @Input()
   parent: FormGroup;
@@ -16,18 +16,17 @@ export class DetailsComponent implements OnInit {
   hints: Error[];
   warnings: Error[];
 
-  fieldName = 'Detalles';
-  type = 'text-area';
-  placeholder = '¿A que se dedica tu empresa? Haz una breve descripción.';
+  fieldName = 'Contacto';
+  placeholder = 'celular o teléfono fijo';
 
-  details: AbstractControl;
+  contact: AbstractControl;
   validationManager: Manager;
 
   constructor() { }
 
   ngOnInit() {
-    this.details = this.parent.get('details');
-    this.details.markAsUntouched();
+    this.contact = this.parent.get('contact');
+    this.contact.markAsUntouched();
     this.initErrorMessaging();
   }
 
@@ -42,17 +41,17 @@ export class DetailsComponent implements OnInit {
     this.validationManager = new Manager(
       this.hints,
       this.warnings,
-      this.details
+      this.contact
     )
   }
 
-  onInput(value: string) {
-    this.details.setValue(value);
+  onInput(value) {
+    this.contact.setValue(value);
     this.updateRequiredStatus();
   }
 
   onTouch() {
-    this.details.markAsTouched();
+    this.contact.markAsTouched();
   }
 
   updateRequiredStatus() {

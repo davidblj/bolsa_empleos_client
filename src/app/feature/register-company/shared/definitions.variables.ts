@@ -5,15 +5,17 @@ const requirements = (): Error => ({ key: 'requirements', message: 'los requisit
 const number = (): Error => ({ key: 'number', message: 'tiene al menos 1 numero', resolved: false });
 const match = (): Error => ({ key: 'match', message: 'las contrañas  coinciden', resolved: false });
 const website = (): Error => ({ key: 'website', message: 'es un sitio web', resolved: false });
+const email = (): Error => ({ key: 'email', message: 'es un correo', resolved: false });
 const length = (min: number, max: number): Error => {
-  return ({key: 'length', message: `tiene entre los ${min} y ${max} caracteres`, resolved: false})
+  return ({ key: 'length', message: `tiene entre los ${min} y ${max} caracteres`, resolved: false })
 };
 
-export const Definitions = {
+export const definitions = {
   required,
   requirements,
   number,
   match,
   website,
+  email,
   length
 };
