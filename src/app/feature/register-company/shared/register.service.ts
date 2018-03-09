@@ -10,17 +10,22 @@ import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 @Injectable()
 export class RegisterService {
 
-  url = 'companies';
-
   constructor(private http: HttpClient) { }
 
   addUser(user: User): Observable<any> {
 
     const formData = this.buildBinaries(user);
-
-    return this.http.post(this.url, formData)
+    return this.http.post('companies', formData)
       .pipe(catchError(this.handleError))
   };
+
+  checkExistence(name, value): Observable<boolean> {
+
+    const params = {};
+    params[name] = value;
+    return this.http.get('search/companies', {params: params})
+      .map((user: string) => user.length > 0);
+  }
 
   private handleError(error: HttpErrorResponse) {
 

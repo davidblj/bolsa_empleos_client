@@ -12,6 +12,7 @@ export class RegisterStepOneComponent {
 
   form: FormGroup;
   passwordStatus = false;
+  // usernameStatus = false;
 
   @Output()
   submit = new EventEmitter<any>();
@@ -45,6 +46,10 @@ export class RegisterStepOneComponent {
   onUpdatePassword(status: boolean) {
     this.passwordStatus = status;
   }
+
+  /*onUpdateUsername(status: boolean) {
+    this.usernameStatus = status;
+  }*/
 
   onSubmit() {
     this.submit.emit(this.form.value);

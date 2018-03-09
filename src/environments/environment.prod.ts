@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseURL: 'https://bolsa-de-empleos-server.herokuapp.com'
 };
