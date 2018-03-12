@@ -27,7 +27,7 @@ import { WebpageComponent } from './components/register-inputs/webpage/webpage.c
 import { DetailsComponent } from './components/register-inputs/details/details.component';
 import { SectorComponent } from './components/register-inputs/sector/sector.component';
 import { RegisterService } from './shared/register.service';
-import { interceptorProviders } from '../../shared-d/http-interceptors/interceptor-providers';
+import { interceptorProviders } from '../../shared-d/interceptors/interceptor-providers';
 import { AdminComponent } from './components/register-inputs/admin/admin.component';
 import { ContactComponent } from './components/register-inputs/contact/contact.component';
 import { EmailComponent } from './components/register-inputs/email/email.component';

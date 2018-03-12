@@ -2,9 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, AbstractControl } from '@angular/forms';
 
 // utils
-import { Error } from '../../../shared/error.interface';
-import { Manager } from '../../../shared/manager.model';
-import { definitions } from '../../../shared/definitions.variables';
+import { Error } from '../../../../../shared-d/interfaces/error.interface';
+import { Manager } from '../../../../../shared-d/classes/manager.class';
+import { definitions } from '../../../../../shared-d/utils/definitions.variables';
 import { RegisterService } from '../../../shared/register.service';
 
 @Component({

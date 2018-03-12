@@ -1,4 +1,4 @@
-import { Error } from './error.interface';
+import { Error } from '../interfaces/error.interface';
 import { AbstractControl } from '@angular/forms';
 
 export class Manager {

@@ -1,4 +1,4 @@
-import { Error } from './error.interface';
+import { Error } from '../interfaces/error.interface';
 
 const required = (): Error  => ({key: 'required', message: 'el campo es requerido', resolved: false });
 const requirements = (): Error => ({ key: 'requirements', message: 'los requisitos no se cumplen', resolved: false });

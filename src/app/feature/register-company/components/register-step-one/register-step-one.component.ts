@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // utils
-import { CustomValidators } from '../../shared/custom-validators.functions';
+import { CustomValidators } from '../../../../shared-d/utils/custom-validators.functions';
 
 @Component({
   selector: 'app-register-step-one',

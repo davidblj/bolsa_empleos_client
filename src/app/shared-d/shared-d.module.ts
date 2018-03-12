@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ImgComponent } from './img/img.component';
-import { PopoverComponent } from './popover/popover.component';
+import { ImgComponent } from './components/img/img.component';
+import { PopoverComponent } from './components/popover/popover.component';
 
 @NgModule({
   imports: [

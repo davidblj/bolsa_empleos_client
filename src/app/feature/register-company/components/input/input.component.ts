@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Error } from '../../shared/error.interface';
+import { Error } from '../../../../shared-d/interfaces/error.interface';
 import { FormControl } from '@angular/forms';
 
 @Component({

@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
-import { Error } from '../../../shared/error.interface';
-import { definitions } from '../../../shared/definitions.variables';
-import { Manager } from '../../../shared/manager.model';
+import { Error } from '../../../../../shared-d/interfaces/error.interface';
+import { definitions } from '../../../../../shared-d/utils/definitions.variables';
+import { Manager } from '../../../../../shared-d/classes/manager.class';
 
 @Component({
   selector: 'app-name',

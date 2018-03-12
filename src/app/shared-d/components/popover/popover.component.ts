@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Error } from '../../feature/register-company/shared/error.interface';
+import { Error } from '../../interfaces/error.interface';
 
 @Component({
   selector: 'app-popover',
