@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-list',
   templateUrl: './search-list.component.html',
   styleUrls: ['./search-list.component.scss']
 })
-export class SearchListComponent implements OnInit {
+export class SearchListComponent {
 
-  constructor() { }
+  @Output()
+  select = new EventEmitter<string>();
 
-  ngOnInit() {
+  jobs = [{
+    id: 1,
+    name: 'Wev developer',
+    owner: 'Google',
+    salary: '350k'
+  }];
+
+  onSelect(id: string) {
+    this.select.emit(id);
   }
-
 }

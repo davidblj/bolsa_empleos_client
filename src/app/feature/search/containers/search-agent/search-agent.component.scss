@@ -1,0 +1,18 @@
+@import "variables";
+$menu-width: 36rem;
+
+.side-menu-box {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $menu-width;
+  background: $paradiso;
+  z-index:5;
+}
+
+.results-box {
+  position: relative;
+  height: 100vh;
+  padding-left: $menu-width;
+}

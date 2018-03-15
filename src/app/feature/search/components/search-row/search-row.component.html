@@ -1,3 +1,32 @@
-<p>
-  search-row works!
-</p>
+<!--consider adding a city field-->
+<div
+  class="job"
+  (click)="onClick()"
+  [ngClass]="{'job_active': status}">
+
+  <!--consider the image as a new component-->
+  <div class="row no-gutters align-items-center">
+
+    <div class="col-auto">
+      <img
+        class="job__image"
+        src="assets/icon_05557113302602f4454623399a1f9222_google-square.jpg">
+    </div>
+
+    <div class="col">
+
+      <div class="info">
+        <div class="info__title">
+          {{job.name}}
+        </div>
+        <div class="info__owner">
+          {{job.owner}}
+        </div>
+        <div class="info__salary">
+          {{job.salary}}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

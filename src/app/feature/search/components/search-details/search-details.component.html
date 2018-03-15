@@ -1,3 +1,42 @@
-<p>
-  search-details works!
-</p>
+
+<div
+  *ngIf="job"
+  class="job">
+
+  <div class="row no-gutters align-items-center">
+
+    <div class="col-auto">
+      <img
+        class="job__image"
+        src="assets/thumbnail_05557113302602f4454623399a1f9222_google-square.jpg">
+    </div>
+
+    <div class="col">
+
+      <div class="banner">
+        <div class="banner__title">
+          {{job.name}}
+        </div>
+        <div class="banner__owner">
+          {{job.owner}}
+        </div>
+        <div class="banner__expiry">
+          {{job.expiry}}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="details">
+    <span class="details__role"></span>
+    <span class="details__type"></span>
+    <!--<span class="details__salary"></span>-->
+  </div>
+
+  <div class="job__description">
+    {{job.description}}
+  </div>
+
+</div>

@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchResultsComponent implements OnInit {
 
+  currentJobId: string;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSelect(id: string) {
+    this.currentJobId = id;
+  }
 }

@@ -1,0 +1,48 @@
+@import "variables";
+
+.job {
+
+  height: 100vh;
+  background: $athensGray;
+  padding: 4rem;
+
+  &__image {
+    width: 125px;
+    height: 125px;
+    box-shadow: 0 0 5px rgba($regentGray, 0.4);
+  }
+
+  &__description {
+    padding-top: 4rem;
+    font-size: 1.5rem;
+  }
+}
+
+.banner {
+
+  padding-left: 2.25rem;
+
+  &__title {
+    font-size: 3rem;
+  }
+
+  &__owner {
+    color: $easternBlue;
+    font-size: 2rem;
+  }
+
+  &__expiry {
+    font-size: 1.5rem;
+  }
+}
+
+.details {
+
+  &__role {
+
+  }
+
+  &__type {
+
+  }
+}

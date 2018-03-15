@@ -1,0 +1,52 @@
+@import "variables";
+
+.job {
+
+  margin: 1.35rem;
+  padding: 1.35rem;
+  position: relative;
+  transition: border-color 1s;
+
+  border: {
+    radius: 5px;
+    style: solid;
+    width: 2px;
+    color: transparent;
+  };
+
+  &__image {
+    width: 75px;
+    height: 75px;
+  }
+
+  &_active {
+    border-color: $easternBlue !important;
+  }
+
+  &:hover {
+    cursor: pointer;
+    border-color: $athensGray;
+  }
+}
+
+.info {
+
+  padding-left: 1rem;
+
+  &__title {
+    color: $pickledBlueWood;
+    font-size: 1.4rem;
+  }
+
+  &__owner {
+    color: $tuna;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  &__salary {
+    color: $deYork;
+    font-size: 1.3rem;
+  }
+}
+

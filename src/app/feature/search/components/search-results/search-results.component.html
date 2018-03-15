@@ -1,3 +1,11 @@
-<p>
-  search-results works!
-</p>
+
+<div class="list-box">
+  <app-search-list
+    (select)="onSelect($event)" >
+  </app-search-list>
+</div>
+<div class="details-box">
+  <app-search-job
+    [id]="currentJobId">
+  </app-search-job>
+</div>

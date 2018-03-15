@@ -9,6 +9,7 @@ import { SearchCategoryComponent } from './components/search-category/search-cat
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { SearchDashboardComponent } from './components/search-dashboard/search-dashboard.component';
 import { SearchHeaderComponent } from './components/search-header/search-header.component';
+import { SearchJobComponent } from './containers/search-job/search-job.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { SearchHeaderComponent } from './components/search-header/search-header.
     SearchCategoryComponent,
     SearchResultsComponent,
     SearchDashboardComponent,
-    SearchHeaderComponent
+    SearchHeaderComponent,
+    SearchJobComponent
   ]
 })
 export class SearchModule { }

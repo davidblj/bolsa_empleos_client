@@ -16,7 +16,7 @@ $weak-black: #282a2c;
 $dim-black: rgba($black, .2);
 $strong-black: rgba($weak-black, .5);
 
-.side-menu {
+.side-menu-box {
   position: fixed;
   width: 19%;
   height: 100%;
@@ -198,7 +198,7 @@ $strong-black: rgba($weak-black, .5);
     height: 100%;
   }
 
-  .results {
+  .results-box {
     background: $background-color;
     height: 100%;
 
@@ -223,7 +223,6 @@ $strong-black: rgba($weak-black, .5);
         width: 2px;
         color: $background-color;
       }
-    ;
 
       .media {
         border-radius: 5px;

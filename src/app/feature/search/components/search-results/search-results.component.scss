@@ -1,0 +1,12 @@
+$list-width: 51rem;
+
+.list-box {
+  width: $list-width;
+  position: absolute;
+  height: 100vh;
+}
+
+.details-box {
+  padding-left: $list-width;
+  height: 100vh;
+}
