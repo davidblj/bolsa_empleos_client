@@ -7,14 +7,17 @@
   padding: 4rem;
 
   &__image {
-    width: 125px;
-    height: 125px;
+    border-radius: 7px;
+    width: 115px;
+    height: 115px;
     box-shadow: 0 0 5px rgba($regentGray, 0.4);
   }
 
   &__description {
-    padding-top: 4rem;
-    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    text-align: justify;
+    font-size: 1.7rem;
+    font-weight: 500;
   }
 }
 
@@ -24,6 +27,7 @@
 
   &__title {
     font-size: 3rem;
+    line-height: 3rem;
   }
 
   &__owner {
@@ -38,11 +42,45 @@
 
 .details {
 
-  &__role {
+  margin-left: 1rem;
+  margin-top: 2.5rem;
 
+  & > div {
+    display: inline-block;
+  }
+}
+
+.details-block {
+
+  margin-right: 4.5rem;
+  font-weight: 600;
+
+  &__tag {
+    font-size: 1.4rem;
   }
 
-  &__type {
+  &__label {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
 
+  &_color_dark-grey {
+    color: rgba($tuna, 0.5);
+  }
+
+  &_color_dim-grey {
+    color: rgba($regentGray, 0.5);
+  }
+
+  &_color_red {
+    color: $burntSienna;
+  }
+
+  &_color_green {
+    color: $deYork;
+  }
+
+  &:last-child {
+    margin-right: 0;
   }
 }

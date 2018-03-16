@@ -5,7 +5,7 @@
   margin: 1.35rem;
   padding: 1.35rem;
   position: relative;
-  transition: border-color 1s;
+  transition: all 1s;
 
   border: {
     radius: 5px;
@@ -17,10 +17,13 @@
   &__image {
     width: 75px;
     height: 75px;
+    border-radius: 2px;
+    box-shadow: 0 0 1px rgba($regentGray, 0.6);
   }
 
   &_active {
     border-color: $easternBlue !important;
+    background: rgba($easternBlue, 0.03);
   }
 
   &:hover {
