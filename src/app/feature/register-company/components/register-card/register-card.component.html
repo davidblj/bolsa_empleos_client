@@ -1,20 +1,21 @@
 
-<div class="register-content">
+<app-sign-up-card>
 
-  <div class="register-card register-card__size-big
-              row no-gutters">
-    <div class="register-card__body
-                col-md-8">
+  <div class="row no-gutters">
+
+    <div class="col">
       <app-register-form
         (next)="onNextStep()">
       </app-register-form>
     </div>
-    <div class="register-card__pane
+
+    <div class="pane
                 col-md-4">
       <app-register-side-pane
         [step]="currentStep">
       </app-register-side-pane>
     </div>
+
   </div>
 
-</div>
+</app-sign-up-card>

@@ -1,0 +1,33 @@
+@import "variables";
+
+.sign-up-content {
+  height: 100vh;
+  background: $athensGray;
+  position: relative;
+}
+
+.sign-up-card {
+
+  width: 900px;
+  background: $white;
+  border: none;
+  box-shadow: 0 0 15px -2px $geyser;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &__footer {
+    background: $deYork;
+    padding: 4.3rem;
+  }
+
+  &__size-big {
+    width: 900px;
+  }
+
+  &__size-small {
+    width: 550px;
+  }
+}
