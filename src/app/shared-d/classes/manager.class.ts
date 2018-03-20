@@ -1,5 +1,6 @@
 import { Error } from '../interfaces/error.interface';
 import { AbstractControl } from '@angular/forms';
+import { definitions } from '../utils/definitions.variables';
 
 export class Manager {
 
@@ -7,15 +8,17 @@ export class Manager {
   warnings: Error[];
   field: AbstractControl;
 
-  constructor(hints: Error[], warnings: Error[], field?: AbstractControl) {
-    this.warnings = warnings;
+  constructor(hints: Error[], warnings: Error[] , field?: AbstractControl) {
+
     this.hints = hints;
     this.field = field;
-  }
 
-  // do a function that iterates through every hint and every warning
-  // make a new function, that maps
-  // to the corresponding type of "get" status
+    if (this.hints.length > 0) {
+      warnings.push(definitions.requirements());
+    }
+
+    this.warnings = warnings;
+  }
 
   // length error update
 
@@ -64,7 +67,7 @@ export class Manager {
     currentStatus = (currentStatus || !hint.resolved);
     });
 
-    // and at least for one of the warnings
+    // and the required status
     currentStatus = (currentStatus || this.requiredStatus);
     return currentStatus;
   }
@@ -106,6 +109,40 @@ export class Manager {
     const hasErrors = this.warningStatus;
     const isTouched = this.field.touched;
     return hasErrors && isTouched;
+  }
+
+  updateIndependentFields() {
+    this.findAndExec(this.warnings);
+    this.findAndExec(this.hints);
+  }
+
+  // shorthand to run almost every validation. That is,
+  // the fields that only need the current input value to
+  // know their states
+  findAndExec(array) {
+    array.forEach( (error: Error) => {
+
+      switch (error.key) {
+        case 'required':
+          this.updateRequiredStatus();
+          break;
+        case 'requirements':
+          this.updateRequirementsStatus();
+          break;
+        case 'number':
+          this.updateNumberStatus();
+          break;
+        case 'website':
+          this.updateWebSiteStatus();
+          break;
+        case 'email':
+          this.updateEmailStatus();
+          break;
+        case 'length':
+          this.updateLengthStatus();
+          break;
+      }
+    });
   }
 
   setHintStatus(key: string, hasErrors: boolean) {

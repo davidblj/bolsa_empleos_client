@@ -2,33 +2,27 @@
 
 .btn {
 
+  display: inline-block;
   border-radius: 2rem;
+  padding: 1.2rem 4rem;
   letter-spacing: 2px;
-  width: auto;
   font-size: 1.3rem;
+  font-weight: 600;
   color: $white;
-  transition: all .2s;
-
-  padding: {
-    bottom: 1.1rem;
-    left: 4rem;
-    right: 3rem;
-    top: 1.1rem;
-  }
+  transition: all,.2s;
 
   &_action-next {
 
-    background-color: $easternBlue;
+    background-color: $mantis;
 
     &:hover {
-      background-color: $blueChill;
-      transform: translateY(-3px);
-      box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 1rem 2rem rgba($mantis,0.5);
     }
   }
 
   &_disabled {
-    background: rgba($blueChill, 0.5);;
+    background: $mantis;
   }
 }
 

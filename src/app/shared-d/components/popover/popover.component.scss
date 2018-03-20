@@ -11,30 +11,18 @@
 
   position: relative;
   width: 25rem;
-  padding: 1.5rem;
-  background: $abbey;
+  padding: 2rem;
+  box-shadow: 0 0 6px -2px $regentGray;
+  background: $seaShell;
+  border-width: 5px 0 0 0;
+  border-color: $burntSienna;
 
   &__message {
 
     font-family: 'Montserrat', sans-serif !important;
     display: block;
-    color: white;
     font-size: 1.3rem;
+    color: $burntSienna;
     font-weight: 600;
   }
-}
-
-.arrow {
-
-  // position properties
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translate(100%, -50%);
-
-  // triangle drawing
-  background: $abbey;
-  width: 1.5rem;
-  height: 2rem;
-  clip-path: polygon(0 0, 100% 50%, 0 100%);
 }

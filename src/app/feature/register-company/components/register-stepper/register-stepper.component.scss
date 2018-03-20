@@ -1,5 +1,4 @@
-$mountainMist: #928d96;
-$easternBlue: #17A2B8;
+@import "variables";
 
 .stepper {
 
@@ -8,21 +7,23 @@ $easternBlue: #17A2B8;
   &__number {
 
     color: $mountainMist;
-    line-height: 2.4em;
-    width: 3.5rem;
-    height: 3.5rem;
+    line-height: 3.4rem;
+    font-weight: 600;
+    margin-right: 1rem;
+    width: 4rem;
+    height: 4rem;
 
     &_current {
 
-      width: 3.5rem;
-      height: 3.5rem;
-      color: $easternBlue;
-      box-shadow: 0 0 1px $easternBlue;
+      width: 4rem;
+      height: 4rem;
+      color: $mantis;
+
       border: {
         style: solid;
         radius: 50%;
-        width: 2px;
-        color: $easternBlue;
+        width: 3px;
+        color: $mantis;
       }
     }
   }

@@ -7,31 +7,37 @@
     margin-bottom: 3rem;
   }
 
-  &__body {
-
-  }
+  &__body {}
 
   &__footer {
-    margin-top: 5rem;
+
+    &_size_big {
+      margin-top: 4rem;
+    }
+
+    &__size_small {
+      margin-top: 3rem;
+      text-align: center;
+    }
   }
 }
-
 
 .register-field {
 
   position: relative;
-  font-size: 1.5rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 2.2rem;
 
   &__label {
 
-    color: $tuna;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: $stormGray;
   }
 
   &__warning {
 
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: -3.9rem;
   }
 
@@ -39,17 +45,19 @@
 
     border: {
       radius: 5px;
-      width: 2px;
-      color: $mischka;
+      width: 1px;
+      color: $geyser;
     };
 
     &_type-default {
-      font-size: 1.5rem;
+
+      font-size: 1.8rem;
       height: 4.5rem;
     }
 
     &_type-text {
-      font-size: 1.4rem;
+
+      font-size: 1.7rem;
       height: auto;
     }
 
@@ -57,8 +65,8 @@
 
       box-shadow: 0 0;
       border: {
-        width: 2px;
-        color: $blueChill;
+        width: 3px;
+        color: $mantis;
       }
     }
   }

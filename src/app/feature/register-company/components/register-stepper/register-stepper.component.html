@@ -1,5 +1,6 @@
 
-<div class="stepper d-flex">
+<div class="stepper
+            d-flex">
   <span *ngFor="let i of steps"
         [ngClass]="{'stepper__number_current': isSelected(i)}"
         class="stepper__number">{{i}}</span>

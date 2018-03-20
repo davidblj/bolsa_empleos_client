@@ -1,8 +1,9 @@
-$alto: #abaaaa;
+@import "variables";
 
 .hint {
 
-  margin-bottom: 0.8rem;
+  position: relative;
+  top: -10px;
   margin-left: 2rem;
   font-size: 1.2rem;
   font-weight: 600;
@@ -10,7 +11,7 @@ $alto: #abaaaa;
   &__message {
 
     &_resolved {
-      color: $alto;
+      color: $mountainMist;
     }
   }
 }

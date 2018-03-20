@@ -1,18 +1,12 @@
-
-.icon {
-  font-size: 3rem;
-
-  // relative parent to the popover component
-  position: relative;
-}
+@import "variables";
 
 .warning {
 
-  font-family: 'Montserrat', sans-serif !important;
-  font-style: italic;
-  font-size: 1.4rem;
-
-  &__message {
-
-  }
+  position: relative;
+  content: "";
+  display: inline-block;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background-color: $burntSienna;
 }

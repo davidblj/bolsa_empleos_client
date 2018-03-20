@@ -2,7 +2,6 @@
 <button
   class="btn"
   [ngClass]="{'btn_disabled': !enabled, 'btn_action-next': enabled}"
-  [disabled]="!enabled"
   (click)="submit()">
   <ng-content></ng-content>
   <i class="arrow arrow_direction-right fas fa-angle-right"></i>

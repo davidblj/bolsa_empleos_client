@@ -76,8 +76,7 @@ export class PasswordComponent implements OnInit {
     ];
 
     this.passwordWarnings = [
-      definitions.required(),
-      definitions.requirements()
+      definitions.required()
     ];
 
     this.passwordValidationManger = new Manager(
@@ -115,8 +114,7 @@ export class PasswordComponent implements OnInit {
     ];
 
     this.checkPasswordWarnings = [
-      definitions.required(),
-      definitions.requirements()
+      definitions.required()
     ];
 
     this.checkPasswordValidationManger = new Manager(

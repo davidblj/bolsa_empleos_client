@@ -18,7 +18,7 @@ export class DetailsComponent implements OnInit {
 
   fieldName = 'Detalles';
   type = 'text-area';
-  placeholder = '¿A que se dedica tu empresa? Haz una breve descripción.';
+  placeholder = '¿a que se dedica tu empresa?';
 
   details: AbstractControl;
   validationManager: Manager;

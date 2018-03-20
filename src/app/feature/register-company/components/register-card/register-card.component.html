@@ -1,13 +1,16 @@
 
 <div class="register-content">
 
-  <div class="register-card row no-gutters">
-    <div class="register-card__body col-md-8">
+  <div class="register-card register-card__size-big
+              row no-gutters">
+    <div class="register-card__body
+                col-md-8">
       <app-register-form
         (next)="onNextStep()">
       </app-register-form>
     </div>
-    <div class="register-card__pane col-md-4">
+    <div class="register-card__pane
+                col-md-4">
       <app-register-side-pane
         [step]="currentStep">
       </app-register-side-pane>

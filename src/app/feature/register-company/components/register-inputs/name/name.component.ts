@@ -33,8 +33,7 @@ export class NameComponent implements OnInit {
     ];
 
     this.warnings = [
-      definitions.required(),
-      definitions.requirements()
+      definitions.required()
     ];
 
     this.validationManager = new Manager(
@@ -46,25 +45,11 @@ export class NameComponent implements OnInit {
 
   onInput(value: string) {
     this.name.setValue(value);
-    this.updateLengthStatus();
-    this.updateRequiredStatus();
-    this.updateRequirementsStatus();
+    this.validationManager.updateIndependentFields();
   }
 
   onTouch() {
     this.name.markAsTouched();
-  }
-
-  updateLengthStatus() {
-    this.validationManager.updateLengthStatus();
-  }
-
-  updateRequiredStatus() {
-    this.validationManager.updateRequiredStatus();
-  }
-
-  updateRequirementsStatus() {
-    this.validationManager.updateRequirementsStatus();
   }
 
   get displayWarnings() {

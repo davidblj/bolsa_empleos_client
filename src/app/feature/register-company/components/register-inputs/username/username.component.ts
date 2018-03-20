@@ -26,7 +26,7 @@ export class UsernameComponent implements OnInit {
   showMessages = false;
   hints: Error[];
   warnings: Error[];
-  validationManger: Manager;
+  validationManager: Manager;
 
   constructor(private registerService: RegisterService) {}
 
@@ -60,11 +60,10 @@ export class UsernameComponent implements OnInit {
     ];
 
     this.warnings = [
-      definitions.required(),
-      definitions.requirements()
+      definitions.required()
     ];
 
-    this.validationManger = new Manager(this.hints, this.warnings, this.username);
+    this.validationManager = new Manager(this.hints, this.warnings, this.username);
   }
 
   changeMessageVisibility() {
@@ -72,19 +71,19 @@ export class UsernameComponent implements OnInit {
   }
 
   updateLengthStatus() {
-    this.validationManger.updateLengthStatus();
+    this.validationManager.updateLengthStatus();
   }
 
   updateRequiredStatus() {
-    this.validationManger.updateRequiredStatus();
+    this.validationManager.updateRequiredStatus();
   }
 
   updateRequirementsStatus() {
-    this.validationManger.updateRequirementsStatus();
+    this.validationManager.updateRequirementsStatus();
   }
 
   updateUsernameStatus(flag) {
-    this.validationManger.setHintStatus('async-username', flag);
+    this.validationManager.setHintStatus('async-username', flag);
     this.updateRequirementsStatus();
     // this.updateFieldStatus(flag);
   }
@@ -96,6 +95,6 @@ export class UsernameComponent implements OnInit {
   }*/
 
   get displayWarnings() {
-    return this.validationManger.displayWarnings();
+    return this.validationManager.displayWarnings();
   }
 }

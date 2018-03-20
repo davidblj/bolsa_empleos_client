@@ -34,8 +34,7 @@ export class WebpageComponent implements OnInit {
     ];
 
     this.warnings = [
-      definitions.required(),
-      definitions.requirements()
+      definitions.required()
     ];
 
     this.validationManager = new Manager(

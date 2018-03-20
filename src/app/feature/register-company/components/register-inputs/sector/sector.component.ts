@@ -18,7 +18,6 @@ export class SectorComponent implements OnInit {
   warnings: Error[];
 
   fieldName = 'Sector industrial';
-  placeholder = 'ej: software, seguros, manufactura, etc.';
   sector: AbstractControl;
   validationManager: Manager;
 
