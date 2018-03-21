@@ -14,13 +14,9 @@ import { RegisterStepOneComponent } from './components/register-step-one/registe
 import { UsernameComponent } from './components/register-inputs/username/username.component';
 import { PasswordComponent } from './components/register-inputs/password/password.component';
 import { LogoComponent } from './components/register-inputs/logo/logo.component';
-import { RegisterButtonComponent } from './components/register-button/register-button.component';
 import { RegisterStepperComponent } from './components/register-stepper/register-stepper.component';
 import { RegisterInfoComponent } from './components/register-info/register-info.component';
-import { WarningComponent } from './components/warning/warning.component';
-import { HintComponent } from './components/hint/hint.component';
 import { RegisterStepTwoComponent } from './components/register-step-two/register-step-two.component';
-import { InputComponent } from './components/input/input.component';
 import { NameComponent } from './components/register-inputs/name/name.component';
 import { NitComponent } from './components/register-inputs/nit/nit.component';
 import { WebpageComponent } from './components/register-inputs/webpage/webpage.component';
@@ -52,13 +48,9 @@ import { CityComponent } from './components/register-inputs/city/city.component'
     UsernameComponent,
     PasswordComponent,
     LogoComponent,
-    RegisterButtonComponent,
     RegisterStepperComponent,
     RegisterInfoComponent,
-    WarningComponent,
-    HintComponent,
     RegisterStepTwoComponent,
-    InputComponent,
     NameComponent,
     NitComponent,
     WebpageComponent,

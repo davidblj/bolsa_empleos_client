@@ -1,10 +1,11 @@
 
 <div class="sign-up-content">
 
-  <div class="sign-up-card sign-up-card__size-big">
+  <div class="sign-up-card"
+  [ngClass]="{'sign-up-card__size-big': getCardType('big'),
+              'sign-up-card__size-small': getCardType('small')}">
 
     <ng-content></ng-content>
 
   </div>
-
 </div>

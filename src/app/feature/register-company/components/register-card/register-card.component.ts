@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class RegisterCardComponent {
 
   currentStep = 1;
+  size = 'big';
 
   onNextStep() {
     this.currentStep++;

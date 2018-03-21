@@ -1,3 +1,17 @@
-<p>
-  register-step-one works!
-</p>
+
+<app-register-form-skeleton
+  [headerTitle]="title"
+  [headerHint]="hint"
+  [buttonMessage]="button"
+  (click)="onSubmit()">
+
+  <app-username
+    [parent]="form">
+  </app-username>
+  <app-password
+    [parent]="form">
+  </app-password>
+  <app-check-password>
+  </app-check-password>
+
+</app-register-form-skeleton>

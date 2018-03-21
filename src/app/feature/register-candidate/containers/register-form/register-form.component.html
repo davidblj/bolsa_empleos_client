@@ -1,3 +1,12 @@
-<p>
-  register-form works!
-</p>
+
+<div [ngSwitch]="currentStep">
+  <app-register-step-one
+    *ngSwitchCase="1">
+  </app-register-step-one>
+  <app-register-step-two
+    *ngSwitchCase="2">
+  </app-register-step-two>
+  <app-register-step-three
+    *ngSwitchCase="3">
+  </app-register-step-three>
+</div>

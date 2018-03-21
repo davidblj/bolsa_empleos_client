@@ -11,13 +11,16 @@ import { PickSidesComponent } from '../pages/guest-page/pick-sides/pick-sides.co
 import { ApplicantDashboardComponent } from '../pages/applicant-page/applicant-dashboard/applicant-dashboard.component';
 
 import { RegisterCardComponent } from '../feature/register-company/components/register-card/register-card.component';
+import { RegisterCandidateEntryPointComponent } from '../feature/register-candidate/components/register-candidate-entry-point/register-candidate-entry-point.component';
 import { SearchDashboardComponent } from '../feature/search/components/search-dashboard/search-dashboard.component';
 
-// todo: rename all the routes with a meaningful name
 export const routes: Routes = [
 
   {path: 'dev', component: RegisterCardComponent},
   {path: 'devs', component: SearchDashboardComponent},
+  {path: 'devc', component: RegisterCandidateEntryPointComponent},
+
+  // -----------------------------------------------------------------
 
   {path: 'search', component: ApplicantDashboardComponent},
   {path: 'home', component: HomeComponent},

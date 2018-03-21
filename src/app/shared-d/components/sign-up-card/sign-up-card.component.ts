@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sign-up-card',
   templateUrl: './sign-up-card.component.html',
   styleUrls: ['./sign-up-card.component.scss']
 })
-export class SignUpCardComponent implements OnInit {
+export class SignUpCardComponent {
 
-  constructor() { }
+  @Input()
+  size: string;
 
-  ngOnInit() {
+  getCardType(type) {
+
+    if (this.size === type) {
+      return true;
+    }
   }
-
 }

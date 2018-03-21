@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Error } from '../../../../shared-d/interfaces/error.interface';
+import { Error } from '../../interfaces/error.interface';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -14,6 +14,9 @@ export class InputComponent implements OnInit {
 
   @Input()
   type = 'input';
+
+  @Input()
+  inputType = 'text';
 
   @Input()
   placeholder = '';

@@ -1,0 +1,26 @@
+@import "variables";
+
+.stepper {
+
+  background: $mantis;
+  padding: 4.3rem;
+  text-align: center;
+
+  &__dot {
+    content: "";
+    display: inline-block;
+    background: $white;
+    margin: 0 1rem;
+    border-radius: 50%;
+
+    &_size_default {
+      width: 10px;
+      height: 10px;
+    }
+
+    &_size_big {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}

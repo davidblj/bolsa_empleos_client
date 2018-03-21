@@ -5,6 +5,7 @@
                  register-field__input_type-default
                  form-control"
           *ngIf="isType('input')"
+          [type]="inputType"
           [placeholder]="placeholder"
           [formControl]="field"
           (focus)="changeMessageVisibility()"

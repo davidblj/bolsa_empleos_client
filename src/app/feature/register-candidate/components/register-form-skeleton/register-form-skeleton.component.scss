@@ -1,0 +1,29 @@
+
+.form {
+
+  margin: 5rem 7rem;
+
+  &__body {
+
+  }
+
+  &__footer {
+
+    margin: 3rem 0 0rem;
+    text-align: center;
+  }
+}
+
+.header {
+
+  text-align: center;
+  margin: 0 0 4rem;
+
+  &__title {
+    font-size: 3.5rem;
+  }
+
+  &__tip {
+    font-size: 1.6rem;
+  }
+}
