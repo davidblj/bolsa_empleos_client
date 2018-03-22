@@ -16,6 +16,7 @@
 
   <div class="form__footer">
     <app-button
+      [enabled]="status"
       (next)="onClick()">
       {{buttonMessage}}
     </app-button>

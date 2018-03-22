@@ -1,5 +1,10 @@
 @import "variables.scss";
 
+.box {
+  display: block;
+  position: relative;
+}
+
 .btn {
 
   display: inline-block;
@@ -12,17 +17,25 @@
   transition: all,.2s;
 
   &_action-next {
-
     background-color: $mantis;
+  }
+
+  &_disabled {
+
+    cursor: default !important;
+    background: $mantis;
+
+    &:hover {
+      background: rgba($mantis, 0.9);
+    }
+  }
+
+  &_hovering-animation {
 
     &:hover {
       transform: translateY(-5px);
       box-shadow: 0 1rem 2rem rgba($mantis,0.5);
     }
-  }
-
-  &_disabled {
-    background: $mantis;
   }
 }
 

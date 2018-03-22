@@ -14,4 +14,8 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  addStepOne(obj) {
+    this.currentStep++;
+  }
+
 }

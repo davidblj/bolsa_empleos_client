@@ -3,15 +3,19 @@
   [headerTitle]="title"
   [headerHint]="hint"
   [buttonMessage]="button"
+  [status]="formStatus"
   (click)="onSubmit()">
 
   <app-username
     [parent]="form">
   </app-username>
   <app-password
-    [parent]="form">
+    [parent]="form"
+    (changed)="onPasswordUpdate($event)">
   </app-password>
-  <app-check-password>
+  <app-check-password
+    [password]="password"
+    (status)="onStatusUpdate($event)">
   </app-check-password>
 
 </app-register-form-skeleton>

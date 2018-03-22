@@ -11,6 +11,9 @@ import { CheckPasswordComponent } from './components/register-inputs/check-passw
 import { PasswordComponent } from './components/register-inputs/password/password.component';
 import { SharedDModule } from '../../shared-d/shared-d.module';
 import { RegisterCandidateEntryPointComponent } from './components/register-candidate-entry-point/register-candidate-entry-point.component';
+import { PidComponent } from './components/register-inputs/pid/pid.component';
+import { NameComponent } from './components/register-inputs/name/name.component';
+import { TypeComponent } from './components/register-inputs/type/type.component';
 
 @NgModule({
   imports: [
@@ -30,7 +33,10 @@ import { RegisterCandidateEntryPointComponent } from './components/register-cand
     UsernameComponent,
     CheckPasswordComponent,
     PasswordComponent,
-    RegisterCandidateEntryPointComponent
+    RegisterCandidateEntryPointComponent,
+    PidComponent,
+    NameComponent,
+    TypeComponent
   ]
 })
 export class RegisterCandidateModule { }

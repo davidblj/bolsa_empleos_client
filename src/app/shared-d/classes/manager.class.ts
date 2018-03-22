@@ -103,6 +103,13 @@ export class Manager {
     this.setHintStatus('email', hasErrors);
   }
 
+  // match error update
+
+  updateMatchingStatus(originalPassword) {
+    const hasErrors = (this.field.value !== originalPassword);
+    this.setHintStatus('match', hasErrors);
+  }
+
   // utils
 
   displayWarnings() {
@@ -112,13 +119,15 @@ export class Manager {
   }
 
   updateIndependentFields() {
-    this.findAndExec(this.warnings);
+    // every warning status should be checked after
+    // every hint has been updated, not before.
     this.findAndExec(this.hints);
+    this.findAndExec(this.warnings);
   }
 
   // shorthand to run almost every validation. That is,
   // the fields that only need the current input value to
-  // know their states
+  // update their states
   findAndExec(array) {
     array.forEach( (error: Error) => {
 

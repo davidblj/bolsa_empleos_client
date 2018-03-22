@@ -1,5 +1,7 @@
 import { Error } from '../interfaces/error.interface';
 
+// warnings
+
 const required = (): Error  =>
   ({
     key: 'required',
@@ -13,6 +15,8 @@ const requirements = (): Error =>
     message: 'Los requisitos no se cumplen.',
     resolved: false
   });
+
+// hints
 
 const number = (): Error =>
   ({

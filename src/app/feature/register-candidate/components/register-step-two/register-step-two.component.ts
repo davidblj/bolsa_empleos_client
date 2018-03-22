@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-step-two',
@@ -7,9 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterStepTwoComponent implements OnInit {
 
-  constructor() { }
+  title = 'Registrate';
+  hint = 'Ingresa la informacio   ';
 
-  ngOnInit() {
+  form: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.createForm()
+  }
+
+  private createForm() {
+    this.form = this.fb.group({
+      type: [
+        ''
+      ],
+      name: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(15)
+        ]
+      ],
+      pid: [
+        ''
+      ]
+    })
   }
 
 }

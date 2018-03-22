@@ -1,8 +1,10 @@
 
 <button
   class="btn"
-  [ngClass]="{'btn_disabled': !enabled, 'btn_action-next': enabled}"
+  [ngClass]="{'btn_disabled': !enabled, 'btn_action-next': enabled, 'btn_hovering-animation': enabled}"
   (click)="submit()">
+
   <ng-content></ng-content>
   <i class="arrow arrow_direction-right fas fa-angle-right"></i>
+
 </button>

@@ -10,6 +10,9 @@ import { CustomValidators } from '../../../../shared-d/utils/custom-validators.f
 })
 export class RegisterStepOneComponent {
 
+  @Output()
+  submit = new EventEmitter<any>();
+
   form: FormGroup;
   passwordStatus = false;
   // usernameStatus = false;

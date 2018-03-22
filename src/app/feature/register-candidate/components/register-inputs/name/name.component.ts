@@ -1,42 +1,42 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+// classes
 import { Manager } from '../../../../../shared-d/classes/manager.class';
+
+// interfaces
 import { Error } from '../../../../../shared-d/interfaces/error.interface';
-import { AbstractControl, FormGroup } from '@angular/forms';
+
+// variables
 import { definitions } from '../../../../../shared-d/utils/definitions.variables';
+import { AbstractControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-password',
-  templateUrl: './password.component.html'
+  selector: 'app-name',
+  templateUrl: './name.component.html',
+  styleUrls: ['./name.component.scss']
 })
-export class PasswordComponent implements OnInit {
+export class NameComponent implements OnInit {
 
   @Input()
   parent: FormGroup;
 
-  @Output()
-  changed = new EventEmitter<string>();
-
   hints: Error[];
   warnings: Error[];
 
-  fieldName = 'Contraseña';
-  inputType = 'password';
-  password: AbstractControl;
+  fieldName = 'Nombre';
+  name: AbstractControl;
   validationManager: Manager;
 
-  constructor() { }
-
   ngOnInit() {
-    this.password = this.parent.get('password');
-    this.password.markAsUntouched();
+    this.name = this.parent.get('name');
+    this.name.markAsUntouched();
     this.initErrorMessaging();
   }
 
   initErrorMessaging() {
 
     this.hints = [
-      definitions.length(8, 16),
-      definitions.number()
+      definitions.length(3, 30)
     ];
 
     this.warnings = [
@@ -46,17 +46,17 @@ export class PasswordComponent implements OnInit {
     this.validationManager = new Manager(
       this.hints,
       this.warnings,
-      this.password);
+      this.name
+    )
   }
 
   onInput(value: string) {
-    this.password.setValue(value);
-    this.changed.emit(value);
+    this.name.setValue(value);
     this.validationManager.updateIndependentFields();
   }
 
   onTouch() {
-    this.password.markAsTouched();
+    this.name.markAsTouched();
   }
 
   get displayWarnings() {

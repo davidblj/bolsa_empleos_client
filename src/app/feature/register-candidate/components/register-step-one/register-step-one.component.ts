@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // utils
@@ -11,11 +11,16 @@ import { CustomValidators } from '../../../../shared-d/utils/custom-validators.f
 })
 export class RegisterStepOneComponent {
 
+  @Output()
+  submit = new EventEmitter<any>();
+
   title = 'Registrate';
   hint = 'Ingresa la información general de tu sesión';
   button = 'SIGUIENTE';
 
   form: FormGroup;
+  password: string;
+  checkPasswordStatus: boolean;
 
   constructor(private fb: FormBuilder) {
     this.createForm();
@@ -43,7 +48,19 @@ export class RegisterStepOneComponent {
     });
   }
 
+  onPasswordUpdate(password) {
+    this.password = password;
+  }
+
+  onStatusUpdate(status: boolean) {
+    this.checkPasswordStatus = status;
+  }
+
   onSubmit() {
-    console.log('on submit !');
+    this.submit.emit(this.form.value);
+  }
+
+  get formStatus() {
+    return (this.form.valid && this.checkPasswordStatus);
   }
 }

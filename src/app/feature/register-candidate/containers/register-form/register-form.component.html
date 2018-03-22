@@ -1,6 +1,7 @@
 
 <div [ngSwitch]="currentStep">
   <app-register-step-one
+    (submit)="addStepOne($event)"
     *ngSwitchCase="1">
   </app-register-step-one>
   <app-register-step-two

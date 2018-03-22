@@ -16,6 +16,9 @@ export class RegisterFormSkeletonComponent {
   @Input()
   buttonMessage: string;
 
+  @Input()
+  status: boolean;
+
   @Output()
   click = new EventEmitter<any>();
 
