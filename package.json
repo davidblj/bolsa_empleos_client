@@ -8,7 +8,7 @@
     "start:node": "node server.js",
     "start:angular": "ng serve",
     "start:angular-proxy": "ng serve --proxy-config ./proxy.conf.js",
-    "build:prod": "ng build -op prod-build --prod --base-href /",
+    "build:prod": "ng build -op prod-build --prod --base-href / --aot",
     "heroku-postbuild": "yarn run build:prod"
   },
   "author": "davidblj",
