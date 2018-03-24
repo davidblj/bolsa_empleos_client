@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, FormGroup } from '@angular/forms';
 
 // classes
 import { Manager } from '../../../../../shared-d/classes/manager.class';
@@ -9,13 +8,14 @@ import { Error } from '../../../../../shared-d/interfaces/error.interface';
 
 // variables
 import { definitions } from '../../../../../shared-d/utils/definitions.variables';
+import { AbstractControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-pid',
-  templateUrl: './pid.component.html',
-  styleUrls: ['./pid.component.scss']
+  selector: 'app-email',
+  templateUrl: './email.component.html',
+  styleUrls: ['./email.component.scss']
 })
-export class PidComponent implements OnInit {
+export class EmailComponent implements OnInit {
 
   @Input()
   parent: FormGroup;
@@ -23,20 +23,23 @@ export class PidComponent implements OnInit {
   hints: Error[];
   warnings: Error[];
 
-  fieldName = 'Cedula';
-  pid: AbstractControl;
+  fieldName = 'email';
+  email: AbstractControl;
   validationManager: Manager;
 
+  constructor() { }
+
   ngOnInit() {
-    this.pid = this.parent.get('pid');
-    this.pid.markAsUntouched();
+
+    this.email = this.parent.get('email');
+    this.email.markAsUntouched();
     this.initErrorMessaging();
   }
 
   initErrorMessaging() {
 
     this.hints = [
-      definitions.numeric()
+      definitions.email()
     ];
 
     this.warnings = [
@@ -46,20 +49,21 @@ export class PidComponent implements OnInit {
     this.validationManager = new Manager(
       this.hints,
       this.warnings,
-      this.pid
+      this.email
     )
   }
 
-  onInput(value: string) {
-    this.pid.setValue(value);
+  onInput(value) {
+    this.email.setValue(value);
     this.validationManager.updateIndependentFields();
   }
 
   onTouch() {
-    this.pid.markAsTouched();
+    this.email.markAsTouched();
   }
 
   get displayWarnings() {
     return this.validationManager.displayWarnings();
   }
+
 }

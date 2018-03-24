@@ -25,6 +25,13 @@ const number = (): Error =>
     resolved: false
   });
 
+const numeric = (): Error =>
+  ({
+    key: 'numeric',
+    message: 'solamente tiene numeros',
+    resolved: false
+  });
+
 const match = (): Error =>
   ({ key: 'match',
     message: 'las contrañas son iguales',
@@ -63,6 +70,7 @@ export const definitions = {
   required,
   requirements,
   number,
+  numeric,
   match,
   website,
   email,

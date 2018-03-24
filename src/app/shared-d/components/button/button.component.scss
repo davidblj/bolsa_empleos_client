@@ -1,13 +1,7 @@
 @import "variables.scss";
 
-.box {
-  display: block;
-  position: relative;
-}
-
 .btn {
 
-  display: inline-block;
   border-radius: 2rem;
   padding: 1.2rem 4rem;
   letter-spacing: 2px;
@@ -36,6 +30,10 @@
       transform: translateY(-5px);
       box-shadow: 0 1rem 2rem rgba($mantis,0.5);
     }
+  }
+
+  &:focus {
+    box-shadow: none;
   }
 }
 

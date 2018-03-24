@@ -1,10 +1,9 @@
 
 <app-register-form-skeleton
-  [headerTitle]="title"
   [headerHint]="hint"
   [buttonMessage]="button"
   [status]="formStatus"
-  (click)="onSubmit()">
+  (submit)="onSubmit()">
 
   <app-username
     [parent]="form">

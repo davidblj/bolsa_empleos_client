@@ -11,10 +11,13 @@ export class ButtonComponent {
   enabled: boolean;
 
   @Output()
-  next = new EventEmitter<any>();
+  submit = new EventEmitter<any>();
 
-  submit() {
-    this.next.emit();
+  onClick() {
+
+    // this.submit.emit();
+    if (this.enabled) {
+      this.submit.emit();
+    }
   }
-
 }

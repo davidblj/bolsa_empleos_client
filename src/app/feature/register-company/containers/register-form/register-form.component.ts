@@ -1,6 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { RegisterService } from '../../shared/register.service';
+
+// classes
 import { User } from '../../shared/user.model';
+
+// services
+import { RegisterService } from '../../shared/register.service';
 
 @Component({
   selector: 'app-register-form',
@@ -39,6 +43,7 @@ export class RegisterFormComponent {
   }
 
   addStepThree({admin, contact, email}) {
+    this.nextStep();
     this.user.setAdmin(admin);
     this.user.setContact(contact);
     this.user.setEmail(email);
@@ -54,7 +59,7 @@ export class RegisterFormComponent {
 
   nextStep() {
     this.step++;
-    this.next.emit(this.step);
+    this.next.emit();
   }
 
 }

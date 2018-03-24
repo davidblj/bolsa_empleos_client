@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-register-form-skeleton',
@@ -6,9 +6,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./register-form-skeleton.component.scss']
 })
 export class RegisterFormSkeletonComponent {
-
-  @Input()
-  headerTitle: string;
 
   @Input()
   headerHint: string;
@@ -20,10 +17,10 @@ export class RegisterFormSkeletonComponent {
   status: boolean;
 
   @Output()
-  click = new EventEmitter<any>();
+  submit = new EventEmitter<any>();
 
-  onClick() {
-    this.click.emit();
+  onSubmit() {
+    this.submit.emit();
   }
 
 }

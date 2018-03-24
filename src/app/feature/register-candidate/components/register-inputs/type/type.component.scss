@@ -1,10 +1,5 @@
 @import "variables";
 
-%highlight {
-  color: $white;
-  background: $mantis;
-}
-
 .selection {
 
   display: block;
@@ -14,7 +9,7 @@
   &__title {
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     color: $stormGray;
   }
 
@@ -35,12 +30,11 @@
     transition: background-color 1s,
                 color .5s;
 
-    &:hover {
-      @extend %highlight;
+    &_active {
+
+      background-color: $mantis;
+      color: $white;
     }
   }
 
-  &-selected {
-    @extend %highlight;
-  }
 }

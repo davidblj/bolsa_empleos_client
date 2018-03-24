@@ -1,12 +1,18 @@
 
-<app-register-form-skeleton>
+<app-register-form-skeleton
+  [headerHint]="hint"
+  [buttonMessage]="button"
+  [status]="formStatus"
+  (submit)="onSubmit()">
 
-  <app-type>
+  <app-type
+    [parent]="form">
   </app-type>
   <app-name
     [parent]="form">
   </app-name>
-  <app-pid>
+  <app-pid
+    [parent]="form">
   </app-pid>
 
 </app-register-form-skeleton>

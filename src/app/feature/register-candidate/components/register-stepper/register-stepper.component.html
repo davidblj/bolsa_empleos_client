@@ -1,6 +1,6 @@
 
 <div class="stepper">
-  <span class="stepper__dot stepper__dot_size_default"></span>
-  <span class="stepper__dot stepper__dot_size_big"></span>
-  <span class="stepper__dot stepper__dot_size_default"></span>
+  <span *ngFor="let i of steps"
+        [ngClass]="{'stepper__dot_size_default': !isSelected(i), 'stepper__dot_size_big': isSelected(i)} "
+        class="stepper__dot"></span>
 </div>

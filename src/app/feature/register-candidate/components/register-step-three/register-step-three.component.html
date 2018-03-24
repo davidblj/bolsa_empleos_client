@@ -1,3 +1,18 @@
-<p>
-  register-step-three works!
-</p>
+
+<app-register-form-skeleton
+  [headerHint]="hint"
+  [buttonMessage]="button"
+  [status]="formStatus"
+  (submit)="onSubmit($event)">
+
+  <app-resumee
+    (upload)="onUpload($event)">
+  </app-resumee>
+  <app-email
+    [parent]="form">
+  </app-email>
+  <app-contact
+    [parent]="form">
+  </app-contact>
+
+</app-register-form-skeleton>

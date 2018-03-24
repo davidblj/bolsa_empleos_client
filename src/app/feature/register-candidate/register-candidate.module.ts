@@ -14,6 +14,9 @@ import { RegisterCandidateEntryPointComponent } from './components/register-cand
 import { PidComponent } from './components/register-inputs/pid/pid.component';
 import { NameComponent } from './components/register-inputs/name/name.component';
 import { TypeComponent } from './components/register-inputs/type/type.component';
+import { EmailComponent } from './components/register-inputs/email/email.component';
+import { ContactComponent } from './components/register-inputs/contact/contact.component';
+import { ResumeeComponent } from './components/register-inputs/resumee/resumee.component';
 
 @NgModule({
   imports: [
@@ -36,7 +39,10 @@ import { TypeComponent } from './components/register-inputs/type/type.component'
     RegisterCandidateEntryPointComponent,
     PidComponent,
     NameComponent,
-    TypeComponent
+    TypeComponent,
+    EmailComponent,
+    ContactComponent,
+    ResumeeComponent
   ]
 })
 export class RegisterCandidateModule { }

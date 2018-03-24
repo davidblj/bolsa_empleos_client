@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 export class RegisterCandidateEntryPointComponent {
 
   size = 'small';
+  currentStep = 1;
+
+  onNextStep() {
+    this.currentStep++;
+  }
+
 }

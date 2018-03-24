@@ -1,13 +1,15 @@
 
-<div [ngSwitch]="currentStep">
+<div [ngSwitch]="step">
   <app-register-step-one
     (submit)="addStepOne($event)"
     *ngSwitchCase="1">
   </app-register-step-one>
   <app-register-step-two
+    (submit)="addStepTwo($event)"
     *ngSwitchCase="2">
   </app-register-step-two>
   <app-register-step-three
+    (submit)="addStepThree($event)"
     *ngSwitchCase="3">
   </app-register-step-three>
 </div>

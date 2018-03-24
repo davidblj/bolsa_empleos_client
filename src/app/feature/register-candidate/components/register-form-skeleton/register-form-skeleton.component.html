@@ -3,7 +3,7 @@
 
   <div class="header">
     <div class="header__title">
-      {{headerTitle}}
+      Registrate
     </div>
     <div class="header__tip">
       {{headerHint}}
@@ -17,7 +17,7 @@
   <div class="form__footer">
     <app-button
       [enabled]="status"
-      (next)="onClick()">
+      (submit)="onSubmit()">
       {{buttonMessage}}
     </app-button>
   </div>

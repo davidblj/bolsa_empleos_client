@@ -8,6 +8,8 @@ import { HintComponent } from './components/hint/hint.component';
 import { WarningComponent } from './components/warning/warning.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from './components/button/button.component';
+import { FileInputComponent } from './components/file-input/file-input.component';
+import { StepperComponent } from './components/stepper/stepper.component';
 
 // warningComponent, hintComponent, and registerButton component must be private members, make it do so.
 
@@ -32,7 +34,9 @@ import { ButtonComponent } from './components/button/button.component';
     InputComponent,
     HintComponent,
     WarningComponent,
-    ButtonComponent
+    ButtonComponent,
+    FileInputComponent,
+    StepperComponent
   ]
 })
 export class SharedDModule { }

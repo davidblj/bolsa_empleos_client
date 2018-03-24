@@ -1,0 +1,21 @@
+
+<input type="file"
+       accept=".pdf"
+       #fileInput
+       style="display: none"
+       (change)="onFileUpload($event)">
+
+<div
+  class="file-upload"
+  (click)="onClick()">
+
+  <div class="file-upload__title">Hoja de vida</div>
+  <div class="file">
+    <img src="assets/pdf.svg"
+         class="file__icon">
+    <div class="file__message"
+         [ngClass]="{'file__message_warning': error}">
+      {{fileMessage}}</div>
+  </div>
+
+</div>

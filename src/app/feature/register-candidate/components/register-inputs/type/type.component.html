@@ -2,13 +2,19 @@
 <div class="selection">
 
   <div class="selection__title">
-    escoge tu perfil
+    elige tu perfil
   </div>
 
-  <button class="selection__button">
-    practicante
+  <button class="selection__button"
+          type="button"
+          [ngClass]="{'selection__button_active': active('student')}"
+          (click)="onClick('student')">
+    estudiante
   </button>
-  <button class="selection__button">
+  <button class="selection__button"
+          type="button"
+          [ngClass]="{'selection__button_active': active('graduate')}"
+          (click)="onClick('graduate')">
     egresado
   </button>
 </div>

@@ -17,9 +17,6 @@ export class RegisterStepOneComponent {
   passwordStatus = false;
   // usernameStatus = false;
 
-  @Output()
-  submit = new EventEmitter<any>();
-
   constructor(private fb: FormBuilder) {
     this.createForm()
   }

@@ -14,7 +14,6 @@ export class RegisterStepOneComponent {
   @Output()
   submit = new EventEmitter<any>();
 
-  title = 'Registrate';
   hint = 'Ingresa la información general de tu sesión';
   button = 'SIGUIENTE';
 

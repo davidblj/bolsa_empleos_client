@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomValidators } from '../../../../shared-d/utils/custom-validators.functions';
 
 @Component({
   selector: 'app-register-step-three',
@@ -7,9 +9,58 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterStepThreeComponent implements OnInit {
 
-  constructor() { }
+  @Output()
+  submit = new EventEmitter<any>();
 
-  ngOnInit() {
+  hint = 'Hazte a conocer ante una empresa';
+  button = 'FINALIZAR';
+
+  form: FormGroup;
+  resumeeStatus = false;
+  resumee: File;
+
+  constructor(private fb: FormBuilder) {
+    this.createForm()
   }
 
+  ngOnInit() {
+    this.createForm()
+  }
+
+  private createForm() {
+    this.form = this.fb.group({
+      email: [
+        '',
+        [
+          Validators.required,
+          CustomValidators.isAnEmail
+        ]
+      ],
+      contact: [
+        '',
+        [
+          Validators.required
+        ]
+      ]
+    })
+  }
+
+  onUpload(file: File) {
+    if (file) {
+      this.resumeeStatus = true;
+      this.resumee = file;
+    } else {
+      this.resumeeStatus = false;
+    }
+  }
+
+  onSubmit() {
+    const fields = this.form.value;
+    fields['resumee'] = this.resumee;
+    this.submit.emit(this.form.value);
+  }
+
+    get formStatus() {
+    return (this.resumeeStatus && this.form.valid);
+  }
 }

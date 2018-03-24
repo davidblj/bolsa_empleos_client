@@ -56,6 +56,17 @@ export class Manager {
     this.setHintStatus('number', hasErrors);
   }
 
+  // numeric error update
+
+  get numericStatus(): boolean {
+    return this.field.hasError('numeric');
+  }
+
+  updateNumericStatus() {
+    const hasErrors = this.numericStatus;
+    this.setHintStatus('numeric', hasErrors)
+  }
+
   // requirements error update
 
   get warningStatus() {
@@ -140,6 +151,9 @@ export class Manager {
           break;
         case 'number':
           this.updateNumberStatus();
+          break;
+        case 'numeric':
+          this.updateNumericStatus();
           break;
         case 'website':
           this.updateWebSiteStatus();

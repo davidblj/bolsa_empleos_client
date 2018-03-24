@@ -7,6 +7,12 @@ const containNumbers = (control: FormControl): { [s: string]: boolean } => {
   }
 };
 
+const isNumeric = (control: FormControl): { [s: string]: boolean } => {
+  if (!validator.isNumeric(control.value)) {
+    return {numeric: true}
+  }
+};
+
 const isAnEmail = (control: FormControl): { [s: string]: boolean }  => {
   if (!validator.isEmail(control.value)) {
     return {email: true}
@@ -21,6 +27,7 @@ const isURL = (control: FormControl): { [s: string]: boolean }  => {
 
 export const CustomValidators = {
   containNumbers,
+  isNumeric,
   isAnEmail,
   isURL,
 };

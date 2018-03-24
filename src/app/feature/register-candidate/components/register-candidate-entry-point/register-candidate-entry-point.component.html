@@ -1,5 +1,9 @@
 
 <app-sign-up-card [size]="size">
-  <app-register-form></app-register-form>
-  <app-register-stepper></app-register-stepper>
+  <app-register-form
+    (next)="onNextStep()">
+  </app-register-form>
+  <app-register-stepper
+    [step]="currentStep">
+  </app-register-stepper>
 </app-sign-up-card>

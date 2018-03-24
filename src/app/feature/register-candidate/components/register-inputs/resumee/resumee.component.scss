@@ -1,0 +1,40 @@
+@import "variables";
+
+.file-upload {
+
+  text-align: center;
+  margin-bottom: 2rem;
+
+  &__title {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: $stormGray;
+  }
+}
+
+.file {
+
+  cursor: pointer;
+  display: inline-block;
+  border: 3px solid #f15642;
+  border-radius: 5px;
+  padding: 1.5rem 3rem 0;
+  text-align: center;
+
+  &__icon {
+    height: 75px;
+  }
+
+  &__message {
+    text-align: center;
+    margin: 1rem 0 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+
+    &_warning {
+      color: $mountainMist;
+    }
+  }
+}

@@ -1,21 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
-
-// classes
-import { Manager } from '../../../../../shared-d/classes/manager.class';
-
-// interfaces
 import { Error } from '../../../../../shared-d/interfaces/error.interface';
-
-// variables
+import { Manager } from '../../../../../shared-d/classes/manager.class';
 import { definitions } from '../../../../../shared-d/utils/definitions.variables';
 
 @Component({
-  selector: 'app-pid',
-  templateUrl: './pid.component.html',
-  styleUrls: ['./pid.component.scss']
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.scss']
 })
-export class PidComponent implements OnInit {
+export class ContactComponent implements OnInit {
 
   @Input()
   parent: FormGroup;
@@ -23,21 +17,23 @@ export class PidComponent implements OnInit {
   hints: Error[];
   warnings: Error[];
 
-  fieldName = 'Cedula';
-  pid: AbstractControl;
+  fieldName = 'Contacto';
+  placeholder = 'celular';
+
+  contact: AbstractControl;
   validationManager: Manager;
 
+  constructor() { }
+
   ngOnInit() {
-    this.pid = this.parent.get('pid');
-    this.pid.markAsUntouched();
+    this.contact = this.parent.get('contact');
+    this.contact.markAsUntouched();
     this.initErrorMessaging();
   }
 
   initErrorMessaging() {
 
-    this.hints = [
-      definitions.numeric()
-    ];
+    this.hints = [];
 
     this.warnings = [
       definitions.required()
@@ -46,17 +42,17 @@ export class PidComponent implements OnInit {
     this.validationManager = new Manager(
       this.hints,
       this.warnings,
-      this.pid
+      this.contact
     )
   }
 
-  onInput(value: string) {
-    this.pid.setValue(value);
+  onInput(value) {
+    this.contact.setValue(value);
     this.validationManager.updateIndependentFields();
   }
 
   onTouch() {
-    this.pid.markAsTouched();
+    this.contact.markAsTouched();
   }
 
   get displayWarnings() {
