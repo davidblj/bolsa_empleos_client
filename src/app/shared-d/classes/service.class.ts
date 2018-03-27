@@ -8,9 +8,13 @@ export class Service {
     return (error: HttpErrorResponse): ErrorObservable => {
 
       if (error.error instanceof ErrorEvent) {
+
         console.error('An error occurred:', error.error.message);
       } else {
-        console.error(`Backend returned code ${error.status}, body was: ${error.error}`);
+
+        console.error(
+          `Backend returned an error with code ${error.status} \n` +
+          `And its body was: ${error.error}`);
       }
 
       return new ErrorObservable(message);

@@ -49,7 +49,7 @@ export class UsernameComponent implements OnInit {
       })
       .debounceTime(500)
       .switchMap(value => this.registerService.checkExistence('username', value))
-      .subscribe(flag => this.updateUsernameStatus(flag))
+      .subscribe(flag => { this.updateUsernameStatus(flag) })
   }
 
   initErrorMessaging() {

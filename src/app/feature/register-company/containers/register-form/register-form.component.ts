@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 // classes
-import { User } from '../../shared/user.model';
+import { Company } from '../../shared/company.model';
 
 // services
 import { RegisterService } from '../../shared/register.service';
@@ -17,7 +17,8 @@ export class RegisterFormComponent {
   next = new EventEmitter<number>();
 
   step = 1;
-  user = new User();
+  user = new Company();
+  logo: File;
 
   constructor(private registerService: RegisterService) {}
 
@@ -33,7 +34,7 @@ export class RegisterFormComponent {
 
   addStepTwo({logo, name, website, details, sector, city, nit}) {
     this.nextStep();
-    this.user.setLogo(logo);
+    this.logo = logo;
     this.user.setName(name);
     this.user.setWebsite(website);
     this.user.setDetails(details);
@@ -47,6 +48,11 @@ export class RegisterFormComponent {
     this.user.setAdmin(admin);
     this.user.setContact(contact);
     this.user.setEmail(email);
+
+    // the logo must be placed at the end of
+    // the request to prevent unexpected failed
+    // uploads
+    this.user.setLogo(this.logo);
     this.submit();
   }
 

@@ -23,7 +23,7 @@ export class NameComponent implements OnInit {
   hints: Error[];
   warnings: Error[];
 
-  fieldName = 'Nombre';
+  fieldName = 'Nombre completo';
   name: AbstractControl;
   validationManager: Manager;
 

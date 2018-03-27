@@ -1,6 +1,6 @@
 
 export interface Error {
-  key: String,
-  message: String,
-  resolved: boolean
+  key: String;
+  message: String;
+  resolved: boolean;
 }

@@ -17,6 +17,7 @@ import { TypeComponent } from './components/register-inputs/type/type.component'
 import { EmailComponent } from './components/register-inputs/email/email.component';
 import { ContactComponent } from './components/register-inputs/contact/contact.component';
 import { ResumeeComponent } from './components/register-inputs/resumee/resumee.component';
+import { RegisterService } from './shared/register.service';
 
 @NgModule({
   imports: [
@@ -43,6 +44,7 @@ import { ResumeeComponent } from './components/register-inputs/resumee/resumee.c
     EmailComponent,
     ContactComponent,
     ResumeeComponent
-  ]
+  ],
+  providers: [RegisterService]
 })
 export class RegisterCandidateModule { }

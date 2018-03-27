@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 // classes
-import { User } from '../../shared/user.model';
+import { Candidate } from '../../shared/candidate.model';
+import { RegisterService } from '../../shared/register.service';
 
 @Component({
   selector: 'app-register-form',
@@ -14,9 +15,9 @@ export class RegisterFormComponent {
   next = new EventEmitter<any>();
 
   step = 1;
-  user = new User();
+  user = new Candidate();
 
-  constructor() { }
+  constructor(private registerService: RegisterService) { }
 
   addStepOne({username, password}) {
     this.nextStep();
@@ -33,14 +34,22 @@ export class RegisterFormComponent {
 
   addStepThree({resumee, email, contact}) {
     this.nextStep();
-    this.user.setResumee(resumee);
     this.user.setEmail(email);
     this.user.setContact(contact);
+
+    // the resumee must be placed at the end of
+    // the request to prevent unexpected failed
+    // uploads
+    this.user.setResumee(resumee);
     this.submit();
   }
 
   submit() {
-    console.log(this.user)
+    console.log(this.user);
+    this.registerService.addUser(this.user).subscribe(
+      () => { console.log('sent') },
+      (error) => { console.log(error) }
+    )
   }
 
   nextStep() {

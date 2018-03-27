@@ -1,35 +1,25 @@
+import { User } from '../../../shared-d/classes/user.class';
 
-export class User {
+export class Company extends User {
 
-  private username: string;
-  private password: string;
-  private logo: File;
-  private name: string;
   private website: string;
   private details: string;
   private sector: string;
   private city: string;
   private nit: string;
   private admin: string;
-  private contact: string;
-  private email: string;
 
-  constructor() {}
+  // "multer" needs the logo at the end of
+  // this file to prevent unexpected failed
+  // uploads
+  private logo: File;
 
-  setUsername(value: string) {
-    this.username = value;
-  }
-
-  setPassword(value: string) {
-    this.password = value;
+  constructor() {
+    super();
   }
 
   setLogo(value: File) {
     this.logo = value;
-  }
-
-  setName(value: string) {
-    this.name = value;
   }
 
   setWebsite(value: string) {
@@ -55,13 +45,4 @@ export class User {
   setAdmin(value: string) {
     this.admin = value;
   }
-
-  setContact(value: string) {
-    this.contact = value;
-  }
-
-  setEmail(value: string) {
-    this.email = value;
-  }
-
 }
