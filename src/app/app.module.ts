@@ -71,12 +71,12 @@ import { ApplicantModule } from './pages/applicant-page/applicant.module';
 
     // refactoring modules
     FeatureModule,
-    NgbModule.forRoot(),
-    PopoverModule.forRoot(),
 
-    // app modules
+    // legacy modules
     BrowserModule,
     RestangularModule.forRoot(RestangularConfigFactory),
+    NgbModule.forRoot(),
+    PopoverModule.forRoot(),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

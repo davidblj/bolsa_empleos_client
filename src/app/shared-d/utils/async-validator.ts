@@ -1,5 +1,8 @@
 import { AbstractControl } from '@angular/forms';
 import { Manager } from '../classes/manager.class';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/switchMap';
 
 const checkField = (control: AbstractControl,
                     getBlockingStatus,
