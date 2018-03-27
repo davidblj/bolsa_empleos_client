@@ -28,7 +28,7 @@ const number = (): Error =>
 const numeric = (): Error =>
   ({
     key: 'numeric',
-    message: 'solamente tiene numeros',
+    message: 'esta compuesta por numeros',
     resolved: false
   });
 
@@ -51,13 +51,6 @@ const email = (): Error =>
     resolved: false
   });
 
-const username = (): Error =>
-  ({
-    key: 'async-username',
-    message: 'el usuario es unico',
-    resolved: false
-  });
-
 const length = (min: number, max: number): Error => {
   return ({
     key: 'length',
@@ -65,6 +58,20 @@ const length = (min: number, max: number): Error => {
     resolved: false
   })
 };
+
+const username = (): Error =>
+  ({
+    key: 'async-username',
+    message: 'el usuario es unico',
+    resolved: false
+  });
+
+const async = (message): Error =>
+  ({
+    key: 'async',
+    message,
+    resolved: false
+  });
 
 export const definitions = {
   required,
@@ -74,6 +81,7 @@ export const definitions = {
   match,
   website,
   email,
+  length,
   username,
-  length
+  async
 };

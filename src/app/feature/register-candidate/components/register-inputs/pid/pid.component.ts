@@ -9,6 +9,10 @@ import { Error } from '../../../../../shared-d/interfaces/error.interface';
 
 // variables
 import { definitions } from '../../../../../shared-d/utils/definitions.variables';
+import { asyncValidator } from '../../../../../shared-d/utils/async-validator';
+
+// services
+import { RegisterService } from '../../../shared/register.service';
 
 @Component({
   selector: 'app-pid',
@@ -23,20 +27,30 @@ export class PidComponent implements OnInit {
   hints: Error[];
   warnings: Error[];
 
-  fieldName = 'Cedula';
+  fieldName = 'Cédula';
   pid: AbstractControl;
   validationManager: Manager;
+
+  constructor(private registerService: RegisterService) {}
 
   ngOnInit() {
     this.pid = this.parent.get('pid');
     this.pid.markAsUntouched();
     this.initErrorMessaging();
+
+    asyncValidator.checkField(
+      this.pid,
+      this.getBlockingStatus(),
+      this.checkStatusTask(),
+      this.validationManager
+    );
   }
 
   initErrorMessaging() {
 
     this.hints = [
-      definitions.numeric()
+      definitions.numeric(),
+      definitions.async('la cédula no esta en uso')
     ];
 
     this.warnings = [
@@ -48,6 +62,18 @@ export class PidComponent implements OnInit {
       this.warnings,
       this.pid
     )
+  }
+
+  getBlockingStatus() {
+    return () => {
+      return this.validationManager.numericStatus
+    }
+  }
+
+  checkStatusTask() {
+    return (value) => {
+      return this.registerService.checkExistence('pid', value)
+    }
   }
 
   onInput(value: string) {

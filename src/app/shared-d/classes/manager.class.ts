@@ -37,7 +37,9 @@ export class Manager {
   // required error update
 
   get requiredStatus(): boolean {
-    return this.field.hasError('required');
+    return (
+      this.field.hasError('required') ||
+      this.field.value.length === 0);
   }
 
   updateRequiredStatus() {
@@ -114,11 +116,21 @@ export class Manager {
     this.setHintStatus('email', hasErrors);
   }
 
+
+  // utilities for manual updates
+
   // match error update
 
   updateMatchingStatus(originalPassword) {
     const hasErrors = (this.field.value !== originalPassword);
     this.setHintStatus('match', hasErrors);
+  }
+
+  // async error update
+
+  updateAsyncStatus(error: boolean) {
+    this.setHintStatus('async', error);
+    this.updateRequirementsStatus()
   }
 
   // utils
@@ -130,8 +142,6 @@ export class Manager {
   }
 
   updateIndependentFields() {
-    // every warning status should be checked after
-    // every hint has been updated, not before.
     this.findAndExec(this.hints);
     this.findAndExec(this.warnings);
   }

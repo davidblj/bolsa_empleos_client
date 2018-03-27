@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AbstractControl, FormGroup } from '@angular/forms';
 
 // classes
 import { Manager } from '../../../../../shared-d/classes/manager.class';
@@ -8,7 +9,10 @@ import { Error } from '../../../../../shared-d/interfaces/error.interface';
 
 // variables
 import { definitions } from '../../../../../shared-d/utils/definitions.variables';
-import { AbstractControl, FormGroup } from '@angular/forms';
+
+// services
+import { RegisterService } from '../../../shared/register.service';
+import { asyncValidator } from '../../../../../shared-d/utils/async-validator';
 
 @Component({
   selector: 'app-email',
@@ -27,19 +31,27 @@ export class EmailComponent implements OnInit {
   email: AbstractControl;
   validationManager: Manager;
 
-  constructor() { }
+  constructor(private registerService: RegisterService) {}
 
   ngOnInit() {
 
     this.email = this.parent.get('email');
     this.email.markAsUntouched();
     this.initErrorMessaging();
+
+    asyncValidator.checkField(
+      this.email,
+      this.getBlockingStatus(),
+      this.checkStatusTask(),
+      this.validationManager
+    )
   }
 
   initErrorMessaging() {
 
     this.hints = [
-      definitions.email()
+      definitions.email(),
+      definitions.async('el correo no esta en uso')
     ];
 
     this.warnings = [
@@ -51,6 +63,18 @@ export class EmailComponent implements OnInit {
       this.warnings,
       this.email
     )
+  }
+
+  getBlockingStatus() {
+    return () => {
+      return this.validationManager.emailStatus
+    }
+  }
+
+  checkStatusTask() {
+    return (value) => {
+      return this.registerService.checkExistence('email', value)
+    }
   }
 
   onInput(value) {
