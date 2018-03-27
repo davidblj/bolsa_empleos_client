@@ -76,6 +76,7 @@ import { ApplicantModule } from './pages/applicant-page/applicant.module';
 
     // app modules
     BrowserModule,
+    RestangularModule.forRoot(RestangularConfigFactory),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
