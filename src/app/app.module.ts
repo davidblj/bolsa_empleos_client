@@ -18,12 +18,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/guest-page/home/home.component';
 import { HeaderComponent } from './pages/guest-page/header/header.component';
 import { CompanyDashboardComponent } from './pages/company-page/company-dashboard/company-dashboard.component';
-import { RegisterComponent } from './pages/company-page/register/register.component';
 import { LoginComponent } from './pages/guest-page/login/login.component';
 import { JobFormComponent } from './pages/company-page/job-form/job-form.component';
 import { DashboardTableComponent } from './pages/company-page/dashboard-table/dashboard-table.component';
-import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
-import { RegisterUserComponent } from './pages/applicant-page/register-user/register-user.component';
 import { PickSidesComponent } from './pages/guest-page/pick-sides/pick-sides.component';
 import { ApplicantDashboardComponent } from './pages/applicant-page/applicant-dashboard/applicant-dashboard.component';
 import { CompanyDetailsComponent } from './pages/guest-page/company-details/company-details.component';
@@ -32,11 +29,9 @@ import { JobComponent } from './pages/company-page/job/job.component';
 // servicios
 
 import { CompanyService } from './services/organizacion/company.service';
-import { RegisterService } from './services/organizacion/register.service';
 import { LoginService } from './services/organizacion/login.service';
 import { RegisterJobService } from './services/organizacion/register-job.service';
 import { JobListService } from './services/organizacion/job-list.service';
-import { RegisterApplicantService } from './services/applicant/register-applicant.service';
 import { SearchService } from './services/guest/search.service';
 import { ApplyService } from './services/applicant/apply.service';
 import { JobService } from './services/organizacion/job.service';
@@ -62,12 +57,10 @@ import { ApplicantModule } from './pages/applicant-page/applicant.module';
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    RegisterComponent,
     LoginComponent,
     CompanyDashboardComponent,
     JobFormComponent,
     DashboardTableComponent,
-    RegisterUserComponent,
     CompanyDetailsComponent,
     PickSidesComponent,
     ApplicantDashboardComponent,
@@ -83,11 +76,9 @@ import { ApplicantModule } from './pages/applicant-page/applicant.module';
 
     // app modules
     BrowserModule,
-    RestangularModule.forRoot(RestangularConfigFactory),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng4GeoautocompleteModule.forRoot(),
     SharedModule,
     ApplicantModule
   ],
@@ -97,12 +88,10 @@ import { ApplicantModule } from './pages/applicant-page/applicant.module';
   ],
   providers: [
     CompanyService,
-    RegisterService,
     LoginService,
     RegisterJobService,
     CompanyAuthGuard,
     JobListService,
-    RegisterApplicantService,
     SearchService,
     ApplyService,
     JobService,

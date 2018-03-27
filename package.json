@@ -19,7 +19,7 @@
   "homepage": "https://github.com/davidblj/Bolsa-de-Empleos#readme",
   "dependencies": {
     "@angular/animations": "^5.0.0",
-    "@angular/cli": "1.7.2",
+    "@angular/cli": "^1.7.3",
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
     "@angular/compiler-cli": "^5.0.0",
@@ -35,7 +35,6 @@
     "@types/validator": "^9.4.0",
     "core-js": "^2.5.0",
     "express": "^4.16.2",
-    "ng4-geoautocomplete": "0.0.9",
     "ngx-bootstrap": "^2.0.2",
     "ngx-restangular": "^2.0.2",
     "rxjs": "^5.5.2",
