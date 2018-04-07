@@ -7,7 +7,7 @@ import { InputComponent } from './components/input/input.component';
 import { HintComponent } from './components/hint/hint.component';
 import { WarningComponent } from './components/warning/warning.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ButtonComponent } from './components/button/button.component';
+import { SignUpButtonComponent } from './components/sign-up-common/sign-up-button/sign-up-button.component';
 import { FileInputComponent } from './components/file-input/file-input.component';
 import { StepperComponent } from './components/stepper/stepper.component';
 
@@ -34,7 +34,7 @@ import { StepperComponent } from './components/stepper/stepper.component';
     InputComponent,
     HintComponent,
     WarningComponent,
-    ButtonComponent,
+    SignUpButtonComponent,
     FileInputComponent,
     StepperComponent
   ]

@@ -1,0 +1,43 @@
+@import "variables";
+@import "mixins";
+
+$info-width: 50vw;
+$login-height: 100vh;
+
+.log-in {
+
+  position: relative;
+
+  &__info {
+
+    height: $login-height;
+    width: $info-width;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $mantis;
+    padding: 0 4rem;
+    z-index: 1;
+
+    .info {
+
+      @include y-mid-positioning;
+      width: 60rem;
+      right: 0;
+
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: white;
+      text-align: right;
+    }
+  }
+
+  &__entry {
+
+    position: absolute;
+    width: 100%;
+    height: $login-height;
+    padding-left: $info-width;
+    background: $azure;
+  }
+}

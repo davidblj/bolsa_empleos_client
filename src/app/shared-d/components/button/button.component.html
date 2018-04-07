@@ -1,10 +1,4 @@
 
-<button
-  class="btn"
-  [ngClass]="{'btn_disabled': !enabled, 'btn_action-next': enabled, 'btn_hovering-animation': enabled}"
-  (click)="onClick()">
-
+<button class="button button_log-in">
   <ng-content></ng-content>
-  <i class="arrow arrow_direction-right fas fa-angle-right"></i>
-
 </button>

@@ -1,4 +1,4 @@
-@import "variables.scss";
+@import "variables";
 
 :host {
   position: absolute;
@@ -13,7 +13,7 @@
   width: 25rem;
   padding: 2rem;
   box-shadow: 0 0 6px -2px $regentGray;
-  background: $seaShell;
+  background: $azure;
   border-width: 5px 0 0 0;
   border-color: $burntSienna;
 

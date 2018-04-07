@@ -1,0 +1,55 @@
+@import "variables";
+@import "mixins";
+
+.log-in-form {
+
+  @include mid-positioning;
+  width: 60%;
+
+  &__header {
+
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 5rem;
+    text-align: center;
+  }
+
+  &__inputs {
+    margin-bottom: 7rem;
+  }
+
+  &-footer{
+
+    text-align: center;
+
+    &__submit {}
+
+    &__sign-up {
+      margin-top: 5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+
+      &_green {
+        color: $mantis;
+
+        &:hover {
+
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+
+    &__recovery {
+
+      margin-top: .5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -2,11 +2,12 @@
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'); // bootstrap v4
 @import url('https://use.fontawesome.com/releases/v5.0.6/css/all.css');   // font awesome
 
+// todo: remove these components
 @import "forms";
 @import "sign-up-card";
 
-// base font color
-$abbey: #464650;
+@import "utilities";
+@import "variables";
 
 *,
 *::after,
@@ -24,6 +25,7 @@ html {
 body {
   height: 100vh;
 
+  // base font settings
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 400;
   color: $abbey;

@@ -1,45 +1,22 @@
-@import "variables.scss";
+@import "mixins";
+@import "variables";
 
-.btn {
+.button {
 
-  border-radius: 2rem;
-  padding: 1.2rem 4rem;
-  letter-spacing: 2px;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: $white;
-  transition: all .2s;
+  @include button;
 
-  &_action-next {
+  padding: 0.8rem 6rem;
+  background-color: $azure;
+  border: 2px solid $mantis;
+  transition: background-color .3s;
+
+  &:hover {
     background-color: $mantis;
+    color: $white;
+    border: 2px solid $azure;
   }
 
-  &_disabled {
-
-    cursor: default !important;
-    background: $mantis;
-
-    &:hover {
-      background: rgba($mantis, 0.9);
-    }
-  }
-
-  &_hovering-animation {
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 1rem 2rem rgba($mantis,0.5);
-    }
-  }
-
-  &:focus {
-    box-shadow: none;
-  }
-}
-
-.arrow {
-
-  &_direction-right {
-    padding-left: 2.5rem;
+  &:hover {
+    cursor: pointer;
   }
 }

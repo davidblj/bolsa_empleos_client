@@ -1,0 +1,42 @@
+@import "variables";
+
+$img-height: 3rem;
+$icon-width: 5rem;  // where: icon-width > $img-height
+$input-height: 5rem;
+
+.log-in-field {
+
+  text-align: center;
+  margin-bottom: 2rem;
+
+  &__icon {
+
+    width: $icon-width;
+    display: inline-block;
+
+    img {
+      display: inline-block;
+      height: $img-height;
+    }
+  }
+
+  &__input {
+
+    display: inline-block;
+    width: calc(100% - #{$icon-width} - 10%);
+
+    input {
+
+      background-color: $azure;
+      border: none;
+      height: $input-height;
+      font-size: 1.6rem;
+      padding-left: 1rem;
+      width: 100%;
+
+      &:focus {
+        border-bottom: 2px solid $mantis;
+      }
+    }
+  }
+}
