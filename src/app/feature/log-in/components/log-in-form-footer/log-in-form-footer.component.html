@@ -1,0 +1,31 @@
+
+<div class="log-in-form-footer">
+
+  <div class="log-in-form-footer__submit">
+    <app-button
+      *ngIf="!loading; else loadingIcon"
+      (submit)="onSubmit()">
+      ENTRAR
+    </app-button>
+
+    <ng-template #loadingIcon>
+      <img src="assets/rotate.svg"/>
+    </ng-template>
+  </div>
+
+  <div class="log-in-form-footer__sign-up">
+    <span>¿ Sin una cuenta ? </span>
+    <span class="log-in-form-footer__sign-up_green">Registrate</span>
+  </div>
+
+  <div class="log-in-form-footer__recovery">
+    <span>¿ Olvidaste tu contraseña ? </span>
+  </div>
+
+  <div  class="log-in-form-footer__error
+               log-in-form-footer__error_animation_bounce"
+        *ngIf="message.length !== 0">
+    {{message}}
+  </div>
+
+</div>

@@ -18,38 +18,4 @@
     margin-bottom: 7rem;
   }
 
-  &-footer{
-
-    text-align: center;
-
-    &__submit {}
-
-    &__sign-up {
-      margin-top: 5rem;
-      font-size: 1.2rem;
-      font-weight: 600;
-
-      &_green {
-        color: $mantis;
-
-        &:hover {
-
-          text-decoration: underline;
-          cursor: pointer;
-        }
-      }
-    }
-
-    &__recovery {
-
-      margin-top: .5rem;
-      font-size: 1.2rem;
-      font-weight: 600;
-
-      &:hover {
-        text-decoration: underline;
-        cursor: pointer;
-      }
-    }
-  }
 }

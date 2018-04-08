@@ -1,0 +1,74 @@
+@import "variables";
+
+.log-in-form-footer{
+
+  text-align: center;
+
+  &__submit {
+
+    img {
+      height: 4rem;
+      animation: {
+        duration: 1s;
+        name: rotate;
+        iteration-count: infinite;
+        timing-function: linear;
+      }
+    }
+  }
+
+  &__sign-up {
+    margin-top: 5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    &_green {
+      color: $mantis;
+
+      &:hover {
+
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__recovery {
+
+    margin-top: .5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    &:hover {
+
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  &__error {
+
+    position: absolute;
+    bottom: -10rem;
+    transform: translateX(-50%);
+    width:fit-content;
+
+    background: $burntSienna;
+    border-radius: 5px;
+    text-align: center;
+
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: $white;
+    display: inline-block;
+    padding: .7rem 4rem;
+
+    &_animation_bounce {
+
+      animation: {
+        duration: .5s;
+        name: bounce;
+      }
+    }
+  }
+}

@@ -1,1 +1,6 @@
-<app-log-in-form></app-log-in-form>
+
+<app-log-in-form
+  (submit)="onSubmit($event)"
+  [message]="message"
+  [loading]="loading">
+</app-log-in-form>

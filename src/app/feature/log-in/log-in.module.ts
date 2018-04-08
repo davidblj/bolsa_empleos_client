@@ -6,13 +6,17 @@ import { LogInFormComponent } from './components/log-in-form/log-in-form.compone
 import { SharedDModule } from '../../shared-d/shared-d.module';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { AutoFocusDirective } from './shared/auto-focus.directive';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './shared/auth.service';
+import { LogInFormFooterComponent } from './components/log-in-form-footer/log-in-form-footer.component';
 
 // ng g component feature/log-in/components -m feature/log-in/log-in.module.ts
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedDModule
+    SharedDModule,
+    ReactiveFormsModule,
   ],
   exports: [
     LogInComponent
@@ -22,7 +26,9 @@ import { AutoFocusDirective } from './shared/auto-focus.directive';
     LogInFieldComponent,
     LogInFormComponent,
     LogInFormContainerComponent,
-    AutoFocusDirective
-  ]
+    AutoFocusDirective,
+    LogInFormFooterComponent
+  ],
+  providers: [AuthService]
 })
 export class LogInModule { }

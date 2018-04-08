@@ -14,7 +14,7 @@ export class Service {
 
         console.error(
           `Backend returned an error with code ${error.status} \n` +
-          `And its body was: ${error.error}`);
+          `And its body was: ${JSON.stringify(error.error)}`);
       }
 
       return new ErrorObservable(message);

@@ -1,11 +1,16 @@
 import { Component, Input } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 
-@Component({
+@ Component({
   selector: 'app-log-in-field',
   templateUrl: './log-in-field.component.html',
   styleUrls: ['./log-in-field.component.scss']
 })
 export class LogInFieldComponent {
+
+
+  @Input()
+  control: AbstractControl;
 
   @Input()
   placeholder = '';
