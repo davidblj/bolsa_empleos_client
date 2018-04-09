@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Error } from '../../interfaces/error.interface';
+import { Error } from '../../../interfaces/error.interface';
 
 @Component({
   selector: 'app-hint',

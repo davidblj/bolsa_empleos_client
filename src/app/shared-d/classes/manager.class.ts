@@ -13,6 +13,8 @@ export class Manager {
     this.hints = hints;
     this.field = field;
 
+    // if this field have hints, do add automatically
+    // a requirement warning
     if (this.hints.length > 0) {
       warnings.push(definitions.requirements());
     }

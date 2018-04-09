@@ -14,8 +14,8 @@ export class RegisterStepOneComponent {
   submit = new EventEmitter<any>();
 
   form: FormGroup;
-  passwordStatus = false;
-  // usernameStatus = false;
+  password: string;
+  checkPasswordStatus = false;
 
   constructor(private fb: FormBuilder) {
     this.createForm()
@@ -43,19 +43,19 @@ export class RegisterStepOneComponent {
     })
   }
 
-  onUpdatePassword(status: boolean) {
-    this.passwordStatus = status;
+  onUpdatePassword(password: string) {
+    this.password = password;
   }
 
-  /*onUpdateUsername(status: boolean) {
-    this.usernameStatus = status;
-  }*/
+  onUpdateCheckPasswordStatus(status: boolean) {
+    this.checkPasswordStatus = status;
+  }
 
   onSubmit() {
     this.submit.emit(this.form.value);
   }
 
   get formStatus() {
-    return (this.passwordStatus && this.form.valid);
+    return (this.checkPasswordStatus && this.form.valid);
   }
 }

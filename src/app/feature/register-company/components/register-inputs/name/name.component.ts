@@ -1,7 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
+
+// interfaces
 import { Error } from '../../../../../shared-d/interfaces/error.interface';
+
+// variables
 import { definitions } from '../../../../../shared-d/utils/definitions.variables';
+
+// classes
 import { Manager } from '../../../../../shared-d/classes/manager.class';
 
 @Component({
@@ -13,46 +19,30 @@ export class NameComponent implements OnInit {
   @Input()
   parent: FormGroup;
 
-  hints: Error[];
-  warnings: Error[];
-
   fieldName = 'Nombre';
   name: AbstractControl;
   validationManager: Manager;
 
   ngOnInit() {
+
     this.name = this.parent.get('name');
-    this.name.markAsUntouched();
     this.initErrorMessaging();
   }
 
   initErrorMessaging() {
 
-    this.hints = [
+    const hints: Error[] = [
       definitions.length(3, 30)
     ];
 
-    this.warnings = [
+    const warnings: Error[] = [
       definitions.required()
     ];
 
     this.validationManager = new Manager(
-      this.hints,
-      this.warnings,
+      hints,
+      warnings,
       this.name
     )
-  }
-
-  onInput(value: string) {
-    this.name.setValue(value);
-    this.validationManager.updateIndependentFields();
-  }
-
-  onTouch() {
-    this.name.markAsTouched();
-  }
-
-  get displayWarnings() {
-    return this.validationManager.displayWarnings();
   }
 }

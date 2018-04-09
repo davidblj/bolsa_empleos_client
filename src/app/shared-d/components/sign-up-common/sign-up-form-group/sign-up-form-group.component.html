@@ -1,0 +1,38 @@
+
+<div class="register-field">
+  <label class="register-field__label label">{{fieldName}}</label>
+  <input  class="register-field__input
+                 register-field__input_type-default
+                 form-control"
+          *ngIf="isType('input')"
+          [type]="inputType"
+          [placeholder]="placeholder"
+          [formControl]="validationManager.field"
+          (focus)="changeMessageVisibility()"
+          (blur)="changeMessageVisibility()">
+
+  <textarea class="register-field__input
+                   register-field__input_type-text
+                   form-control"
+            *ngIf="isType('text-area')"
+            rows="3"
+            [placeholder]="placeholder"
+            [formControl]="field"
+            (focus)="changeMessageVisibility()"
+            (blur)="changeMessageVisibility();">
+  </textarea>
+
+  <div [hidden]="!displayWarnings"
+       class="register-field__warning">
+    <app-warning
+      [focus]="showMessages"
+      [warnings]="validationManager.warnings">
+    </app-warning>
+  </div>
+</div>
+
+<div *ngIf="showMessages">
+  <app-hint
+    [hints]="validationManager.hints">
+  </app-hint>
+</div>

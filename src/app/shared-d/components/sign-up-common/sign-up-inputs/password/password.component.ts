@@ -21,7 +21,7 @@ export class PasswordComponent implements OnInit {
   parent: FormGroup;
 
   @Output()
-  changed = new EventEmitter<string>();
+  update = new EventEmitter<string>();
 
   // control
   fieldName = 'Contraseña';
@@ -33,11 +33,11 @@ export class PasswordComponent implements OnInit {
 
     this.password = this.parent.get('password');
 
-    this.initPasswordErrorMessaging();
+    this.initErrorMessaging();
     this.onInput();
   }
 
-  initPasswordErrorMessaging() {
+  initErrorMessaging() {
 
     const hints: Error[] = [
       definitions.length(8, 16),
@@ -57,7 +57,7 @@ export class PasswordComponent implements OnInit {
   onInput() {
 
     this.password.valueChanges.subscribe((value) => {
-      this.changed.emit(value);
+      this.update.emit(value);
     })
   }
 }

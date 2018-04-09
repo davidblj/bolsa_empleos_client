@@ -7,13 +7,18 @@
   </div>
 
   <div class="form__body">
-    <app-username
+    <app-username-d
       [parent]="form">
-    </app-username>
-    <app-password
+    </app-username-d>
+    <app-password-d
       [parent]="form"
       (update)="onUpdatePassword($event)">
-    </app-password>
+    </app-password-d>
+    <app-check-password-d
+      [parent]="form"
+      [password]="password"
+      (status)="onUpdateCheckPasswordStatus($event)">
+    </app-check-password-d>
   </div>
 
   <div class="form__footer
