@@ -9,7 +9,7 @@ import { RegisterStepperComponent } from './components/register-stepper/register
 import { UsernameComponent } from './components/register-inputs/username/username.component';
 import { CheckPasswordComponent } from './components/register-inputs/check-password/check-password.component';
 import { PasswordComponent } from './components/register-inputs/password/password.component';
-import { SharedDModule } from '../../shared-d/shared-d.module';
+import { SharedModule } from '../../shared/shared.module';
 import { RegisterCandidateEntryPointComponent } from './components/register-candidate-entry-point/register-candidate-entry-point.component';
 import { PidComponent } from './components/register-inputs/pid/pid.component';
 import { NameComponent } from './components/register-inputs/name/name.component';
@@ -22,7 +22,7 @@ import { RegisterService } from './shared/register.service';
 @NgModule({
   imports: [
     CommonModule,
-    SharedDModule
+    SharedModule
   ],
   exports: [
     RegisterCandidateEntryPointComponent

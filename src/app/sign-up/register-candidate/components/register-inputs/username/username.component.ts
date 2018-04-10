@@ -2,14 +2,14 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 
 // classes
-import { Manager } from '../../../../../shared-d/classes/manager.class';
+import { Manager } from '../../../../../shared/classes/manager.class';
 
 // interfaces
-import { Error } from '../../../../../shared-d/interfaces/error.interface';
+import { Error } from '../../../../../shared/interfaces/error.interface';
 
 // variables
-import { definitions } from '../../../../../shared-d/utils/definitions.variables';
-import { asyncValidator } from '../../../../../shared-d/utils/async-validator';
+import { definitions } from '../../../../../shared/utils/definitions.variables';
+import { asyncValidator } from '../../../../../shared/utils/async-validator';
 
 // services
 import { RegisterService } from '../../../shared/register.service';

@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Manager } from '../../../../../shared-d/classes/manager.class';
+import { Manager } from '../../../../../shared/classes/manager.class';
 import { AbstractControl, FormGroup } from '@angular/forms';
-import { Error } from '../../../../../shared-d/interfaces/error.interface';
-import { definitions } from '../../../../../shared-d/utils/definitions.variables';
+import { Error } from '../../../../../shared/interfaces/error.interface';
+import { definitions } from '../../../../../shared/utils/definitions.variables';
 
 @Component({
   selector: 'app-contact',

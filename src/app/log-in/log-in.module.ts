@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 // modules
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SharedDModule } from '../shared-d/shared-d.module';
+import { SharedModule } from '../shared/shared.module';
 
 // components
 import { LogInFieldComponent } from './components/log-in-field/log-in-field.component';
@@ -19,7 +19,7 @@ import { LogInFormFooterComponent } from './components/log-in-form-footer/log-in
 @NgModule({
   imports: [
     CommonModule,
-    SharedDModule,
+    SharedModule,
     ReactiveFormsModule,
   ],
   exports: [

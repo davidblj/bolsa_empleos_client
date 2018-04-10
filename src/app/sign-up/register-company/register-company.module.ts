@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // modules
-import { SharedDModule } from '../../shared-d/shared-d.module';
+import { SharedModule } from '../../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -21,7 +21,7 @@ import { WebpageComponent } from './components/register-inputs/webpage/webpage.c
 import { DetailsComponent } from './components/register-inputs/details/details.component';
 import { SectorComponent } from './components/register-inputs/sector/sector.component';
 import { RegisterService } from './shared/register.service';
-import { interceptorProviders } from '../../shared-d/interceptors/interceptor-providers';
+import { interceptorProviders } from '../../shared/interceptors/interceptor-providers';
 import { AdminComponent } from './components/register-inputs/admin/admin.component';
 import { ContactComponent } from './components/register-inputs/contact/contact.component';
 import { EmailComponent } from './components/register-inputs/email/email.component';
@@ -33,7 +33,7 @@ import { CityComponent } from './components/register-inputs/city/city.component'
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SharedDModule
+    SharedModule
   ],
   exports: [
     RegisterCardComponent

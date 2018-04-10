@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { FileInputComponent } from '../../../../../shared-d/components/file-input/file-input.component';
+import { FileInputComponent } from '../../../../../shared/components/file-input/file-input.component';
 
 @Component({
   selector: 'app-resumee',

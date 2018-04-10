@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Manager } from '../../../../../shared-d/classes/manager.class';
-import { Error } from '../../../../../shared-d/interfaces/error.interface';
+import { Manager } from '../../../../../shared/classes/manager.class';
+import { Error } from '../../../../../shared/interfaces/error.interface';
 import { AbstractControl, FormGroup } from '@angular/forms';
-import { definitions } from '../../../../../shared-d/utils/definitions.variables';
+import { definitions } from '../../../../../shared/utils/definitions.variables';
 
 @Component({
   selector: 'app-password',

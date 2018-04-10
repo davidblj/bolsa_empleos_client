@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map'
 
 // classes
-import { Service } from '../../shared-d/classes/service.class';
+import { Service } from '../../shared/classes/service.class';
 
 // functions
 import { catchError } from 'rxjs/operators';

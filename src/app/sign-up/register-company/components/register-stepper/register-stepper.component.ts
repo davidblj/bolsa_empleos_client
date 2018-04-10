@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StepperComponent } from '../../../../shared-d/components/stepper/stepper.component';
+import { StepperComponent } from '../../../../shared/components/stepper/stepper.component';
 
 @Component({
   selector: 'app-register-stepper',

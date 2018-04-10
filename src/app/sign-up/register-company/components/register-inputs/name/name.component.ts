@@ -2,13 +2,13 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 
 // interfaces
-import { Error } from '../../../../../shared-d/interfaces/error.interface';
+import { Error } from '../../../../../shared/interfaces/error.interface';
 
 // variables
-import { definitions } from '../../../../../shared-d/utils/definitions.variables';
+import { definitions } from '../../../../../shared/utils/definitions.variables';
 
 // classes
-import { Manager } from '../../../../../shared-d/classes/manager.class';
+import { Manager } from '../../../../../shared/classes/manager.class';
 
 @Component({
   selector: 'app-name',

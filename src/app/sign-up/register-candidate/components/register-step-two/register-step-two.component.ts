@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // functions
 import { CustomValidators } from '../../shared/custom-validations.functions';
-import { CustomValidators  as SharedCustomValidators } from '../../../../shared-d/utils/custom-validators.functions';
+import { CustomValidators  as SharedCustomValidators } from '../../../../shared/utils/custom-validators.functions';
 
 @Component({
   selector: 'app-register-step-two',

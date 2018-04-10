@@ -54,4 +54,4 @@ import { ButtonComponent } from './components/button/button.component';
     ButtonComponent
   ]
 })
-export class SharedDModule { }
+export class SharedModule { }
