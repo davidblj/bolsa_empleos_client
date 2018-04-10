@@ -12,7 +12,7 @@ import { definitions } from '../../../../utils/definitions.variables';
 import { asyncValidator } from '../../../../utils/async-validator';
 
 // services
-import { RegisterService } from '../../../../../feature/register-company/shared/register.service';
+import { RegisterService } from '../../../../../sign-up/register-company/shared/register.service';
 
 @Component({
   selector: 'app-username-d',

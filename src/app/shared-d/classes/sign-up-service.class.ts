@@ -1,5 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/map'
 
 // classes
 import { Service } from './service.class';
