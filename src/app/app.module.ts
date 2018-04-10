@@ -1,10 +1,11 @@
 
 import { NgModule } from '@angular/core';
-import { AppRoutingModule} from './app-routing/app-routing.module';
-import { FeatureModule } from './feature/feature.module';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { SignUpModule } from './sign-up/sign-up.module';
+import { LogInModule } from './log-in/log-in.module';
+import { SearchModule } from './search/search.module';
 
 @NgModule({
   declarations: [
@@ -13,11 +14,12 @@ import { SignUpModule } from './sign-up/sign-up.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FeatureModule,
-    SignUpModule
+    SignUpModule,
+    LogInModule,
+    SearchModule
   ],
-  providers: [
-  ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-import { User } from '../../../shared-d/classes/user.class';
+import { User } from '../../shared/user.class';
 
 export class Company extends User {
 

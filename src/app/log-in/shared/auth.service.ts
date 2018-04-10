@@ -6,7 +6,7 @@ import { catchError } from 'rxjs/operators';
 // classes
 import { UserCredentials } from './user-credentials.model';
 import { UserAuth } from './user-auth.model';
-import { Service } from '../../../shared-d/classes/service.class';
+import { Service } from '../../shared-d/classes/service.class';
 
 @Injectable()
 export class AuthService extends Service {

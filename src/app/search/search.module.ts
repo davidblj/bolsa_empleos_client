@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+// components
 import { SearchAgentComponent } from './containers/search-agent/search-agent.component';
 import { SearchFilterComponent } from './components/search-filter/search-filter.component';
 import { SearchListComponent } from './components/search-list/search-list.component';

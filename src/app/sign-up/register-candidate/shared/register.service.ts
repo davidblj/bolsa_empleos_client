@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { SignUpService } from '../../../shared-d/classes/sign-up-service.class';
+import { SignUpService } from '../../shared/sign-up-service.class';
 
 @Injectable()
 export class RegisterService extends SignUpService {
