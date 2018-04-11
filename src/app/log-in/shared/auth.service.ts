@@ -12,6 +12,7 @@ import { Service } from '../../shared/classes/service.class';
 export class AuthService extends Service {
 
   sessionUrl = 'session';
+  redirectionUrl: string;
 
   constructor(private http: HttpClient) {
     super();
@@ -23,7 +24,7 @@ export class AuthService extends Service {
 
     return this.http.post(this.sessionUrl, user)
       .map((response: any) => {
-        this.handleAuthentication(new UserAuth(response));
+        this.handleAuthentication(response);
         return;
       })
       .pipe(catchError(this.handleError(message)));
@@ -34,14 +35,14 @@ export class AuthService extends Service {
     localStorage.removeItem('be-user');
   }
 
-  getUser(): string {
-    const userAuth: UserAuth = JSON.parse(localStorage.getItem('be-user'));
-    return userAuth.user;
+  getUser(): UserAuth {
+
+    const user = JSON.parse(localStorage.getItem('be-user'));
+    return new UserAuth(user);
   }
 
-  private handleAuthentication(userAuth: UserAuth) {
+  private handleAuthentication(userInfo: any) {
 
-    // throw if an empty field is found
-    localStorage.setItem('be-user', JSON.stringify(userAuth));
+    localStorage.setItem('be-user', JSON.stringify(userInfo));
   }
 }

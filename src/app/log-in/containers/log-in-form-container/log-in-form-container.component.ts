@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UserCredentials } from '../../shared/user-credentials.model';
+import { Router } from '@angular/router';
+
+// services
 import { AuthService } from '../../shared/auth.service';
+import { UserCredentials } from '../../shared/user-credentials.model';
+import { UserAuth } from '../../shared/user-auth.model';
 
 @Component({
   selector: 'app-log-in-form-container',
@@ -12,7 +16,8 @@ export class LogInFormContainerComponent implements OnInit {
   message = '';
   loading = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -39,12 +44,23 @@ export class LogInFormContainerComponent implements OnInit {
       .subscribe(
 
         () => {
-          // re route
+          const user: UserAuth = this.authService.getUser();
+          this.routeHandler(user);
           this.loading = false;
         },
         (error: string) => {
           this.loading = false;
           this.message = error;
         })
+  }
+
+  routeHandler(user: UserAuth) {
+
+    if (user.role === 'company') {
+
+      if (!this.authService.redirectionUrl) {
+        this.router.navigate(['empresas']);
+      }
+    }
   }
 }

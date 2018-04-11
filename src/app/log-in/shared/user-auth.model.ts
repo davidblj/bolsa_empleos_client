@@ -7,7 +7,7 @@ export class UserAuth {
 
   constructor(obj?: any) {
 
-    this._user = obj && obj._user   || null;
+    this._user = obj && obj.user   || null;
     this._role = obj && obj.role   || null;
     this._token = obj && obj.token || null;
   }

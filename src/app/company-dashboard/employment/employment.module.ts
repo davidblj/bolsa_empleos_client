@@ -9,6 +9,7 @@ import { EmploymentComponent } from './components/employment/employment.componen
 import { EmploymentJobsComponent } from './components/employment-jobs/employment-jobs.component';
 import { EmploymentNavigationComponent } from './components/employment-navigation/employment-navigation.component';
 import { EmploymentTableComponent } from './components/employment-table/employment-table.component';
+import { EmploymentTableContainerComponent } from './containers/employment-table-container/employment-table-container.component';
 
 // ng g component company-dashboard/employment/components -m company-dashboard/employment/employment.module.ts
 
@@ -21,6 +22,7 @@ import { EmploymentTableComponent } from './components/employment-table/employme
     EmploymentComponent,
     EmploymentJobsComponent,
     EmploymentNavigationComponent,
-    EmploymentTableComponent]
+    EmploymentTableComponent,
+    EmploymentTableContainerComponent]
 })
 export class EmploymentModule { }

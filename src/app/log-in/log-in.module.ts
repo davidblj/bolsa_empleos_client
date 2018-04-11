@@ -16,6 +16,9 @@ import { LogInFormFooterComponent } from './components/log-in-form-footer/log-in
 import { LogInRoutingModule } from './log-in-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
+// interceptors
+import { interceptorProviders } from '../shared/interceptors/interceptor-providers';
+
 // ng g component feature/log-in/components -m feature/log-in/log-in.module.ts
 
 @NgModule({
@@ -37,7 +40,10 @@ import { HttpClientModule } from '@angular/common/http';
     AutoFocusDirective,
     LogInFormFooterComponent
   ],
-  providers: [AuthService]
+  providers: [
+    AuthService,
+    interceptorProviders
+  ]
 })
 
 export class LogInModule { }
