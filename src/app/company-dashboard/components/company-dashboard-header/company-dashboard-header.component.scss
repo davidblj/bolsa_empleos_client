@@ -1,0 +1,58 @@
+@import "variables";
+@import "mixins";
+
+$logo-height: 4rem;
+
+.header {
+
+  height: 8vh;
+  width: 100vw;
+  padding: 1rem;
+  background: $azure;
+  position: relative;
+  @include shadow;
+  z-index: 2;
+
+  &__logo {
+
+    @include y-mid-positioning;
+
+    display: inline-block;
+    margin-left: $dashboard-left-spacing;
+
+    img {
+      height: $logo-height;
+    }
+  }
+
+  .user {
+
+    @include y-mid-positioning;
+
+    right: 0;
+    display: inline-block;
+    margin-right: $dashboard-right-spacing;
+
+    &__name {
+
+      // icon displacement
+      display: inline-block;
+      margin-right: 1.5rem;
+      line-height: 0;
+      font-size: 1.7rem;
+
+      &_bold {
+        font-weight: 600;
+      }
+    }
+
+    &__logo {
+
+      display: inline-block;
+
+      img {
+        height: $logo-height;
+      }
+    }
+  }
+}

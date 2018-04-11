@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: 'app/sign-up/sign-up.module#SignUpModule'
   },
   {
+    path: 'empresas',
+    loadChildren: 'app/company-dashboard/company-dashboard.module#CompanyDashboardModule'
+  },
+  {
     path: '',
     redirectTo: '/inicio',
     pathMatch: 'full'

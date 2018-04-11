@@ -1,3 +1,5 @@
+   // colors
+
 // white scale
 $white: #fff;
 $azure: #F7F9f9;
@@ -25,3 +27,13 @@ $mantis: #5cc26c;
 
 // red scale
 $burntSienna: #E95A51;
+
+
+  // company dashboard
+$company-dashboard-background: lighten($regentGray, 37%);
+$header-height: 8vh;
+$body-height: 92vh;
+$side-margin: 8rem;
+$dashboard-top-spacing: 6rem;
+$dashboard-left-spacing: 6rem;
+$dashboard-right-spacing: 8rem;

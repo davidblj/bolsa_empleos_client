@@ -1,0 +1,69 @@
+@import "variables";
+@import "mixins";
+
+$left-table-spacing: 2%;
+$row-width-expansion: 4rem;
+
+.custom-table {
+
+  margin: 3rem $dashboard-right-spacing 0;
+  position: relative;
+}
+
+.table-header {
+
+  margin-bottom: 2rem;
+
+  &__item {
+
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding-left: $left-table-spacing;
+  }
+}
+
+.table-row {
+
+  background-color: $azure;
+  border-radius: 5px;
+  margin-top: 1.2rem;
+
+  &__item {
+
+    display: inline-block;
+    font-size: 1.6rem;
+    padding: 1.5rem $left-table-spacing;
+
+    img {
+
+      width: 2rem;
+      cursor: pointer;
+    }
+  }
+
+  &:hover {
+    @include strong-shadow;
+    width: calc(100% + #{$row-width-expansion});
+    margin-left: (calc(-#{$row-width-expansion}/2));
+    border-left: 4px solid $mantis;
+  }
+}
+
+// 2 + 42 + 20 + 20 + 10 + 5 = 99
+.size_big {
+  width: 42%;
+}
+
+.size_medium {
+  width: 20%;
+}
+
+.size_small {
+  width: 10%;
+}
+
+.size_tiny {
+  width: 5%;
+}
