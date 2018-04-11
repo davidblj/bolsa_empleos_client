@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 // services
-import { AuthService } from '../../shared/auth.service';
+import { AuthService } from '../../../core/services/auth.service';
 import { UserCredentials } from '../../shared/user-credentials.model';
 import { UserAuth } from '../../shared/user-auth.model';
 
@@ -11,16 +11,13 @@ import { UserAuth } from '../../shared/user-auth.model';
   templateUrl: './log-in-form-container.component.html',
   styleUrls: ['./log-in-form-container.component.scss']
 })
-export class LogInFormContainerComponent implements OnInit {
+export class LogInFormContainerComponent {
 
   message = '';
   loading = false;
 
   constructor(private authService: AuthService,
               private router: Router) { }
-
-  ngOnInit() {
-  }
 
   onSubmit(userCredentials: UserCredentials | null) {
 
@@ -29,7 +26,6 @@ export class LogInFormContainerComponent implements OnInit {
     if (!userCredentials) {
 
       this.message = 'credenciales incompletas';
-
     } else {
 
       this.sendAuthenticationRequest(userCredentials)

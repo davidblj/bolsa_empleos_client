@@ -4,8 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
 
 // classes
-import { UserCredentials } from './user-credentials.model';
-import { UserAuth } from './user-auth.model';
+import { UserCredentials } from '../../log-in/shared/user-credentials.model';
+import { UserAuth } from '../../log-in/shared/user-auth.model';
 import { Service } from '../../shared/classes/service.class';
 
 @Injectable()
