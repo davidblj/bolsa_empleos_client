@@ -12,9 +12,11 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { SearchDashboardComponent } from './components/search-dashboard/search-dashboard.component';
 import { SearchHeaderComponent } from './components/search-header/search-header.component';
 import { SearchJobComponent } from './containers/search-job/search-job.component';
+import { SearchRoutingModule } from './search-routing.module';
 
 @NgModule({
   imports: [
+    SearchRoutingModule,
     CommonModule
   ],
   exports: [

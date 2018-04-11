@@ -13,11 +13,13 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { AutoFocusDirective } from './shared/auto-focus.directive';
 import { AuthService } from './shared/auth.service';
 import { LogInFormFooterComponent } from './components/log-in-form-footer/log-in-form-footer.component';
+import { LogInRoutingModule } from './log-in-routing.module';
 
 // ng g component feature/log-in/components -m feature/log-in/log-in.module.ts
 
 @NgModule({
   imports: [
+    LogInRoutingModule,
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
@@ -35,4 +37,5 @@ import { LogInFormFooterComponent } from './components/log-in-form-footer/log-in
   ],
   providers: [AuthService]
 })
+
 export class LogInModule { }

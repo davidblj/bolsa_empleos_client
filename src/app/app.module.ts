@@ -1,11 +1,11 @@
 
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing/app-routing.module';
+
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { SignUpModule } from './sign-up/sign-up.module';
-import { LogInModule } from './log-in/log-in.module';
-import { SearchModule } from './search/search.module';
+import { HomeModule } from './home/home.module';
+import { CompanyDashboardModule } from './company-dashboard/company-dashboard.module';
 
 @NgModule({
   declarations: [
@@ -14,9 +14,8 @@ import { SearchModule } from './search/search.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SignUpModule,
-    LogInModule,
-    SearchModule
+    HomeModule,
+    CompanyDashboardModule
   ],
   bootstrap: [
     AppComponent

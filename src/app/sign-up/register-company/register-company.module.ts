@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterCompanyRoutingModule } from './register-company-routing.module';
 
 // components
 import { RegisterCardComponent } from './components/register-card/register-card.component';
@@ -21,22 +22,22 @@ import { WebpageComponent } from './components/register-inputs/webpage/webpage.c
 import { DetailsComponent } from './components/register-inputs/details/details.component';
 import { SectorComponent } from './components/register-inputs/sector/sector.component';
 import { RegisterService } from './shared/register.service';
-import { interceptorProviders } from '../../shared/interceptors/interceptor-providers';
 import { AdminComponent } from './components/register-inputs/admin/admin.component';
 import { ContactComponent } from './components/register-inputs/contact/contact.component';
 import { EmailComponent } from './components/register-inputs/email/email.component';
 import { RegisterStepThreeComponent } from './components/register-step-three/register-step-three.component';
 import { CityComponent } from './components/register-inputs/city/city.component';
 
+// providers
+import { interceptorProviders } from '../../shared/interceptors/interceptor-providers';
+
 @NgModule({
   imports: [
     CommonModule,
+    RegisterCompanyRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule
-  ],
-  exports: [
-    RegisterCardComponent
   ],
   declarations: [
     RegisterCardComponent,

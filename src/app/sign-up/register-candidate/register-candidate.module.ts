@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
+
+// modules
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../../shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+
+// components
 import { RegisterStepOneComponent } from './components/register-step-one/register-step-one.component';
 import { RegisterStepTwoComponent } from './components/register-step-two/register-step-two.component';
 import { RegisterStepThreeComponent } from './components/register-step-three/register-step-three.component';
@@ -9,8 +15,6 @@ import { RegisterStepperComponent } from './components/register-stepper/register
 import { UsernameComponent } from './components/register-inputs/username/username.component';
 import { CheckPasswordComponent } from './components/register-inputs/check-password/check-password.component';
 import { PasswordComponent } from './components/register-inputs/password/password.component';
-import { SharedModule } from '../../shared/shared.module';
-import { RegisterCandidateEntryPointComponent } from './components/register-candidate-entry-point/register-candidate-entry-point.component';
 import { PidComponent } from './components/register-inputs/pid/pid.component';
 import { NameComponent } from './components/register-inputs/name/name.component';
 import { TypeComponent } from './components/register-inputs/type/type.component';
@@ -18,14 +22,18 @@ import { EmailComponent } from './components/register-inputs/email/email.compone
 import { ContactComponent } from './components/register-inputs/contact/contact.component';
 import { ResumeeComponent } from './components/register-inputs/resumee/resumee.component';
 import { RegisterService } from './shared/register.service';
+import { RegisterCandidateRoutingModule } from './register-candidate-routing.module';
+import { RegisterCandidateEntryPointComponent } from './components/register-candidate-entry-point/register-candidate-entry-point.component';
+
+// providers
+import { interceptorProviders } from '../../shared/interceptors/interceptor-providers';
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule
-  ],
-  exports: [
-    RegisterCandidateEntryPointComponent
+    RegisterCandidateRoutingModule,
+    SharedModule,
+    HttpClientModule
   ],
   declarations: [
     RegisterStepOneComponent,
@@ -45,6 +53,9 @@ import { RegisterService } from './shared/register.service';
     ContactComponent,
     ResumeeComponent
   ],
-  providers: [RegisterService]
+  providers: [
+    RegisterService,
+    interceptorProviders
+  ]
 })
 export class RegisterCandidateModule { }
