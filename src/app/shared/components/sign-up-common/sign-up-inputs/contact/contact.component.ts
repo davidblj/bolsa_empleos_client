@@ -2,32 +2,34 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 
 // interfaces
-import { Error } from '../../../../../shared/interfaces/error.interface';
+import { Error } from '../../../../interfaces/error.interface';
 
 // variables
-import { definitions } from '../../../../../shared/utils/definitions.variables';
+import { definitions } from '../../../../utils/definitions.variables';
 
 // classes
-import { Manager } from '../../../../../shared/classes/manager.class';
+import { Manager } from '../../../../classes/manager.class';
 
 @Component({
-  selector: 'app-sector',
-  templateUrl: './sector.component.html',
+  selector: 'app-contact-d',
+  templateUrl: './contact.component.html'
 })
-export class SectorComponent implements OnInit {
+export class ContactComponent implements OnInit {
 
   @Input()
   parent: FormGroup;
 
-  fieldName = 'Sector industrial';
-  sector: AbstractControl;
+
+  fieldName = 'Contacto';
+  placeholder = 'celular o teléfono fijo';
+  contact: AbstractControl;
   validationManager: Manager;
 
   constructor() { }
 
   ngOnInit() {
-    this.sector = this.parent.get('sector');
-    this.sector.markAsUntouched();
+    this.contact = this.parent.get('contact');
+    this.contact.markAsUntouched();
     this.initErrorMessaging();
   }
 
@@ -42,7 +44,7 @@ export class SectorComponent implements OnInit {
     this.validationManager = new Manager(
       hints,
       warnings,
-      this.sector
+      this.contact
     )
   }
 }

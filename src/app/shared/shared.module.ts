@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
+
+// modules
 import { CommonModule } from '@angular/common';
+
+// components
 import { ImgComponent } from './components/img/img.component';
 import { PopoverComponent } from './components/popover/popover.component';
 import { SignUpCardComponent } from './components/sign-up-common/sign-up-card/sign-up-card.component';
@@ -15,8 +19,9 @@ import { UsernameComponent } from './components/sign-up-common/sign-up-inputs/us
 import { PasswordComponent } from './components/sign-up-common/sign-up-inputs/password/password.component';
 import { CheckPasswordComponent } from './components/sign-up-common/sign-up-inputs/check-password/check-password.component';
 import { ButtonComponent } from './components/button/button.component';
+import { ContactComponent } from './components/sign-up-common/sign-up-inputs/contact/contact.component';
+import { EmailComponent } from './components/sign-up-common/sign-up-inputs/email/email.component';
 
-// warningComponent, hintComponent, and registerButton component must be private members, make it do so.
 
 @NgModule({
   imports: [
@@ -35,7 +40,9 @@ import { ButtonComponent } from './components/button/button.component';
     SignUpFormGroupComponent,
     UsernameComponent,
     PasswordComponent,
-    CheckPasswordComponent
+    CheckPasswordComponent,
+    ContactComponent,
+    EmailComponent,
   ],
   declarations: [
     ImgComponent,
@@ -50,6 +57,8 @@ import { ButtonComponent } from './components/button/button.component';
     SignUpFormGroupComponent,
     UsernameComponent,
     PasswordComponent,
+    ContactComponent,
+    EmailComponent,
     CheckPasswordComponent,
     ButtonComponent
   ]

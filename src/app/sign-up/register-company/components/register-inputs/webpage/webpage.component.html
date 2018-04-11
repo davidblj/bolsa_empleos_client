@@ -1,9 +1,5 @@
 
-<app-input
+<app-sign-up-form-group
   [fieldName]="fieldName"
-  [warningStatus]="displayWarnings"
-  [warnings]="warnings"
-  [hints]="hints"
-  (changed)="onInput($event)"
-  (touch)="onTouch()">
-</app-input>
+  [validationManager]="validationManager">
+</app-sign-up-form-group>

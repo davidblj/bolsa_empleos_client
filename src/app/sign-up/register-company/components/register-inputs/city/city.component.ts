@@ -1,8 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Manager } from '../../../../../shared/classes/manager.class';
 import { AbstractControl, FormGroup } from '@angular/forms';
+
+// interfaces
 import { Error } from '../../../../../shared/interfaces/error.interface';
+
+// variables
 import { definitions } from '../../../../../shared/utils/definitions.variables';
+
+// classes
+import { Manager } from '../../../../../shared/classes/manager.class';
 
 @Component({
   selector: 'app-city',
@@ -13,11 +19,7 @@ export class CityComponent implements OnInit {
   @Input()
   parent: FormGroup;
 
-  hints: Error[];
-  warnings: Error[];
-
   fieldName = 'Ciudad';
-
   city: AbstractControl;
   validationManager: Manager;
 
@@ -31,33 +33,16 @@ export class CityComponent implements OnInit {
 
   initErrorMessaging() {
 
-    this.hints = [];
+    const hints: Error[] = [];
 
-    this.warnings = [
+    const warnings: Error[] = [
       definitions.required()
     ];
 
     this.validationManager = new Manager(
-      this.hints,
-      this.warnings,
+      hints,
+      warnings,
       this.city
     )
-  }
-
-  onInput(value) {
-    this.city.setValue(value);
-    this.updateRequiredStatus();
-  }
-
-  onTouch() {
-    this.city.markAsTouched();
-  }
-
-  updateRequiredStatus() {
-    this.validationManager.updateRequiredStatus();
-  }
-
-  get displayWarnings() {
-    return this.validationManager.displayWarnings();
   }
 }

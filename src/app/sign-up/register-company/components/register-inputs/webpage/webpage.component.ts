@@ -1,21 +1,23 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
+
+// interfaces
 import { Error } from '../../../../../shared/interfaces/error.interface';
-import { Manager } from '../../../../../shared/classes/manager.class';
+
+// variables
 import { definitions } from '../../../../../shared/utils/definitions.variables';
+
+// classes
+import { Manager } from '../../../../../shared/classes/manager.class';
 
 @Component({
   selector: 'app-webpage',
-  templateUrl: './webpage.component.html',
-  styleUrls: ['./webpage.component.scss']
+  templateUrl: './webpage.component.html'
 })
 export class WebpageComponent implements OnInit {
 
   @Input()
   parent: FormGroup;
-
-  hints: Error[];
-  warnings: Error[];
 
   fieldName = 'Pagina web';
   website: AbstractControl;
@@ -29,45 +31,18 @@ export class WebpageComponent implements OnInit {
 
   initErrorMessaging() {
 
-    this.hints = [
+    const hints: Error[] = [
       definitions.website()
     ];
 
-    this.warnings = [
+    const warnings: Error[] = [
       definitions.required()
     ];
 
     this.validationManager = new Manager(
-      this.hints,
-      this.warnings,
+      hints,
+      warnings,
       this.website
     )
-  }
-
-  onInput(value: string) {
-    this.website.setValue(value);
-    this.updateRequiredStatus();
-    this.updateWebSiteStatus();
-    this.updateRequirementsStatus();
-  }
-
-  onTouch() {
-    this.website.markAsTouched();
-  }
-
-  updateWebSiteStatus() {
-    this.validationManager.updateWebSiteStatus();
-  }
-
-  updateRequiredStatus() {
-    this.validationManager.updateRequiredStatus();
-  }
-
-  updateRequirementsStatus() {
-    this.validationManager.updateRequirementsStatus();
-  }
-
-  get displayWarnings() {
-    return this.validationManager.displayWarnings();
   }
 }

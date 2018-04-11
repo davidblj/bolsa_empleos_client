@@ -1,8 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
+
+// interfaces
 import { Error } from '../../../../../shared/interfaces/error.interface';
-import { Manager } from '../../../../../shared/classes/manager.class';
+
+// variables
 import { definitions } from '../../../../../shared/utils/definitions.variables';
+
+// classes
+import { Manager } from '../../../../../shared/classes/manager.class';
 
 @Component({
   selector: 'app-details',
@@ -13,13 +19,9 @@ export class DetailsComponent implements OnInit {
   @Input()
   parent: FormGroup;
 
-  hints: Error[];
-  warnings: Error[];
-
   fieldName = 'Detalles';
   type = 'text-area';
   placeholder = '¿a que se dedica tu empresa?';
-
   details: AbstractControl;
   validationManager: Manager;
 
@@ -33,33 +35,16 @@ export class DetailsComponent implements OnInit {
 
   initErrorMessaging() {
 
-    this.hints = [];
+    const hints: Error[] = [];
 
-    this.warnings = [
+    const warnings: Error[] = [
       definitions.required()
     ];
 
     this.validationManager = new Manager(
-      this.hints,
-      this.warnings,
+      hints,
+      warnings,
       this.details
     )
-  }
-
-  onInput(value: string) {
-    this.details.setValue(value);
-    this.updateRequiredStatus();
-  }
-
-  onTouch() {
-    this.details.markAsTouched();
-  }
-
-  updateRequiredStatus() {
-    this.validationManager.updateRequiredStatus();
-  }
-
-  get displayWarnings() {
-    return this.validationManager.displayWarnings();
   }
 }

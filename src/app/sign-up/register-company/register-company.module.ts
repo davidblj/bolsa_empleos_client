@@ -23,8 +23,6 @@ import { DetailsComponent } from './components/register-inputs/details/details.c
 import { SectorComponent } from './components/register-inputs/sector/sector.component';
 import { RegisterService } from './shared/register.service';
 import { AdminComponent } from './components/register-inputs/admin/admin.component';
-import { ContactComponent } from './components/register-inputs/contact/contact.component';
-import { EmailComponent } from './components/register-inputs/email/email.component';
 import { RegisterStepThreeComponent } from './components/register-step-three/register-step-three.component';
 import { CityComponent } from './components/register-inputs/city/city.component';
 
@@ -54,8 +52,6 @@ import { interceptorProviders } from '../../shared/interceptors/interceptor-prov
     DetailsComponent,
     SectorComponent,
     AdminComponent,
-    ContactComponent,
-    EmailComponent,
     RegisterStepThreeComponent,
     CityComponent
   ],

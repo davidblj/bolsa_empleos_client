@@ -17,7 +17,7 @@
             *ngIf="isType('text-area')"
             rows="3"
             [placeholder]="placeholder"
-            [formControl]="field"
+            [formControl]="validationManager.field"
             (focus)="changeMessageVisibility()"
             (blur)="changeMessageVisibility();">
   </textarea>

@@ -68,6 +68,7 @@ export class UsernameComponent implements OnInit {
 
   checkStatusTask() {
     return (value) => {
+      // do get dynamically the service to consume
       return this.registerService.checkExistence('username', value);
     }
   }
