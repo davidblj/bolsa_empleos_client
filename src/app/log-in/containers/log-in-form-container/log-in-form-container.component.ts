@@ -55,7 +55,11 @@ export class LogInFormContainerComponent {
     if (user.role === 'company') {
 
       if (!this.authService.redirectionUrl) {
+
         this.router.navigate(['empresas']);
+      } else {
+
+        this.router.navigate([this.authService.redirectionUrl]);
       }
     }
   }

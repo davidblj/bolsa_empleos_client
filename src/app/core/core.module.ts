@@ -8,8 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 // services
 import { AuthService } from './services/auth.service';
 
-// providers
+// providers/guards
 import { interceptorProviders } from '../shared/interceptors/interceptor-providers';
+import { CompanyAuthGuard } from './guards/company-auth-guard.service';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { interceptorProviders } from '../shared/interceptors/interceptor-provide
   ],
   providers: [
     AuthService,
+    CompanyAuthGuard,
     interceptorProviders
   ]
 })

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CompanyAuthGuard } from './core/guards/company-auth-guard.service';
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
   },
   {
     path: 'empresas',
-    loadChildren: 'app/company-dashboard/company-dashboard.module#CompanyDashboardModule'
+    loadChildren: 'app/company-dashboard/company-dashboard.module#CompanyDashboardModule',
+    canLoad: [ CompanyAuthGuard ]
   },
   {
     path: '',
