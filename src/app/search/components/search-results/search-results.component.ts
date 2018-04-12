@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { JobSnippet } from '../../shared/job-snippet.class';
 
 @Component({
   selector: 'app-search-results',
@@ -7,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchResultsComponent implements OnInit {
 
+  @Input()
+  jobs: JobSnippet[];
+
   currentJobId: string;
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   onSelect(id: string) {
     this.currentJobId = id;

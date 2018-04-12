@@ -23,7 +23,7 @@ export class CompanyAuthGuard implements CanActivate, CanLoad {
 
   canLoad(route: Route): Observable<boolean> | Promise<boolean> | boolean {
 
-    const redirectionUrl = '/${route.path}';
+    const redirectionUrl = `/${route.path}`;
     return this.checkLogIn(redirectionUrl);
   }
 

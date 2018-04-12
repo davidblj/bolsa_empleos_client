@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { JobSnippet } from '../../shared/job-snippet.class';
+import { SearchJobsService } from '../../shared/search-jobs.service';
 
 @Component({
   selector: 'app-search-agent',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchAgentComponent implements OnInit {
 
-  constructor() { }
+  jobs: JobSnippet[];
+
+  constructor(private searchJobsService: SearchJobsService) { }
 
   ngOnInit() {
-  }
 
+    this.searchJobsService.fetchJobs(null, null)
+      .subscribe((jobs: JobSnippet[]) => {
+        this.jobs = jobs;
+      });
+  }
 }

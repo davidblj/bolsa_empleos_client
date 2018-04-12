@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { JobSnippet } from '../../shared/job-snippet.class';
 
 @Component({
   selector: 'app-search-list',
@@ -10,14 +11,13 @@ export class SearchListComponent {
   @Output()
   select = new EventEmitter<string>();
 
-  jobs = [{
-    id: 1,
-    name: 'Wev developer',
-    owner: 'Google',
-    salary: '350k'
-  }];
+  @Input()
+  jobs: JobSnippet[];
+
+  currentId: string;
 
   onSelect(id: string) {
+    this.currentId = id;
     this.select.emit(id);
   }
 }

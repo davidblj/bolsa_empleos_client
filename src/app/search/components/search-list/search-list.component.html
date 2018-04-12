@@ -2,6 +2,7 @@
 <div *ngFor="let job of jobs">
   <app-search-row
     [job]="job"
+    [currentId]="currentId"
     (select)="onSelect($event)">
   </app-search-row>
 </div>

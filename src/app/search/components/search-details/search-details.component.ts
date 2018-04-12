@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Job } from '../../shared/job.class';
 
 @Component({
   selector: 'app-search-details',
@@ -8,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SearchDetailsComponent implements OnInit {
 
   @Input()
-  job;
+  job: Job;
 
   ngOnInit() {
   }

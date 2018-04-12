@@ -13,10 +13,16 @@ import { SearchDashboardComponent } from './components/search-dashboard/search-d
 import { SearchHeaderComponent } from './components/search-header/search-header.component';
 import { SearchJobComponent } from './containers/search-job/search-job.component';
 import { SearchRoutingModule } from './search-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
+// services
+import { SearchJobsService } from './shared/search-jobs.service';
+import { interceptorProviders } from '../shared/interceptors/interceptor-providers';
 
 @NgModule({
   imports: [
     SearchRoutingModule,
+    HttpClientModule,
     CommonModule
   ],
   exports: [
@@ -33,6 +39,10 @@ import { SearchRoutingModule } from './search-routing.module';
     SearchDashboardComponent,
     SearchHeaderComponent,
     SearchJobComponent
+  ],
+  providers: [
+    SearchJobsService,
+    interceptorProviders
   ]
 })
 export class SearchModule { }

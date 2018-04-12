@@ -21,7 +21,7 @@
           {{job.owner}}
         </div>
         <div class="banner__expiry">
-          {{job.expiry}}
+          {{job.expiry | date}}
         </div>
       </div>
 
@@ -33,7 +33,7 @@
 
     <div class="details-block">
       <div class="details-block__tag details-block_color_dark-grey">
-        Desarrollador
+        {{job.role}}
       </div>
       <div class="details-block__label details-block_color_dim-grey">
         ROL
@@ -42,7 +42,7 @@
 
     <div class="details-block">
       <div class="details-block__tag details-block_color_red">
-        Egresados
+        {{job.to}}
       </div>
       <div class="details-block__label details-block_color_dim-grey">
         AUDIENCIA
@@ -51,7 +51,7 @@
 
     <div class="details-block">
       <div class="details-block__tag details-block_color_dark-grey">
-        Tiempo completo
+        {{job.type}}
       </div>
       <div class="details-block__label details-block_color_dim-grey">
         TIPO
@@ -60,7 +60,7 @@
 
     <div class="details-block float-right">
       <div class="details-block__tag details-block_color_green">
-        3,500,000
+        {{job.salary}}
       </div>
       <div class="details-block__label details-block_color_dim-grey">
         COMPENSACION
