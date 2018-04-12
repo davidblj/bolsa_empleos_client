@@ -11,7 +11,7 @@ export class LogInFormFooterComponent {
   loading: boolean;
 
   @Input()
-  message: boolean;
+  message = '';
 
   @Output()
   submit = new EventEmitter<any>();
