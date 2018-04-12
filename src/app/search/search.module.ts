@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 // services
 import { SearchJobsService } from './shared/search-jobs.service';
 import { interceptorProviders } from '../shared/interceptors/interceptor-providers';
+import { SearchApplyComponent } from './components/search-apply/search-apply.component';
+import { SearchApplyContainerComponent } from './containers/search-apply-container/search-apply-container.component';
 
 @NgModule({
   imports: [
@@ -38,7 +40,9 @@ import { interceptorProviders } from '../shared/interceptors/interceptor-provide
     SearchResultsComponent,
     SearchDashboardComponent,
     SearchHeaderComponent,
-    SearchJobComponent
+    SearchJobComponent,
+    SearchApplyComponent,
+    SearchApplyContainerComponent
   ],
   providers: [
     SearchJobsService,

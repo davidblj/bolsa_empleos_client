@@ -2,9 +2,10 @@
 
 .job {
 
-  height: 100vh;
+  height: $job-details-height;
   background: $athensGray;
   padding: 4rem;
+  position: relative;
 
   &__image {
     border-radius: 7px;

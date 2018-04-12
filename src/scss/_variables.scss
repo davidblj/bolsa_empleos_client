@@ -37,3 +37,8 @@ $side-margin: 8rem;
 $dashboard-top-spacing: 6rem;
 $dashboard-left-spacing: 6rem;
 $dashboard-right-spacing: 8rem;
+
+
+  // search
+$job-details-height: 92vh;
+$apply-section-height: calc(100vh - #{$job-details-height});

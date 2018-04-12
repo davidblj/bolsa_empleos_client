@@ -1,0 +1,26 @@
+@import "variables";
+@import "mixins";
+
+.apply {
+
+  height: $apply-section-height;
+  background: $athensGray;
+  /*box-shadow: 0 -10px $regentGray;
+  z-index: 10;*/
+
+  &__button {
+
+    letter-spacing: 2px;
+    font-weight:600;
+    font-size: 1.2rem;
+    border-radius: 2px;
+
+    background: $mantis;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+
+    padding: 1rem 3rem;
+    margin-right: 2rem;
+  }
+}
