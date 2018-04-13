@@ -5,7 +5,8 @@
     <app-button
       *ngIf="!loading; else loadingIcon"
       (submit)="onSubmit()">
-      ENTRAR
+
+      <span class="button-spacing">ENTRAR</span>
     </app-button>
 
     <ng-template #loadingIcon>

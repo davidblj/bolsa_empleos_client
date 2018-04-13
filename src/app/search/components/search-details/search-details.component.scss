@@ -4,7 +4,7 @@
 
   height: $job-details-height;
   background: $athensGray;
-  padding: 4rem;
+  padding: $job-details-spacing;
   position: relative;
 
   &__image {

@@ -1,10 +1,13 @@
 
-<button
-  class="btn"
-  [ngClass]="{'btn_disabled': !enabled, 'btn_action-next': enabled, 'btn_hovering-animation': enabled}"
+<app-button
+  [color]="buttonColor"
+  [enabled]="enabled"
+  [animated]="enabled"
   (click)="onClick()">
 
-  <ng-content></ng-content>
-  <i class="arrow arrow_direction-right fas fa-angle-right"></i>
+  <div class="button-spacing">
+    <ng-content></ng-content>
+    <i class="arrow arrow_direction-right fas fa-angle-right"></i>
+  </div>
 
-</button>
+</app-button>

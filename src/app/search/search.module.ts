@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+
+// modules
+import { SharedModule } from '../shared/shared.module';
 
 // components
 import { SearchAgentComponent } from './containers/search-agent/search-agent.component';
@@ -13,19 +17,19 @@ import { SearchDashboardComponent } from './components/search-dashboard/search-d
 import { SearchHeaderComponent } from './components/search-header/search-header.component';
 import { SearchJobComponent } from './containers/search-job/search-job.component';
 import { SearchRoutingModule } from './search-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { SearchApplyComponent } from './components/search-apply/search-apply.component';
+import { SearchApplyContainerComponent } from './containers/search-apply-container/search-apply-container.component';
 
 // services
 import { SearchJobsService } from './shared/search-jobs.service';
 import { interceptorProviders } from '../shared/interceptors/interceptor-providers';
-import { SearchApplyComponent } from './components/search-apply/search-apply.component';
-import { SearchApplyContainerComponent } from './containers/search-apply-container/search-apply-container.component';
 
 @NgModule({
   imports: [
     SearchRoutingModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   exports: [
     SearchDashboardComponent

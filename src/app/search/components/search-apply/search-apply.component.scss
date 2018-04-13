@@ -1,26 +1,26 @@
 @import "variables";
 @import "mixins";
 
+// change this variable to adjust
+// the button height
+$apply-padding: 2rem;
+$button-font-size: 1.2rem;
+$y-axis-button-padding: calc((#{$apply-section-height} - (#{$apply-padding}*2) - #{$button-font-size}) / 2 );
+
 .apply {
 
+  // a relative position makes the
+  // shadow to be visible
+  position: relative;
   height: $apply-section-height;
-  background: $athensGray;
-  /*box-shadow: 0 -10px $regentGray;
-  z-index: 10;*/
 
-  &__button {
+  background: lighten($athensGray, 1%);
+  box-shadow: 0 -7px 10px -10px $regentGray;
+  padding: $apply-padding;
 
-    letter-spacing: 2px;
-    font-weight:600;
-    font-size: 1.2rem;
-    border-radius: 2px;
+  .button-spacing {
 
-    background: $mantis;
-    color: white;
-    border: none;
-    text-transform: uppercase;
-
-    padding: 1rem 3rem;
-    margin-right: 2rem;
+    display: inline-block;
+    padding: $y-axis-button-padding 5rem;
   }
 }

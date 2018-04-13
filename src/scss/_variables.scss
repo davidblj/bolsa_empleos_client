@@ -29,7 +29,8 @@ $mantis: #5cc26c;
 $burntSienna: #E95A51;
 
 
-  // company dashboard
+  // company dashboard variables
+
 $company-dashboard-background: lighten($regentGray, 37%);
 $header-height: 8vh;
 $body-height: 92vh;
@@ -39,6 +40,8 @@ $dashboard-left-spacing: 6rem;
 $dashboard-right-spacing: 8rem;
 
 
-  // search
-$job-details-height: 92vh;
-$apply-section-height: calc(100vh - #{$job-details-height});
+  // search variables
+
+$job-details-spacing: 4rem;
+$apply-section-height: 8rem;
+$job-details-height: calc(100vh - #{$apply-section-height});

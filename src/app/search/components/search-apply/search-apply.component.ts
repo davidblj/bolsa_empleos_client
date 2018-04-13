@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-search-apply',
   templateUrl: './search-apply.component.html',
   styleUrls: ['./search-apply.component.scss']
 })
-export class SearchApplyComponent implements OnInit {
+export class SearchApplyComponent  {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  buttonColor = 'dark';
+  buttonShape = 'square';
 }

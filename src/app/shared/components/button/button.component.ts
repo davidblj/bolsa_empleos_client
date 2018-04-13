@@ -10,6 +10,15 @@ export class ButtonComponent {
   @Input()
   enabled = true;
 
+  @Input()
+  shape = 'circular';
+
+  @Input()
+  color = 'transparent';
+
+  @Input ()
+  animated = false;
+
   @Output()
   submit = new EventEmitter<any>();
 
@@ -20,4 +29,11 @@ export class ButtonComponent {
     }
   }
 
+  getShapeStatus(shape: string) {
+    return shape === this.shape;
+  }
+
+  getColorStatus(color: string) {
+    return color === this.color;
+  }
 }

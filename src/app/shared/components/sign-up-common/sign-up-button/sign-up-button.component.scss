@@ -1,39 +1,7 @@
-@import "variables.scss";
-@import "mixins";
 
-.btn {
-
-  @include button;
+.button-spacing {
 
   padding: 1.2rem 4rem;
-  color: $white;
-  transition: all .2s;
-
-  &_action-next {
-    background-color: $mantis;
-  }
-
-  &_disabled {
-
-    cursor: default !important;
-    background: $mantis;
-
-    &:hover {
-      background: rgba($mantis, 0.9);
-    }
-  }
-
-  &_hovering-animation {
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 1rem 2rem rgba($mantis,0.5);
-    }
-  }
-
-  &:focus {
-    box-shadow: none;
-  }
 }
 
 .arrow {

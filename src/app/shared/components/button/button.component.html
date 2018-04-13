@@ -1,5 +1,11 @@
 
-<button class="button button_log-in"
+<button class="button"
+  [ngClass]="{'button_disabled': !enabled,
+              'button_shape_circular': getShapeStatus('circular'),
+              'button_shape_square': getShapeStatus('square'),
+              'button_color_transparent': getColorStatus('transparent'),
+              'button_color_dark': getColorStatus('dark'),
+              'button_animation_hover': animated}"
   (click)="onClick()">
   <ng-content></ng-content>
 </button>

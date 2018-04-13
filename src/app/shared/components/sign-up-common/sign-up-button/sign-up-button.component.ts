@@ -1,9 +1,24 @@
-import { Component } from '@angular/core';
-import { ButtonComponent } from '../../button/button.component';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sign-up-button',
   templateUrl: './sign-up-button.component.html',
   styleUrls: ['./sign-up-button.component.scss']
 })
-export class SignUpButtonComponent extends ButtonComponent { }
+export class SignUpButtonComponent {
+
+  @Input()
+  enabled = false;
+
+  @Output()
+  submit = new EventEmitter<any>();
+
+  buttonColor = 'dark';
+
+  onClick() {
+
+    if (this.enabled) {
+      this.submit.emit();
+    }
+  }
+}
