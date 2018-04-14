@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { JobSnippet } from '../../shared/job-snippet.class';
+import { JobSnippet } from '../../shared/job-snippet.interface';
 import { SearchJobsService } from '../../shared/search-jobs.service';
 
 @Component({
@@ -15,8 +15,8 @@ export class SearchAgentComponent implements OnInit {
 
   ngOnInit() {
 
-    this.searchJobsService.fetchJobs(null, null)
-      .subscribe((jobs: JobSnippet[]) => {
+    this.searchJobsService.getJobs(null, null)
+      .subscribe((jobs) => {
         this.jobs = jobs;
       });
   }

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { JobSnippet } from '../../shared/job-snippet.class';
+import { JobSnippet } from '../../shared/job-snippet.interface';
 
 @Component({
   selector: 'app-search-row',
@@ -22,7 +22,7 @@ export class SearchRowComponent implements OnInit {
   rowId: string;
 
   ngOnInit() {
-    this.rowId = this.job.id;
+    this.rowId = this.job._id;
   }
 
   onClick() {

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 // services
 import { AuthService } from '../../../core/services/auth.service';
 import { UserCredentials } from '../../shared/user-credentials.model';
-import { UserAuth } from '../../shared/user-auth.model';
+import { UserAuth } from '../../shared/user-auth.interface';
 
 @Component({
   selector: 'app-log-in-form-container',
@@ -26,6 +26,7 @@ export class LogInFormContainerComponent {
     if (!userCredentials) {
 
       this.message = 'credenciales incompletas';
+
     } else {
 
       this.sendAuthenticationRequest(userCredentials)

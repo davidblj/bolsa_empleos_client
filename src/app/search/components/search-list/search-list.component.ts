@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { JobSnippet } from '../../shared/job-snippet.class';
+import { JobSnippet } from '../../shared/job-snippet.interface';
 
 @Component({
   selector: 'app-search-list',

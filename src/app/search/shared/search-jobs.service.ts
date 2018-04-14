@@ -8,8 +8,8 @@ import 'rxjs/add/operator/map'
 import { Service } from '../../shared/classes/service.class';
 
 // classes
-import { JobSnippet } from './job-snippet.class';
-import { Job } from './job.class';
+import { JobSnippet } from './job-snippet.interface';
+import { Job } from './job.interface';
 
 @Injectable()
 export class SearchJobsService extends Service {
@@ -22,35 +22,18 @@ export class SearchJobsService extends Service {
     super();
   }
 
-  fetchJobs(id: string | null, page: number | null): Observable<JobSnippet[]> {
+  getJobs(id: string | null, page: number | null): Observable<JobSnippet[]> {
 
-    return this.http.get(this.searchJobsUrl)
-      .map((response: any) => {
-        return this.mapJobs(response);
-      })
+    return this.http.get<JobSnippet[]>(this.searchJobsUrl)
       .pipe(catchError(this.handleError(this.message)));
   }
 
-  fetchJob(id: string): Observable<Job> {
+  getJob(id: string): Observable<Job> {
 
     const fetchUrl = `${this.jobDetailsUrl}/${id}`;
-    return this.http.get(fetchUrl)
-      .map((response: any) => {
-        return this.mapJob(response);
-      })
+
+    return this.http.get<Job>(fetchUrl)
       .pipe(catchError(this.handleError(this.message)));
   }
 
-  mapJobs(response: any): JobSnippet[] {
-
-    return response.map((item) => {
-
-      return new JobSnippet(item);
-    });
-  }
-
-  mapJob(response: any): Job {
-
-    return new Job(response);
-  }
 }

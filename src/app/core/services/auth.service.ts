@@ -6,7 +6,7 @@ import { catchError } from 'rxjs/operators';
 
 // classes
 import { UserCredentials } from '../../log-in/shared/user-credentials.model';
-import { UserAuth } from '../../log-in/shared/user-auth.model';
+import { UserAuth } from '../../log-in/shared/user-auth.interface';
 import { Service } from '../../shared/classes/service.class';
 
 @Injectable()
@@ -24,7 +24,7 @@ export class AuthService extends Service {
     const message = 'Credenciales invalidas';
 
     return this.http.post(this.sessionUrl, user)
-      .map((response: any) => {
+      .map((response: UserAuth) => {
         this.handleAuthentication(response);
         return;
       })
@@ -38,11 +38,10 @@ export class AuthService extends Service {
 
   getUser(): UserAuth {
 
-    const user = JSON.parse(localStorage.getItem('be-user'));
-    return new UserAuth(user);
+    return JSON.parse(localStorage.getItem('be-user'));
   }
 
-  private handleAuthentication(userInfo: any) {
+  private handleAuthentication(userInfo: UserAuth) {
 
     localStorage.setItem('be-user', JSON.stringify(userInfo));
   }

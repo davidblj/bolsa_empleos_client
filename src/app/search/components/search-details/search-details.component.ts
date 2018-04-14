@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Job } from '../../shared/job.class';
+import { Job } from '../../shared/job.interface';
 
 @Component({
   selector: 'app-search-details',

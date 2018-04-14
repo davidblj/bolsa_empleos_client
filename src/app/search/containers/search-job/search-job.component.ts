@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { SearchJobsService } from '../../shared/search-jobs.service';
 
 // classes
-import { Job } from '../../shared/job.class';
+import { Job } from '../../shared/job.interface';
 
 @Component({
   selector: 'app-search-job',
@@ -24,8 +24,8 @@ export class SearchJobComponent {
   constructor(private searchJobsService: SearchJobsService) { }
 
   fetchJobDetails() {
-    this.searchJobsService.fetchJob(this._id)
-      .subscribe((job: Job) => {
+    this.searchJobsService.getJob(this._id)
+      .subscribe((job) => {
         this.job = job;
       });
   }

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 // services
 import { AuthService } from '../services/auth.service';
-import { UserAuth } from '../../log-in/shared/user-auth.model';
+import { UserAuth } from '../../log-in/shared/user-auth.interface';
 
 @Injectable()
 export class CompanyAuthGuard implements CanActivate, CanLoad {
