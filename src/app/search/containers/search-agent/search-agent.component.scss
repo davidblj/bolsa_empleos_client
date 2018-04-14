@@ -8,7 +8,12 @@ $menu-width: 36rem;
   top: 0;
   left: 0;
   width: $menu-width;
-  background: $paradiso;
+
+  background: linear-gradient(to bottom,
+    $paradiso,
+    $mantis
+  );
+
   z-index:5;
 }
 

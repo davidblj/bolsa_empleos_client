@@ -3,10 +3,14 @@
 $list-width: 51rem;
 
 .list-box {
-  box-shadow: 0 5px 10px -4px rgba($regentGray, 0.4);
+
+  border-right: 1px solid $mischka;
+  box-shadow: 7px 0 12px -15px  $regentGray;
+
   width: $list-width;
   position: absolute;
   height: 100vh;
+  z-index: 5;
 }
 
 .details-box {

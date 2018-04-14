@@ -15,7 +15,8 @@ $y-axis-button-padding: calc((#{$apply-section-height} - (#{$apply-padding}*2) -
   height: $apply-section-height;
 
   background: lighten($athensGray, 1%);
-  box-shadow: 0 -7px 10px -10px $regentGray;
+  box-shadow: 0 -7px 12px -12px $regentGray;
+  border-top: 1px solid $mischka;
   padding: $apply-padding;
 
   .button-spacing {

@@ -2,7 +2,7 @@
 
 .job {
 
-  margin: 1.35rem;
+  margin: 1rem 1.35rem;
   padding: 1.35rem;
   position: relative;
   transition: all 1s;
@@ -22,8 +22,8 @@
   }
 
   &_active {
-    border-color: $easternBlue !important;
-    background: rgba($easternBlue, 0.02);
+    border-color: $paradiso-light !important;
+    background: lighten($paradiso, 57.5%);
   }
 
   &:hover {
@@ -37,19 +37,20 @@
   padding-left: 1rem;
 
   &__title {
-    color: $pickledBlueWood;
-    font-size: 1.4rem;
+    color: $tuna;
+    font-size: 1.8rem;
   }
 
   &__owner {
-    color: $tuna;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 600;
+    letter-spacing: 1px;
   }
 
   &__salary {
     color: $deYork;
     font-size: 1.3rem;
+    font-weight: 600;
   }
 }
 
