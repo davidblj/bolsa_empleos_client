@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-search-apply-container',
   templateUrl: './search-apply-container.component.html',
   styleUrls: ['./search-apply-container.component.scss']
 })
-export class SearchApplyContainerComponent implements OnInit {
+export class SearchApplyContainerComponent {
 
-  constructor() { }
+  _jobId: string;
 
-  ngOnInit() {
+  @Input()
+  set jobId(jobId: string) {
+
+    // apply service
+    this._jobId = jobId;
   }
-
 }

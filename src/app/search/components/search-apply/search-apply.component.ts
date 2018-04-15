@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-search-apply',
@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-apply.component.scss']
 })
 export class SearchApplyComponent  {
+
+  @Input()
+  jobId: string;
 
   buttonColor = 'dark';
   buttonShape = 'square';
