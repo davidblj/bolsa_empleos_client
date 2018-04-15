@@ -13,7 +13,6 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { AutoFocusDirective } from './shared/auto-focus.directive';
 import { LogInFormFooterComponent } from './components/log-in-form-footer/log-in-form-footer.component';
 import { LogInRoutingModule } from './log-in-routing.module';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,7 +20,6 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     LogInRoutingModule,
     SharedModule,
-    HttpClientModule,
     ReactiveFormsModule,
   ],
   exports: [

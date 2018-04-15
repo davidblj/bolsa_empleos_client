@@ -6,12 +6,8 @@ import { Job } from '../../shared/job.interface';
   templateUrl: './search-details.component.html',
   styleUrls: ['./search-details.component.scss']
 })
-export class SearchDetailsComponent implements OnInit {
+export class SearchDetailsComponent {
 
   @Input()
   job: Job;
-
-  ngOnInit() {
-  }
-
 }

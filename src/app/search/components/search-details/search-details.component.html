@@ -1,80 +1,83 @@
 
-<div
-  *ngIf="job"
-  class="job">
+<div *ngIf="job">
 
-  <div class="row no-gutters align-items-center">
+  <div
+    class="job">
 
-    <div class="col-auto">
-      <img
-        class="job__image"
-        src="assets/thumbnail_05557113302602f4454623399a1f9222_google-square.jpg">
+    <div class="row no-gutters align-items-center">
+
+      <div class="col-auto">
+        <img
+          class="job__image"
+          src="assets/thumbnail_05557113302602f4454623399a1f9222_google-square.jpg">
+      </div>
+
+      <div class="col">
+
+        <div class="banner">
+          <div class="banner__title">
+            {{job.name}}
+          </div>
+          <div class="banner__owner">
+            {{job.owner}}
+          </div>
+          <div class="banner__expiry">
+            {{job.expiry | date}}
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="col">
+    <div class="details">
 
-      <div class="banner">
-        <div class="banner__title">
-          {{job.name}}
+      <div class="details-block">
+        <div class="details-block__tag details-block_color_dark-grey">
+          {{job.role}}
         </div>
-        <div class="banner__owner">
-          {{job.owner}}
-        </div>
-        <div class="banner__expiry">
-          {{job.expiry | date}}
+        <div class="details-block__label details-block_color_dim-grey">
+          ROL
         </div>
       </div>
 
+      <div class="details-block">
+        <div class="details-block__tag details-block_color_red">
+          {{job.to}}
+        </div>
+        <div class="details-block__label details-block_color_dim-grey">
+          AUDIENCIA
+        </div>
+      </div>
+
+      <div class="details-block">
+        <div class="details-block__tag details-block_color_dark-grey">
+          {{job.type}}
+        </div>
+        <div class="details-block__label details-block_color_dim-grey">
+          TIPO
+        </div>
+      </div>
+
+      <div class="details-block float-right">
+        <div class="details-block__tag details-block_color_green">
+          {{job.salary}}
+        </div>
+        <div class="details-block__label details-block_color_dim-grey">
+          COMPENSACION
+        </div>
+      </div>
+
+    </div>
+
+    <div class="job__description">
+      {{job.description}}
     </div>
 
   </div>
 
-  <div class="details">
-
-    <div class="details-block">
-      <div class="details-block__tag details-block_color_dark-grey">
-        {{job.role}}
-      </div>
-      <div class="details-block__label details-block_color_dim-grey">
-        ROL
-      </div>
-    </div>
-
-    <div class="details-block">
-      <div class="details-block__tag details-block_color_red">
-        {{job.to}}
-      </div>
-      <div class="details-block__label details-block_color_dim-grey">
-        AUDIENCIA
-      </div>
-    </div>
-
-    <div class="details-block">
-      <div class="details-block__tag details-block_color_dark-grey">
-        {{job.type}}
-      </div>
-      <div class="details-block__label details-block_color_dim-grey">
-        TIPO
-      </div>
-    </div>
-
-    <div class="details-block float-right">
-      <div class="details-block__tag details-block_color_green">
-        {{job.salary}}
-      </div>
-      <div class="details-block__label details-block_color_dim-grey">
-        COMPENSACION
-      </div>
-    </div>
-
-  </div>
-
-  <div class="job__description">
-    {{job.description}}
-  </div>
+  <app-search-apply-container
+    [jobId]="job._id">
+  </app-search-apply-container>
 
 </div>
-
-<app-search-apply-container
-  [jobId]="job._id">
-</app-search-apply-container>

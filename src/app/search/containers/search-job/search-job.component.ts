@@ -11,22 +11,24 @@ import { Job } from '../../shared/job.interface';
 })
 export class SearchJobComponent {
 
-  _id: string;
-  job: Job;
+  job: Job = null;
 
   @Input()
   set id(id: string) {
 
-    this._id = id;
-    this.fetchJobDetails()
+    this.fetchJobDetails(id)
   }
 
   constructor(private searchJobsService: SearchJobsService) { }
 
-  fetchJobDetails() {
-    this.searchJobsService.getJob(this._id)
-      .subscribe((job: Job) => {
-        this.job = job;
-      });
+  fetchJobDetails(id: string) {
+
+    if (id) {
+
+      this.searchJobsService.getJob(id)
+        .subscribe((job: Job) => {
+          this.job = job;
+        });
+    }
   }
 }
