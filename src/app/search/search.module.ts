@@ -22,12 +22,10 @@ import { SearchApplyContainerComponent } from './containers/search-apply-contain
 
 // services
 import { SearchJobsService } from './shared/search-jobs.service';
-import { interceptorProviders } from '../shared/interceptors/interceptor-providers';
 
 @NgModule({
   imports: [
     SearchRoutingModule,
-    HttpClientModule,
     CommonModule,
     SharedModule
   ],
@@ -50,7 +48,6 @@ import { interceptorProviders } from '../shared/interceptors/interceptor-provide
   ],
   providers: [
     SearchJobsService,
-    interceptorProviders
   ]
 })
 export class SearchModule { }

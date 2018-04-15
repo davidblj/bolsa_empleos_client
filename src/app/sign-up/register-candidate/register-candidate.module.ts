@@ -25,15 +25,12 @@ import { RegisterService } from './shared/register.service';
 import { RegisterCandidateRoutingModule } from './register-candidate-routing.module';
 import { RegisterCandidateEntryPointComponent } from './components/register-candidate-entry-point/register-candidate-entry-point.component';
 
-// providers
-import { interceptorProviders } from '../../shared/interceptors/interceptor-providers';
 
 @NgModule({
   imports: [
     CommonModule,
     RegisterCandidateRoutingModule,
-    SharedModule,
-    HttpClientModule
+    SharedModule
   ],
   declarations: [
     RegisterStepOneComponent,
@@ -54,8 +51,7 @@ import { interceptorProviders } from '../../shared/interceptors/interceptor-prov
     ResumeeComponent
   ],
   providers: [
-    RegisterService,
-    interceptorProviders
+    RegisterService
   ]
 })
 export class RegisterCandidateModule { }

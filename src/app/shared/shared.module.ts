@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // components
-import { ImgComponent } from './components/img/img.component';
 import { PopoverComponent } from './components/popover/popover.component';
 import { SignUpCardComponent } from './components/sign-up-common/sign-up-card/sign-up-card.component';
 import { InputComponent } from './components/input/input.component';
@@ -29,7 +28,6 @@ import { EmailComponent } from './components/sign-up-common/sign-up-inputs/email
     ReactiveFormsModule,
   ],
   exports: [
-    ImgComponent,
     PopoverComponent,
     SignUpCardComponent,
     InputComponent,
@@ -45,7 +43,6 @@ import { EmailComponent } from './components/sign-up-common/sign-up-inputs/email
     EmailComponent,
   ],
   declarations: [
-    ImgComponent,
     PopoverComponent,
     SignUpCardComponent,
     InputComponent,

@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 
 // providers/guards
-import { interceptorProviders } from '../shared/interceptors/interceptor-providers';
+import { interceptorProviders } from './interceptors/interceptor-providers';
 import { CompanyAuthGuard } from './guards/company-auth-guard.service';
 
 @NgModule({

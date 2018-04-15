@@ -53,15 +53,32 @@ export class LogInFormContainerComponent {
 
   routeHandler(user: UserAuth) {
 
-    if (user.role === 'company') {
+    const
+      role = user.role,
+      companyUser = role === 'company',
+      candidateUser = (role === 'student' || role === 'graduate');
 
-      if (!this.authService.redirectionUrl) {
+    if (companyUser) {
 
-        this.router.navigate(['empresas']);
-      } else {
+      this.redirectTo('empresas');
 
-        this.router.navigate([this.authService.redirectionUrl]);
-      }
+    }
+
+    if (candidateUser) {
+
+      this.redirectTo('buscar');
+    }
+  }
+
+  redirectTo(url: string) {
+
+    if (!this.authService.redirectionUrl) {
+
+      this.router.navigate([url]);
+
+    } else {
+
+      this.router.navigate([this.authService.redirectionUrl]);
     }
   }
 }

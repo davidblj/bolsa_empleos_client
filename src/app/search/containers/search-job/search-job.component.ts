@@ -25,7 +25,7 @@ export class SearchJobComponent {
 
   fetchJobDetails() {
     this.searchJobsService.getJob(this._id)
-      .subscribe((job) => {
+      .subscribe((job: Job) => {
         this.job = job;
       });
   }

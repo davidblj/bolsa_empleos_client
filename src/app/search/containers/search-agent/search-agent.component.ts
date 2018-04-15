@@ -16,7 +16,7 @@ export class SearchAgentComponent implements OnInit {
   ngOnInit() {
 
     this.searchJobsService.getJobs(null, null)
-      .subscribe((jobs) => {
+      .subscribe((jobs: JobSnippet[]) => {
         this.jobs = jobs;
       });
   }

@@ -26,15 +26,12 @@ import { AdminComponent } from './components/register-inputs/admin/admin.compone
 import { RegisterStepThreeComponent } from './components/register-step-three/register-step-three.component';
 import { CityComponent } from './components/register-inputs/city/city.component';
 
-// providers
-import { interceptorProviders } from '../../shared/interceptors/interceptor-providers';
 
 @NgModule({
   imports: [
     CommonModule,
     RegisterCompanyRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
     SharedModule
   ],
   declarations: [
@@ -56,8 +53,7 @@ import { interceptorProviders } from '../../shared/interceptors/interceptor-prov
     CityComponent
   ],
   providers: [
-    RegisterService,
-    interceptorProviders
+    RegisterService
   ]
 })
 export class RegisterCompanyModule { }
