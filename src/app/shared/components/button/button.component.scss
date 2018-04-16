@@ -32,13 +32,6 @@
 
     background-color: $azure;
     border: 2px solid $mantis;
-
-    &:hover {
-
-      background-color: $mantis;
-      color: $white;
-      border: 2px solid $azure;
-    }
   }
 
   &_color_dark {
@@ -46,10 +39,25 @@
     background: $mantis;
     color: white;
     border: none;
+  }
+
+  &_hover-color_transparent {
 
     &:hover {
 
-      cursor: pointer;
+      background-color: $azure;
+      color: $tuna;
+      border: 2px solid $mantis;
+    }
+  }
+
+  &_hover-color_dark {
+
+    &:hover {
+
+      background-color: $mantis;
+      color: $white;
+      border: 2px solid $azure;
     }
   }
 

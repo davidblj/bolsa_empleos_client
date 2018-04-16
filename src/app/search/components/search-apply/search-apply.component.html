@@ -1,11 +1,14 @@
 
 <div class="apply
             d-flex align-items-center"
-    *ngIf="jobId">
+    *ngIf="job">
 
     <app-button
       [color]="buttonColor"
-      [shape]="buttonShape">
-      <span class="button-spacing">APLICAR &nbsp; AHORA</span>
+      [hoverColor]="buttonHoverColor"
+      [shape]="buttonShape"
+      (submit)="onSubmit()">
+      <span class="button-spacing">{{buttonMessage}}</span>
     </app-button>
+
 </div>

@@ -21,7 +21,19 @@
     box-shadow: 0 0 1px rgba($regentGray, 0.6);
   }
 
+  &_applied {
+
+    .job__image {
+      opacity: .8;
+    }
+
+    .info {
+      opacity: .8;
+    }
+  }
+
   &_active {
+    opacity: 1;
     border-color: $paradiso-light !important;
     background: lighten($paradiso, 57.5%);
   }
@@ -54,3 +66,6 @@
   }
 }
 
+.success-icon {
+  height: 4rem;
+}

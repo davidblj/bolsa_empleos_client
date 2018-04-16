@@ -1,4 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+// classes
+import { Job } from '../../shared/job.interface';
 
 @Component({
   selector: 'app-search-apply',
@@ -8,8 +11,29 @@ import { Component, Input } from '@angular/core';
 export class SearchApplyComponent  {
 
   @Input()
-  jobId: string;
+  job: Job;
 
-  buttonColor = 'dark';
+  @Input()
+  applyingStatus: boolean;
+
+  @Output()
+  apply = new EventEmitter<any>();
+
   buttonShape = 'square';
+
+  get buttonColor() {
+    return this.applyingStatus ? 'transparent' : 'dark';
+  }
+
+  get buttonHoverColor() {
+    return this.applyingStatus ? 'none' : 'transparent';
+  }
+
+  get buttonMessage() {
+    return this.applyingStatus ? 'APLICANDO' : 'APLICAR AHORA';
+  }
+
+  onSubmit() {
+    this.apply.emit();
+  }
 }

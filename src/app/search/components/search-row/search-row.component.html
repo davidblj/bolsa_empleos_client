@@ -2,7 +2,8 @@
 <div
   class="job"
   (click)="onClick()"
-  [ngClass]="{'job_active': status}">
+  [ngClass]="{'job_active': status,
+              'job_applied': applyingStatus}">
 
   <!--consider the image as a new component-->
   <div class="row no-gutters align-items-center">
@@ -13,7 +14,7 @@
         src="assets/icon_05557113302602f4454623399a1f9222_google-square.jpg">
     </div>
 
-    <div class="col">
+    <div class="col-auto">
 
       <div class="info">
         <div class="info__title">
@@ -28,5 +29,21 @@
       </div>
 
     </div>
+
+    <div class="col"
+         *ngIf="applyingStatus">
+
+      <!-- image positioning to the right -->
+      <div class="d-flex">
+
+        <div class="ml-auto">
+          <img src="assets/icons/search/checked.svg"
+               class="success-icon"
+               *ngIf="applyingStatus">
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </div>

@@ -7,6 +7,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ButtonComponent {
 
+  // set any value to none if you
+  // don't want to apply those
+  // styles
+
   @Input()
   enabled = true;
 
@@ -15,6 +19,9 @@ export class ButtonComponent {
 
   @Input()
   color = 'transparent';
+
+  @Input()
+  hoverColor = 'dark';
 
   @Input ()
   animated = false;
@@ -35,5 +42,9 @@ export class ButtonComponent {
 
   getColorStatus(color: string) {
     return color === this.color;
+  }
+
+  getHoverColor(hoverColor: string) {
+    return hoverColor === this.hoverColor;
   }
 }

@@ -30,9 +30,9 @@ export class CompanyAuthGuard implements CanActivate, CanLoad {
 
   checkLogIn(redirectionUrl: string): boolean {
 
-    const user: UserAuth = this.authService.getUser();
+    const user: UserAuth | null = this.authService.getUser();
 
-    if (user.role === 'company') {
+    if (user && user.role === 'company') {
       return true;
     }
 

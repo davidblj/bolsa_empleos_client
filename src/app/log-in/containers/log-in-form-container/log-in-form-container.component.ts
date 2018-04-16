@@ -23,21 +23,16 @@ export class LogInFormContainerComponent {
 
     this.message = '';
 
-    if (!userCredentials) {
-
+    userCredentials ?
+      this.sendAuthenticationRequest(userCredentials) :
       this.message = 'credenciales incompletas';
-
-    } else {
-
-      this.sendAuthenticationRequest(userCredentials)
-    }
   }
 
   sendAuthenticationRequest(userCredentials: UserCredentials) {
 
     this.loading = true;
 
-    this.authService.authenticate(userCredentials)
+    this.authService.logIn(userCredentials)
       .subscribe(
 
         () => {
@@ -58,27 +53,17 @@ export class LogInFormContainerComponent {
       companyUser = role === 'company',
       candidateUser = (role === 'student' || role === 'graduate');
 
-    if (companyUser) {
+    if (companyUser) { this.redirectTo('empresas'); }
 
-      this.redirectTo('empresas');
-
-    }
-
-    if (candidateUser) {
-
-      this.redirectTo('buscar');
-    }
+    if (candidateUser) { this.redirectTo('buscar'); }
   }
 
   redirectTo(url: string) {
 
-    if (!this.authService.redirectionUrl) {
+    const needsRedirection = this.authService.redirectionUrl;
 
+    needsRedirection ?
+      this.router.navigate([this.authService.redirectionUrl]) :
       this.router.navigate([url]);
-
-    } else {
-
-      this.router.navigate([this.authService.redirectionUrl]);
-    }
   }
 }

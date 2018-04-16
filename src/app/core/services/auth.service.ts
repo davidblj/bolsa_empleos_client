@@ -19,12 +19,13 @@ export class AuthService extends Service {
     super();
   }
 
-  authenticate(user: UserCredentials): Observable<any> {
+  logIn(user: UserCredentials): Observable<any> {
 
     const message = 'Credenciales invalidas';
 
     return this.http.post(this.sessionUrl, user)
       .map((response: UserAuth) => {
+
         this.handleAuthentication(response);
         return;
       })
@@ -36,9 +37,10 @@ export class AuthService extends Service {
     localStorage.removeItem('be-user');
   }
 
-  getUser(): UserAuth {
+  getUser(): UserAuth | null {
 
-    return JSON.parse(localStorage.getItem('be-user'));
+    const loggedInUser = localStorage.getItem('be-user');
+    return loggedInUser ? JSON.parse(loggedInUser) : null;
   }
 
   private handleAuthentication(userInfo: UserAuth) {

@@ -9,7 +9,5 @@ export class SearchDashboardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
 }
