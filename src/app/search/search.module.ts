@@ -19,9 +19,11 @@ import { SearchJobComponent } from './containers/search-job/search-job.component
 import { SearchRoutingModule } from './search-routing.module';
 import { SearchApplyComponent } from './components/search-apply/search-apply.component';
 import { SearchApplyContainerComponent } from './containers/search-apply-container/search-apply-container.component';
+import { SearchRowContainerComponent } from './containers/search-row-container/search-row-container.component';
 
 // services
 import { SearchJobsService } from './shared/search-jobs.service';
+
 
 @NgModule({
   imports: [
@@ -37,6 +39,7 @@ import { SearchJobsService } from './shared/search-jobs.service';
     SearchFilterComponent,
     SearchListComponent,
     SearchDetailsComponent,
+    SearchRowContainerComponent,
     SearchRowComponent,
     SearchCategoryComponent,
     SearchResultsComponent,

@@ -11,12 +11,14 @@ import { JobSnippet } from '../../search/shared/job-snippet.interface';
 
 // services
 import { AuthService } from './auth.service';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class CandidateUserService extends Service {
 
   baseUrl = 'candidate';
-  appliedJobs: JobSnippet[];
+  private appliedJobsSource = new BehaviorSubject<JobSnippet[]>([]);
+  appliedJobs$ = this.appliedJobsSource.asObservable();
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -53,9 +55,8 @@ export class CandidateUserService extends Service {
       return this.http.get<JobSnippet[]>(`${this.baseUrl}/jobs/`)
         .pipe(catchError(this.handleError(message)))
         .do(
-
           (jobs: JobSnippet[]) => {
-            this.appliedJobs = jobs;
+            this.appliedJobsSource.next(jobs);
           },
           (e_message) => {
             console.error(e_message)
@@ -69,7 +70,7 @@ export class CandidateUserService extends Service {
 
   // utils
 
-  getApplyingStatus(id: string): boolean {
+  /*getApplyingStatus(id: string): boolean {
 
     const userIsLogged = this.serviceGuard();
 
@@ -80,6 +81,12 @@ export class CandidateUserService extends Service {
       });
 
     } else { return false; }
+  }*/
+
+  addJobLocally(newJob: JobSnippet) {
+
+    const oldList: JobSnippet[] = this.appliedJobsSource.value;
+    this.appliedJobsSource.next([...oldList, newJob]);
   }
 
   private serviceGuard(): boolean {

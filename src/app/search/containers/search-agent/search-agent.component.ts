@@ -14,27 +14,27 @@ export class SearchAgentComponent implements OnInit {
 
   jobs: JobSnippet[];
 
-
-  // todo: pass down the 'applied jobs'. (making our row component a dumb service)
   constructor(private searchJobsService: SearchJobsService,
-              private candidateUserService: CandidateUserService) { }
-
-  ngOnInit() {
+              private candidateUserService: CandidateUserService) {
 
     // since we are getting the applied status
-    // after a job is received (row component),
-    // we must ensure that the applied jobs are
-    // already stored
+    // after a job is received (row and apply
+    // components), we must ensure that the
+    // applied jobs are already stored
     this.candidateUserService.getJobs()
       .subscribe(() => {
         this.searchJobs();
       });
   }
 
+  ngOnInit() {
+  }
+
   searchJobs() {
 
     this.searchJobsService.getJobs(null, null)
       .subscribe((jobs: JobSnippet[]) => {
+        console.log(jobs);
         this.jobs = jobs;
       });
   }

@@ -1,8 +1,8 @@
 
 <div *ngFor="let job of jobs">
-  <app-search-row
+  <app-search-row-container
     [job]="job"
     [currentId]="currentId"
     (select)="onSelect($event)">
-  </app-search-row>
+  </app-search-row-container>
 </div>

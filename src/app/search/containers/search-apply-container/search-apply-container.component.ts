@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CandidateUserService } from '../../../core/services/candidate-user.service';
 import { Job } from '../../shared/job.interface';
 import { JobSnippet } from '../../shared/job-snippet.interface';
@@ -8,10 +8,7 @@ import { JobSnippet } from '../../shared/job-snippet.interface';
   templateUrl: './search-apply-container.component.html',
   styleUrls: ['./search-apply-container.component.scss']
 })
-export class SearchApplyContainerComponent {
-
-  _job: Job;
-  applyingStatus = false;
+export class SearchApplyContainerComponent implements OnInit {
 
   @Input()
   set job(job: Job) {
@@ -23,13 +20,27 @@ export class SearchApplyContainerComponent {
   @Output()
   update = new EventEmitter<any>();
 
-  constructor(private candidateUserService: CandidateUserService) {}
+  appliedJobs: JobSnippet[] = [];
+  applyingStatus = false;
+  _job: Job;
+
+  constructor(private candidateUserService: CandidateUserService) {
+
+    // do get the applying jobs before the change
+    // detection tries to update (in our setter)
+    // the applying status
+    this.candidateUserService.appliedJobs$
+      .subscribe((appliedJobs) => {
+        this.appliedJobs = appliedJobs;
+      })
+  }
+
+  ngOnInit() {}
 
   onApply() {
 
-    this.candidateUserService.addJob(this._job._id)
+    this.candidateUserService.addJob(this.job._id)
       .subscribe(
-
         (res: boolean) => {
           this.handleResponse(res);
         },
@@ -42,6 +53,7 @@ export class SearchApplyContainerComponent {
 
     if (status ) {
 
+      this.applyingStatus = true;
       this.addJobLocally();
 
     } else {
@@ -51,25 +63,33 @@ export class SearchApplyContainerComponent {
     }
   }
 
+  handleError(message: string) {
+
+    console.error(message);
+  }
+
   addJobLocally() {
 
     const job: JobSnippet = {
-      _id: this._job._id,
-      name: this._job.name,
-      owner: this._job.owner
+      _id: this.job._id,
+      name: this.job.name,
+      owner: this.job.owner
     };
 
-    this.candidateUserService.appliedJobs.push(job);
-    this.updateApplyingStatus();
+    this.candidateUserService.addJobLocally(job);
   }
 
   updateApplyingStatus() {
 
-    this.applyingStatus = this.candidateUserService.getApplyingStatus(this._job._id);
+    const status = this.appliedJobs.some((value: JobSnippet) => {
+      return value._id === this.job._id;
+    });
+
+    this.applyingStatus = status;
   }
 
-  handleError(message: string) {
+  get job() {
 
-    console.error(message);
+    return this._job;
   }
 }
