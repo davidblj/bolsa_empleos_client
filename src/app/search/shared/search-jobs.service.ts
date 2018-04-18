@@ -9,7 +9,7 @@ import { Service } from '../../shared/classes/service.class';
 
 // classes
 import { JobSnippet } from './job-snippet.interface';
-import { Job } from './job.interface';
+import { Job } from '../../shared/interfaces/job.interface';
 
 @Injectable()
 export class SearchJobsService extends Service {

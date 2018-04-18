@@ -17,6 +17,10 @@ export class SearchAgentComponent implements OnInit {
   constructor(private searchJobsService: SearchJobsService,
               private candidateUserService: CandidateUserService) {
 
+  }
+
+  ngOnInit() {
+
     // since we are getting the applied status
     // after a job is received (row and apply
     // components), we must ensure that the
@@ -25,9 +29,6 @@ export class SearchAgentComponent implements OnInit {
       .subscribe(() => {
         this.searchJobs();
       });
-  }
-
-  ngOnInit() {
   }
 
   searchJobs() {

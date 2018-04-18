@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CandidateUserService } from '../../../core/services/candidate-user.service';
-import { Job } from '../../shared/job.interface';
+import { Job } from '../../../shared/interfaces/job.interface';
 import { JobSnippet } from '../../shared/job-snippet.interface';
 
 @Component({
@@ -85,6 +85,7 @@ export class SearchApplyContainerComponent implements OnInit {
       return value._id === this.job._id;
     });
 
+    console.log(status, this.job._id);
     this.applyingStatus = status;
   }
 

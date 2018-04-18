@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 // classes
-import { Job } from '../../shared/job.interface';
+import { Job } from '../../../shared/interfaces/job.interface';
 
 @Component({
   selector: 'app-search-details',

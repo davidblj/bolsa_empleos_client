@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { SearchJobsService } from '../../shared/search-jobs.service';
 
 // classes
-import { Job } from '../../shared/job.interface';
+import { Job } from '../../../shared/interfaces/job.interface';
 
 @Component({
   selector: 'app-search-job',

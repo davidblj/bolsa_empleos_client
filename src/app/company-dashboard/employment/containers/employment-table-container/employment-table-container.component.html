@@ -1,3 +1,6 @@
 
-<app-employment-table>
-</app-employment-table>
+<div *ngIf="(jobs$ | async) as job">
+  <app-employment-table
+    [jobs]="job">
+  </app-employment-table>
+</div>

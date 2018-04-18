@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 // services
 import { AuthService } from './services/auth.service';
 import { CandidateUserService } from './services/candidate-user.service';
+import { CompanyUserService } from './services/company-user.service';
 
 // providers/guards
 import { interceptorProviders } from './interceptors/interceptor-providers';
@@ -22,6 +23,7 @@ import { CompanyAuthGuard } from './guards/company-auth-guard.service';
   providers: [
     AuthService,
     CandidateUserService,
+    CompanyUserService,
     CompanyAuthGuard,
     interceptorProviders
   ]

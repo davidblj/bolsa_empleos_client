@@ -21,7 +21,6 @@ export class SearchRowComponent implements OnInit {
   select = new EventEmitter<string>();
 
   highlight = false;
-  applyingStatus = false;
   rowId: string;
 
   ngOnInit() {

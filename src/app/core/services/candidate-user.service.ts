@@ -1,4 +1,3 @@
-import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -21,7 +20,6 @@ export class CandidateUserService extends Service {
   appliedJobs$ = this.appliedJobsSource.asObservable();
 
   constructor(private http: HttpClient,
-              private router: Router,
               private authService: AuthService) {
     super();
   }
@@ -69,19 +67,6 @@ export class CandidateUserService extends Service {
   }
 
   // utils
-
-  /*getApplyingStatus(id: string): boolean {
-
-    const userIsLogged = this.serviceGuard();
-
-    if (userIsLogged && this.appliedJobs) {
-
-      return this.appliedJobs.some((job: JobSnippet) => {
-        return job._id === id;
-      });
-
-    } else { return false; }
-  }*/
 
   addJobLocally(newJob: JobSnippet) {
 
