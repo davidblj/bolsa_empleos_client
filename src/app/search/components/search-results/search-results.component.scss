@@ -1,15 +1,16 @@
 @import "variables";
 
 $list-width: 51rem;
-$list-height: calc(100vh - #{$apply-section-height});
+$list-height: calc(#{$search-dashboard-height} - #{$apply-section-height});
 
 .list-box {
 
   border-right: 1px solid $mischka;
-  box-shadow: 7px 0 12px -15px  $regentGray;
-  width: $list-width;
+  box-shadow: 7px 0 12px -15px $regentGray;
+
   position: absolute;
-  height: 100vh;
+  height: $search-dashboard-height;
+  width: $list-width;
   z-index: 5;
 
   &__list {
@@ -27,5 +28,5 @@ $list-height: calc(100vh - #{$apply-section-height});
 
 .details-box {
   padding-left: $list-width;
-  height: 100vh;
+  height: $search-dashboard-height;
 }

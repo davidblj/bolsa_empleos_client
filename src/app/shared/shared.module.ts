@@ -21,6 +21,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { ContactComponent } from './components/sign-up-common/sign-up-inputs/contact/contact.component';
 import { EmailComponent } from './components/sign-up-common/sign-up-inputs/email/email.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     CheckPasswordComponent,
     ContactComponent,
     EmailComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    HeaderComponent
   ],
   declarations: [
     PopoverComponent,
@@ -60,7 +62,8 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     EmailComponent,
     CheckPasswordComponent,
     ButtonComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    HeaderComponent
   ]
 })
 export class SharedModule { }

@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class PaginatorComponent {
 
+  // large(default) or small
   @Input()
   type = 'large';
 

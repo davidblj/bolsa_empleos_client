@@ -1,4 +1,4 @@
-   // colors
+// app colors
 
 // white scale
 $white: #fff;
@@ -25,10 +25,9 @@ $mantis: #5cc26c;
 $burntSienna: #E95A51;
 
 
-  // company dashboard variables
+// company dashboard module variables
 
 $company-dashboard-background: lighten($regentGray, 37%);
-$header-height: 8vh;
 $body-height: 92vh;
 $side-margin: 8rem;
 $dashboard-top-spacing: 6rem;
@@ -37,8 +36,15 @@ $dashboard-right-spacing: 8rem;
 $table-bottom-spacing: 4rem;
 
 
-  // search variables
+// header component variables
 
-$job-details-spacing: 4rem;
+$header-height: 7vh;
+
+
+// search module variables
+
+$search-dashboard-height: calc(100vh - #{$header-height});
 $apply-section-height: 8rem;
-$job-details-height: calc(100vh - #{$apply-section-height});
+$job-details-spacing: 4rem;
+$job-details-height: calc(#{$search-dashboard-height} - #{$apply-section-height});
+

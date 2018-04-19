@@ -23,19 +23,16 @@
 
   &_applied {
 
+    .info,
     .job__image {
-      opacity: .8;
-    }
-
-    .info {
-      opacity: .8;
+      opacity: .6;
     }
   }
 
   &_active {
     opacity: 1;
     border-color: $deYork !important;
-    background: lighten($mantis, 41.5%);
+    background: lighten($mantis, 41.7%);
   }
 
   &:hover {
@@ -60,12 +57,13 @@
   }
 
   &__salary {
-    color: $deYork;
+    color: $paradiso-light;
     font-size: 1.3rem;
     font-weight: 600;
   }
 }
 
 .success-icon {
+
   height: 4rem;
 }

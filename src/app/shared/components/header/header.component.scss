@@ -1,17 +1,17 @@
 @import "variables";
 @import "mixins";
 
-$logo-height: 4rem;
+$logo-height: 3.3rem;
 
 .header {
 
-  height: 8vh;
+  @include shadow;
+
+  height: $header-height;
   width: 100vw;
-  padding: 1rem;
   background: $azure;
   position: relative;
-  @include shadow;
-  z-index: 2;
+  z-index: 10;
 
   &__logo {
 

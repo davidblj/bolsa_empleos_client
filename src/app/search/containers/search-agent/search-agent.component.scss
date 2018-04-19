@@ -3,22 +3,27 @@
 $menu-width: 36rem;
 
 .side-menu-box {
-  height: 100vh;
+
+  height: $search-dashboard-height;
   position: fixed;
   top: 0;
   left: 0;
+  margin-top: $header-height;
   width: $menu-width;
 
-  background: linear-gradient(to bottom,
+  border-right: 1px solid $mischka;
+
+  /*background: linear-gradient(to bottom,
     $paradiso,
     $mantis
-  );
+  );*/
 
-  z-index:5;
+  z-index:15;
 }
 
 .results-box {
+
   position: relative;
-  height: 100vh;
+  height: $search-dashboard-height;
   padding-left: $menu-width;
 }
