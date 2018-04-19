@@ -12,6 +12,11 @@ $row-width-expansion: 4rem;
   border-bottom: 1px solid $geyser;
 }
 
+.paginator-box {
+
+  margin-top: $table-bottom-spacing;
+}
+
 .table-header {
 
   margin-bottom: 2rem;
@@ -69,3 +74,4 @@ $row-width-expansion: 4rem;
 .size_tiny {
   width: 5%;
 }
+

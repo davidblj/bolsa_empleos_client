@@ -7,7 +7,6 @@ $page-size: 1.7rem;
   transform: translateX(-50%);
   display: inline-block;
   left: 50%;
-  margin-top: $table-bottom-spacing;
   position: relative;
 
   & * {
@@ -15,10 +14,20 @@ $page-size: 1.7rem;
     text-align: center;
   }
 
-  // image position set manually
-  img {
-    height: 26px;
-    margin: -11px 20px 0;
+  &__arrow {
+
+    // image position set manually
+    margin: -11px 0;
+    padding: 2rem;
+
+    img {
+      height: 26px;
+    }
+
+    &:hover {
+
+      cursor: pointer;
+    }
   }
 
   &__pages {

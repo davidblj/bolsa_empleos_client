@@ -1,16 +1,28 @@
 @import "variables";
 
 $list-width: 51rem;
+$list-height: calc(100vh - #{$apply-section-height});
 
 .list-box {
 
   border-right: 1px solid $mischka;
   box-shadow: 7px 0 12px -15px  $regentGray;
-
   width: $list-width;
   position: absolute;
   height: 100vh;
   z-index: 5;
+
+  &__list {
+
+    height: $list-height;
+    overflow-y: auto;
+  }
+
+  &__paginator {
+
+    // border-top: 1px solid $mischka;
+    height: $apply-section-height;
+  }
 }
 
 .details-box {

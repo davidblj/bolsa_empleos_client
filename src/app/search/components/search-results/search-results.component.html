@@ -1,10 +1,22 @@
 
 <div class="list-box">
-  <app-search-list
-    [jobs]="jobs"
-    (select)="onSelect($event)" >
-  </app-search-list>
+
+  <div class="list-box__list">
+    <app-search-list
+      [jobs]="jobs"
+      (select)="onSelect($event)" >
+    </app-search-list>
+  </div>
+
+  <div class="list-box__paginator
+              d-flex align-items-center justify-content-center">
+    <app-paginator
+      [type]="paginatorType">
+    </app-paginator>
+  </div>
+
 </div>
+
 <div class="details-box">
   <app-search-job
     [id]="currentJobId">

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { JobSnippet } from '../../shared/job-snippet.interface';
 
 @Component({
@@ -6,16 +6,13 @@ import { JobSnippet } from '../../shared/job-snippet.interface';
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss']
 })
-export class SearchResultsComponent implements OnInit {
+export class SearchResultsComponent {
 
   @Input()
   jobs: JobSnippet[];
 
   currentJobId: string;
-
-  constructor() { }
-
-  ngOnInit() { }
+  paginatorType = 'small';
 
   onSelect(id: string) {
     this.currentJobId = id;
