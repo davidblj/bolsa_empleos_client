@@ -28,7 +28,7 @@ export class CompanyUserService extends Service {
 
   private buildParams(): HttpParams {
 
-    const size = '2';
+    const size = '7';
 
     let params = new HttpParams().set('size', size);
 

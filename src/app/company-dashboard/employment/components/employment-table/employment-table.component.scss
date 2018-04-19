@@ -8,6 +8,8 @@ $row-width-expansion: 4rem;
 
   margin: 3rem $dashboard-right-spacing 0;
   position: relative;
+  padding-bottom: $table-bottom-spacing;
+  border-bottom: 1px solid $geyser;
 }
 
 .table-header {
