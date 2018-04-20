@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { JobSnippet } from '../../shared/job-snippet.interface';
 
 @Component({
@@ -11,10 +11,19 @@ export class SearchResultsComponent {
   @Input()
   jobs: JobSnippet[];
 
+  @Input()
+  pageLimit: number;
+
+  @Output()
+  page = new EventEmitter<number>();
+
   currentJobId: string;
-  paginatorType = 'small';
 
   onSelect(id: string) {
     this.currentJobId = id;
+  }
+
+  onPageChanged(offset: number) {
+    this.page.emit(offset);
   }
 }

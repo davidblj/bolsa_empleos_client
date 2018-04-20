@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class PaginatorComponent {
 
   @Input()
-  pageLimit = 10;
+  pageLimit;
 
   @Output()
   page = new EventEmitter<number>();
@@ -19,7 +19,7 @@ export class PaginatorComponent {
 
     if (this.canGoBackwards) {
       this.currentPage = this.currentPage - 1;
-      this.emitCurrentPage();
+      this.emitCurrentPage(-1);
     }
   }
 
@@ -27,19 +27,19 @@ export class PaginatorComponent {
 
    if (this.canGoForward) {
      this.currentPage = this.currentPage + 1;
-     this.emitCurrentPage();
+     this.emitCurrentPage(1);
    }
   }
 
   get canGoForward() {
-    return (this.currentPage + 1 <= this.pageLimit);
+    return (this.currentPage + 1 < this.pageLimit);
   }
 
   get canGoBackwards() {
     return (this.currentPage - 1 >= 0);
   }
 
-  emitCurrentPage() {
-    this.page.emit(this.currentPage);
+  emitCurrentPage(offset: number) {
+    this.page.emit(offset);
   }
 }

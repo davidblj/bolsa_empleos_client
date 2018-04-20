@@ -10,8 +10,11 @@
 
   <div class="list-box__paginator
               d-flex align-items-center justify-content-center">
-    <app-search-paginator-container>
-    </app-search-paginator-container>
+
+    <app-search-paginator
+      [pageLimit]="pageLimit"
+      (page)="onPageChanged($event)">
+    </app-search-paginator>
   </div>
 
 </div>

@@ -11,6 +11,8 @@
 
 <div class="results-box">
   <app-search-results
-    [jobs]="jobs">
+    [jobs]="jobs"
+    [pageLimit]="pageLimit"
+    (page)="onPageChanged($event)">
   </app-search-results>
 </div>

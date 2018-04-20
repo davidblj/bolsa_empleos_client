@@ -4,6 +4,7 @@ import { JobSnippet } from '../../shared/job-snippet.interface';
 // services
 import { SearchJobsService } from '../../shared/search-jobs.service';
 import { CandidateUserService } from '../../../core/services/candidate-user.service';
+import { JobSearch } from '../../shared/job-search-interface';
 
 @Component({
   selector: 'app-search-agent',
@@ -13,11 +14,14 @@ import { CandidateUserService } from '../../../core/services/candidate-user.serv
 export class SearchAgentComponent implements OnInit {
 
   jobs: JobSnippet[];
+  pageLimit;
+
+  // pagination variables
+  currentId = null;
+  pageSize = 5;
 
   constructor(private searchJobsService: SearchJobsService,
-              private candidateUserService: CandidateUserService) {
-
-  }
+              private candidateUserService: CandidateUserService) { }
 
   ngOnInit() {
 
@@ -27,15 +31,22 @@ export class SearchAgentComponent implements OnInit {
     // applied jobs are already stored
     this.candidateUserService.getJobs()
       .subscribe(() => {
-        this.searchJobs();
+        this.searchJobs(null);
       });
   }
 
-  searchJobs() {
+  searchJobs(offset) {
 
-    this.searchJobsService.getJobs(null, null)
-      .subscribe((jobs: JobSnippet[]) => {
-        this.jobs = jobs;
+    this.searchJobsService.getJobs(this.currentId, offset, this.pageSize)
+      .subscribe((jobSearch: JobSearch) => {
+
+        this.jobs = jobSearch.items;
+        this.pageLimit = (jobSearch.total_count / this.pageSize);
+        this.currentId = this.jobs[0]._id;
       });
+  }
+
+  onPageChanged(offset: number) {
+    this.searchJobs(offset);
   }
 }

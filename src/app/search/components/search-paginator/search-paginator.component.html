@@ -4,7 +4,8 @@
   <div class="paginator">
 
     <div class="paginator__arrow"
-         [ngClass]="{hidden: !canGoBackwards}"
+         [ngClass]="{'hidden': !canGoBackwards,
+                     'paginator__arrow_cursor_pointer': canGoBackwards}"
          (mouseenter)="toggleLeftArrow()"
          (mouseleave)="toggleLeftArrow()"
          (click)="goBackward()">
@@ -14,11 +15,12 @@
 
     <div class="paginator__current-page
                 paginator__current-page_margin_wide">
-      {{currentPage}}
+      {{currentPage + 1}}
     </div>
 
     <div class="paginator__arrow"
-         [ngClass]="{hidden: !canGoForward}"
+         [ngClass]="{'hidden': !canGoForward,
+                     'paginator__arrow_cursor_pointer': canGoForward}"
          (mouseenter)="toggleRightArrow()"
          (mouseleave)="toggleRightArrow()"
          (click)="goForward()">

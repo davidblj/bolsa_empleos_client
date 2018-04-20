@@ -20,7 +20,6 @@ import { SearchRoutingModule } from './search-routing.module';
 import { SearchApplyComponent } from './components/search-apply/search-apply.component';
 import { SearchApplyContainerComponent } from './containers/search-apply-container/search-apply-container.component';
 import { SearchRowContainerComponent } from './containers/search-row-container/search-row-container.component';
-import { SearchPaginatorContainerComponent } from './containers/search-paginator-container/search-paginator-container.component';
 import { SearchPaginatorComponent } from './components/search-paginator/search-paginator.component';
 
 // services
@@ -52,7 +51,6 @@ import { SearchNotificationContainerComponent } from './containers/search-notifi
     SearchApplyComponent,
     SearchApplyContainerComponent,
     SearchNotificationContainerComponent,
-    SearchPaginatorContainerComponent,
     SearchPaginatorComponent,
   ],
   providers: [

@@ -31,7 +31,6 @@ export class CompanyUserService extends Service {
     const size = '7';
 
     let params = new HttpParams().set('size', size);
-
     return params;
   }
 }

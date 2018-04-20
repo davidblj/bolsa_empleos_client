@@ -24,9 +24,11 @@ $page-size: 1.7rem;
       height: 26px;
     }
 
-    &:hover {
+    &_cursor_pointer {
 
-      cursor: pointer;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
@@ -47,5 +49,7 @@ $page-size: 1.7rem;
 }
 
 .hidden {
+
   opacity: 0;
+  cursor: default;
 }
