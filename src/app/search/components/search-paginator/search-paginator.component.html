@@ -1,0 +1,30 @@
+
+<div class="u-relative">
+
+  <div class="paginator">
+
+    <div class="paginator__arrow"
+         [ngClass]="{hidden: !canGoBackwards}"
+         (mouseenter)="toggleLeftArrow()"
+         (mouseleave)="toggleLeftArrow()"
+         (click)="goBackward()">
+
+      <img [src]="leftArrowUrl" alt="">
+    </div>
+
+    <div class="paginator__current-page
+                paginator__current-page_margin_wide">
+      {{currentPage}}
+    </div>
+
+    <div class="paginator__arrow"
+         [ngClass]="{hidden: !canGoForward}"
+         (mouseenter)="toggleRightArrow()"
+         (mouseleave)="toggleRightArrow()"
+         (click)="goForward()">
+
+      <img [src]="rightArrowUrl" alt="">
+    </div>
+
+  </div>
+</div>

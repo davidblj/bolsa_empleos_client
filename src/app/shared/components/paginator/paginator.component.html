@@ -1,5 +1,4 @@
-<div class="u-relative"
-     *ngIf="getTypeStatus('large')">
+<div class="u-relative">
 
   <div class="paginator">
 
@@ -31,29 +30,4 @@
 
   </div>
 
-</div>
-
-<div class="u-relative"
-     *ngIf="getTypeStatus('small')">
-
-  <div class="paginator">
-
-    <div class="paginator__arrow"
-         (mouseenter)="toggleLeftArrow()"
-         (mouseleave)="toggleLeftArrow()" >
-      <img [src]="leftArrowUrl" alt="">
-    </div>
-
-    <div class="paginator__current-page
-                paginator__current-page_margin_wide">
-      4
-    </div>
-
-    <div class="paginator__arrow"
-         (mouseenter)="toggleRightArrow()"
-         (mouseleave)="toggleRightArrow()">
-      <img [src]="rightArrowUrl" alt="">
-    </div>
-
-  </div>
 </div>

@@ -14,15 +14,20 @@ $page-size: 1.7rem;
     text-align: center;
   }
 
-  &__pages {
+  &__arrow {
 
-    margin: 0 2rem;
-  }
+    // image position set manually
+    margin: -11px 0;
+    padding: 2rem;
 
-  &__page {
+    img {
+      height: 26px;
+    }
 
-    font-size: $page-size;
-    width: 45px;
+    &:hover {
+
+      cursor: pointer;
+    }
   }
 
   &__current-page {
@@ -41,8 +46,6 @@ $page-size: 1.7rem;
   }
 }
 
-
-.button-spacing {
-
-  padding: 1rem 1.5rem;
+.hidden {
+  opacity: 0;
 }

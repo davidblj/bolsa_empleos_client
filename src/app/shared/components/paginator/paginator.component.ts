@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-paginator',
@@ -7,37 +7,39 @@ import { Component, Input } from '@angular/core';
 })
 export class PaginatorComponent {
 
-  // large(default) or small
   @Input()
-  type = 'large';
+  pageLimit = 10;
 
-  transparentLeftArrow = 'assets/icons/paginator/left-arrow-transparent.svg';
-  solidLeftArrow = 'assets/icons/paginator/left-arrow.svg';
-  leftArrowUrl = this.transparentLeftArrow;
+  @Output()
+  page = new EventEmitter<number>();
 
-  transparentRightArrow = 'assets/icons/paginator/right-arrow-transparent.svg';
-  solidRightArrow = 'assets/icons/paginator/right-arrow.svg';
-  rightArrowUrl = this.transparentRightArrow;
+  currentPage = 0;
 
-  getTypeStatus(type: string) {
-    return type === this.type;
-  }
+  goBackward() {
 
-  toggleLeftArrow() {
-
-    if (this.leftArrowUrl === this.transparentLeftArrow) {
-      this.leftArrowUrl = this.solidLeftArrow;
-    } else {
-      this.leftArrowUrl = this.transparentLeftArrow;
+    if (this.canGoBackwards) {
+      this.currentPage = this.currentPage - 1;
+      this.emitCurrentPage();
     }
   }
 
-  toggleRightArrow() {
+  goForward() {
 
-    if (this.rightArrowUrl === this.transparentRightArrow) {
-      this.rightArrowUrl = this.solidRightArrow;
-    } else {
-      this.rightArrowUrl = this.transparentRightArrow;
-    }
+   if (this.canGoForward) {
+     this.currentPage = this.currentPage + 1;
+     this.emitCurrentPage();
+   }
+  }
+
+  get canGoForward() {
+    return (this.currentPage + 1 <= this.pageLimit);
+  }
+
+  get canGoBackwards() {
+    return (this.currentPage - 1 >= 0);
+  }
+
+  emitCurrentPage() {
+    this.page.emit(this.currentPage);
   }
 }
