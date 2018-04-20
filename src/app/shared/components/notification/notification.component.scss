@@ -1,0 +1,19 @@
+@import "variables";
+
+.notification {
+
+  cursor: pointer;
+
+  display: inline-block;
+  margin-right: 2rem;
+  text-align: center;
+
+  background: $mantis;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $white;
+
+  border-radius: 50%;
+  width: 27px;
+  line-height: 27px;
+}

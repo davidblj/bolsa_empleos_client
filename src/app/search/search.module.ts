@@ -23,6 +23,7 @@ import { SearchRowContainerComponent } from './containers/search-row-container/s
 
 // services
 import { SearchJobsService } from './shared/search-jobs.service';
+import { SearchNotificationContainerComponent } from './containers/search-notification-container/search-notification-container.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { SearchJobsService } from './shared/search-jobs.service';
     SearchHeaderComponent,
     SearchJobComponent,
     SearchApplyComponent,
-    SearchApplyContainerComponent
+    SearchApplyContainerComponent,
+    SearchNotificationContainerComponent,
   ],
   providers: [
     SearchJobsService,

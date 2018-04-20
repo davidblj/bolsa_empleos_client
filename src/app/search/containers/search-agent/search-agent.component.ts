@@ -35,7 +35,6 @@ export class SearchAgentComponent implements OnInit {
 
     this.searchJobsService.getJobs(null, null)
       .subscribe((jobs: JobSnippet[]) => {
-        console.log(jobs);
         this.jobs = jobs;
       });
   }

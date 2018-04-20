@@ -1,7 +1,8 @@
 
 export interface UserAuth {
 
-  user: string;
+  name: string;
+  admin?: string;
   role: string;
   token: string;
 }
