@@ -64,6 +64,7 @@
   &_animation_hover {
 
     &:hover {
+      border: inherit;
       transform: translateY(-5px);
       box-shadow: 0 1rem 2rem rgba($mantis,0.5);
     }
