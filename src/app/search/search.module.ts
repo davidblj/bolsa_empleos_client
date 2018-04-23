@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 
 // modules
 import { SharedModule } from '../shared/shared.module';
@@ -25,6 +24,7 @@ import { SearchPaginatorComponent } from './components/search-paginator/search-p
 // services
 import { SearchJobsService } from './shared/search-jobs.service';
 import { SearchNotificationContainerComponent } from './containers/search-notification-container/search-notification-container.component';
+import { SearchHeaderContainerComponent } from './containers/search-header-container/search-header-container.component';
 
 
 @NgModule({
@@ -52,6 +52,8 @@ import { SearchNotificationContainerComponent } from './containers/search-notifi
     SearchApplyContainerComponent,
     SearchNotificationContainerComponent,
     SearchPaginatorComponent,
+    SearchHeaderComponent,
+    SearchHeaderContainerComponent
   ],
   providers: [
     SearchJobsService,

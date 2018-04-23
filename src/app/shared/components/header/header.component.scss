@@ -1,8 +1,6 @@
 @import "variables";
 @import "mixins";
 
-$logo-height: 3.3rem;
-
 .header {
 
   @include shadow;
@@ -25,34 +23,12 @@ $logo-height: 3.3rem;
     }
   }
 
-  .user {
+  &__right-content {
 
     @include y-mid-positioning;
 
     right: 0;
     display: inline-block;
     margin-right: $dashboard-right-spacing;
-
-    &__name {
-
-      // icon displacement
-      display: inline-block;
-      margin-right: 1.5rem;
-      line-height: 0;
-      font-size: 1.7rem;
-
-      &_bold {
-        font-weight: 600;
-      }
-    }
-
-    &__logo {
-
-      display: inline-block;
-
-      img {
-        height: $logo-height;
-      }
-    }
   }
 }

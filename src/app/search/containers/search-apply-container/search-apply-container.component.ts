@@ -85,7 +85,6 @@ export class SearchApplyContainerComponent implements OnInit {
       return value._id === this.job._id;
     });
 
-    console.log(status, this.job._id);
     this.applyingStatus = status;
   }
 

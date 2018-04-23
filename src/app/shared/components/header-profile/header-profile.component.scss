@@ -1,0 +1,27 @@
+@import "variables";
+@import "mixins";
+
+.profile {
+
+  &__name {
+
+    // icon displacement
+    display: inline-block;
+    margin-right: 1.5rem;
+    line-height: 0;
+    font-size: 1.7rem;
+
+    &_bold {
+      font-weight: 600;
+    }
+  }
+
+  &__logo {
+
+    display: inline-block;
+
+    img {
+      height: $logo-height;
+    }
+  }
+}

@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-header',
   templateUrl: './search-header.component.html',
   styleUrls: ['./search-header.component.scss']
 })
-export class SearchHeaderComponent implements OnInit {
+export class SearchHeaderComponent {
 
-  constructor() { }
+  @Input()
+  username: string;
 
-  ngOnInit() {
+  @Input()
+  insignia: string;
+
+  constructor(private router: Router) {}
+
+  onClick() {
+    this.router.navigate(['/ingresar']);
   }
 
+  get notificationStatus() {
+    return (
+      this.insignia === 'Estudiante' ||
+      this.insignia === 'Graduado');
+  }
 }

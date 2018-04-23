@@ -46,6 +46,7 @@ export class SearchAgentComponent implements OnInit {
       });
   }
 
+
   onPageChanged(offset: number) {
     this.searchJobs(offset);
   }

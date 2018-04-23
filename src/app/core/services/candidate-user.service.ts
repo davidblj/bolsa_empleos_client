@@ -76,8 +76,13 @@ export class CandidateUserService extends Service {
 
   private serviceGuard(): boolean {
 
-    const userIsLogged = this.authService.getUser();
-    return !!userIsLogged;
+    const userInfo = this.authService.getUser();
+
+    const userIsLogged = (
+      userInfo &&
+      (userInfo.role === 'student' || userInfo.role === 'graduate'));
+
+    return userIsLogged;
   }
 
   private pipe(): Observable<any> {

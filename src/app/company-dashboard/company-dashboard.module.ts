@@ -8,6 +8,8 @@ import { SharedModule } from '../shared/shared.module';
 // components
 import { CompanyDashboardComponent } from './components/company-dashboard/company-dashboard.component';
 import { CompanyDashboardPanelComponent } from './components/company-dashboard-panel/company-dashboard-panel.component';
+import { CompanyDashboardHeaderComponent } from './components/company-dashboard-header/company-dashboard-header.component';
+import { CompanyDashboardHeaderContainerComponent } from './containers/company-dashboard-header-container/company-dashboard-header-container.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { CompanyDashboardPanelComponent } from './components/company-dashboard-p
   ],
   declarations: [
     CompanyDashboardComponent,
-    CompanyDashboardPanelComponent
+    CompanyDashboardPanelComponent,
+    CompanyDashboardHeaderComponent,
+    CompanyDashboardHeaderContainerComponent
   ]
 })
 export class CompanyDashboardModule { }

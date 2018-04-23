@@ -23,6 +23,7 @@ import { EmailComponent } from './components/sign-up-common/sign-up-inputs/email
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NotificationComponent } from './components/notification/notification.component';
+import { HeaderProfileComponent } from './components/header-profile/header-profile.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { NotificationComponent } from './components/notification/notification.co
     EmailComponent,
     PaginatorComponent,
     HeaderComponent,
-    NotificationComponent
+    NotificationComponent,
+    HeaderProfileComponent
   ],
   declarations: [
     PopoverComponent,
@@ -66,7 +68,8 @@ import { NotificationComponent } from './components/notification/notification.co
     ButtonComponent,
     PaginatorComponent,
     HeaderComponent,
-    NotificationComponent
+    NotificationComponent,
+    HeaderProfileComponent
   ]
 })
 export class SharedModule { }

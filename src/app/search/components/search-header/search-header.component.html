@@ -1,3 +1,32 @@
-<p>
-  search-header works!
-</p>
+
+<app-header class="header">
+
+  <div
+    *ngIf="username; else signUpButton">
+
+    <div class="header__notification-box">
+      <app-search-notification-container
+        *ngIf="notificationStatus">
+      </app-search-notification-container>
+    </div>
+
+    <div class="header__profile-box">
+      <app-header-profile
+        [username]="username"
+        [insignia]="insignia">
+      </app-header-profile>
+    </div>
+  </div>
+
+  <ng-template #signUpButton>
+
+    <app-button
+      (submit)="onClick()">
+      <div class="button-spacing">
+        Ingresar
+      </div>
+    </app-button>
+
+  </ng-template>
+
+</app-header>
