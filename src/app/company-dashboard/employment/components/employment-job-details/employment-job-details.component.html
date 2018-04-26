@@ -1,3 +1,31 @@
-<p>
-  employment-job-details works!
-</p>
+
+<div class="row">
+
+  <div *ngFor="let candidate of candidates"
+        class="col-4">
+
+    <div class="applicant-card">
+
+      <div class="applicant-card-content">
+        <div class="applicant-card-content__name">
+          {{candidate.name}}
+        </div>
+        <div class="applicant-card-content__email">
+          {{candidate.email}}
+        </div>
+        <div class="applicant-card-content__contact">
+          {{candidate.contact}}
+        </div>
+      </div>
+
+      <div class="applicant-card__download"
+           (click)="onClick(candidate._id)">
+        <div class="u-wrapper">
+          <img src="assets/icons/company-dashboard/download.svg"/>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-employment-job-details-header',
@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employment-job-details-header.component.scss']
 })
 export class EmploymentJobDetailsHeaderComponent implements OnInit {
+
+  @Input()
+  amount: number;
+
+  buttonColor = 'dark';
+  buttonAnimation = true;
 
   constructor() { }
 

@@ -1,3 +1,7 @@
+@import "./variables";
+
+  // log in
+
 @keyframes rotate {
   0% {
     transform: rotate(360deg);
@@ -26,5 +30,31 @@
 
   100% {
     transform: translateX(-50%) rotate(0deg) ;
+  }
+}
+
+  // candidate card animations
+
+@keyframes fadeIn {
+
+  0% {
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 100;
+  }
+}
+
+@keyframes moveLeft {
+
+  0% {
+    transform: translateX(0);
+  }
+
+  // this value must much the side spacing from
+  // the employment-job-details-component
+  100%{
+    transform: translateX(-4rem);
   }
 }

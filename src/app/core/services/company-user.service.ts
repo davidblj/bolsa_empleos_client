@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Service } from '../../shared/classes/service.class';
+import { catchError } from 'rxjs/operators';
 
 // interfaces
 import { Job } from '../../shared/interfaces/job.interface';
-import { catchError } from 'rxjs/operators';
 import { JobCandidates } from '../../company-dashboard/employment/shared/job-candidate.interface';
 
 @Injectable()
@@ -26,7 +26,7 @@ export class CompanyUserService extends Service {
       .pipe(catchError(this.handleError(message)));
   }
 
-  getJob(id: string): Observable<JobCandidates> {
+  getJob(id: string): Observable<JobCandidates | null> {
 
     return this.http.get<JobCandidates>(`${this.baseUrl}/jobs/${id}`);
   }

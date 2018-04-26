@@ -5,7 +5,7 @@
 
   @include button;
 
-  transition: background-color .3s;
+  transition: background-color .3s, transform .3s;
 
   &:hover {
     cursor: pointer;

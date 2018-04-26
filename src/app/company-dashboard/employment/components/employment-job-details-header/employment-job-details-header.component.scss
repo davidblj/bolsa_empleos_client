@@ -1,0 +1,38 @@
+@import "variables";
+
+$applicants-header-height: 9rem;
+
+.applicants-header {
+
+  height: $applicants-header-height;
+  position: relative;
+
+  &-title {
+
+    position: absolute;
+    left: 0;
+
+    &__job {
+      font-size: 2rem;
+    }
+
+    &__applicants {
+
+      font-size: 1.7rem;
+      color: $mountainMist;
+    }
+  }
+
+
+  &__download {
+
+    position: absolute;
+    right: 0;
+  }
+}
+
+.button-spacing {
+
+  padding: 1rem 3rem;
+  border-radius: 100px;
+}

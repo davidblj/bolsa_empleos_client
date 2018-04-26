@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-@Component({
+@ Component({
   selector: 'app-employment-navigation',
   templateUrl: './employment-navigation.component.html',
   styleUrls: ['./employment-navigation.component.scss']

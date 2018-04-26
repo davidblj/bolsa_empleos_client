@@ -26,4 +26,9 @@ $menu-width: 25rem;
     background: $company-dashboard-background;
   }
 
+  &__box {
+    padding-left: $dashboard-left-spacing;
+    padding-top: $dashboard-top-spacing;
+    padding-right: $dashboard-right-spacing;
+  }
 }
