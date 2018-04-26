@@ -14,6 +14,9 @@ export class SearchResultsComponent {
   @Input()
   pageLimit: number;
 
+  @Input()
+  loading: boolean;
+
   @Output()
   page = new EventEmitter<number>();
 

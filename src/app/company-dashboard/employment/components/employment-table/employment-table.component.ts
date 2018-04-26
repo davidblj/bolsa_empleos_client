@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // interfaces
 import { Job } from '../../../../shared/interfaces/job.interface';
@@ -13,7 +14,8 @@ export class EmploymentTableComponent implements OnInit {
   @Input()
   jobs: Job[];
 
-  constructor() { }
+  constructor(private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() { }
 
@@ -25,5 +27,9 @@ export class EmploymentTableComponent implements OnInit {
     return applicants ?
       applicants.amount :
       0
+  }
+
+  onClick(id: string) {
+    this.router.navigate(['./', id], {relativeTo: this.route });
   }
 }

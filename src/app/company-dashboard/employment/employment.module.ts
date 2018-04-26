@@ -11,6 +11,11 @@ import { EmploymentNavigationComponent } from './components/employment-navigatio
 import { EmploymentTableComponent } from './components/employment-table/employment-table.component';
 import { EmploymentTableContainerComponent } from './containers/employment-table-container/employment-table-container.component';
 import { SharedModule } from '../../shared/shared.module';
+import { EmploymentJobDetailsComponent } from './components/employment-job-details/employment-job-details.component';
+import { EmploymentJobDetailsHeaderComponent } from './components/employment-job-details-header/employment-job-details-header.component';
+import { EmploymentCandidateCardComponent } from './components/employment-candidate-card/employment-candidate-card.component';
+import { EmploymentJobDetailsContainerComponent } from './containers/employment-job-details-container/employment-job-details-container.component';
+import { EmploymentJobDetailsResolver } from './shared/employment-job-details-resolver.service';
 
 // ng g component company-dashboard/employment/components -m company-dashboard/employment/employment.module.ts
 
@@ -25,6 +30,14 @@ import { SharedModule } from '../../shared/shared.module';
     EmploymentJobsComponent,
     EmploymentNavigationComponent,
     EmploymentTableComponent,
-    EmploymentTableContainerComponent]
+    EmploymentTableContainerComponent,
+    EmploymentJobDetailsComponent,
+    EmploymentJobDetailsHeaderComponent,
+    EmploymentCandidateCardComponent,
+    EmploymentJobDetailsContainerComponent
+  ],
+  providers: [
+    EmploymentJobDetailsResolver
+  ]
 })
 export class EmploymentModule { }

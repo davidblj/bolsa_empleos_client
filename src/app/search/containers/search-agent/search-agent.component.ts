@@ -19,6 +19,7 @@ export class SearchAgentComponent implements OnInit {
   // pagination variables
   currentId = null;
   pageSize = 5;
+  loading;
 
   constructor(private searchJobsService: SearchJobsService,
               private candidateUserService: CandidateUserService) { }
@@ -37,12 +38,15 @@ export class SearchAgentComponent implements OnInit {
 
   searchJobs(offset) {
 
+    this.loading = true;
+
     this.searchJobsService.getJobs(this.currentId, offset, this.pageSize)
       .subscribe((jobSearch: JobSearch) => {
 
         this.jobs = jobSearch.items;
         this.pageLimit = (jobSearch.total_count / this.pageSize);
         this.currentId = this.jobs[0]._id;
+        this.loading = false;
       });
   }
 

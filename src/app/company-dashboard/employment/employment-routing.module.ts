@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EmploymentComponent } from './components/employment/employment.component';
 import { EmploymentJobsComponent } from './components/employment-jobs/employment-jobs.component';
+import { EmploymentJobDetailsContainerComponent } from './containers/employment-job-details-container/employment-job-details-container.component';
+import { EmploymentJobDetailsResolver } from './shared/employment-job-details-resolver.service';
 
 const routes: Routes = [
   {
@@ -12,6 +14,13 @@ const routes: Routes = [
         path: '',
         component: EmploymentJobsComponent
       },
+      {
+        path: ':job',
+        component: EmploymentJobDetailsContainerComponent,
+        resolve: {
+          jobDetails: EmploymentJobDetailsResolver
+        }
+      }
     ]
   }
 ];

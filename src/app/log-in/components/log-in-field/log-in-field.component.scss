@@ -33,6 +33,7 @@ $input-height: 5rem;
       font-size: 1.8rem;
       padding-left: 1rem;
       width: 100%;
+      border-bottom: 2px solid $seaShell;
 
       &:focus {
         border-bottom: 2px solid $mantis;
