@@ -4,5 +4,6 @@
 </app-employment-job-details-header>
 
 <app-employment-job-details
-  [candidates]="candidates">
+  [candidates]="candidates"
+  (download)="onDownload($event)">
 </app-employment-job-details>

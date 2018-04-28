@@ -1,7 +1,7 @@
 
 <div class="row">
 
-  <div *ngFor="let candidate of candidates"
+  <div *ngFor="let candidate of candidates; let i = index"
         class="col-4">
 
     <div class="applicant-card">
@@ -19,7 +19,7 @@
       </div>
 
       <div class="applicant-card__download"
-           (click)="onClick(candidate._id)">
+           (click)="onClick(i)">
         <div class="u-wrapper">
           <img src="assets/icons/company-dashboard/download.svg"/>
         </div>

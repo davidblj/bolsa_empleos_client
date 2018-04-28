@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 // interfaces
 import { Candidate } from '../../shared/candidate.interface';
@@ -14,9 +14,10 @@ export class EmploymentJobDetailsComponent {
   candidates: Candidate[];
 
   @Output()
-  download = new EventEmitter<string>();
+  download = new EventEmitter<Candidate>();
 
-  onClick(id: string) {
-    this.download.emit(id);
+  onClick(index: number) {
+    const candidate = this.candidates[index];
+    this.download.emit(candidate);
   }
 }
