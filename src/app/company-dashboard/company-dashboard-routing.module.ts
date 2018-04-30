@@ -12,6 +12,10 @@ const routes: Routes = [
       {
         path: 'ofertas',
         loadChildren: 'app/company-dashboard/employment/employment.module#EmploymentModule'
+      },
+      {
+        path: 'nueva_oferta',
+        loadChildren: 'app/company-dashboard/job-offer/job-offer.module#JobOfferModule'
       }
     ]
   }

@@ -22,7 +22,8 @@ export class CompanyUserService extends Service {
   }
 
   getJobs(): Observable<Job[]> {
-    const message = 'Error. No pudimos extraer la información asociada a tu sesion';
+
+    const message = 'No pudimos extraer la información asociada a tu sesion';
     const params = this.buildParams();
 
     return this.http.get<Job[]>(`${this.baseUrl}/jobs`, { params: params})
@@ -31,15 +32,20 @@ export class CompanyUserService extends Service {
 
   getJob(id: string): Observable<JobCandidates | null> {
 
-    return this.http.get<JobCandidates>(`${this.baseUrl}/jobs/${id}`);
+    const message = 'No se pudo extraer la información asociada a la oferta seleccionada';
+
+    return this.http.get<JobCandidates>(`${this.baseUrl}/jobs/${id}`)
+      .pipe(catchError(this.handleError(message)));
   }
 
   getCV(candidate: Candidate) {
 
+    const message = 'No se pudo completar la descarga';
     const id = candidate._id;
     const url = `candidates/${id}/file`;
 
     this.http.get(url, { responseType: 'blob'})
+      .pipe(catchError(this.handleError(message)))
       .subscribe((res: Blob) => {
         fileSaver.saveAs(res, this.sanitizeFileName(candidate.name));
       })

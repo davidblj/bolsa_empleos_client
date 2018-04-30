@@ -1,12 +1,14 @@
 
 <div class="panel">
 
-  <div class="panel__item panel__item_active">
+  <div class="panel__item panel__item_active"
+       (click)="onClick('ofertas')">
     <img src="assets/icons/company-dashboard/notepad.svg" alt="">
     <div class="label">Ofertas</div>
   </div>
 
-  <div class="panel__item  panel__item_inactive">
+  <div class="panel__item  panel__item_inactive"
+    (click)="onClick('nueva_oferta')">
     <img src="assets/icons/company-dashboard/pen.svg" alt="">
     <div class="label">Nueva Oferta</div>
   </div>
