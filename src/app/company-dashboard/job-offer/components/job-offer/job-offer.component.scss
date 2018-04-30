@@ -1,0 +1,34 @@
+@import "variables";
+
+$job-form-height: calc(#{$body-height} - #{$dashboard-top-spacing} - 5rem);
+// $job-form-inputs-height: calc(#{$job-form-height} - 4rem);
+
+.job-form {
+
+  background: $azure;
+  height: $job-form-height;
+  border: 1px solid $mischka;
+
+  &__header {
+
+    font-size: 2rem;
+    padding: 2rem;
+    border-bottom: 1px solid $geyser;
+  }
+
+  &__inputs {
+
+    margin: 5rem 8rem;
+    padding: 0 5rem 2rem 5rem;
+    border: {
+      style: dashed;
+      width: 2px;
+      color: $geyser;
+    }
+  }
+
+  &__submit {
+
+    padding: 5rem;
+  }
+}

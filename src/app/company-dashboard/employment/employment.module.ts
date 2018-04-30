@@ -13,7 +13,6 @@ import { EmploymentTableContainerComponent } from './containers/employment-table
 import { SharedModule } from '../../shared/shared.module';
 import { EmploymentJobDetailsComponent } from './components/employment-job-details/employment-job-details.component';
 import { EmploymentJobDetailsHeaderComponent } from './components/employment-job-details-header/employment-job-details-header.component';
-import { EmploymentCandidateCardComponent } from './components/employment-candidate-card/employment-candidate-card.component';
 import { EmploymentJobDetailsContainerComponent } from './containers/employment-job-details-container/employment-job-details-container.component';
 import { EmploymentJobDetailsResolver } from './shared/employment-job-details-resolver.service';
 
@@ -33,7 +32,6 @@ import { EmploymentJobDetailsResolver } from './shared/employment-job-details-re
     EmploymentTableContainerComponent,
     EmploymentJobDetailsComponent,
     EmploymentJobDetailsHeaderComponent,
-    EmploymentCandidateCardComponent,
     EmploymentJobDetailsContainerComponent
   ],
   providers: [

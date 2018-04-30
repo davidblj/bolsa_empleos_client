@@ -1,0 +1,22 @@
+
+<div class="job-input-field">
+
+  <label class="label
+                job-input-field__label">
+    {{fieldName}}
+  </label>
+
+  <input class="job-input-field__input
+                job-input-field__input_type_default
+                form-control"
+         *ngIf="isType('input')">
+
+  <textarea class="job-input-field__input
+                   job-input-field__input_type_text
+                   form-control"
+            rows="5"
+            *ngIf="isType('text-area')">
+  </textarea>
+
+  <!-- error messaging -->
+</div>

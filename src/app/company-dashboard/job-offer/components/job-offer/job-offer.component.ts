@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobOfferComponent implements OnInit {
 
+  jobNameField = 'Nombre de la oferta';
+  jobDescriptionField  = 'Describe tu oferta';
+  jobDescriptionType = 'text-area';
+
   constructor() { }
 
   ngOnInit() {
   }
-
 }

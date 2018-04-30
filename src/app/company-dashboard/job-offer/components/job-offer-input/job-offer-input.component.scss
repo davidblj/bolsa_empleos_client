@@ -1,0 +1,42 @@
+@import "variables";
+
+.job-input-field {
+
+  width: 100%;
+  margin-top: 1.5rem;
+
+  &__label {
+
+    font-size: 1.6rem;
+    color: $stormGray;
+  }
+
+  &__input {
+
+    width: inherit;
+    border: {
+      radius: 2px;
+      width: 1px;
+      color: $geyser;
+    };
+
+    &:focus {
+
+      box-shadow: 0 0;
+      border: {
+        width: 1px;
+        color: darken($geyser, 10%);
+      }
+    }
+
+    &_type_default {
+      font-size: 1.7rem;
+      height: 4rem;
+    }
+
+    &_type_text {
+      font-size: 1.6rem;
+      height: auto;
+    }
+  }
+}

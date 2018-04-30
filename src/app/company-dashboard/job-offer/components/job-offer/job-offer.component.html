@@ -1,4 +1,27 @@
 
-<!-- inputs -->
+<div class="job-form">
 
-<!-- button -->
+  <div class="job-form__header">
+    Publica Una Oferta
+  </div>
+
+  <!-- inputs -->
+  <div class="job-form__inputs">
+
+    <app-job-offer-input
+      [fieldName]="jobNameField">
+    </app-job-offer-input>
+
+    <app-job-offer-input
+      [fieldName]="jobDescriptionField"
+      [type]="jobDescriptionType">
+    </app-job-offer-input>
+
+  </div>
+
+  <!-- button -->
+  <div class="job-form__submit">
+
+  </div>
+
+</div>
