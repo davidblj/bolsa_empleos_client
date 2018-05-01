@@ -1,0 +1,29 @@
+
+<div class="job-input-field">
+
+  <div class="job-input-field__label">
+    {{fieldName}}
+  </div>
+
+  <div class="job-input-field__input"
+      (click)="toggleDropDown()"
+      dropdown
+      [isOpen]="dropDownStatus">
+
+    <div class="job-input-field__option">
+      {{message}}
+    </div>
+    <div class="job-input-field__caret">
+      <img src="assets/icons/company-dashboard/down-arrow.svg">
+    </div>
+
+    <ul class="dropdown-menu dropdown-menu-right" *dropdownMenu>
+
+      <div *ngFor="let option of options">
+        <li class="item" (click)="onOptionSelect(option)">{{option}}</li>
+      </div>
+
+    </ul>
+
+  </div>
+</div>

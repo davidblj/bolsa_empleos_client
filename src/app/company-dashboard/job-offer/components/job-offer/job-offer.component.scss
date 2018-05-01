@@ -19,8 +19,9 @@ $job-form-height: calc(#{$body-height} - #{$dashboard-top-spacing} - 5rem);
   &__inputs {
 
     margin: 5rem 8rem;
-    padding: 0 5rem 2rem 5rem;
+    padding: 2rem 3rem;
     border: {
+      radius: 5px;
       style: dashed;
       width: 2px;
       color: $geyser;

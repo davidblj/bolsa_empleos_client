@@ -9,13 +9,14 @@
 
     font-size: 1.6rem;
     color: $stormGray;
+    margin-bottom: 0.5rem;
   }
 
   &__input {
 
     width: inherit;
     border: {
-      radius: 2px;
+      radius: 5px;
       width: 1px;
       color: $geyser;
     };
