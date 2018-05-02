@@ -5,7 +5,6 @@
     Publica Una Oferta
   </div>
 
-  <!-- inputs -->
   <div class="job-form__inputs">
 
     <app-job-offer-input
@@ -46,8 +45,18 @@
 
   </div>
 
-  <!-- button -->
-  <div class="job-form__submit">
+  <div class="job-form__footer
+              d-flex justify-content-center">
+
+    <div class="job-form__submit-button">
+      <app-button
+        [color]="buttonColor"
+        [shape]="buttonShape">
+        <div class="button-spacing">
+          Publicar Oferta
+        </div>
+      </app-button>
+    </div>
 
   </div>
 

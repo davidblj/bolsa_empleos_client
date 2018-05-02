@@ -1,24 +1,24 @@
 @import "variables";
 
-$job-form-height: calc(#{$body-height} - #{$dashboard-top-spacing} - 5rem);
-// $job-form-inputs-height: calc(#{$job-form-height} - 4rem);
+$input-section-spacing: 8rem;
 
 .job-form {
 
   background: $azure;
-  height: $job-form-height;
+  margin-bottom: 2rem;
   border: 1px solid $mischka;
 
   &__header {
 
     font-size: 2rem;
-    padding: 2rem;
+    padding: 1.5rem;
     border-bottom: 1px solid $geyser;
   }
 
+  // do add a body
   &__inputs {
 
-    margin: 5rem 8rem;
+    margin: 4rem $input-section-spacing 0;
     padding: 2rem 3rem;
     border: {
       radius: 5px;
@@ -39,8 +39,15 @@ $job-form-height: calc(#{$body-height} - #{$dashboard-top-spacing} - 5rem);
     }
   }
 
-  &__submit {
-
-    padding: 5rem;
+  &__footer {
+    margin: 4rem $input-section-spacing 2rem;
   }
+
+  &__submit-button {
+    display: inline-block;
+  }
+}
+
+.button-spacing {
+  padding: 1.5rem 4rem;
 }

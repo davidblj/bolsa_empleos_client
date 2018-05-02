@@ -25,22 +25,21 @@ $mantis: #5cc26c;
 $burntSienna: #E95A51;
 
 
-// company dashboard module variables
-
-$company-dashboard-background: lighten($regentGray, 37%);
-$body-height: 92vh;
-$side-margin: 8rem;
-$dashboard-top-spacing: 6rem;
-$dashboard-left-spacing: 6rem;
-$dashboard-right-spacing: 8rem;
-$table-bottom-spacing: 4rem;
-
-
 // header component variables
 
 $header-height: 6.74rem;
 $logo-height: 3.3rem;
 
+
+// company dashboard module variables
+
+$company-dashboard-background: lighten($regentGray, 37%);
+$body-height: calc(100vh - #{$header-height});
+$side-margin: 8rem;
+$dashboard-top-spacing: 6rem;
+$dashboard-left-spacing: 6rem;
+$dashboard-right-spacing: 8rem;
+$table-bottom-spacing: 4rem;
 
 // search module variables
 

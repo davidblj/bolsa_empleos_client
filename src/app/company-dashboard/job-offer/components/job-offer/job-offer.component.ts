@@ -34,8 +34,11 @@ export class JobOfferComponent implements OnInit {
   jobSalaryField = 'Salario (opcional)';
   jobSalaryPlaceHolder = 'cuanto paga la posicion';
 
-  jobExpiryField = 'Vigencia de la oferta';
-  jobExpiryPlaceHolder = 'fecha';
+  jobExpiryField = 'Hasta que dia recibes las hojas de vida';
+  jobExpiryPlaceHolder = 'vigencia';
+
+  buttonShape = 'square';
+  buttonColor = 'dark';
 
   constructor() { }
 
