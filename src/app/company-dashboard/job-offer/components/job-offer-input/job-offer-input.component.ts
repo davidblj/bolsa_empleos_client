@@ -11,6 +11,9 @@ export class JobOfferInputComponent implements OnInit {
   fieldName: string;
 
   @Input()
+  placeHolder = '';
+
+  @Input()
   type = 'input';
 
   ngOnInit() {

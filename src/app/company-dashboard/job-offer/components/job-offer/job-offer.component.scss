@@ -28,6 +28,17 @@ $job-form-height: calc(#{$body-height} - #{$dashboard-top-spacing} - 5rem);
     }
   }
 
+  &__input {
+
+    &_size_medium {
+      width: 40%;
+    }
+
+    &_size_small {
+      width: 30%;
+    }
+  }
+
   &__submit {
 
     padding: 5rem;

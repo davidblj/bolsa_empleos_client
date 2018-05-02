@@ -8,13 +8,15 @@
   <input class="job-input-field__input
                 job-input-field__input_type_default
                 form-control"
-         *ngIf="isType('input')">
+         *ngIf="isType('input')"
+         [placeholder]="placeHolder">
 
   <textarea class="job-input-field__input
                    job-input-field__input_type_text
                    form-control"
             rows="5"
-            *ngIf="isType('text-area')">
+            *ngIf="isType('text-area')"
+            [placeholder]="placeHolder">
   </textarea>
 
   <!-- error messaging -->
