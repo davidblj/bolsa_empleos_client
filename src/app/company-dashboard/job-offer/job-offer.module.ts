@@ -29,7 +29,7 @@ import { JobOfferToggleInputComponent } from './components/job-offer-toggle-inpu
     JobOfferInputComponent,
     JobOfferDropDownInputComponent,
     JobOfferDateInputComponent,
-    JobOfferToggleInputComponent
+    JobOfferToggleInputComponent,
   ]
 })
 export class JobOfferModule { }

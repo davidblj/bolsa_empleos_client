@@ -1,0 +1,42 @@
+@import "variables";
+
+.job-input-field {
+
+  width: 100%;
+  margin-top: 1.5rem;
+
+  &__label {
+
+    font-size: 1.6rem;
+    color: $stormGray;
+    margin-bottom: 0.5rem;
+  }
+
+  &__toggle {
+
+    display: block;
+    padding: .4rem 5rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    border: {
+      style: none;
+      radius: 50px;
+    }
+
+    &_color_red {
+
+      color: $white;
+      background: $burntSienna;
+    }
+
+    &_color_green {
+
+      color: $white;
+      background: lighten($mantis, 5%);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
