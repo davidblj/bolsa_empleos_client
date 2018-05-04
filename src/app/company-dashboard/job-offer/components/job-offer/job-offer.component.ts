@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-job-offer',
@@ -40,8 +41,20 @@ export class JobOfferComponent implements OnInit {
   buttonShape = 'square';
   buttonColor = 'dark';
 
-  constructor() { }
+  form: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.createForm();
+  }
 
   ngOnInit() {
+  }
+
+  createForm() {
+    this.form = this.fb.group({
+      name: ['', Validators.required],
+      description: ['', Validators.required],
+      expiry: ['', Validators.required]
+    })
   }
 }

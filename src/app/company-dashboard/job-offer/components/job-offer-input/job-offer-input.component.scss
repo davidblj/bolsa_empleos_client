@@ -40,4 +40,11 @@
       height: auto;
     }
   }
+
+  &__error {
+
+    color: $burntSienna;
+    margin: .7rem 0 0 1rem;
+    font-size: 1.5rem;
+  }
 }

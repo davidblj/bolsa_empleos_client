@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { SharedModule } from '../../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // components
 import { JobOfferRoutingModule } from './job-offer-routing.module';
@@ -15,9 +16,11 @@ import { JobOfferDropDownInputComponent } from './components/job-offer-drop-down
 import { JobOfferDateInputComponent } from './components/job-offer-date-input/job-offer-date-input.component';
 import { JobOfferToggleInputComponent } from './components/job-offer-toggle-input/job-offer-toggle-input.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     JobOfferRoutingModule,
     SharedModule,
     BsDropdownModule.forRoot(),

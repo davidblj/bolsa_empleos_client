@@ -7,6 +7,12 @@
   <input class="job-input-field__input
                 form-control"
          [placeholder]="placeHolder"
+         [formControl]="control"
          bsDatepicker>
+
+  <div *ngIf="isValid"
+       class="job-input-field__error">
+    Este campo es requerido
+  </div>
 </div>
 

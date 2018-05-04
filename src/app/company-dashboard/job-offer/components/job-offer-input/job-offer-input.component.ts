@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AbstractControl, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-job-offer-input',
@@ -11,6 +12,9 @@ export class JobOfferInputComponent implements OnInit {
   fieldName: string;
 
   @Input()
+  control: AbstractControl;
+
+  @Input()
   placeHolder = '';
 
   @Input()
@@ -21,5 +25,11 @@ export class JobOfferInputComponent implements OnInit {
 
   isType(type: string): boolean {
     return type === this.type;
+  }
+
+  get isValid() {
+    return (
+      this.control.hasError('required')) &&
+      this.control.touched
   }
 }

@@ -9,17 +9,20 @@
 
     <app-job-offer-input
       [fieldName]="jobNameField"
+      [control]="form.controls['name']"
       [placeHolder]="jobNamePlaceHolder">
     </app-job-offer-input>
 
     <app-job-offer-input
       [fieldName]="jobDescriptionField"
+      [control]="form.controls['description']"
       [type]="jobDescriptionType">
     </app-job-offer-input>
 
     <div class="job-form__input_size_medium">
       <app-job-offer-date-input
         [fieldName]="jobExpiryField"
+        [control]="form.controls['expiry']"
         [placeHolder]="jobExpiryPlaceHolder">
       </app-job-offer-date-input>
     </div>
@@ -39,6 +42,7 @@
     <div class="job-form__input_size_small">
       <app-job-offer-input
         [fieldName]="jobSalaryField"
+        [control]="form.controls['expiry']"
         [placeHolder]="jobSalaryPlaceHolder">
       </app-job-offer-input>
     </div>

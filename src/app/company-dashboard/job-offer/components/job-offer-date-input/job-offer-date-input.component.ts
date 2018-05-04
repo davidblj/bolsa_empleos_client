@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-job-offer-date-input',
@@ -11,6 +12,9 @@ export class JobOfferDateInputComponent implements OnInit {
   fieldName: string;
 
   @Input()
+  control: AbstractControl;
+
+  @Input()
   placeHolder = '';
 
   constructor() { }
@@ -18,4 +22,9 @@ export class JobOfferDateInputComponent implements OnInit {
   ngOnInit() {
   }
 
+  get isValid() {
+    return (
+      this.control.hasError('required')) &&
+      this.control.touched
+  }
 }
