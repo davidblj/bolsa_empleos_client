@@ -15,7 +15,6 @@ export class JobOfferToggleInputComponent {
 
   get buttonMessage() {
 
-    console.log('toggling');
     if (this.status) {
       return 'no';
     } else {

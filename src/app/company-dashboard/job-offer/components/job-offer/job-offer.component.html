@@ -27,22 +27,30 @@
       </app-job-offer-date-input>
     </div>
 
-    <app-job-offer-drop-down-input
-      [fieldName]="jobTypeField"
-      [message]="jobTypePlaceHolder"
-      [options]="jobTypeOptions">
-    </app-job-offer-drop-down-input>
+    <div class="row">
+      <div class="col-5">
+        <app-job-offer-drop-down-input
+          [fieldName]="jobTypeField"
+          [control]="form.controls['to']"
+          [message]="jobTypePlaceHolder"
+          [options]="jobTypeOptions">
+        </app-job-offer-drop-down-input>
+      </div>
 
-    <app-job-offer-drop-down-input
-      [fieldName]="jobAudienceField"
-      [message]="jobAudiencePlaceHolder"
-      [options]="jobAudienceOptions">
-    </app-job-offer-drop-down-input>
+      <div class="col-5">
+        <app-job-offer-drop-down-input
+          [fieldName]="jobAudienceField"
+          [control]="form.controls['type']"
+          [message]="jobAudiencePlaceHolder"
+          [options]="jobAudienceOptions">
+        </app-job-offer-drop-down-input>
+      </div>
+    </div>
 
     <div class="job-form__input_size_small">
       <app-job-offer-input
         [fieldName]="jobSalaryField"
-        [control]="form.controls['expiry']"
+        [control]="form.controls['salary']"
         [placeHolder]="jobSalaryPlaceHolder">
       </app-job-offer-input>
     </div>

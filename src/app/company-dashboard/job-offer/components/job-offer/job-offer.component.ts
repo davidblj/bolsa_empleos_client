@@ -54,7 +54,10 @@ export class JobOfferComponent implements OnInit {
     this.form = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
-      expiry: ['', Validators.required]
+      expiry: ['', Validators.required],
+      to: ['', Validators.required],
+      type: ['', Validators.required],
+      salary: ['']
     })
   }
 }

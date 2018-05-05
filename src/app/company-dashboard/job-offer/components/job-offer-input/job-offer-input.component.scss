@@ -15,11 +15,8 @@
   &__input {
 
     width: inherit;
-    border: {
-      radius: 5px;
-      width: 1px;
-      color: $geyser;
-    };
+    border-radius: $job-offer-input-border-radius;
+    border: $job-offer-input-border;
 
     &:focus {
 
@@ -32,12 +29,12 @@
 
     &_type_default {
       font-size: 1.7rem;
-      height: 4rem;
+      height: $job-offer-input-height;
     }
 
     &_type_text {
       font-size: 1.6rem;
-      height: auto;
+      height: $job-offer-input-height;
     }
   }
 

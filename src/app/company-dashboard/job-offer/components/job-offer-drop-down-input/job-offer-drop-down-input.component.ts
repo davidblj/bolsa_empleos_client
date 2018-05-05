@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-job-offer-drop-down-input',
@@ -7,10 +8,11 @@ import { Component, Input } from '@angular/core';
 })
 export class JobOfferDropDownInputComponent {
 
-  dropDownStatus = false;
-
   @Input()
   fieldName: string;
+
+  @Input()
+  control: AbstractControl;
 
   @Input()
   options;
@@ -18,11 +20,21 @@ export class JobOfferDropDownInputComponent {
   @Input()
   message: string;
 
-  toggleDropDown() {
-    this.dropDownStatus = !this.dropDownStatus;
-  }
-
   onOptionSelect(option: string) {
     this.message = option;
+    this.control.setValue(option);
+  }
+
+  onHiddenHandler() {
+    if (!this.control.touched) {
+      this.control.markAsTouched();
+    }
+  }
+
+  get isValid() {
+    return (
+      this.control.hasError('required') &&
+      this.control.touched
+    )
   }
 }

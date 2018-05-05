@@ -1,4 +1,3 @@
-
 <div class="job-input-field">
 
   <div class="job-input-field__label">
@@ -6,24 +5,32 @@
   </div>
 
   <div class="job-input-field__input"
-      (click)="toggleDropDown()"
       dropdown
-      [isOpen]="dropDownStatus">
+      (onHidden)="onHiddenHandler()">
 
     <div class="job-input-field__option">
       {{message}}
     </div>
-    <div class="job-input-field__caret">
-      <img src="assets/icons/company-dashboard/down-arrow.svg">
+
+    <div class="job-input-field__button">
+      <button class="job-input-field__caret
+                     btn"
+              dropdownToggle>
+        <img src="assets/icons/company-dashboard/down-arrow.svg">
+      </button>
     </div>
 
     <ul class="dropdown-menu dropdown-menu-right" *dropdownMenu>
-
       <div *ngFor="let option of options">
         <li class="item" (click)="onOptionSelect(option)">{{option}}</li>
       </div>
-
     </ul>
 
   </div>
+
+  <div class="job-input-field__error"
+    *ngIf="isValid">
+    Este campo es requerido
+  </div>
+
 </div>
