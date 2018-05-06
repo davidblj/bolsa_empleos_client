@@ -35,6 +35,9 @@ export class JobOfferInputComponent implements OnInit {
   }
 
   get invalidSalary() {
-
+    return (
+      this.control.hasError('numeric') &&
+      this.control.touched
+    )
   }
 }

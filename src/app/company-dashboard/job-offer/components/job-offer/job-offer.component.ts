@@ -77,7 +77,9 @@ export class JobOfferComponent implements OnInit {
         '',
         Validators.required
       ],
-      salary: ['']
+      salary: [
+        '',
+        CustomValidators.isNumeric]
     })
   }
 }

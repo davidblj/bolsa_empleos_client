@@ -20,7 +20,7 @@
     </app-job-offer-input>
 
     <div class="row">
-      <div class="col-4">
+      <div class="col-5">
         <app-job-offer-date-input
           [fieldName]="jobExpiryField"
           [control]="form.controls['expiry']"
@@ -30,7 +30,7 @@
     </div>
 
     <div class="row">
-      <div class="col-5">
+      <div class="col-6">
         <app-job-offer-drop-down-input
           [fieldName]="jobTypeField"
           [control]="form.controls['to']"
@@ -39,7 +39,7 @@
         </app-job-offer-drop-down-input>
       </div>
 
-      <div class="col-5">
+      <div class="col-6">
         <app-job-offer-drop-down-input
           [fieldName]="jobAudienceField"
           [control]="form.controls['type']"
@@ -49,12 +49,14 @@
       </div>
     </div>
 
-    <div class="job-form__input_size_small">
-      <app-job-offer-input
-        [fieldName]="jobSalaryField"
-        [control]="form.controls['salary']"
-        [placeHolder]="jobSalaryPlaceHolder">
-      </app-job-offer-input>
+    <div class="row">
+      <div class="col-5">
+        <app-job-offer-input
+          [fieldName]="jobSalaryField"
+          [control]="form.controls['salary']"
+          [placeHolder]="jobSalaryPlaceHolder">
+        </app-job-offer-input>
+      </div>
     </div>
 
     <app-job-offer-toggle-input>
