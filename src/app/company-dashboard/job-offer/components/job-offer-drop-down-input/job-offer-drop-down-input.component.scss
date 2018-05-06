@@ -3,14 +3,14 @@
 
 .job-input-field {
 
-  margin-top: 1.5rem;
+  margin-top: $job-offer-input-field-margin-top;
   position: relative;
 
   &__label {
 
-    font-size: 1.6rem;
-    color: $stormGray;
-    margin-bottom: 0.5rem;
+    font-size: $job-offer-label-font-size;
+    color: $job-offer-label-color;
+    margin-bottom: $job-offer-label-margin-bottom;
   }
 
   &__input {
@@ -54,15 +54,15 @@
   &__error {
 
     color: $burntSienna;
-    margin: .7rem 0 0 1rem;
-    font-size: 1.5rem;
+    margin: $job-offer-error-margin;
+    font-size: $job-offer-error-font-size;
   }
 }
 
 .item {
 
   font-size: 1.5rem;
-  padding: .5rem .7rem;
+  padding: .5rem 2rem;
   border-radius: 5px;
 
   &:hover {

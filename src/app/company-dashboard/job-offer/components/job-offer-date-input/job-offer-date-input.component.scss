@@ -3,25 +3,22 @@
 .job-input-field {
 
   width: 100%;
-  margin-top: 1.5rem;
+  margin-top: $job-offer-input-field-margin-top;
 
   &__label {
 
-    font-size: 1.6rem;
-    color: $stormGray;
-    margin-bottom: 0.5rem;
+    font-size: $job-offer-label-font-size;
+    color: $job-offer-label-color;
+    margin-bottom: $job-offer-label-margin-bottom;
   }
 
   &__input {
 
-    height: 4rem;
+    height: $job-offer-input-height;
     width: inherit;
     font-size: 1.7rem;
-    border: {
-      radius: 5px;
-      width: 1px;
-      color: $geyser;
-    };
+    border-radius: $job-offer-input-border-radius;
+    border: $job-offer-input-border;
 
     &:focus {
 
@@ -36,7 +33,7 @@
   &__error {
 
     color: $burntSienna;
-    margin: .7rem 0 0 1rem;
-    font-size: 1.5rem;
+    margin: $job-offer-error-margin;
+    font-size: $job-offer-error-font-size;
   }
 }

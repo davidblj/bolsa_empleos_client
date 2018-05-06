@@ -17,14 +17,43 @@ export class JobOfferDateInputComponent implements OnInit {
   @Input()
   placeHolder = '';
 
-  constructor() { }
+  minDate: Date;
+  isHidden = false;
 
   ngOnInit() {
+    this.minDate = new Date();
+    this.minDate.setDate(this.minDate.getDate() + 1);
   }
 
-  get isValid() {
+  onDateSelected(value: Date) {
+    if (value) {
+      try {
+        const isoString = value.toISOString();
+        this.control.setValue(isoString);
+      } catch (e) {
+        this.control.setErrors({'date': true});
+      }
+    }
+  }
+
+  onHiddenHandler() {
+    this.isHidden = true;
+    this.control.markAsTouched();
+  }
+
+  get invalid() {
     return (
-      this.control.hasError('required')) &&
+      this.isHidden &&
+      this.control.hasError('required') &&
       this.control.touched
+    )
+  }
+
+  get invalidDate() {
+    return (
+      !this.control.hasError('required') &&
+      this.control.hasError('date') &&
+      this.control.touched
+    )
   }
 }

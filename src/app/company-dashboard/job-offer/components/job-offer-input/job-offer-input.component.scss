@@ -3,13 +3,13 @@
 .job-input-field {
 
   width: 100%;
-  margin-top: 1.5rem;
+  margin-top: $job-offer-input-field-margin-top;
 
   &__label {
 
-    font-size: 1.6rem;
-    color: $stormGray;
-    margin-bottom: 0.5rem;
+    font-size: $job-offer-label-font-size;
+    color: $job-offer-label-color;
+    margin-bottom: $job-offer-label-margin-bottom;
   }
 
   &__input {
@@ -23,7 +23,7 @@
       box-shadow: 0 0;
       border: {
         width: 1px;
-        color: darken($geyser, 10%);
+        color: darken($geyser, 12%);
       }
     }
 
@@ -34,14 +34,13 @@
 
     &_type_text {
       font-size: 1.6rem;
-      height: $job-offer-input-height;
     }
   }
 
   &__error {
 
     color: $burntSienna;
-    margin: .7rem 0 0 1rem;
-    font-size: 1.5rem;
+    margin: $job-offer-error-margin;
+    font-size: $job-offer-error-font-size;
   }
 }

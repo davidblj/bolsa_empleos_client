@@ -27,10 +27,14 @@ export class JobOfferInputComponent implements OnInit {
     return type === this.type;
   }
 
-  get isValid() {
+  get invalid() {
     return (
       this.control.hasError('required') &&
       this.control.touched
     )
+  }
+
+  get invalidSalary() {
+
   }
 }

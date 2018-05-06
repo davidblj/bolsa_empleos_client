@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class JobOfferToggleInputComponent {
 
-  status = false;
+  status = true;
 
   toggleMessage() {
     this.status = !this.status;

@@ -7,12 +7,20 @@
   <input class="job-input-field__input
                 form-control"
          [placeholder]="placeHolder"
-         [formControl]="control"
-         bsDatepicker>
+         bsDatepicker
+         placement="right"
+         [minDate]="minDate"
+         (onHidden)="onHiddenHandler()"
+         (bsValueChange)="onDateSelected($event)">
 
-  <div *ngIf="isValid"
+  <div *ngIf="invalid"
        class="job-input-field__error">
     Este campo es requerido
+  </div>
+
+  <div *ngIf="invalidDate"
+       class="job-input-field__error">
+    Formato invalido
   </div>
 </div>
 

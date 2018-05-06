@@ -15,14 +15,20 @@
   <textarea class="job-input-field__input
                    job-input-field__input_type_text
                    form-control"
-            rows="3"
+            rows="7"
             *ngIf="isType('text-area')"
             [placeholder]="placeHolder"
             [formControl]="control">
   </textarea>
 
-  <div *ngIf="isValid"
+  <div *ngIf="invalid"
         class="job-input-field__error">
     Este campo es requerido
   </div>
+
+  <div *ngIf="invalid"
+       class="job-input-field__error">
+    Este campo es requerido
+  </div>
+
 </div>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+// utils
+import { CustomValidators } from '../../../../shared/utils/custom-validators.functions';
+
 @Component({
   selector: 'app-job-offer',
   templateUrl: './job-offer.component.html',
@@ -17,7 +20,6 @@ export class JobOfferComponent implements OnInit {
   jobTypeField = 'Modalidad de la oferta';
   jobTypePlaceHolder = 'tipo';
   jobTypeOptions = [
-    'Practicas',
     'Tiempo Completo',
     'Tiempo Medio',
     'Contrato',
@@ -35,8 +37,8 @@ export class JobOfferComponent implements OnInit {
   jobSalaryField = 'Salario (opcional)';
   jobSalaryPlaceHolder = 'cuanto paga la posicion';
 
-  jobExpiryField = 'Hasta que dia recibes las hojas de vida';
-  jobExpiryPlaceHolder = 'vigencia';
+  jobExpiryField = 'Vigencia';
+  jobExpiryPlaceHolder = 'mm/dd/aaaa';
 
   buttonShape = 'square';
   buttonColor = 'dark';
@@ -52,11 +54,29 @@ export class JobOfferComponent implements OnInit {
 
   createForm() {
     this.form = this.fb.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required],
-      expiry: ['', Validators.required],
-      to: ['', Validators.required],
-      type: ['', Validators.required],
+      name: [
+        '',
+        Validators.required
+      ],
+      description: [
+        '',
+        Validators.required
+      ],
+      expiry: [
+        '',
+        [
+          Validators.required,
+          CustomValidators.isDate
+        ]
+      ],
+      to: [
+        '',
+        Validators.required
+      ],
+      type: [
+        '',
+        Validators.required
+      ],
       salary: ['']
     })
   }

@@ -25,9 +25,16 @@ const isURL = (control: FormControl): { [s: string]: boolean }  => {
   }
 };
 
+const isDate = (control: FormControl): { [s: string]: boolean } => {
+  if (!validator.isISO8601(control.value)) {
+    return {date: true}
+  }
+};
+
 export const CustomValidators = {
   containNumbers,
   isNumeric,
   isAnEmail,
   isURL,
+  isDate
 };
