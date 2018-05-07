@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-job-offer-toggle-input',
@@ -7,18 +8,18 @@ import { Component } from '@angular/core';
 })
 export class JobOfferToggleInputComponent {
 
-  status = true;
+  @Input()
+  control: AbstractControl;
 
   toggleMessage() {
-    this.status = !this.status;
+    this.control.setValue(!this.control.value);
   }
 
   get buttonMessage() {
-
-    if (this.status) {
-      return 'no';
-    } else {
+    if (this.control.value) {
       return 'si';
+    } else {
+      return 'no';
     }
   }
 }

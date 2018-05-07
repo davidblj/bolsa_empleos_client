@@ -8,7 +8,8 @@ const containNumbers = (control: FormControl): { [s: string]: boolean } => {
 };
 
 const isNumeric = (control: FormControl): { [s: string]: boolean } => {
-  if (!validator.isNumeric(control.value)) {
+  if (!validator.isNumeric(control.value) &&
+       control.value.length > 0) {
     return {numeric: true}
   }
 };

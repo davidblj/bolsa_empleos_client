@@ -28,7 +28,7 @@ export class JobOfferDateInputComponent implements OnInit {
   onDateSelected(value: Date) {
     if (value) {
       try {
-        const isoString = value.toISOString();
+        let isoString = value.toISOString();
         this.control.setValue(isoString);
       } catch (e) {
         this.control.setErrors({'date': true});

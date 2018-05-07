@@ -59,7 +59,8 @@
       </div>
     </div>
 
-    <app-job-offer-toggle-input>
+    <app-job-offer-toggle-input
+      [control]="form.controls['urgent']">
     </app-job-offer-toggle-input>
 
   </div>
@@ -70,7 +71,9 @@
     <div class="job-form__submit-button">
       <app-button
         [color]="buttonColor"
-        [shape]="buttonShape">
+        [shape]="buttonShape"
+        [enabled]="formStatus"
+        (submit)="onSubmitHandler()">
         <div class="button-spacing">
           Publicar Oferta
         </div>

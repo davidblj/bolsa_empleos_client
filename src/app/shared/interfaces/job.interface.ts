@@ -1,7 +1,7 @@
 
 export interface Job {
 
-  _id: string;
+  _id?: string;
   name: string;
   owner: string;
   expiry: string;

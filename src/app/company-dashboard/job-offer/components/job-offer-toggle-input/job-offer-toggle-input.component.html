@@ -4,8 +4,8 @@
     ¿Se necesita el personal con urgencia?
   </label>
   <button class="job-input-field__toggle"
-          [ngClass]="{'job-input-field__toggle_color_red': !status,
-                      'job-input-field__toggle_color_green': status}"
+          [ngClass]="{'job-input-field__toggle_color_red': control.value,
+                      'job-input-field__toggle_color_green': !control.value}"
     (click)="toggleMessage()">
     {{buttonMessage}}
   </button>

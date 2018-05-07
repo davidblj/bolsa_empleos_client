@@ -30,6 +30,14 @@ export class CompanyUserService extends Service {
       .pipe(catchError(this.handleError(message)));
   }
 
+  addJob(job: Job): Observable<any> {
+
+    const message = 'Error. La oferta no se ha podido publicar';
+
+    return this.http.post(`${this.baseUrl}/jobs`, job)
+      .pipe(catchError(this.handleError(message)));
+  }
+
   getJob(id: string): Observable<JobCandidates | null> {
 
     const message = 'No se pudo extraer la información asociada a la oferta seleccionada';

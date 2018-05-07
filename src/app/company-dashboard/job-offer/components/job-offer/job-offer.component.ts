@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // utils
 import { CustomValidators } from '../../../../shared/utils/custom-validators.functions';
+import { Job } from '../../../../shared/interfaces/job.interface';
+import { CompanyUserService } from '../../../../core/services/company-user.service';
 
 @Component({
   selector: 'app-job-offer',
@@ -45,7 +47,8 @@ export class JobOfferComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private companyUserService: CompanyUserService) {
     this.createForm();
   }
 
@@ -79,7 +82,24 @@ export class JobOfferComponent implements OnInit {
       ],
       salary: [
         '',
-        CustomValidators.isNumeric]
+        CustomValidators.isNumeric
+      ],
+      urgent: [
+        false
+      ]
     })
+  }
+
+  onSubmitHandler() {
+    const job: Job = this.form.value;
+    this.companyUserService.addJob(job)
+      .subscribe(
+        (res) => {console.log(res.location)},
+        (error) => {console.log(error)}
+      )
+  }
+
+  get formStatus(): boolean {
+    return this.form.valid;
   }
 }
