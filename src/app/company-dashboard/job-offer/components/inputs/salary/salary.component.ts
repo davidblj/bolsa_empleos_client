@@ -43,6 +43,7 @@ export class SalaryComponent implements OnInit {
 
   setConditions() {
 
+    // do not show any error message until this field is modified
     this.salary.valueChanges.subscribe(value => {
       if (value.length === 0) {
         this.salary.setErrors({'numeric': false});

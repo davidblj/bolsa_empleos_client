@@ -1,10 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 
+// classes
+import { Manager } from '../../../../../shared/classes/manager.class';
+
+// interfaces
+import { Error } from '../../../../../shared/interfaces/error.interface';
+
 // variables
 import { definitions } from '../../../../../shared/utils/definitions.variables';
-import { Error } from '../../../../../shared/interfaces/error.interface';
-import { Manager } from '../../../../../shared/classes/manager.class';
+import { asyncValidator } from '../../../../../shared/utils/async-validator';
+import { CompanyUserService } from '../../../../../core/services/company-user.service';
 
 @Component({
   selector: 'app-name',
@@ -18,12 +24,16 @@ export class NameComponent implements OnInit {
   jobNameField = 'Nombre de la oferta';
   jobNamePlaceHolder = 'describe el título por el cual tu estás contratando';
 
-  username: AbstractControl;
+  name: AbstractControl;
   validationManager: Manager;
 
+  constructor(private companyUserService: CompanyUserService) {}
+
   ngOnInit() {
-    this.username = this.parent.get('name');
+    this.name = this.parent.get('name');
     this.initErrorMessaging();
+    this.setAsyncValidator();
+    this.setConditions();
   }
 
   initErrorMessaging() {
@@ -31,13 +41,40 @@ export class NameComponent implements OnInit {
     const hints: Error[] = [];
 
     const warnings: Error[] = [
-      definitions.required()
+      definitions.required(),
+      definitions.async('La oferta ya se encuentra registrada')
     ];
 
     this.validationManager = new Manager(
       hints,
       warnings,
-      this.username
+      this.name
     );
+  }
+
+  setAsyncValidator() {
+    asyncValidator.checkField(
+      this.name,
+      this.getBlockingStatus(),
+      this.checkStatusTask(),
+      this.validationManager
+    )
+  }
+
+  getBlockingStatus() {
+    return () => {
+      return false;
+    }
+  }
+
+  checkStatusTask() {
+    return (value) => {
+      return this.companyUserService.checkJobExistence('name', value);
+    }
+  }
+
+  setConditions() {
+    // do not show any error message until this field is modified
+    this.validationManager.setWarningStatus('async', false);
   }
 }

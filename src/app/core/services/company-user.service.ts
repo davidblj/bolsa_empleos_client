@@ -38,6 +38,15 @@ export class CompanyUserService extends Service {
       .pipe(catchError(this.handleError(message)));
   }
 
+  checkJobExistence(name, value): Observable<boolean> {
+
+    const params = {};
+    params[name] = value;
+
+    return this.http.get<Job>('jobs/check-job', {params: params})
+      .map((job: Job) => !!job._id);
+  }
+
   getJob(id: string): Observable<JobCandidates | null> {
 
     const message = 'No se pudo extraer la información asociada a la oferta seleccionada';
