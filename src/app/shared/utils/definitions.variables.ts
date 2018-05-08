@@ -1,7 +1,5 @@
 import { Error } from '../interfaces/error.interface';
 
-// warnings
-
 const required = (): Error  =>
   ({
     key: 'required',
@@ -16,8 +14,6 @@ const requirements = (): Error =>
     resolved: false
   });
 
-// hints
-
 const number = (): Error =>
   ({
     key: 'number',
@@ -29,6 +25,13 @@ const numeric = (): Error =>
   ({
     key: 'numeric',
     message: 'esta compuesta por numeros',
+    resolved: false
+  });
+
+const numeric_v2 = (): Error =>
+  ({
+    key: 'numeric',
+    message: 'Ingresa solamente valores numericos',
     resolved: false
   });
 
@@ -78,6 +81,7 @@ export const definitions = {
   requirements,
   number,
   numeric,
+  numeric_v2,
   match,
   website,
   email,

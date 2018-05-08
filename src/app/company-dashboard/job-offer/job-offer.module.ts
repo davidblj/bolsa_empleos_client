@@ -15,6 +15,9 @@ import { JobOfferInputComponent } from './components/job-offer-input/job-offer-i
 import { JobOfferDropDownInputComponent } from './components/job-offer-drop-down-input/job-offer-drop-down-input.component';
 import { JobOfferDateInputComponent } from './components/job-offer-date-input/job-offer-date-input.component';
 import { JobOfferToggleInputComponent } from './components/job-offer-toggle-input/job-offer-toggle-input.component';
+import { NameComponent } from './components/inputs/name/name.component';
+import { SalaryComponent } from './components/inputs/salary/salary.component';
+import { DescriptionComponent } from './components/inputs/description/description.component';
 
 
 @NgModule({
@@ -33,6 +36,9 @@ import { JobOfferToggleInputComponent } from './components/job-offer-toggle-inpu
     JobOfferDropDownInputComponent,
     JobOfferDateInputComponent,
     JobOfferToggleInputComponent,
+    NameComponent,
+    SalaryComponent,
+    DescriptionComponent,
   ]
 })
 export class JobOfferModule { }

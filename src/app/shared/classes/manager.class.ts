@@ -22,6 +22,8 @@ export class Manager {
     this.warnings = warnings;
   }
 
+  // utilities for automatic updates
+
   // length error update
 
   get lengthStatus(): boolean {
@@ -33,7 +35,7 @@ export class Manager {
 
   updateLengthStatus() {
     const hasErrors = this.lengthStatus;
-    this.setHintStatus('length', hasErrors);
+    this.updateErrorStatus('length', hasErrors);
   }
 
   // required error update
@@ -46,10 +48,10 @@ export class Manager {
 
   updateRequiredStatus() {
     const hasErrors = this.requiredStatus;
-    this.setWarningStatus('required', hasErrors);
+    this.updateErrorStatus('required', hasErrors);
   }
 
-  // numeric error update
+  // number error update
 
   get numberStatus(): boolean {
     return this.field.hasError('number');
@@ -57,7 +59,7 @@ export class Manager {
 
   updateNumberStatus() {
     const hasErrors = this.numberStatus;
-    this.setHintStatus('number', hasErrors);
+    this.updateErrorStatus('number', hasErrors);
   }
 
   // numeric error update
@@ -68,7 +70,7 @@ export class Manager {
 
   updateNumericStatus() {
     const hasErrors = this.numericStatus;
-    this.setHintStatus('numeric', hasErrors)
+    this.updateErrorStatus('numeric', hasErrors)
   }
 
   // requirements error update
@@ -89,7 +91,7 @@ export class Manager {
 
   updateRequirementsStatus() {
     const hasErrors = this.warningStatus;
-    this.setWarningStatus('requirements', hasErrors);
+    this.updateErrorStatus('requirements', hasErrors);
   }
 
   // website error update
@@ -102,7 +104,7 @@ export class Manager {
 
   updateWebSiteStatus() {
     const hasErrors = this.webSiteStatus;
-    this.setHintStatus('website', hasErrors);
+    this.updateErrorStatus('website', hasErrors);
   }
 
   // email error update
@@ -115,7 +117,7 @@ export class Manager {
 
   updateEmailStatus() {
     const hasErrors = this.emailStatus;
-    this.setHintStatus('email', hasErrors);
+    this.updateErrorStatus('email', hasErrors);
   }
 
 
@@ -125,13 +127,13 @@ export class Manager {
 
   updateMatchingStatus(originalPassword) {
     const hasErrors = (this.field.value !== originalPassword);
-    this.setHintStatus('match', hasErrors);
+    this.updateErrorStatus('match', hasErrors);
   }
 
   // async error update
 
   updateAsyncStatus(error: boolean) {
-    this.setHintStatus('async', error);
+    this.updateErrorStatus('async', error);
     this.updateRequirementsStatus()
   }
 
@@ -178,6 +180,31 @@ export class Manager {
           break;
       }
     });
+  }
+
+  updateErrorStatus(errorKey: string, hasError: boolean) {
+
+    let found;
+
+    found = this.hints.some((error: Error) => {
+      return error.key === errorKey;
+    });
+
+    if (found) {
+      this.setHintStatus(errorKey, hasError);
+      return;
+    }
+
+    found = this.warnings.some((error: Error) => {
+      return error.key === errorKey;
+    });
+
+    if (found) {
+      this.setWarningStatus(errorKey, hasError);
+      return;
+    }
+
+    return;
   }
 
   setHintStatus(key: string, hasErrors: boolean) {

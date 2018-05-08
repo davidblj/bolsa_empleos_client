@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl } from '@angular/forms';
+import { Manager } from '../../../../shared/classes/manager.class';
 
 @Component({
   selector: 'app-job-offer-input',
@@ -12,7 +12,7 @@ export class JobOfferInputComponent implements OnInit {
   fieldName: string;
 
   @Input()
-  control: AbstractControl;
+  validationManager: Manager;
 
   @Input()
   placeHolder = '';
@@ -21,24 +21,27 @@ export class JobOfferInputComponent implements OnInit {
   type = 'input';
 
   ngOnInit() {
+
+    const input = this.validationManager.field;
+
+    input.valueChanges.subscribe(() => {
+      this.validationManager.updateIndependentFields();
+    });
   }
 
   isType(type: string): boolean {
     return type === this.type;
   }
 
-  get invalid() {
-    return (
-      this.control.hasError('required') &&
-      this.control.touched
-    )
+  get control() {
+    return this.validationManager.field;
   }
 
-  get invalidSalary() {
-    return (
-      (this.control.value.length > 0) &&
-      this.control.hasError('numeric') &&
-      this.control.touched
-    )
+  get warnings() {
+    return this.validationManager.warnings;
+  }
+
+  get showMessages() {
+    return this.validationManager.field.touched;
   }
 }

@@ -21,14 +21,11 @@
             [formControl]="control">
   </textarea>
 
-  <div *ngIf="invalid"
-        class="job-input-field__error">
-    Este campo es requerido
-  </div>
-
-  <div *ngIf="invalidSalary"
-       class="job-input-field__error">
-    Solo se admiten numeros del 0 al 9
+  <div *ngFor="let warning of warnings">
+    <div class="job-input-field__error"
+         *ngIf="!warning.resolved && showMessages">
+      {{warning.message}}
+    </div>
   </div>
 
 </div>

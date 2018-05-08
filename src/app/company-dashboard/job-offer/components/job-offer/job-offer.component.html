@@ -7,17 +7,13 @@
 
   <div class="job-form__inputs">
 
-    <app-job-offer-input
-      [fieldName]="jobNameField"
-      [control]="form.controls['name']"
-      [placeHolder]="jobNamePlaceHolder">
-    </app-job-offer-input>
+    <app-name
+      [parent]="form">
+    </app-name>
 
-    <app-job-offer-input
-      [fieldName]="jobDescriptionField"
-      [control]="form.controls['description']"
-      [type]="jobDescriptionType">
-    </app-job-offer-input>
+    <app-description
+      [parent]="form">
+    </app-description>
 
     <div class="row">
       <div class="col-5">
@@ -51,11 +47,9 @@
 
     <div class="row">
       <div class="col-5">
-        <app-job-offer-input
-          [fieldName]="jobSalaryField"
-          [control]="form.controls['salary']"
-          [placeHolder]="jobSalaryPlaceHolder">
-        </app-job-offer-input>
+        <app-salary
+          [parent]="form">
+        </app-salary>
       </div>
     </div>
 

@@ -13,12 +13,6 @@ import { CompanyUserService } from '../../../../core/services/company-user.servi
 })
 export class JobOfferComponent implements OnInit {
 
-  jobNameField = 'Nombre de la oferta';
-  jobNamePlaceHolder = 'describe el titulo por el cual tu estas contratando';
-
-  jobDescriptionField = 'Describe tu oferta';
-  jobDescriptionType = 'text-area';
-
   jobTypeField = 'Modalidad de la oferta';
   jobTypePlaceHolder = 'tipo';
   jobTypeOptions = [
@@ -35,9 +29,6 @@ export class JobOfferComponent implements OnInit {
     'Practicante',
     'Ambos'
   ];
-
-  jobSalaryField = 'Salario (opcional)';
-  jobSalaryPlaceHolder = 'cuanto paga la posicion';
 
   jobExpiryField = 'Vigencia';
   jobExpiryPlaceHolder = 'mm/dd/aaaa';
