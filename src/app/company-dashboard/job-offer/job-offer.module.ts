@@ -6,6 +6,7 @@ import { BsDropdownModule } from 'ngx-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { SharedModule } from '../../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 // components
 import { JobOfferRoutingModule } from './job-offer-routing.module';
@@ -18,6 +19,7 @@ import { JobOfferToggleInputComponent } from './components/job-offer-toggle-inpu
 import { NameComponent } from './components/inputs/name/name.component';
 import { SalaryComponent } from './components/inputs/salary/salary.component';
 import { DescriptionComponent } from './components/inputs/description/description.component';
+import { JobOfferModalComponent } from './components/job-offer-modal/job-offer-modal.component';
 
 
 @NgModule({
@@ -27,7 +29,11 @@ import { DescriptionComponent } from './components/inputs/description/descriptio
     SharedModule,
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    ModalModule.forRoot(),
     JobOfferRoutingModule
+  ],
+  entryComponents: [
+    JobOfferModalComponent
   ],
   declarations: [
     JobOfferComponent,
@@ -39,6 +45,7 @@ import { DescriptionComponent } from './components/inputs/description/descriptio
     NameComponent,
     SalaryComponent,
     DescriptionComponent,
+    JobOfferModalComponent,
   ]
 })
 export class JobOfferModule { }

@@ -32,10 +32,13 @@ export class CompanyUserService extends Service {
 
   addJob(job: Job): Observable<any> {
 
-    const message = 'Error. La oferta no se ha podido publicar';
+    const message = 'Lo sentimos mucho, la oferta no se ha podido registrar. ¡intentalo de nuevo!';
 
     return this.http.post(`${this.baseUrl}/jobs`, job)
-      .pipe(catchError(this.handleError(message)));
+      .pipe(catchError(this.handleError(message)))
+      .map((res) => {
+        return 'La oferta se ha publicado exitosamente'
+      });
   }
 
   checkJobExistence(name, value): Observable<boolean> {
