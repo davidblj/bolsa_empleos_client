@@ -15,8 +15,8 @@ import { CompanyDashboardHeaderContainerComponent } from './containers/company-d
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     CompanyDashboardRoutingModule,
-    SharedModule
   ],
   declarations: [
     CompanyDashboardComponent,

@@ -6,15 +6,25 @@ import { Router } from '@angular/router';
   templateUrl: './company-dashboard-panel.component.html',
   styleUrls: ['./company-dashboard-panel.component.scss']
 })
-export class CompanyDashboardPanelComponent implements OnInit {
+export class CompanyDashboardPanelComponent {
+
+  currentRoute = 'ofertas';
 
   constructor(private router: Router) { }
 
-  ngOnInit() {
+  onClick(route: string) {
+
+    const baseRoute = route;
+    route = `empresas/${route}`;
+
+    this.router.navigate([route]).then(
+      () => {
+        this.currentRoute = baseRoute;
+      }
+    );
   }
 
-  onClick(route: string) {
-    route = `empresas/${route}`;
-    this.router.navigate([route]);
+  isActive(route: string): boolean {
+    return this.currentRoute === route
   }
 }

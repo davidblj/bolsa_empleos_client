@@ -24,10 +24,10 @@ import { DescriptionComponent } from './components/inputs/description/descriptio
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    JobOfferRoutingModule,
     SharedModule,
     BsDropdownModule.forRoot(),
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    JobOfferRoutingModule
   ],
   declarations: [
     JobOfferComponent,

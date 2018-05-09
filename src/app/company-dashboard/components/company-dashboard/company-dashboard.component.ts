@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-company-dashboard',
@@ -8,11 +8,16 @@ import { Router } from '@angular/router';
 })
 export class CompanyDashboardComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
 
-    // do load automatically the first module
-    this.router.navigate(['empresas', 'ofertas']);
+    // do load automatically the first module if a
+    // route has not been specified
+    const children = this.activatedRoute.children;
+    if (children.length === 0) {
+      this.router.navigate(['empresas', 'ofertas']);
+    }
   }
 }
