@@ -93,6 +93,7 @@ export class JobOfferComponent implements OnInit {
     this.companyUserService.addJob(job)
       .subscribe(
         (res) => {
+          this.form.reset({expiry: ''});
           const config = this.setModalMessage(res, false);
           this.modal = this.modalService.show(JobOfferModalComponent, config);
         },

@@ -5,39 +5,13 @@ import { Observable } from 'rxjs/Observable';
 // services
 import { AuthService } from '../services/auth.service';
 import { UserAuth } from '../../log-in/shared/user-auth.interface';
+import { BaseGuard } from './base-guard.class';
 
 @Injectable()
-export class CompanyAuthGuard implements CanActivate, CanLoad {
+export class CompanyAuthGuard extends BaseGuard {
 
-  constructor(private authService: AuthService,
-              private router: Router) {}
-
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-
-    const redirectionUrl = state.url;
-
-    return this.checkLogIn(redirectionUrl);
-  }
-
-  canLoad(route: Route): Observable<boolean> | Promise<boolean> | boolean {
-
-    const redirectionUrl = `/${route.path}`;
-    return this.checkLogIn(redirectionUrl);
-  }
-
-
-  checkLogIn(redirectionUrl: string): boolean {
-
-    const user: UserAuth | null = this.authService.getUser();
-
-    if (user && user.role === 'company') {
-      return true;
-    }
-
-    this.authService.redirectionUrl = redirectionUrl;
-    this.router.navigate(['/ingresar']);
-    return false;
+  constructor(authService: AuthService, router: Router) {
+    super(authService, router);
+    this.roles.push('company');
   }
 }

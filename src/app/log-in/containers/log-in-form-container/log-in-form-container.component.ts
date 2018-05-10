@@ -55,7 +55,7 @@ export class LogInFormContainerComponent {
 
     if (companyUser) { this.redirectTo('empresas'); }
 
-    if (candidateUser) { this.redirectTo('buscar'); }
+    if (candidateUser) { this.redirectTo('candidatos'); }
   }
 
   redirectTo(url: string) {

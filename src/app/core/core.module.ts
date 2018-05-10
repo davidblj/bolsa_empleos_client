@@ -13,6 +13,7 @@ import { CompanyUserService } from './services/company-user.service';
 // providers/guards
 import { interceptorProviders } from './interceptors/interceptor-providers';
 import { CompanyAuthGuard } from './guards/company-auth-guard.service';
+import { CandidateAuthGuard } from './guards/candidate-auth-guard.service';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { CompanyAuthGuard } from './guards/company-auth-guard.service';
     CandidateUserService,
     CompanyUserService,
     CompanyAuthGuard,
+    CandidateAuthGuard,
     interceptorProviders
   ]
 })
