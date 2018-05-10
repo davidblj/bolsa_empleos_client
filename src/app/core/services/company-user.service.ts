@@ -32,7 +32,7 @@ export class CompanyUserService extends Service {
 
   addJob(job: Job): Observable<any> {
 
-    const message = 'Lo sentimos mucho, la oferta no se ha podido registrar. ¡intentalo de nuevo!';
+    const message = 'La oferta no se ha podido registrar. Intentalo de nuevo';
 
     return this.http.post(`${this.baseUrl}/jobs`, job)
       .pipe(catchError(this.handleError(message)))

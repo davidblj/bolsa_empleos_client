@@ -3,6 +3,7 @@ import { AbstractControl, FormGroup } from '@angular/forms';
 import { Manager } from '../../../../../shared/classes/manager.class';
 import { definitions } from '../../../../../shared/utils/definitions.variables';
 import { Error } from '../../../../../shared/interfaces/error.interface';
+import { CustomValidators } from '../../../../../shared/utils/custom-validators.functions';
 
 @Component({
   selector: 'app-salary',
@@ -18,6 +19,7 @@ export class SalaryComponent implements OnInit {
 
   salary: AbstractControl;
   validationManager: Manager;
+  numericValidationSet = false;
 
   ngOnInit() {
 
@@ -42,15 +44,30 @@ export class SalaryComponent implements OnInit {
   }
 
   setConditions() {
-
-    // do not show any error message until this field is modified
+    // dynamically add or remove the numeric validator on this field
     this.salary.valueChanges.subscribe(value => {
+
       if (value.length === 0) {
-        this.salary.setErrors({'numeric': false});
-        console.log(this.salary.getError('numeric'));
+        this.unsetNumericValidator();
+      } else  {
+        this.setNumericValidator();
       }
     });
 
     this.validationManager.setWarningStatus('numeric', false);
+  }
+
+  setNumericValidator() {
+    if (!this.numericValidationSet) {
+      this.salary.setValidators(CustomValidators.isNumeric);
+      this.numericValidationSet = true;
+    }
+  }
+
+  unsetNumericValidator() {
+    this.validationManager.setWarningStatus('numeric', false);
+    this.salary.clearValidators();
+    this.salary.setErrors(null);
+    this.numericValidationSet = false;
   }
 }
