@@ -13,8 +13,8 @@ export class CandidateDashboardComponent implements OnInit {
 
   ngOnInit() {
 
-    this.links =
-      [{
+    this.links = [
+      {
         name: 'Ofertas',
         status: true,
         link: ''

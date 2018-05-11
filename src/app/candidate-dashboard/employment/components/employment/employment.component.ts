@@ -11,5 +11,4 @@ export class EmploymentComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

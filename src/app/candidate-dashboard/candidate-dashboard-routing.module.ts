@@ -6,7 +6,12 @@ const routes: Routes = [
   {
     path: '',
     component: CandidateDashboardComponent,
-    children: []
+    children: [
+      {
+        path: 'ofertas',
+        loadChildren: 'app/candidate-dashboard/employment/employment.module#EmploymentModule'
+      }
+    ]
   }
 ];
 

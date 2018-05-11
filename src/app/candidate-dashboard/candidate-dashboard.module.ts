@@ -12,6 +12,10 @@ import { SharedModule } from '../shared/shared.module';
     CandidateDashboardRoutingModule,
     SharedModule
   ],
-  declarations: [CandidateDashboardComponent, CandidateDashboardHeaderContainerComponent, CandidateDashboardHeaderComponent]
+  declarations: [
+    CandidateDashboardComponent,
+    CandidateDashboardHeaderContainerComponent,
+    CandidateDashboardHeaderComponent
+  ]
 })
 export class CandidateDashboardModule { }
