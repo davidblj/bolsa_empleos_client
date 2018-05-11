@@ -1,0 +1,10 @@
+
+<div class="navigation"
+     [ngClass]="{'navigation_panel-position_center': getPositionStatus('center')}">
+
+  <span class="navigation__item"
+        *ngFor="let link of links"
+        [ngClass]="{'navigation__item_active': link.status}">
+    {{link.name}}
+  </span>
+</div>

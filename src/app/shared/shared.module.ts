@@ -24,6 +24,7 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { HeaderProfileComponent } from './components/header-profile/header-profile.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { HeaderProfileComponent } from './components/header-profile/header-profi
     PaginatorComponent,
     HeaderComponent,
     NotificationComponent,
-    HeaderProfileComponent
+    HeaderProfileComponent,
+    NavigationComponent
   ],
   declarations: [
     PopoverComponent,
@@ -69,7 +71,8 @@ import { HeaderProfileComponent } from './components/header-profile/header-profi
     PaginatorComponent,
     HeaderComponent,
     NotificationComponent,
-    HeaderProfileComponent
+    HeaderProfileComponent,
+    NavigationComponent
   ]
 })
 export class SharedModule { }

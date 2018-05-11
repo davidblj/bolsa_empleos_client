@@ -2,5 +2,11 @@
 <app-candidate-dashboard-header-container>
 </app-candidate-dashboard-header-container>
 
-<!-- put the panel component here -->
+<div class="navigation__box">
+  <app-navigation
+    [links]="links"
+    [panelPosition]="panelPosition">
+  </app-navigation>
+</div>
+
 <router-outlet></router-outlet>

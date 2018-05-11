@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Link } from '../../../shared/interfaces/link.interface';
 
 @Component({
   selector: 'app-candidate-dashboard',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidateDashboardComponent implements OnInit {
 
-  constructor() { }
+  links: Link[];
+  panelPosition = 'center';
 
   ngOnInit() {
-  }
 
+    this.links =
+      [{
+        name: 'Ofertas',
+        status: true,
+        link: ''
+      },
+      {
+        name: 'Configuracion',
+        status: false,
+        link: ''
+      }]
+  }
 }
