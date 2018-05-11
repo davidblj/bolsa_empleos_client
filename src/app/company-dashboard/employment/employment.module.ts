@@ -16,7 +16,7 @@ import { EmploymentJobDetailsHeaderComponent } from './components/employment-job
 import { EmploymentJobDetailsContainerComponent } from './containers/employment-job-details-container/employment-job-details-container.component';
 import { EmploymentJobDetailsResolver } from './shared/employment-job-details-resolver.service';
 
-// ng g component company-dashboard/employment/components -m company-dashboard/employment/employment.module.ts
+// ng g component company-dashboard/applied-jobs-table/components -m company-dashboard/applied-jobs-table/applied-jobs-table.module.ts
 
 @NgModule({
   imports: [

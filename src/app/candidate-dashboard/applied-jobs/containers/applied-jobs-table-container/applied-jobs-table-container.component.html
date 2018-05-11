@@ -1,0 +1,6 @@
+
+<div *ngIf="(jobs$ | async) as jobs">
+  <app-applied-jobs-table
+    [jobs]="jobs">
+  </app-applied-jobs-table>
+</div>

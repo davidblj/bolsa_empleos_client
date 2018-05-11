@@ -55,6 +55,7 @@ export class CandidateUserService extends Service {
         .do(
           (jobs: JobSnippet[]) => {
             this.appliedJobsSource.next(jobs);
+            return jobs;
           },
           (e_message) => {
             console.error(e_message)
