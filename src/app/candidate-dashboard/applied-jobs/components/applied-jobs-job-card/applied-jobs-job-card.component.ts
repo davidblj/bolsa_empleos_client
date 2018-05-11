@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { JobSnippet } from '../../../../search/shared/job-snippet.interface';
 
 @Component({
-  selector: 'app-job-card',
+  selector: 'app-applied-jobs-job-card',
   templateUrl: './applied-jobs-job-card.component.html',
   styleUrls: ['./applied-jobs-job-card.component.scss']
 })
 export class AppliedJobsJobCardComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  job: JobSnippet;
 
   ngOnInit() {
   }
 
+  get appliedDate() {
+    return  'hoy';
+  }
 }

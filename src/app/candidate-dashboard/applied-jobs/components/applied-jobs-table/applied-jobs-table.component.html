@@ -1,0 +1,16 @@
+
+<div class="jobs">
+
+  <div class="row">
+
+    <div *ngFor="let job of jobs">
+        <div class="col">
+          <app-applied-jobs-job-card
+            [job]="job">
+          </app-applied-jobs-job-card>
+        </div>
+    </div>
+
+  </div>
+
+</div>

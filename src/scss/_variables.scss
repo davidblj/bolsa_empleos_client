@@ -26,6 +26,11 @@ $mantis-light: lighten($mantis, 6%);
 $burntSienna: #E95A51;
 $burntSienna-light: lighten($burntSienna, 6%);
 
+// shadows
+
+$shadow: 0 0 10px -2px $geyser;
+$strong-shadow: 0 0 15px -2px $geyser;
+
 // header component variables
 
 $header-height: 6.74rem;
