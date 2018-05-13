@@ -5,6 +5,7 @@
   border-radius: 5px;
   background: $athensGray;
   box-shadow: $strong-shadow;
+  // width: 35rem;
 
   padding: 2.5rem 7rem;
   margin-right: 3rem;
@@ -33,12 +34,6 @@
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 2rem;
-  }
-
-  &__footer {
-
-    border-top: 1px solid $mischka;
-    height: 5rem;
   }
 
   &__options {

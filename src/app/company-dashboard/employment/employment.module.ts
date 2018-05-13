@@ -15,6 +15,7 @@ import { EmploymentJobDetailsComponent } from './components/employment-job-detai
 import { EmploymentJobDetailsHeaderComponent } from './components/employment-job-details-header/employment-job-details-header.component';
 import { EmploymentJobDetailsContainerComponent } from './containers/employment-job-details-container/employment-job-details-container.component';
 import { EmploymentJobDetailsResolver } from './shared/employment-job-details-resolver.service';
+import { EmploymentPaginationComponent } from './components/employment-pagination/employment-pagination.component';
 
 // ng g component company-dashboard/applied-jobs-table/components -m company-dashboard/applied-jobs-table/applied-jobs-table.module.ts
 
@@ -32,7 +33,8 @@ import { EmploymentJobDetailsResolver } from './shared/employment-job-details-re
     EmploymentTableContainerComponent,
     EmploymentJobDetailsComponent,
     EmploymentJobDetailsHeaderComponent,
-    EmploymentJobDetailsContainerComponent
+    EmploymentJobDetailsContainerComponent,
+    EmploymentPaginationComponent
   ],
   providers: [
     EmploymentJobDetailsResolver

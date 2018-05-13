@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 
 // modules
 import { CommonModule } from '@angular/common';
-import { BsDropdownModule } from 'ngx-bootstrap';
-import { BsDatepickerModule } from 'ngx-bootstrap';
+import { BsDropdownModule, BsDatepickerModule } from 'ngx-bootstrap';
 import { SharedModule } from '../../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -27,9 +26,9 @@ import { JobOfferModalComponent } from './components/job-offer-modal/job-offer-m
     CommonModule,
     ReactiveFormsModule,
     SharedModule,
-    BsDropdownModule.forRoot(),
-    BsDatepickerModule.forRoot(),
-    ModalModule.forRoot(),
+    BsDropdownModule,
+    BsDatepickerModule,
+    ModalModule,
     JobOfferRoutingModule
   ],
   entryComponents: [

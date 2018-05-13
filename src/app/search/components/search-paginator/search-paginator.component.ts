@@ -17,7 +17,6 @@ export class SearchPaginatorComponent extends PaginatorComponent {
   rightArrowUrl = this.transparentRightArrow;
 
   toggleLeftArrow() {
-
     if (this.leftArrowUrl === this.transparentLeftArrow) {
       this.leftArrowUrl = this.solidLeftArrow;
     } else {
@@ -26,12 +25,10 @@ export class SearchPaginatorComponent extends PaginatorComponent {
   }
 
   toggleRightArrow() {
-
     if (this.rightArrowUrl === this.transparentRightArrow) {
       this.rightArrowUrl = this.solidRightArrow;
     } else {
       this.rightArrowUrl = this.transparentRightArrow;
     }
   }
-
 }

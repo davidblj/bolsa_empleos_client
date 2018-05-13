@@ -1,0 +1,59 @@
+@import "variables";
+@import "animations";
+
+$page-size: 1.7rem;
+
+.paginator {
+
+  transform: translateX(-50%);
+  display: inline-block;
+  left: 50%;
+  position: relative;
+
+  & * {
+
+    display: inherit;
+    text-align: center;
+  }
+
+  &__pages {
+    margin: 0 .5rem;
+  }
+
+  &__page {
+
+    font-size: $page-size;
+    width: 43px;
+    line-height: 43px;
+    border-radius: 50%;
+    margin: 0 3px;
+
+    &_active {
+
+      font-weight: 600;
+      background: $mantis;
+      color: $white;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &_inactive {
+
+      &:hover {
+        cursor: pointer;
+        background: $mischka;
+      }
+    }
+  }
+}
+
+.hidden {
+  opacity: 0;
+  cursor: default;
+}
+
+.button-spacing {
+  padding: 1rem 1.5rem;
+}

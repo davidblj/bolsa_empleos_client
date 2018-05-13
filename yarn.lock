@@ -224,10 +224,6 @@
   dependencies:
     "@types/jasmine" "*"
 
-"@types/lodash@^4.14.62":
-  version "4.14.106"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.106.tgz#6093e9a02aa567ddecfe9afadca89e53e5dce4dd"
-
 "@types/node@^6.0.46", "@types/node@~6.0.60":
   version "6.0.101"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.101.tgz#0c5911cfb434af4a51c0a499931fe6423207d921"
@@ -3812,12 +3808,6 @@ ngx-bootstrap@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-2.0.4.tgz#26be0eb1b9a5dc133caa93b39ae221d6872c8b55"
 
-ngx-restangular@^2.0.2:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/ngx-restangular/-/ngx-restangular-2.1.0.tgz#9825ab15c626c75488d160a769caef301cf32096"
-  dependencies:
-    "@types/lodash" "^4.14.62"
-
 no-case@^2.2.0:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.2.tgz#60b813396be39b3f1288a4c1ed5d1e7d28b464ac"
@@ -4859,7 +4849,13 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
-rxjs@^5.5.2, rxjs@^5.5.6:
+rxjs@^5.5.2:
+  version "5.5.10"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.10.tgz#fde02d7a614f6c8683d0d1957827f492e09db045"
+  dependencies:
+    symbol-observable "1.0.1"
+
+rxjs@^5.5.6:
   version "5.5.6"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.6.tgz#e31fb96d6fd2ff1fd84bcea8ae9c02d007179c02"
   dependencies:

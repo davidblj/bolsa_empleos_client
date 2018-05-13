@@ -1,0 +1,34 @@
+<div class="u-relative">
+  <div class="paginator">
+
+    <div class="paginator-button"
+         [ngClass]="{'hidden': !canGoBackwards}"
+         (click)="goBackward()">
+      <app-button>
+        <span class="button-spacing">
+          ATRAS
+        </span>
+      </app-button>
+    </div>
+
+    <div class="paginator__pages">
+      <div class="paginator__page"
+           *ngFor="let page of pages; let index = index"
+           [ngClass]="{'paginator__page_active': isActive(index),
+                       'paginator__page_inactive': !isActive(index)}">
+        {{page}}
+      </div>
+    </div>
+
+    <div class="paginator-button"
+         [ngClass]="{'hidden': !canGoForward}"
+         (click)="goForward()">
+      <app-button>
+        <span class="button-spacing">
+          SIGUI.
+        </span>
+      </app-button>
+    </div>
+
+  </div>
+</div>

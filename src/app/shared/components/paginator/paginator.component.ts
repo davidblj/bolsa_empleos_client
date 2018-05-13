@@ -2,8 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-paginator',
-  templateUrl: './paginator.component.html',
-  styleUrls: ['./paginator.component.scss']
+  template: ``
 })
 export class PaginatorComponent {
 
@@ -16,7 +15,6 @@ export class PaginatorComponent {
   currentPage = 0;
 
   goBackward() {
-
     if (this.canGoBackwards) {
       this.currentPage = this.currentPage - 1;
       this.emitCurrentPage(-1);
@@ -24,11 +22,10 @@ export class PaginatorComponent {
   }
 
   goForward() {
-
-   if (this.canGoForward) {
-     this.currentPage = this.currentPage + 1;
-     this.emitCurrentPage(1);
-   }
+    if (this.canGoForward) {
+      this.currentPage = this.currentPage + 1;
+      this.emitCurrentPage(1);
+    }
   }
 
   get canGoForward() {
