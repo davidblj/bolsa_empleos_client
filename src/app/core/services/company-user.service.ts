@@ -26,7 +26,7 @@ export class CompanyUserService extends Service {
     const message = 'No pudimos extraer la información asociada a tu sesion';
     const params = this.buildParams();
 
-    return this.http.get<Job[]>(`${this.baseUrl}/jobs`, { params: params})
+    return this.http.get<Job[]>(`${this.baseUrl}/jobs`, {params: params})
       .pipe(catchError(this.handleError(message)));
   }
 

@@ -7,7 +7,6 @@ import { CommonModule } from '@angular/common';
 import { EmploymentRoutingModule } from './employment-routing.module';
 import { EmploymentComponent } from './components/employment/employment.component';
 import { EmploymentJobsComponent } from './components/employment-jobs/employment-jobs.component';
-import { EmploymentNavigationComponent } from './components/employment-navigation/employment-navigation.component';
 import { EmploymentTableComponent } from './components/employment-table/employment-table.component';
 import { EmploymentTableContainerComponent } from './containers/employment-table-container/employment-table-container.component';
 import { SharedModule } from '../../shared/shared.module';
@@ -17,7 +16,6 @@ import { EmploymentJobDetailsContainerComponent } from './containers/employment-
 import { EmploymentJobDetailsResolver } from './shared/employment-job-details-resolver.service';
 import { EmploymentPaginationComponent } from './components/employment-pagination/employment-pagination.component';
 
-// ng g component company-dashboard/applied-jobs-table/components -m company-dashboard/applied-jobs-table/applied-jobs-table.module.ts
 
 @NgModule({
   imports: [
@@ -28,7 +26,6 @@ import { EmploymentPaginationComponent } from './components/employment-paginatio
   declarations: [
     EmploymentComponent,
     EmploymentJobsComponent,
-    EmploymentNavigationComponent,
     EmploymentTableComponent,
     EmploymentTableContainerComponent,
     EmploymentJobDetailsComponent,

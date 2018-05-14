@@ -14,7 +14,7 @@ export class EmploymentTableComponent implements OnInit {
   @Input()
   jobs: Job[];
 
-  pageLimit = 6;
+  pageLimit = 1;
 
   constructor(private router: Router,
               private route: ActivatedRoute) { }
