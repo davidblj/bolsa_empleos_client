@@ -46,6 +46,7 @@
 
 <div class="paginator-box">
   <app-employment-pagination
-    [pageLimit]="pageLimit">
+    [pageLimit]="pageLimit"
+    (page)="onPageChangedHandler($event)">
   </app-employment-pagination>
 </div>

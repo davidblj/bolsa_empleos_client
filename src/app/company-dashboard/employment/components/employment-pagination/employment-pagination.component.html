@@ -14,8 +14,10 @@
     <div class="paginator__pages">
       <div class="paginator__page"
            *ngFor="let page of pages; let index = index"
+           (click)="onClickHandler(page, index)"
            [ngClass]="{'paginator__page_active': isActive(index),
-                       'paginator__page_inactive': !isActive(index)}">
+                       'paginator__page_inactive': (!isActive(index) && !isDisabled(page)),
+                       'paginator__page_disabled': isDisabled(page)}">
         {{page}}
       </div>
     </div>

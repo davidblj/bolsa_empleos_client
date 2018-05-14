@@ -46,6 +46,11 @@ $page-size: 1.7rem;
         background: $mischka;
       }
     }
+
+    &_disabled {
+      color: $mountainMist;
+      cursor: default;
+    }
   }
 }
 

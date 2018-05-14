@@ -14,7 +14,7 @@ export class EmploymentTableComponent implements OnInit {
   @Input()
   jobs: Job[];
 
-  pageLimit = 7;
+  pageLimit = 6;
 
   constructor(private router: Router,
               private route: ActivatedRoute) { }
@@ -33,5 +33,10 @@ export class EmploymentTableComponent implements OnInit {
 
   onClick(id: string) {
     this.router.navigate(['./', id], {relativeTo: this.route });
+  }
+
+  // todo: use a container
+  onPageChangedHandler(page: number) {
+    console.log(page)
   }
 }

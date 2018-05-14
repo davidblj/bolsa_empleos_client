@@ -28,13 +28,27 @@ export class EmploymentPaginationComponent extends PaginatorComponent implements
     return (index + 1) === this.activePosition;
   }
 
-  emitCurrentPage(offset: number) {
-    this.page.emit(offset);
-    this.updateActivePositionStatus(offset);
-    this.updatePageArrayHandler(offset);
+  isDisabled(page: number): boolean {
+    return page > this.pageLimit;
   }
 
-  updatePageArrayHandler(offset: number) {
+  onClickHandler(page: number, index: number) {
+
+    if (!this.isDisabled(page)) {
+
+      this.currentPage = page - 1;
+      const offset = (index + 1) - this.activePosition;
+      this.emitCurrentPage(offset);
+    }
+  }
+
+  emitCurrentPage(offset: number) {
+    this.page.emit(offset);
+    this.updateActivePosition(offset);
+    this.updatePageArray(offset);
+  }
+
+  updatePageArray(offset: number) {
 
     if (offset > 0) {
 
@@ -59,7 +73,7 @@ export class EmploymentPaginationComponent extends PaginatorComponent implements
     }
   }
 
-  updateActivePositionStatus(offset: number) {
+  updateActivePosition(offset: number) {
 
     const position = this.activePosition + offset;
     const positionIsInBoundary = position <= this.range &&
