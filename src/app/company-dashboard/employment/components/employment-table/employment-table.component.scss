@@ -43,35 +43,54 @@ $row-width-expansion: 4rem;
     font-size: 1.6rem;
     padding: 1.5rem $left-table-spacing;
 
-    img {
+    &_color_grey {
+      font-weight: 600;
+      color: $regentGray;
+    }
 
+    &_config {
+
+      // (17% > 4 rem)
+      line-height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+      padding: 0;
+
+      &:hover {
+        background: $mischka;
+        cursor: pointer;
+      }
+    }
+
+    img {
       width: 2rem;
-      cursor: pointer;
+      transform: translateX(50%);
     }
   }
 
   &:hover {
-    @include strong-shadow;
+
+    box-shadow: $strong-shadow;
     width: calc(100% + #{$row-width-expansion});
     margin-left: (calc(-#{$row-width-expansion}/2));
     border-left: 4px solid $mantis;
   }
 }
 
-// 2 + 42 + 20 + 20 + 10 + 5 = 99
+// 2 + 42 + 13 + 13 + 13 = 83
 .size_big {
   width: 42%;
 }
 
 .size_medium {
-  width: 20%;
+  width: 13%;
 }
 
 .size_small {
   width: 10%;
 }
 
-.size_tiny {
+/*.size_tiny {
   width: 5%;
-}
+}*/
 
