@@ -1,10 +1,15 @@
 
-<app-category
-  [category]="typeCategory"
-  [options]="typeCategoryOptions">
-</app-category>
+<div class="filter-box">
+  <app-search>
+  </app-search>
 
-<app-category
-  [category]="audienceCategory"
-  [options]="audienceCategoryOptions">
-</app-category>
+  <app-category
+    [category]="typeCategory"
+    [options]="typeCategoryOptions">
+  </app-category>
+
+  <app-category
+    [category]="audienceCategory"
+    [options]="audienceCategoryOptions">
+  </app-category>
+</div>

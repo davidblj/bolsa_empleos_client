@@ -2,15 +2,14 @@
 
 .checkbox-group {
 
-  margin-top: .2rem;
+  margin-bottom: .5rem;
 
   &__title {
 
-    margin: 1rem 2rem 0;
-    padding: 1rem;
+    padding: 1.2rem;
     background: $athensGray;
     border: solid 1px $seaShell;
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     color: $mountainMist;
     letter-spacing: 1px;
 
@@ -35,7 +34,13 @@
 
 .checkbox-item {
 
-  margin-bottom: 10px;
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  &:last-child {
+    margin-bottom: 2rem ;
+  }
 
   &__outer-box {
 

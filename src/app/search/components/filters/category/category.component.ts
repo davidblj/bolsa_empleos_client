@@ -14,7 +14,7 @@ export class CategoryComponent implements OnInit {
   @Input()
   options: Option[];
 
-  hidden = true;
+  hidden = false;
 
   ngOnInit() {
   }

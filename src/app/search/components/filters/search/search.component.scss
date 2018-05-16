@@ -1,0 +1,28 @@
+@import "variables";
+
+.search-field {
+
+  width: 100%;
+  margin-bottom: 3rem;
+
+  &__label {
+
+    font-size: 1.7rem;
+    color: $mountainMist;
+    margin-bottom: 5px;
+  }
+
+  &__input {
+
+    width: inherit;
+    border: none;
+    padding-left: 2px;
+    border-bottom: 2px solid $mischka;
+    font-size: 1.7rem;
+
+    &:focus {
+      border-bottom: 2px solid $mantis;
+    }
+  }
+}
+
