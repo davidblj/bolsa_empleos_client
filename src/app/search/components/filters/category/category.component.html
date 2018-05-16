@@ -1,0 +1,33 @@
+<div class="checkbox-group
+            d-flex flex-column">
+
+  <!-- optional: use a directive on our checkbox list that hides its content based on an event fired from 'title'-->
+
+  <div class="checkbox-group__title
+              d-flex" (click)="toggleContent()">
+        <div class="mr-auto d-inline-block">
+          {{category}}
+        </div>
+        <div>
+          <img src="assets/icons/search/right-arrow.svg"
+               [ngClass]="{'checkbox-group_arrow_down': !shouldNotFold}">
+        </div>
+  </div>
+
+  <div class="checkbox-group__list" [hidden]="shouldNotFold">
+
+    <!-- optional: use a directive that appends a 'check inner box' div-->
+
+    <div class="checkbox-item
+                d-flex align-items-center"
+        *ngFor="let option of options"
+        (click)="toggleCheckBox(option)">
+
+      <div class="checkbox-item__outer-box">
+        <div class="checkbox-item__inner-box" [hidden]="shouldNotDisplaySelectedBlock(option)"></div>
+      </div>
+      <div class="checkbox-item__label">{{option.name}}</div>
+    </div>
+
+  </div>
+</div>

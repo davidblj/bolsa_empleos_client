@@ -25,6 +25,7 @@ import { SearchPaginatorComponent } from './components/search-paginator/search-p
 import { SearchJobsService } from './shared/search-jobs.service';
 import { SearchNotificationContainerComponent } from './containers/search-notification-container/search-notification-container.component';
 import { SearchHeaderContainerComponent } from './containers/search-header-container/search-header-container.component';
+import { CategoryComponent } from './components/filters/category/category.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { SearchHeaderContainerComponent } from './containers/search-header-conta
     SearchNotificationContainerComponent,
     SearchPaginatorComponent,
     SearchHeaderComponent,
-    SearchHeaderContainerComponent
+    SearchHeaderContainerComponent,
+    CategoryComponent
   ],
   providers: [
     SearchJobsService,
