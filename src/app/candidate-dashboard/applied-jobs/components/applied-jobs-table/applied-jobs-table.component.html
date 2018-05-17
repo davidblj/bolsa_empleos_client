@@ -1,14 +1,12 @@
 
-<div class="jobs">
-  <div class="row">
-
-    <div *ngFor="let job of jobs">
-        <div class="col">
-          <app-applied-jobs-job-card
-            [job]="job">
-          </app-applied-jobs-job-card>
-        </div>
+<div class="container">
+  <div class="jobs
+              row no-gutters">
+    <div class="col-lg-4 col-md-6 col-sm-12"
+         *ngFor="let job of jobs">
+      <app-applied-jobs-job-card
+        [job]="job">
+      </app-applied-jobs-job-card>
     </div>
-
   </div>
 </div>

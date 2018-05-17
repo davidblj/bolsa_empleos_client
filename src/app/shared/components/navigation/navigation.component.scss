@@ -28,11 +28,8 @@
       border-bottom: 2px solid $mantis;
     }
 
-    &_inactive {
-
-      &:hover {
-        cursor: pointer;
-      }
+    &:hover {
+      cursor: pointer;
     }
   }
 }

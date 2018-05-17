@@ -10,11 +10,14 @@ $input-section-spacing: 8rem;
 
   &__header {
 
+    text-align: center;
     font-size: 2.3rem;
     font-weight: 300;
+    color: $mantis;
+
     padding: 2rem;
+    background: white;
     border-bottom: 1px solid $geyser;
-    text-align: center;
   }
 
   // do add a body
