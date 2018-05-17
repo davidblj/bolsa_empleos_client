@@ -1,0 +1,51 @@
+@import "variables";
+
+.salary-field {
+
+  margin-bottom: 3rem;
+
+  &__label {
+
+    font-size: 1.7rem;
+    color: $mountainMist;
+    display: block;
+  }
+
+  &__range {
+    display: inline-block;
+  }
+
+  &__input {
+
+    text-align: center;
+    width: 60px;
+    line-height: 35px;
+    font-size: 1.5rem;
+    color: $mountainMist;
+
+    border: solid 1px $seaShell;
+    border-radius: 5px;
+    box-shadow: none;
+    background: $athensGray;
+
+    &:first-child {
+      margin-right: 7px;
+    }
+
+    &:last-child {
+      margin-left: 7px;
+    }
+
+    &:focus {
+      box-shadow: 0 0 9px 1px rgba($mantis,0.5);
+      border: solid 1px $mantis;
+    }
+  }
+
+  &__hint {
+
+    margin-left: 5px;
+    font-size: 1.4rem;
+    color: $mountainMist;
+  }
+}

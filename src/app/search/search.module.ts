@@ -27,6 +27,7 @@ import { SearchNotificationContainerComponent } from './containers/search-notifi
 import { SearchHeaderContainerComponent } from './containers/search-header-container/search-header-container.component';
 import { CategoryComponent } from './components/filters/category/category.component';
 import { SearchComponent } from './components/filters/search/search.component';
+import { SalaryComponent } from './components/filters/salary/salary.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { SearchComponent } from './components/filters/search/search.component';
     SearchHeaderComponent,
     SearchHeaderContainerComponent,
     CategoryComponent,
-    SearchComponent
+    SearchComponent,
+    SalaryComponent
   ],
   providers: [
     SearchJobsService,
