@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-company-dashboard-panel',
@@ -8,27 +9,28 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CompanyDashboardPanelComponent implements OnInit {
 
-  currentRoute = 'ofertas';
-
   constructor(private router: Router,
-              private activatedRoute: ActivatedRoute) {}
+              private authService: AuthService) {}
 
   ngOnInit() {
-    console.log('snapshot', this.activatedRoute.snapshot);
+    this.currentRoute = this.router.url;
+    console.log(this.currentRoute);
   }
 
   onClick(route: string) {
 
-    const baseRoute = route;
-    route = `empresas/${route}`;
-
+    route = `/empresas/${route}`;
     this.router.navigate([route]).then(
       () => {
-        this.currentRoute = baseRoute;
+        this.currentRoute = route;
       });
   }
 
+  logOut() {
+    this.authService.logOut();
+  }
+
   isActive(route: string): boolean {
-    return this.currentRoute === route
+    return this.currentRoute === `/empresas/${route}`
   }
 }

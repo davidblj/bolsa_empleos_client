@@ -28,10 +28,12 @@ export class BaseGuard implements CanActivate, CanLoad {
 
   checkLogIn(redirectionUrl: string): boolean {
 
-    const user: UserAuth | null = this.authService.getUser();
+    const user: UserAuth |  null = this.authService.getUser();
 
     const roleFound = this.roles.some((role) => {
-      return user.role === role;
+      return (
+        user &&
+        user.role === role);
     });
 
     if (user && roleFound) {

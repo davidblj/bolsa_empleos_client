@@ -18,7 +18,7 @@ export class SearchAgentComponent implements OnInit {
 
   // pagination variables
   currentId = null;
-  pageSize = 5;
+  pageSize = 12;
   loading;
 
   constructor(private searchJobsService: SearchJobsService,

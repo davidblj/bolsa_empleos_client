@@ -53,9 +53,9 @@ export class LogInFormContainerComponent {
       companyUser = role === 'company',
       candidateUser = (role === 'student' || role === 'graduate');
 
-    if (companyUser) { this.redirectTo('empresas'); }
+    if (companyUser) { this.redirectTo('empresas/ofertas'); }
 
-    if (candidateUser) { this.redirectTo('candidatos'); }
+    if (candidateUser) { this.redirectTo('candidatos/ofertas'); }
   }
 
   redirectTo(url: string) {

@@ -17,7 +17,7 @@ export class CompanyDashboardComponent implements OnInit {
     // route has not been specified
     const children = this.activatedRoute.children;
     if (children.length === 0) {
-      this.router.navigate(['empresas', 'ofertas']);
+      this.router.navigate(['empresas', 'ofertas'], {replaceUrl: true});
     }
   }
 }

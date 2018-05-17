@@ -8,6 +8,7 @@ import { catchError } from 'rxjs/operators';
 import { UserCredentials } from '../../log-in/shared/user-credentials.model';
 import { UserAuth } from '../../log-in/shared/user-auth.interface';
 import { Service } from '../../shared/classes/service.class';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService extends Service {
@@ -15,7 +16,8 @@ export class AuthService extends Service {
   sessionUrl = 'session';
   redirectionUrl: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private router: Router) {
     super();
   }
 
@@ -33,8 +35,8 @@ export class AuthService extends Service {
   }
 
   logOut() {
-
     localStorage.removeItem('be-user');
+    this.router.navigate(['/']);
   }
 
   getUser(): UserAuth | null {
