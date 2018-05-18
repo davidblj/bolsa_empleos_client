@@ -1,7 +1,61 @@
+<div class="custom-table">
 
-<app-navigation
-  [links]="links">
-</app-navigation>
+  <div class="table-header">
 
-<app-employment-table-container>
-</app-employment-table-container>
+    <div class="table-header__item size_small">
+      #
+    </div>
+    <div class="table-header__item size_big">
+      nombre
+    </div>
+    <div class="table-header__item size_medium">
+      audiencia
+    </div>
+    <div class="table-header__item size_medium">
+      aplicantes
+    </div>
+    <div class="table-header__item size_medium">
+      culmina
+    </div>
+
+  </div>
+
+  <div class="table-row"
+       *ngFor="let job of jobs; let i = index"
+       (click)="onClick(job._id)">
+
+    <div class="table-row__item table-row__item_color_grey size_small">
+      {{i}}
+    </div>
+
+    <div class="table-row__item size_big">
+      {{job.name}}
+    </div>
+
+    <div class="table-row__item size_medium">
+      {{job.to}}
+    </div>
+
+    <div class="table-row__item size_medium">
+      {{getApplicants(i)}}
+    </div>
+
+    <div class="table-row__item  size_medium">
+      {{job.expiry | date:'yyyy-MM-dd'}}
+    </div>
+
+    <div class="table-row__item table-row__item_config">
+      <!--<img src="assets/icons/company-dashboard/more-options.svg"/>-->
+      <img src="assets/icons/company-dashboard/edit.svg"/>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="paginator-box">
+  <app-employment-pagination
+    [pageLimit]="pageLimit"
+    (page)="onPageChangedHandler($event)">
+  </app-employment-pagination>
+</div>

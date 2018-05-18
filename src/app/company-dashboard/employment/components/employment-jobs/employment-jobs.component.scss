@@ -1,0 +1,96 @@
+@import "variables";
+@import "mixins";
+
+$left-table-spacing: 2%;
+$row-width-expansion: 4rem;
+
+.custom-table {
+
+  margin-top: 3rem;
+  position: relative;
+  padding-bottom: $table-bottom-spacing;
+  border-bottom: 1px solid $geyser;
+}
+
+.paginator-box {
+
+  margin: $table-bottom-spacing 0;
+}
+
+.table-header {
+
+  margin-bottom: 2rem;
+
+  &__item {
+
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding-left: $left-table-spacing;
+  }
+}
+
+.table-row {
+
+  background-color: $azure;
+  border-radius: 5px;
+  margin-top: 1.2rem;
+
+  &__item {
+
+    display: inline-block;
+    font-size: 1.6rem;
+    padding: 1.5rem $left-table-spacing;
+
+    &_color_grey {
+      font-weight: 600;
+      color: $regentGray;
+    }
+
+    &_config {
+
+      // (17% > 4 rem)
+      line-height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+      padding: 0;
+
+      &:hover {
+        background: $mischka;
+        cursor: pointer;
+      }
+    }
+
+    img {
+      width: 2rem;
+      transform: translateX(50%);
+    }
+  }
+
+  &:hover {
+
+    box-shadow: $strong-shadow;
+    width: calc(100% + #{$row-width-expansion});
+    margin-left: (calc(-#{$row-width-expansion}/2));
+    border-left: 4px solid $mantis;
+  }
+}
+
+// 2 + 42 + 13 + 13 + 13 = 83
+.size_big {
+  width: 42%;
+}
+
+.size_medium {
+  width: 13%;
+}
+
+.size_small {
+  width: 10%;
+}
+
+/*.size_tiny {
+  width: 5%;
+}*/
+

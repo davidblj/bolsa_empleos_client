@@ -9,12 +9,13 @@ import { AuthService } from '../../../core/services/auth.service';
 })
 export class CompanyDashboardPanelComponent implements OnInit {
 
+  currentRoute;
+
   constructor(private router: Router,
               private authService: AuthService) {}
 
   ngOnInit() {
     this.currentRoute = this.router.url;
-    console.log(this.currentRoute);
   }
 
   onClick(route: string) {

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EmploymentComponent } from './components/employment/employment.component';
-import { EmploymentJobsComponent } from './components/employment-jobs/employment-jobs.component';
 import { EmploymentJobDetailsContainerComponent } from './containers/employment-job-details-container/employment-job-details-container.component';
 import { EmploymentJobDetailsResolver } from './shared/employment-job-details-resolver.service';
+import { EmploymentAgentContainerComponent } from './containers/employment-container/employment-agent-container.component';
+import { EmploymentComponent } from './components/employment/employment.component';
 
 const routes: Routes = [
   {
@@ -12,7 +12,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: EmploymentJobsComponent
+        component: EmploymentAgentContainerComponent
       },
       {
         path: ':job',

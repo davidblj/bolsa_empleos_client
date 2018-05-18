@@ -4,7 +4,8 @@
 
   <span class="navigation__item"
         *ngFor="let link of links"
-        [ngClass]="{'navigation__item_active': link.status}">
+        [ngClass]="{'navigation__item_active': link.status}"
+        (click)="emitLink(link)">
     {{link.name}}
   </span>
 </div>

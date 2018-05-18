@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 // interfaces
 import { Link } from '../../interfaces/link.interface';
@@ -16,11 +16,19 @@ export class NavigationComponent implements OnInit {
   @Input()
   panelPosition = 'left';
 
+  @Output()
+  onLinkChanged = new EventEmitter<Link>();
+
   constructor() {}
 
   ngOnInit() {}
 
   getPositionStatus(position: string) {
     return position === this.panelPosition;
+  }
+
+  emitLink(link: Link) {
+    this.onLinkChanged.emit(link);
+    console.log(link);
   }
 }
