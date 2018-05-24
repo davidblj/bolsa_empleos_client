@@ -12,6 +12,11 @@ import { Job } from '../../shared/interfaces/job.interface';
 import { JobCandidates } from '../../company-dashboard/employment/shared/job-candidate.interface';
 import { Candidate } from '../../company-dashboard/employment/shared/candidate.interface';
 
+export enum jobTypes {
+  active = 'active',
+  disabled = 'disabled'
+}
+
 @Injectable()
 export class CompanyUserService extends Service {
 
@@ -21,10 +26,10 @@ export class CompanyUserService extends Service {
     super();
   }
 
-  getJobs(): Observable<Job[]> {
+  getJobs(state: jobTypes): Observable<Job[]> {
 
     const message = 'No pudimos extraer la información asociada a tu sesion';
-    const params = this.buildParams();
+    const params = this.buildParams(state);
 
     return this.http.get<Job[]>(`${this.baseUrl}/jobs`, {params: params})
       .pipe(catchError(this.handleError(message)));
@@ -36,7 +41,7 @@ export class CompanyUserService extends Service {
 
     return this.http.post(`${this.baseUrl}/jobs`, job)
       .pipe(catchError(this.handleError(message)))
-      .map((res) => {
+      .map(() => {
         return 'La oferta se ha publicado exitosamente'
       });
   }
@@ -71,9 +76,11 @@ export class CompanyUserService extends Service {
       })
   }
 
-  private buildParams(): HttpParams {
+  private buildParams(state: string): HttpParams {
     const size = '10';
+
     let params = new HttpParams().set('size', size);
+    params = params.set('state', state);
     return params;
   }
 

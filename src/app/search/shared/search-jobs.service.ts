@@ -51,6 +51,7 @@ export class SearchJobsService extends Service {
 
   private buildParams(currentId: string, offset: number, pageSize: number): HttpParams {
 
+    // set vs append ?
     let params = new HttpParams().set('size', pageSize.toString());
 
     if (currentId) {
@@ -60,6 +61,8 @@ export class SearchJobsService extends Service {
     if (offset) {
       params = params.set('offset', offset.toString());
     }
+
+    // params = params.append('query[category]', 'Tiempo Completo');
 
     return params;
   }

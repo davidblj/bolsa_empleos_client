@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Option } from '../../../shared/option.interface';
 
 @Component({
@@ -14,7 +14,11 @@ export class CategoryComponent implements OnInit {
   @Input()
   options: Option[];
 
+  @Output()
+  onCategorySelected = new EventEmitter<string>();
+
   hidden = false;
+  queryValue = [];
 
   ngOnInit() {
   }
@@ -24,11 +28,43 @@ export class CategoryComponent implements OnInit {
   }
 
   toggleCheckBox(option) {
+
     this.options.forEach((value, index) => {
+
       if (value.name === option.name) {
+
         this.options[index].selected = !this.options[index].selected;
+        const status = this.options[index].selected;
+
+        if (status) {
+          this.queryValue.push(option.name);
+        } else {
+          this.removeOptionFromQuery(option.name);
+        }
+
+        this.emitCategorySelected();
       }
     });
+  }
+
+  emitCategorySelected() {
+    const parsedQueryValue = this.queryValue.join(',');
+    this.onCategorySelected.emit(parsedQueryValue);
+    console.log(parsedQueryValue);
+  }
+
+  removeOptionFromQuery(name: string) {
+
+    let position = -1;
+    this.queryValue.forEach((value, index) => {
+      if (value === name) {
+        position = index;
+      }
+    });
+
+    if (position >= 0) {
+      this.queryValue.splice(position, 1);
+    }
   }
 
   shouldNotDisplaySelectedBlock(option) {

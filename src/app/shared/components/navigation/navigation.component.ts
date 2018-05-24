@@ -17,7 +17,7 @@ export class NavigationComponent implements OnInit {
   panelPosition = 'left';
 
   @Output()
-  onLinkChanged = new EventEmitter<Link>();
+  onLinkChanged = new EventEmitter<string>();
 
   constructor() {}
 
@@ -27,8 +27,7 @@ export class NavigationComponent implements OnInit {
     return position === this.panelPosition;
   }
 
-  emitLink(link: Link) {
-    this.onLinkChanged.emit(link);
-    console.log(link);
+  navigateTo(name: string) {
+    this.onLinkChanged.emit(name);
   }
 }

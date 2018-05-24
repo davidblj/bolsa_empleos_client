@@ -24,13 +24,11 @@ export class CandidateDashboardComponent implements OnInit {
     this.links = [
       {
         name: 'Ofertas',
-        status: true,
-        link: ''
+        status: true
       },
       {
         name: 'Configuracion',
-        status: false,
-        link: ''
+        status: false
       }];
   }
 

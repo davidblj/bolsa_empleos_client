@@ -3,9 +3,9 @@
      [ngClass]="{'navigation_panel-position_center': getPositionStatus('center')}">
 
   <span class="navigation__item"
-        *ngFor="let link of links"
+        *ngFor="let link of links; let index = index"
         [ngClass]="{'navigation__item_active': link.status}"
-        (click)="emitLink(link)">
+        (click)="navigateTo(link.name)">
     {{link.name}}
   </span>
 </div>

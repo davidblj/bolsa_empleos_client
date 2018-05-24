@@ -1,0 +1,24 @@
+
+<app-navigation
+  [links]="links"
+  (onLinkChanged)="onLinkChangedHandler($event)">
+</app-navigation>
+
+<div *ngIf="(jobs$ | async) as job; else loading">
+  <app-employment-jobs
+    [jobs]="job">
+  </app-employment-jobs>
+
+  <div class="paginator-box">
+    <app-employment-pagination
+      [pageLimit]="pageLimit"
+      (page)="onPageChangedHandler($event)">
+    </app-employment-pagination>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div>
+    loading staff
+  </div>
+</ng-template>
