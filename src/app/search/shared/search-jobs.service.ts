@@ -10,6 +10,7 @@ import { Service } from '../../shared/classes/service.class';
 // interfaces
 import { Job } from '../../shared/interfaces/job.interface';
 import { JobSearch } from './job-search-interface';
+import { Query } from './query.interface';
 
 @Injectable()
 export class SearchJobsService extends Service {
@@ -22,17 +23,18 @@ export class SearchJobsService extends Service {
   message = 'Error extrayendo la información';
 
   // pagination variables
+  params: HttpParams;
   total_count;
 
   constructor(private http: HttpClient) {
     super();
   }
 
-  getJobs(currentId: string | null, offset: number | null, pageSize: number | null): Observable<JobSearch> {
+  getJobs(currentId: string, offset: number, pageSize: number, query: Query): Observable<JobSearch> {
 
-    const params = this.buildParams(currentId, offset, pageSize);
+    this.buildParams(currentId, offset, pageSize, query);
 
-    return this.http.get<JobSearch>(this.searchJobsUrl, {params: params})
+    return this.http.get<JobSearch>(this.searchJobsUrl, {params: this.params})
       .do(jobSearch => {
         this.total_count = jobSearch.total_count;
       })
@@ -49,21 +51,34 @@ export class SearchJobsService extends Service {
 
   // utils
 
-  private buildParams(currentId: string, offset: number, pageSize: number): HttpParams {
+  private buildParams(currentId: string, offset: number, pageSize: number, query: Query) {
 
-    // set vs append ?
-    let params = new HttpParams().set('size', pageSize.toString());
+    if (!this.params) {
+      this.params = new HttpParams().set('size', pageSize.toString());
+    }
 
     if (currentId) {
-      params = params.set('id', currentId);
+      this.params = this.params.set('id', currentId);
     }
 
     if (offset) {
-      params = params.set('offset', offset.toString());
+      this.params = this.params.set('offset', offset.toString());
     }
 
-    // params = params.append('query[category]', 'Tiempo Completo');
+    if (query) {
 
-    return params;
+      const isNotEmpty = query.value.length > 0;
+
+      if (isNotEmpty) {
+
+        const queryName = `q[${query.name}]`;
+        this.params = this.params.set(queryName, query.value);
+
+      } else {
+
+        const queryName = `q[${query.name}]`;
+        this.params = this.params.delete(queryName);
+      }
+    }
   }
 }

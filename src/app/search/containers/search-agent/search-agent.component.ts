@@ -5,6 +5,7 @@ import { JobSnippet } from '../../shared/job-snippet.interface';
 import { SearchJobsService } from '../../shared/search-jobs.service';
 import { CandidateUserService } from '../../../core/services/candidate-user.service';
 import { JobSearch } from '../../shared/job-search-interface';
+import { Query } from '../../shared/query.interface';
 
 @Component({
   selector: 'app-search-agent',
@@ -17,30 +18,41 @@ export class SearchAgentComponent implements OnInit {
   pageLimit;
 
   // pagination variables
-  currentId = null;
+  currentId;
   pageSize = 12;
-  loading;
+  loading: boolean;
 
   constructor(private searchJobsService: SearchJobsService,
               private candidateUserService: CandidateUserService) { }
 
   ngOnInit() {
-
-    // since we are getting the applied status
-    // after a job is received (row and apply
-    // components), we must ensure that the
-    // applied jobs are already stored
     this.candidateUserService.getJobs()
       .subscribe(() => {
-        this.searchJobs(null);
+        this.getFirstPage(null);
       });
   }
 
-  searchJobs(offset) {
+  onPageChanged(offset: number) {
+    this.getNewPage(offset);
+  }
+
+  onQueryHandler(query: Query) {
+    this.getFirstPage(query);
+  }
+
+  getFirstPage(query: Query) {
+    this.currentId = null;
+    this.searchJobs(null, query);
+  }
+
+  getNewPage(offset) {
+    this.searchJobs(offset, null);
+  }
+
+  searchJobs(offset, query: Query) {
 
     this.loading = true;
-
-    this.searchJobsService.getJobs(this.currentId, offset, this.pageSize)
+    this.searchJobsService.getJobs(this.currentId, offset, this.pageSize, query)
       .subscribe((jobSearch: JobSearch) => {
 
         this.jobs = jobSearch.items;
@@ -48,10 +60,5 @@ export class SearchAgentComponent implements OnInit {
         this.currentId = this.jobs[0]._id;
         this.loading = false;
       });
-  }
-
-
-  onPageChanged(offset: number) {
-    this.searchJobs(offset);
   }
 }

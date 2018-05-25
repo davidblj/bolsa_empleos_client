@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Option } from '../../shared/option.interface';
+import { Query } from '../../shared/query.interface';
 
 @Component({
   selector: 'app-search-filter',
@@ -8,6 +9,10 @@ import { Option } from '../../shared/option.interface';
 })
 export class SearchFilterComponent implements OnInit {
 
+  @Output()
+  onQuery = new EventEmitter<Query>();
+
+  // todo: create a new class
   typeCategory = 'Tipo';
   typeCategoryOptions: Option[] = [
     {name: 'Tiempo Completo', selected: false },
@@ -18,14 +23,17 @@ export class SearchFilterComponent implements OnInit {
 
   audienceCategory = 'Audiencia';
   audienceCategoryOptions: Option[] = [
-    {name: 'Practicantes', selected: false },
-    {name: 'Egresados', selected: false },
+    {name: 'Practicante', selected: false },
+    {name: 'Egresado', selected: false },
     {name: 'Ambos', selected: false }
   ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  onOptionSelectedHandler(value: string, queryName: string) {
+    const query: Query = {name: queryName, value: value};
+    this.onQuery.emit(query);
   }
-
 }

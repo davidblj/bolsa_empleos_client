@@ -3,7 +3,8 @@
 </app-search-header-container>
 
 <div class="side-menu-box">
-  <app-search-filter>
+  <app-search-filter
+    (onQuery)="onQueryHandler($event)">
   </app-search-filter>
 </div>
 

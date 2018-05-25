@@ -15,7 +15,7 @@ export class CategoryComponent implements OnInit {
   options: Option[];
 
   @Output()
-  onCategorySelected = new EventEmitter<string>();
+  onOptionSelected = new EventEmitter<string>();
 
   hidden = false;
   queryValue = [];
@@ -49,7 +49,7 @@ export class CategoryComponent implements OnInit {
 
   emitCategorySelected() {
     const parsedQueryValue = this.queryValue.join(',');
-    this.onCategorySelected.emit(parsedQueryValue);
+    this.onOptionSelected.emit(parsedQueryValue);
     console.log(parsedQueryValue);
   }
 

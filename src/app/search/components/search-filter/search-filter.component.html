@@ -9,11 +9,13 @@
 
   <app-category
     [category]="typeCategory"
-    [options]="typeCategoryOptions">
+    [options]="typeCategoryOptions"
+    (onOptionSelected)="onOptionSelectedHandler($event, 'type')">
   </app-category>
 
   <app-category
     [category]="audienceCategory"
-    [options]="audienceCategoryOptions">
+    [options]="audienceCategoryOptions"
+    (onOptionSelected)="onOptionSelectedHandler($event, 'audience')">
   </app-category>
 </div>
