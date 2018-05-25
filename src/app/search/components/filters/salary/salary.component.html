@@ -1,10 +1,17 @@
 
-<div class="salary-field">
-  <label class="salary-field__label">Salario</label>
+<div [formGroup]="form">
 
-  <div class="salary-field__range">
-    <input class="salary-field__input">-<input class="salary-field__input">
+  <div class="salary-field">
+
+    <label class="salary-field__label">Salario</label>
+    <div class="salary-field__range">
+      <input class="salary-field__input"
+             formControlName="min">
+      -
+      <input class="salary-field__input"
+             formControlName="max">
+    </div>
+    <span class="salary-field__hint">millones</span>
   </div>
 
-  <span class="salary-field__hint">millones</span>
 </div>

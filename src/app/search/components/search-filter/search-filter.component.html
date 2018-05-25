@@ -4,18 +4,19 @@
   <app-search>
   </app-search>
 
-  <app-salary>
+  <app-salary
+    (onSalarySet)="onFilterSetHandler($event, 'salary')">
   </app-salary>
 
   <app-category
     [category]="typeCategory"
     [options]="typeCategoryOptions"
-    (onOptionSelected)="onOptionSelectedHandler($event, 'type')">
+    (onOptionSelected)="onFilterSetHandler($event, 'type')">
   </app-category>
 
   <app-category
     [category]="audienceCategory"
     [options]="audienceCategoryOptions"
-    (onOptionSelected)="onOptionSelectedHandler($event, 'audience')">
+    (onOptionSelected)="onFilterSetHandler($event, 'audience')">
   </app-category>
 </div>

@@ -20,6 +20,7 @@ import { SearchApplyComponent } from './components/search-apply/search-apply.com
 import { SearchApplyContainerComponent } from './containers/search-apply-container/search-apply-container.component';
 import { SearchRowContainerComponent } from './containers/search-row-container/search-row-container.component';
 import { SearchPaginatorComponent } from './components/search-paginator/search-paginator.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // services
 import { SearchJobsService } from './shared/search-jobs.service';
@@ -34,6 +35,7 @@ import { SalaryComponent } from './components/filters/salary/salary.component';
   imports: [
     SearchRoutingModule,
     CommonModule,
+    ReactiveFormsModule,
     SharedModule
   ],
   exports: [

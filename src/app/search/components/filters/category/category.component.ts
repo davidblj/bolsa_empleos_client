@@ -50,7 +50,6 @@ export class CategoryComponent implements OnInit {
   emitCategorySelected() {
     const parsedQueryValue = this.queryValue.join(',');
     this.onOptionSelected.emit(parsedQueryValue);
-    console.log(parsedQueryValue);
   }
 
   removeOptionFromQuery(name: string) {

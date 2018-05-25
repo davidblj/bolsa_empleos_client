@@ -32,7 +32,7 @@ export class SearchFilterComponent implements OnInit {
 
   ngOnInit() {}
 
-  onOptionSelectedHandler(value: string, queryName: string) {
+  onFilterSetHandler(value: string, queryName: string) {
     const query: Query = {name: queryName, value: value};
     this.onQuery.emit(query);
   }
