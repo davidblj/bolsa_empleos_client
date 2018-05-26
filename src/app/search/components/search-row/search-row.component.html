@@ -22,7 +22,8 @@
         <div class="info__owner">
           {{job.owner}}
         </div>
-        <div class="info__salary">
+        <div class="info__salary"
+             *ngIf="job.salary" >
           ${{job.salary | number:'3.0'}}
         </div>
       </div>
