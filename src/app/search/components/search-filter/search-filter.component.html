@@ -1,7 +1,8 @@
 
 <div class="filter-box">
 
-  <app-search>
+  <app-search
+    (onInputChanged)="onFilterSetHandler($event, 'search')">
   </app-search>
 
   <app-salary

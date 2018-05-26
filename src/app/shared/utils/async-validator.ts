@@ -3,6 +3,7 @@ import { Manager } from '../classes/manager.class';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 const checkField = (control: AbstractControl,
                     getBlockingStatus,
@@ -17,6 +18,7 @@ const checkField = (control: AbstractControl,
       return !shouldBlock;
     })
     .debounceTime(500)
+    .distinctUntilChanged()
     .switchMap(checkStatusTask)
     .subscribe((flag: boolean) => {
 
