@@ -1,0 +1,41 @@
+body {
+  height: 100vh;
+
+  // base font settings
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 400;
+  font-size: 1.7rem;
+  color: $abbey;
+}
+
+.heading-primary {
+
+  &_main {
+    font-size: 4.5rem;
+    font-weight: 300;
+  }
+
+  &_sub {
+    font-size: 2rem;
+  }
+}
+
+.heading-secondary {
+
+  &_main {
+    font-size: 4rem;
+    font-weight: 300;
+  }
+
+  &_sub {
+    font-size: 1.6rem
+  }
+}
+
+.heading-tertiary {
+
+  &_main {
+    font-size: 3rem;
+    font-weight: 300;
+  }
+}

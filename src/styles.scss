@@ -8,6 +8,7 @@
 
 @import "animations";
 @import "utilities";
+@import "typography";
 @import "variables";
 
 *,
@@ -24,13 +25,5 @@ html {
 }
 
 body {
-  height: 100vh;
-
-  // base font settings
-  font-family: 'Montserrat', sans-serif !important;
-  font-weight: 400;
-  font-size: 1.7rem;
-  color: $abbey;
-
   box-sizing: border-box;
 }

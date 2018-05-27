@@ -1,0 +1,23 @@
+
+.home-welcome {
+
+  height: 100vh;
+  position: relative;
+
+  &__content-box {
+
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+  }
+
+  &__background {
+
+    // imagen por: Alejandro Restrepo Arboleda
+    height: inherit;
+    background-size: cover;
+    background: url('/assets/images/udea_camilo.jpg') fixed center;
+  }
+}
