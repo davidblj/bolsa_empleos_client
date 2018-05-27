@@ -1,0 +1,30 @@
+@import "variables";
+@import "mixins";
+
+.home-info {
+
+  height: 100vh;
+  background: $seaShell;
+  position: relative;
+  text-align: center;
+
+  &__text-box {
+
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__background {
+
+    @include x-mid-positioning;
+    bottom: 0;
+
+    img {
+
+      height: 40vh;
+      opacity: .9;
+    }
+  }
+}
