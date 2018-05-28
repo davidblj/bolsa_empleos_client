@@ -1,0 +1,15 @@
+<div class="home-features">
+
+  <div class="home-features__group
+              d-flex justify-content-center"
+       *ngFor="let feature of features">
+
+    <div class="home-features__content-box">
+      <app-home-feature
+        [feature]="feature">
+      </app-home-feature>
+    </div>
+
+  </div>
+
+</div>

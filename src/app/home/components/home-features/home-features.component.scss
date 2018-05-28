@@ -1,0 +1,21 @@
+@import "variables";
+
+.home-features {
+
+  background: $azure;
+
+  &__group {
+
+    padding-top: 15rem;
+
+    &:last-child {
+      padding-bottom: 15rem;
+    }
+  }
+
+  &__content-box {
+
+    width: 120rem;
+    display: block;
+  }
+}

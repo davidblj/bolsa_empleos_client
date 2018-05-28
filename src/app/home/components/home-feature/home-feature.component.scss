@@ -1,0 +1,45 @@
+@import "variables";
+
+.home-feature {
+
+  &__spectator {}
+  &__statements {}
+
+  &__sign-up-button {
+
+    margin-top: 2rem;
+    font-size: 1.4rem;
+
+    .button-spacing {
+      padding: .7rem 3rem;
+    }
+  }
+}
+
+
+.feature-card {
+
+  width: 35rem;
+  padding: 4rem;
+  text-align: center;
+
+  &__image {
+
+    margin-bottom: 2rem;
+
+    img {
+      height: 11rem;
+    }
+  }
+
+  &__content {
+    color: $stormGray;
+  }
+
+  &:hover {
+
+    img {
+      transform: scale(1.1);
+    }
+  }
+}

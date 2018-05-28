@@ -4,12 +4,22 @@ import { HomeComponent } from './components/home/home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeWelcomeComponent } from './components/home-welcome/home-welcome.component';
 import { HomeInfoComponent } from './components/home-info/home-info.component';
+import { HomeFeaturesComponent } from './components/home-features/home-features.component';
+import { HomeFeatureComponent } from './components/home-feature/home-feature.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    SharedModule
   ],
-  declarations: [HomeComponent, HomeWelcomeComponent, HomeInfoComponent]
+  declarations: [
+    HomeComponent,
+    HomeWelcomeComponent,
+    HomeInfoComponent,
+    HomeFeaturesComponent,
+    HomeFeatureComponent
+  ]
 })
 export class HomeModule { }
