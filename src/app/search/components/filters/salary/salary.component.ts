@@ -42,8 +42,8 @@ export class SalaryComponent implements OnInit {
       if (this.form.valid) {
 
         let range, min, max;
-        min = this.form.get('min').value;
-        max = this.form.get('max').value;
+        min = parseInt(this.form.get('min').value, 10);
+        max = parseInt(this.form.get('max').value, 10);
 
         if (min < max) {
           range = `${min}..${max}`;
