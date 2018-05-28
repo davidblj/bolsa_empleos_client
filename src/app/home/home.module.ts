@@ -7,6 +7,7 @@ import { HomeInfoComponent } from './components/home-info/home-info.component';
 import { HomeFeaturesComponent } from './components/home-features/home-features.component';
 import { HomeFeatureComponent } from './components/home-feature/home-feature.component';
 import { SharedModule } from '../shared/shared.module';
+import { HomeFooterComponent } from './components/home-footer/home-footer.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { SharedModule } from '../shared/shared.module';
     HomeWelcomeComponent,
     HomeInfoComponent,
     HomeFeaturesComponent,
-    HomeFeatureComponent
+    HomeFeatureComponent,
+    HomeFooterComponent
   ]
 })
 export class HomeModule { }

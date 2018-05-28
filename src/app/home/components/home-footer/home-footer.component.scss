@@ -1,0 +1,26 @@
+@import "variables";
+
+.home-footer {
+
+  background: $mantis;
+  padding: 3.5rem 0;
+  color: white;
+  font-size: 1.5rem;
+
+  &__column {
+    width: 30rem;
+
+    &:not(:last-child) {
+      margin-right: 40rem;
+    }
+  }
+
+  &__column-header {
+    font-size: 1.7rem;
+  }
+
+  &__row-header {
+    font-size: 1.7rem;
+    margin-top: 3.5rem;
+  }
+}
