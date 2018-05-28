@@ -1,0 +1,53 @@
+<div class="pick-sides">
+  <div class="pick-sides-header">
+
+    <div class="pick-sides-header__text-box">
+      <div class="heading-tertiary">
+        <div class="heading-tertiary_main u-color_white">
+          Creamos este sitio para ayudar a la comunidad académica.
+        </div>
+      </div>
+    </div>
+
+    <div>
+    </div>
+
+  </div>
+
+  <div class="pick-sides-body
+              container">
+
+    <div class="pick-sides-body__sides
+                row justify-content-center text-center">
+
+      <div class="col-auto">
+        <app-button
+          [color]="buttonColor"
+          (submit)="navigateTo('candidatos')">
+          <div class="button-spacing">
+            Soy de la UdeA
+          </div>
+        </app-button>
+        <div class="pick-sides-body__side-hint">
+          <p> Busca y aplica a las <br />
+          ofertas que más te hayan gustado</p>
+        </div>
+      </div>
+
+      <div class="col-auto offset-2">
+        <app-button
+          [color]="buttonColor"
+          (submit)="navigateTo('empresas')">
+          <div class="button-spacing">
+            Soy un Reclutador
+          </div>
+        </app-button>
+        <div class="pick-sides-body__side-hint">
+          <p> Recluta el talento de <br />
+            la Universidad de Antioquia</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

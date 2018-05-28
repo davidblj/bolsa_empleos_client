@@ -1,0 +1,33 @@
+@import "mixins";
+
+.pick-sides-header {
+
+  height: 50vh;
+  background-size: cover;
+  background: url(/assets/images/udea_patio.jpg) bottom;
+  position: relative;
+
+  &__text-box {
+
+    @include mid-positioning;
+    background: black;
+    padding: 0 2rem;
+  }
+}
+
+.pick-sides-body {
+
+  &__sides {
+    margin-top: 10rem;
+  }
+
+  &__side-hint {
+    margin-top: 2rem;
+    font-size: 1.6rem;
+  }
+
+  .button-spacing {
+    width: 25rem;
+    padding: 1.5rem 0rem;
+  }
+}
