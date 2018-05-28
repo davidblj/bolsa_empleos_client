@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Feature } from '../../shared/feature.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-feature',
@@ -13,8 +14,12 @@ export class HomeFeatureComponent implements OnInit {
 
   buttonShape = 'square';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  navigateTo(url: string) {
+    this.router.navigate([url]);
   }
 }

@@ -17,7 +17,8 @@
     <div class="home-feature__sign-up-button">
 
       <app-button
-        [shape]="buttonShape">
+        [shape]="buttonShape"
+        (submit)="navigateTo(feature.url)">
         <div class="button-spacing">
           registrate
         </div>

@@ -7,5 +7,6 @@ interface Advantages {
 export interface Feature {
   actor: string;
   hint: string;
+  url: string;
   advantages: Advantages[];
 }
