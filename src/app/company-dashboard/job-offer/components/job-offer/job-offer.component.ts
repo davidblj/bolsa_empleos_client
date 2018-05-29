@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
@@ -15,7 +15,10 @@ import { jobAudience, jobType } from './data';
   templateUrl: './job-offer.component.html',
   styleUrls: ['./job-offer.component.scss']
 })
-export class JobOfferComponent implements OnInit {
+export class JobOfferComponent implements OnInit, OnDestroy {
+
+  @Input()
+  job: Job;
 
   jobTypeConfig = jobType;
   jobAudienceConfig = jobAudience;
@@ -23,6 +26,8 @@ export class JobOfferComponent implements OnInit {
   jobExpiryField = 'Vigencia';
   jobExpiryPlaceHolder = 'mm/dd/aaaa';
 
+  formTitle;
+  buttonTitle;
   buttonShape = 'square';
   buttonColor = 'dark';
 
@@ -37,6 +42,28 @@ export class JobOfferComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    if (this.job) {
+
+      // urgency is left out of our interface
+      this.form.patchValue({
+        name: this.job.name,
+        description: this.job.description,
+        expiry: this.job.expiry,
+        to: this.job.to,
+        type: this.job.type,
+        salary: this.job.salary
+      });
+
+      this.formTitle = 'Editar Oferta';
+      this.buttonTitle = 'Guardar';
+      console.log(this.form.value);
+
+    } else {
+
+      this.formTitle = 'Publica tu oferta';
+      this.buttonTitle = 'Publicar';
+    }
   }
 
   createForm() {
@@ -104,5 +131,10 @@ export class JobOfferComponent implements OnInit {
 
   get formStatus(): boolean {
     return this.form.valid;
+  }
+
+  ngOnDestroy(): void {
+    console.log('destroy');
+    // this.form.reset();
   }
 }

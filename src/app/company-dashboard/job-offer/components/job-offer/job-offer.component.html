@@ -2,7 +2,7 @@
 <div class="job-form">
 
   <div class="job-form__header">
-    Publica una oferta
+    {{formTitle}}
   </div>
 
   <div class="job-form__inputs">
@@ -65,7 +65,7 @@
         [enabled]="formStatus"
         (submit)="onSubmitHandler()">
         <div class="button-spacing">
-          Publicar Oferta
+          {{buttonTitle}}
         </div>
       </app-button>
     </div>
