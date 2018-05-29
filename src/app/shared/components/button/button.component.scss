@@ -43,6 +43,13 @@
     border: 2px solid $azure;
   }
 
+  &_color_gray {
+
+    background: $azure;
+    color: $mountainMist;
+    border: none;
+  }
+
   &_hover-color_transparent {
 
     &:hover {
@@ -60,6 +67,15 @@
       background-color: $mantis;
       color: $white;
       border: 2px solid $azure;
+    }
+  }
+
+  &_hover-color_black {
+
+    &:hover {
+
+      background-color: black;
+      color: $white;
     }
   }
 

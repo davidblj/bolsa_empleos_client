@@ -1,0 +1,29 @@
+@import "variables";
+
+$line-height: 50px;
+$border-radius: 5px;
+
+.home-search {
+
+  margin-top: 2rem;
+
+  &__input {
+
+    width: 60rem;
+    line-height: $line-height;
+    border-radius: $border-radius;
+    border: none;
+    box-shadow: none;
+    padding-left: 10px;
+    font-size: 1.8rem;
+    margin-right: 1rem;
+  }
+
+  .button-spacing {
+
+    line-height: $line-height;
+    font-weight: 600;
+    font-size: 1.4rem;
+    padding: 0 2rem;
+  }
+}
