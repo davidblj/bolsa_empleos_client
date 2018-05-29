@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
+import { DropDown } from '../../shared/drop-down.interface';
 
 @Component({
   selector: 'app-job-offer-drop-down-input',
@@ -9,19 +10,13 @@ import { AbstractControl } from '@angular/forms';
 export class JobOfferDropDownInputComponent {
 
   @Input()
-  fieldName: string;
+  config: DropDown;
 
   @Input()
   control: AbstractControl;
 
-  @Input()
-  options;
-
-  @Input()
-  message: string;
-
   onOptionSelect(option: string) {
-    this.message = option;
+    this.config.placeHolder = option;
     this.control.setValue(option);
   }
 

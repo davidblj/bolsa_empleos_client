@@ -6,6 +6,7 @@ import { SearchJobsService } from '../../shared/search-jobs.service';
 import { CandidateUserService } from '../../../core/services/candidate-user.service';
 import { JobSearch } from '../../shared/job-search-interface';
 import { Query } from '../../shared/query.interface';
+import { JobService } from '../../../core/services/job.service';
 
 @Component({
   selector: 'app-search-agent',

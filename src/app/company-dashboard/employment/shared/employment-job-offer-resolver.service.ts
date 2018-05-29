@@ -1,29 +1,29 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { CompanyUserService } from '../../../core/services/company-user.service';
+import { Job } from '../../../shared/interfaces/job.interface';
 import { Observable } from 'rxjs/Observable';
+import { JobService } from '../../../core/services/job.service';
 import { catchError } from 'rxjs/operators';
 
-// interfaces
-import { JobCandidates } from './job-candidate.interface';
-
 @Injectable()
-export class EmploymentJobDetailsResolver implements Resolve<JobCandidates> {
+export class EmploymentJobOfferResolverService implements Resolve<Job> {
 
-  constructor(private companyUserService: CompanyUserService,
+  constructor(private jobService: JobService,
               private router: Router) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
 
     const id = route.paramMap.get('job');
 
-    return this.companyUserService.getJobCandidates(id)
+    return this.jobService.getJob(id)
       .pipe(catchError(() => {
 
         this.router.navigate(['/ofertas', 'empresas']);
-        return Observable.create(function(observer) {
-          observer.next(null);
-        });
-      }));
+        return Observable.create(function (observer) {
+            observer.next(null);
+          });
+        })
+      );
   }
+
 }

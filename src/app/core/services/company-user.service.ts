@@ -26,7 +26,7 @@ export class CompanyUserService extends Service {
     super();
   }
 
-  getJobs(state: jobTypes): Observable<Job[]> {
+  getPostedJobs(state: jobTypes): Observable<Job[]> {
 
     const message = 'No pudimos extraer la información asociada a tu sesion';
     const params = this.buildParams(state);
@@ -55,7 +55,7 @@ export class CompanyUserService extends Service {
       .map((job: Job) => !!job._id);
   }
 
-  getJob(id: string): Observable<JobCandidates | null> {
+  getJobCandidates(id: string): Observable<JobCandidates | null> {
 
     const message = 'No se pudo extraer la información asociada a la oferta seleccionada';
 

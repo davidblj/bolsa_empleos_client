@@ -21,30 +21,33 @@
   </div>
 
   <div class="table-row"
-       *ngFor="let job of jobs; let i = index"
-       (click)="onClick(job._id)">
+       *ngFor="let job of jobs; let i = index">
 
-    <div class="table-row__item table-row__item_color_grey size_small">
-      {{i}}
+    <div class="table-row__details-target-box"
+         (click)="onViewDetailsHandler(job._id)">
+      <div class="table-row__item table-row__item_color_grey size_small">
+        {{i}}
+      </div>
+
+      <div class="table-row__item size_big">
+        {{job.name}}
+      </div>
+
+      <div class="table-row__item size_medium">
+        {{job.to}}
+      </div>
+
+      <div class="table-row__item size_medium">
+        {{getApplicants(i)}}
+      </div>
+
+      <div class="table-row__item  size_medium">
+        {{job.expiry | date:'yyyy-MM-dd'}}
+      </div>
     </div>
 
-    <div class="table-row__item size_big">
-      {{job.name}}
-    </div>
-
-    <div class="table-row__item size_medium">
-      {{job.to}}
-    </div>
-
-    <div class="table-row__item size_medium">
-      {{getApplicants(i)}}
-    </div>
-
-    <div class="table-row__item  size_medium">
-      {{job.expiry | date:'yyyy-MM-dd'}}
-    </div>
-
-    <div class="table-row__item table-row__item_config">
+    <div class="table-row__item table-row__item_config"
+      (click)="onEditHandler(job._id)">
       <!--<img src="assets/icons/company-dashboard/more-options.svg"/>-->
       <img src="assets/icons/company-dashboard/edit.svg"/>
     </div>

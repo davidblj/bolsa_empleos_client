@@ -8,7 +8,6 @@ import 'rxjs/add/operator/map'
 import { Service } from '../../shared/classes/service.class';
 
 // interfaces
-import { Job } from '../../shared/interfaces/job.interface';
 import { JobSearch } from './job-search-interface';
 import { Query } from './query.interface';
 
@@ -17,7 +16,6 @@ export class SearchJobsService extends Service {
 
   // base urls
   searchJobsUrl = 'search/jobs';
-  jobDetailsUrl = 'jobs';
 
   // common error messaging
   message = 'Error extrayendo la información';
@@ -38,14 +36,6 @@ export class SearchJobsService extends Service {
       .do(jobSearch => {
         this.total_count = jobSearch.total_count;
       })
-      .pipe(catchError(this.handleError(this.message)));
-  }
-
-  getJob(id: string): Observable<Job> {
-
-    const fetchUrl = `${this.jobDetailsUrl}/${id}`;
-
-    return this.http.get<Job>(fetchUrl)
       .pipe(catchError(this.handleError(this.message)));
   }
 

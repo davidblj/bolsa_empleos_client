@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Job } from '../../../../shared/interfaces/job.interface';
 
 @Component({
   selector: 'app-job-offer-container',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobOfferContainerComponent implements OnInit {
 
-  constructor() { }
+  job: Job;
+
+  constructor(private route: ActivatedRoute) {
+    this.route.data.subscribe(
+      (data: {jobOffer: Job}) => {
+        this.job = data.jobOffer;
+      })
+  }
 
   ngOnInit() {
   }
-
 }

@@ -1,13 +1,14 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { CompanyUserService } from '../../../../core/services/company-user.service';
 
 // utils
 import { CustomValidators } from '../../../../shared/utils/custom-validators.functions';
 import { Job } from '../../../../shared/interfaces/job.interface';
-import { CompanyUserService } from '../../../../core/services/company-user.service';
 import { JobOfferModalComponent } from '../job-offer-modal/job-offer-modal.component';
+import { jobAudience, jobType } from './data';
 
 @Component({
   selector: 'app-job-offer',
@@ -16,22 +17,8 @@ import { JobOfferModalComponent } from '../job-offer-modal/job-offer-modal.compo
 })
 export class JobOfferComponent implements OnInit {
 
-  jobTypeField = 'Modalidad de la oferta';
-  jobTypePlaceHolder = 'tipo';
-  jobTypeOptions = [
-    'Tiempo Completo',
-    'Tiempo Medio',
-    'Contrato',
-    'Temporal'
-  ];
-
-  jobAudienceField = 'Hacia quien esta dirigida la oferta';
-  jobAudiencePlaceHolder = 'audiencia';
-  jobAudienceOptions = [
-    'Egresado',
-    'Practicante',
-    'Ambos'
-  ];
+  jobTypeConfig = jobType;
+  jobAudienceConfig = jobAudience;
 
   jobExpiryField = 'Vigencia';
   jobExpiryPlaceHolder = 'mm/dd/aaaa';

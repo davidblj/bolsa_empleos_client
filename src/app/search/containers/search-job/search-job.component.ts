@@ -3,6 +3,7 @@ import { SearchJobsService } from '../../shared/search-jobs.service';
 
 // classes
 import { Job } from '../../../shared/interfaces/job.interface';
+import { JobService } from '../../../core/services/job.service';
 
 @Component({
   selector: 'app-search-job',
@@ -19,13 +20,14 @@ export class SearchJobComponent {
     this.fetchJobDetails(id)
   }
 
-  constructor(private searchJobsService: SearchJobsService) { }
+  constructor(private searchJobsService: SearchJobsService,
+              private jobService: JobService) { }
 
   fetchJobDetails(id: string) {
 
     if (id) {
 
-      this.searchJobsService.getJob(id)
+      this.jobService.getJob(id)
         .subscribe((job: Job) => {
           this.job = job;
         });

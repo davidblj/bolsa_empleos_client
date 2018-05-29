@@ -29,8 +29,12 @@ export class EmploymentJobsComponent implements OnInit {
       0
   }
 
-  onClick(id: string) {
+  onViewDetailsHandler(id: string) {
     this.router.navigate(['./', id], {relativeTo: this.route });
+  }
+
+  onEditHandler(id: string) {
+    this.router.navigate(['edit', id], {relativeTo: this.route });
   }
 
   // todo: use a container

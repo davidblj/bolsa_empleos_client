@@ -14,6 +14,7 @@ import { EmploymentJobDetailsResolver } from './shared/employment-job-details-re
 import { EmploymentPaginationComponent } from './components/employment-pagination/employment-pagination.component';
 import { EmploymentAgentContainerComponent } from './containers/employment-agent-container/employment-agent-container.component';
 import { EmploymentJobsComponent } from './components/employment-jobs/employment-jobs.component';
+import { EmploymentJobOfferResolverService } from './shared/employment-job-offer-resolver.service';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { EmploymentJobsComponent } from './components/employment-jobs/employment
     EmploymentJobsComponent
   ],
   providers: [
-    EmploymentJobDetailsResolver
+    EmploymentJobDetailsResolver,
+    EmploymentJobOfferResolverService
   ]
 })
 export class EmploymentModule { }

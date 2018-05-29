@@ -1,7 +1,7 @@
 <div class="job-input-field">
 
   <div class="job-input-field__label">
-    {{fieldName}}
+    {{config.field}}
   </div>
 
   <div class="job-input-field__input"
@@ -9,7 +9,7 @@
       (onHidden)="onHiddenHandler()">
 
     <div class="job-input-field__option">
-      {{message}}
+      {{config.placeHolder}}
     </div>
 
     <div class="job-input-field__button">
@@ -21,7 +21,7 @@
     </div>
 
     <ul class="dropdown-menu dropdown-menu-right" *dropdownMenu>
-      <div *ngFor="let option of options">
+      <div *ngFor="let option of config.options">
         <li class="item" (click)="onOptionSelect(option)">{{option}}</li>
       </div>
     </ul>

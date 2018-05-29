@@ -15,7 +15,7 @@ export class EmploymentAgentContainerComponent implements OnInit {
   links: Link[];
   pageLimit = 1;
 
-  jobs$ = this.companyUserService.getJobs(jobTypes.active);
+  jobs$ = this.companyUserService.getPostedJobs(jobTypes.active);
 
   constructor(private companyUserService: CompanyUserService) { }
 
@@ -39,11 +39,11 @@ export class EmploymentAgentContainerComponent implements OnInit {
   onLinkChangedHandler(name: string) {
 
     if (name === this.EN_RECLUTAMIENTO) {
-      this.jobs$ = this.companyUserService.getJobs(jobTypes.active);
+      this.jobs$ = this.companyUserService.getPostedJobs(jobTypes.active);
     }
 
     if (name === this.FINALIZADAS) {
-      this.jobs$ = this.companyUserService.getJobs(jobTypes.disabled);
+      this.jobs$ = this.companyUserService.getPostedJobs(jobTypes.disabled);
     }
   }
 }
