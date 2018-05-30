@@ -1,4 +1,5 @@
-<div class="job-input-field">
+<div class="job-input-field"
+     [ngClass]="{'job-input-field_disabled': disabled}" >
 
   <div class="job-input-field__label">
     {{config.field}}
@@ -6,6 +7,7 @@
 
   <div class="job-input-field__input"
       dropdown
+      [isDisabled]="disabled"
       (onHidden)="onHiddenHandler()">
 
     <div class="job-input-field__option">
@@ -29,7 +31,7 @@
   </div>
 
   <div class="job-input-field__error"
-    *ngIf="isValid">
+       *ngIf="isValid">
     Este campo es requerido
   </div>
 

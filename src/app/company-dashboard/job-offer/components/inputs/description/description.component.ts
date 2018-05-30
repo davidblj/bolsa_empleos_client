@@ -40,5 +40,4 @@ export class DescriptionComponent implements OnInit {
       this.description
     );
   }
-
 }

@@ -10,5 +10,6 @@ export interface Job {
   type: string;
   salary: number;
   description: string;
+  urgent: boolean;
   applicants?: any;
 }

@@ -45,19 +45,20 @@ export class JobOfferComponent implements OnInit, OnDestroy {
 
     if (this.job) {
 
-      // urgency is left out of our interface
+      // todo: urgency is left out of our interface. do add it
       this.form.patchValue({
         name: this.job.name,
         description: this.job.description,
         expiry: this.job.expiry,
         to: this.job.to,
         type: this.job.type,
-        salary: this.job.salary
+        salary: this.job.salary,
+        urgent: this.job.urgent
       });
 
       this.formTitle = 'Editar Oferta';
       this.buttonTitle = 'Guardar';
-      console.log(this.form.value);
+      console.log(this.job);
 
     } else {
 
@@ -100,6 +101,7 @@ export class JobOfferComponent implements OnInit, OnDestroy {
     })
   }
 
+  // todo: move this responsability in to the container
   onSubmitHandler() {
 
     const job: Job = this.form.value;

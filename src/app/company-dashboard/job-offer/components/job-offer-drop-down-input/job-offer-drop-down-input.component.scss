@@ -6,6 +6,10 @@
   margin-top: $job-offer-input-field-margin-top;
   position: relative;
 
+  &_disabled {
+    opacity: .6;
+  }
+
   &__label {
 
     font-size: $job-offer-label-font-size;

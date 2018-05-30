@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 
 @Component({
@@ -6,10 +6,14 @@ import { AbstractControl } from '@angular/forms';
   templateUrl: './job-offer-toggle-input.component.html',
   styleUrls: ['./job-offer-toggle-input.component.scss']
 })
-export class JobOfferToggleInputComponent {
+export class JobOfferToggleInputComponent implements OnInit {
 
   @Input()
   control: AbstractControl;
+
+  ngOnInit() {
+    console.log(this.control);
+  }
 
   toggleMessage() {
     this.control.setValue(!this.control.value);

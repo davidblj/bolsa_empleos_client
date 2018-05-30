@@ -17,12 +17,17 @@ export class JobOfferDateInputComponent implements OnInit {
   @Input()
   placeHolder = '';
 
+  datePickerValue: Date;
   minDate: Date;
   isHidden = false;
 
   ngOnInit() {
+
     this.minDate = new Date();
     this.minDate.setDate(this.minDate.getDate() + 1);
+    if (this.control.value !== '') {
+      this.datePickerValue = new Date(this.control.value);
+    }
   }
 
   onDateSelected(value: Date) {

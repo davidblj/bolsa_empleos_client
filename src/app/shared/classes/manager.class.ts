@@ -20,6 +20,13 @@ export class Manager {
     }
 
     this.warnings = warnings;
+
+    // if this field already have a value (editing state)
+    // do not show error messages
+    if (this.field.value && this.field.value !== '') {
+      this.field.markAsTouched();
+      this.updateIndependentFields();
+    }
   }
 
   // utilities for automatic updates
