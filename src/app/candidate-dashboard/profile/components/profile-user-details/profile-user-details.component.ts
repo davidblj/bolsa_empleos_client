@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DropDown } from '../../../../shared/interfaces/drop-down.interface';
+import { roleType } from './data';
 
 @Component({
   selector: 'app-profile-user-details',
@@ -9,10 +11,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ProfileUserDetailsComponent implements OnInit {
 
   form: FormGroup;
+  roleType: DropDown;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.roleType = roleType;
     this.createForm();
   }
 
@@ -26,6 +30,9 @@ export class ProfileUserDetailsComponent implements OnInit {
         Validators.email
       ],
       contact: [
+        ''
+      ],
+      role: [
         ''
       ]
     })

@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { Manager } from '../../../../../shared/classes/manager.class';
 import { Error } from '../../../../../shared/interfaces/error.interface';
-import { definitions } from '../../../../../shared/utils/definitions.variables';
 
 @Component({
   selector: 'app-contact',

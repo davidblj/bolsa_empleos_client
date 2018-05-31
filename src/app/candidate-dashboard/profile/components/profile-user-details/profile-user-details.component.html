@@ -4,7 +4,6 @@
 </app-name>
 
 <div class="row">
-
   <div class="col-6">
     <app-email
       [control]="form.controls['email']">
@@ -15,5 +14,14 @@
     <app-contact
       [control]="form.controls['contact']">
     </app-contact>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <app-dropdown-form-group
+      [config]="roleType"
+      [control]="form.controls['role']">
+    </app-dropdown-form-group>
   </div>
 </div>

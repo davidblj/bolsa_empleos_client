@@ -27,17 +27,17 @@
 
     <div class="row">
       <div class="col-6">
-        <app-job-offer-drop-down-input
+        <app-dropdown-form-group
           [config]="jobTypeConfig"
           [control]="form.controls['type']">
-        </app-job-offer-drop-down-input>
+        </app-dropdown-form-group>
       </div>
 
       <div class="col-6">
-        <app-job-offer-drop-down-input
+        <app-dropdown-form-group
           [config]="jobAudienceConfig"
           [control]="form.controls['to']">
-        </app-job-offer-drop-down-input>
+        </app-dropdown-form-group>
       </div>
     </div>
 

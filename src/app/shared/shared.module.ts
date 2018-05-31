@@ -26,12 +26,15 @@ import { NotificationComponent } from './components/notification/notification.co
 import { HeaderProfileComponent } from './components/header-profile/header-profile.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { FormGroupComponent } from './components/form-group/form-group.component';
+import { DropdownFormGroupComponent } from './components/dropdown-form-group/dropdown-form-group.component';
+import { BsDropdownModule } from 'ngx-bootstrap';
 
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    BsDropdownModule
   ],
   exports: [
     PopoverComponent,
@@ -52,7 +55,8 @@ import { FormGroupComponent } from './components/form-group/form-group.component
     NotificationComponent,
     HeaderProfileComponent,
     NavigationComponent,
-    FormGroupComponent
+    FormGroupComponent,
+    DropdownFormGroupComponent
   ],
   declarations: [
     PopoverComponent,
@@ -75,7 +79,8 @@ import { FormGroupComponent } from './components/form-group/form-group.component
     NotificationComponent,
     HeaderProfileComponent,
     NavigationComponent,
-    FormGroupComponent
+    FormGroupComponent,
+    DropdownFormGroupComponent
   ]
 })
 export class SharedModule { }

@@ -1,4 +1,4 @@
-import { DropDown } from '../../shared/drop-down.interface';
+import { DropDown } from '../../../../shared/interfaces/drop-down.interface';
 
 export const jobType: DropDown = {
   field: 'Modalidad de la oferta',

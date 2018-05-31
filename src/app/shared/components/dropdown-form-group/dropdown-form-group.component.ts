@@ -1,13 +1,13 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DropDown } from '../../interfaces/drop-down.interface';
 import { AbstractControl } from '@angular/forms';
-import { DropDown } from '../../shared/drop-down.interface';
 
 @Component({
-  selector: 'app-job-offer-drop-down-input',
-  templateUrl: './job-offer-drop-down-input.component.html',
-  styleUrls: ['./job-offer-drop-down-input.component.scss']
+  selector: 'app-dropdown-form-group',
+  templateUrl: './dropdown-form-group.component.html',
+  styleUrls: ['./dropdown-form-group.component.scss']
 })
-export class JobOfferDropDownInputComponent implements OnInit {
+export class DropdownFormGroupComponent implements OnInit {
 
   @Input()
   config: DropDown;
