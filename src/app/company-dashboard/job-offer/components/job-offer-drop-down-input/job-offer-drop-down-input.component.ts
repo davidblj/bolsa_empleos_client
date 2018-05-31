@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { DropDown } from '../../shared/drop-down.interface';
 
@@ -15,19 +15,36 @@ export class JobOfferDropDownInputComponent implements OnInit {
   @Input()
   control: AbstractControl;
 
+  placeholder;
   disabled = false;
+  isUntouched = true;
 
   ngOnInit() {
+    this.onResetHandler();
+    this.onEditHandler();
+  }
 
+  onOptionSelect(option: string) {
+    this.placeholder = option;
+    this.isUntouched = false;
+    this.control.setValue(option);
+  }
+
+  onEditHandler() {
     if (this.control.value !== '') {
-      this.config.placeHolder = this.control.value;
+      this.placeholder = this.control.value;
       this.disabled = true;
     }
   }
 
-  onOptionSelect(option: string) {
-    this.config.placeHolder = option;
-    this.control.setValue(option);
+  onResetHandler() {
+    this.placeholder = this.config.placeHolder;
+    this.control.valueChanges.subscribe(value => {
+      if (!value) {
+        this.isUntouched = true;
+        this.placeholder = this.config.placeHolder;
+      }
+    })
   }
 
   onHiddenHandler() {

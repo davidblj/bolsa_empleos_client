@@ -28,7 +28,7 @@ import { JobOfferModalComponent } from './components/job-offer-modal/job-offer-m
     SharedModule,
     BsDropdownModule,
     BsDatepickerModule,
-    ModalModule,
+    ModalModule.forRoot(),
     JobOfferRoutingModule
   ],
   entryComponents: [

@@ -12,7 +12,6 @@ export class JobOfferToggleInputComponent implements OnInit {
   control: AbstractControl;
 
   ngOnInit() {
-    console.log(this.control);
   }
 
   toggleMessage() {

@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
@@ -15,7 +15,7 @@ import { jobAudience, jobType } from './data';
   templateUrl: './job-offer.component.html',
   styleUrls: ['./job-offer.component.scss']
 })
-export class JobOfferComponent implements OnInit, OnDestroy {
+export class JobOfferComponent implements OnInit {
 
   @Input()
   job: Job;
@@ -30,6 +30,7 @@ export class JobOfferComponent implements OnInit, OnDestroy {
   buttonTitle;
   buttonShape = 'square';
   buttonColor = 'dark';
+  reset = false;
 
   form: FormGroup;
   modal: BsModalRef;
@@ -45,7 +46,6 @@ export class JobOfferComponent implements OnInit, OnDestroy {
 
     if (this.job) {
 
-      // todo: urgency is left out of our interface. do add it
       this.form.patchValue({
         name: this.job.name,
         description: this.job.description,
@@ -58,7 +58,6 @@ export class JobOfferComponent implements OnInit, OnDestroy {
 
       this.formTitle = 'Editar Oferta';
       this.buttonTitle = 'Guardar';
-      console.log(this.job);
 
     } else {
 
@@ -101,14 +100,14 @@ export class JobOfferComponent implements OnInit, OnDestroy {
     })
   }
 
-  // todo: move this responsability in to the container
+  // todo: move this responsibility in to the container
   onSubmitHandler() {
 
     const job: Job = this.form.value;
     this.companyUserService.addJob(job)
       .subscribe(
         (res) => {
-          this.form.reset({expiry: ''});
+          this.resetFormValues();
           const config = this.setModalMessage(res, false);
           this.modal = this.modalService.show(JobOfferModalComponent, config);
         },
@@ -131,12 +130,13 @@ export class JobOfferComponent implements OnInit, OnDestroy {
     };
   }
 
-  get formStatus(): boolean {
-    return this.form.valid;
+  resetFormValues() {
+
+    // the expiry field needs to be an string, and not a null value
+    this.form.reset({expiry: ''});
   }
 
-  ngOnDestroy(): void {
-    console.log('destroy');
-    // this.form.reset();
+  get formStatus(): boolean {
+    return this.form.valid;
   }
 }

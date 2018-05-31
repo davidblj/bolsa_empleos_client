@@ -13,7 +13,5 @@ export class AppliedJobsTableComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.jobs);
-  }
+  ngOnInit() { }
 }

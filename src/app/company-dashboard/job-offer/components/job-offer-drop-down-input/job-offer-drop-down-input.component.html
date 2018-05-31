@@ -10,8 +10,9 @@
       [isDisabled]="disabled"
       (onHidden)="onHiddenHandler()">
 
-    <div class="job-input-field__option">
-      {{config.placeHolder}}
+    <div class="job-input-field__option"
+         [ngClass]="{'job-input-field__option_state_untouched': isUntouched}" >
+      {{placeholder}}
     </div>
 
     <div class="job-input-field__button">

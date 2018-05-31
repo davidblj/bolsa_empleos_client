@@ -21,7 +21,6 @@ export class TypeComponent implements OnInit {
   }
 
   onClick(type: string) {
-    console.log();
     this.type.setValue(type);
     this.currentType = type;
   }

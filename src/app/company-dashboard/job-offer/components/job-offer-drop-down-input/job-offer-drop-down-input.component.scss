@@ -31,6 +31,10 @@
 
     border-radius: $job-offer-input-border-radius;
     border: $job-offer-input-border;
+
+    &_state_untouched {
+      color: $job-offer-label-color;
+    }
   }
 
   &__button {

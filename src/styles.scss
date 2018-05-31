@@ -27,3 +27,15 @@ html {
 body {
   box-sizing: border-box;
 }
+
+// bootstrap overrides
+
+.modal-backdrop {
+  background-color: $seaShell;
+}
+
+.modal-content {
+  border-radius: 10px;
+  border: 1px solid $mischka;
+  overflow: hidden;
+}

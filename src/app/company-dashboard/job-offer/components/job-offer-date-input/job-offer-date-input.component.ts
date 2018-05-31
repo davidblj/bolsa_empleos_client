@@ -22,9 +22,25 @@ export class JobOfferDateInputComponent implements OnInit {
   isHidden = false;
 
   ngOnInit() {
+    this.setBound();
+    this.onResetHandler();
+    this.onEditHandler();
+  }
 
+  setBound() {
     this.minDate = new Date();
     this.minDate.setDate(this.minDate.getDate() + 1);
+  }
+
+  onResetHandler() {
+    this.control.valueChanges.subscribe(value => {
+      if (value === '') {
+        this.datePickerValue = null;
+      }
+    })
+  }
+
+  onEditHandler() {
     if (this.control.value !== '') {
       this.datePickerValue = new Date(this.control.value);
     }
@@ -33,6 +49,11 @@ export class JobOfferDateInputComponent implements OnInit {
   onDateSelected(value: Date) {
     if (value) {
       try {
+
+        // this line is necessary for a successful
+        // SECOND reset on this field
+        this.datePickerValue = value;
+
         const isoString = value.toISOString();
         this.control.setValue(isoString);
       } catch (e) {
