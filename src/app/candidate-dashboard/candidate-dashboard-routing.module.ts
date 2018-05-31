@@ -10,6 +10,10 @@ const routes: Routes = [
       {
         path: 'ofertas',
         loadChildren: 'app/candidate-dashboard/applied-jobs/applied-jobs.module#AppliedJobsModule'
+      },
+      {
+        path: 'perfil',
+        loadChildren: 'app/candidate-dashboard/profile/profile.module#ProfileModule'
       }
     ]
   }

@@ -5,8 +5,11 @@
 <div class="navigation__box">
   <app-navigation
     [links]="links"
-    [panelPosition]="panelPosition">
+    [panelPosition]="panelPosition"
+    (onLinkChanged)="onLinkChangedHandler($event)">
   </app-navigation>
 </div>
 
-<router-outlet></router-outlet>
+<div class="content-box">
+  <router-outlet></router-outlet>
+</div>

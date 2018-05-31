@@ -9,6 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CandidateDashboardComponent implements OnInit {
 
+  OFERTAS = 'Ofertas';
+  PERFIL = 'Perfil';
+
   links: Link[];
   panelPosition = 'center';
 
@@ -23,11 +26,11 @@ export class CandidateDashboardComponent implements OnInit {
   getPanelLinks() {
     this.links = [
       {
-        name: 'Ofertas',
+        name: this.OFERTAS,
         status: true
       },
       {
-        name: 'Configuracion',
+        name: this.PERFIL,
         status: false
       }];
   }
@@ -39,6 +42,17 @@ export class CandidateDashboardComponent implements OnInit {
     const children = this.activatedRoute.children;
     if (children.length === 0) {
       this.router.navigate(['candidatos', 'ofertas']);
+    }
+  }
+
+  onLinkChangedHandler(name: string) {
+
+    if (name === this.OFERTAS) {
+      this.router.navigate(['ofertas'], {relativeTo: this.activatedRoute});
+    }
+
+    if (name === this.PERFIL) {
+      this.router.navigate(['perfil'], {relativeTo: this.activatedRoute});
     }
   }
 }
