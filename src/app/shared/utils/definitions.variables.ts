@@ -54,6 +54,13 @@ const email = (): Error =>
     resolved: false
   });
 
+const email_v2 = (): Error =>
+  ({
+    key: 'email',
+    message: 'Por favor ingresa un email valido',
+    resolved: false
+  });
+
 const length = (min: number, max: number): Error => {
   return ({
     key: 'length',
@@ -85,6 +92,7 @@ export const definitions = {
   match,
   website,
   email,
+  email_v2,
   length,
   username,
   async
