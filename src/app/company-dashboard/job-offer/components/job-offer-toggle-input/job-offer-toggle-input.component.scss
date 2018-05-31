@@ -3,13 +3,13 @@
 .job-input-field {
 
   width: 100%;
-  margin-top: $job-offer-input-field-margin-top;
+  margin-top: $input-field-margin-top;
 
   &__label {
 
-    font-size: $job-offer-label-font-size;
-    color: $job-offer-label-color;
-    margin-bottom: $job-offer-label-margin-bottom;
+    font-size: $label-font-size;
+    color: $label-color;
+    margin-bottom: $label-margin-bottom;
   }
 
   &__toggle {

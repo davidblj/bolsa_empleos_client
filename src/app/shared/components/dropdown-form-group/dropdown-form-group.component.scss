@@ -3,7 +3,7 @@
 
 .input-field {
 
-  margin-top: $job-offer-input-field-margin-top;
+  margin-top: $input-field-margin-top;
   position: relative;
 
   &_disabled {
@@ -12,9 +12,9 @@
 
   &__label {
 
-    font-size: $job-offer-label-font-size;
-    color: $job-offer-label-color;
-    margin-bottom: $job-offer-label-margin-bottom;
+    font-size: $label-font-size;
+    color: $label-color;
+    margin-bottom: $label-margin-bottom;
   }
 
   &__input {
@@ -24,16 +24,16 @@
   &__option {
 
     font-size: 1.7rem;
-    height: $job-offer-input-height;
-    line-height: $job-offer-input-height;
+    height: $input-height;
+    line-height: $input-height;
     background: $white;
     padding-left: 7.5px;
 
-    border-radius: $job-offer-input-border-radius;
-    border: $job-offer-input-border;
+    border-radius: $input-border-radius;
+    border: $input-border;
 
     &_state_untouched {
-      color: $job-offer-label-color;
+      color: $label-color;
     }
   }
 
@@ -46,9 +46,9 @@
 
   &__caret {
 
-    height: $job-offer-input-height;
+    height: $input-height;
     background: transparent;
-    border-left: $job-offer-input-border;
+    border-left: $input-border;
 
     img {
       height: 2rem;
@@ -62,8 +62,8 @@
   &__error {
 
     color: $burntSienna;
-    margin: $job-offer-error-margin;
-    font-size: $job-offer-error-font-size;
+    margin: $error-margin;
+    font-size: $error-font-size;
   }
 }
 

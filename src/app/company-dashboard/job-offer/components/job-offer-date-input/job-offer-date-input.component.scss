@@ -3,22 +3,22 @@
 .job-input-field {
 
   width: 100%;
-  margin-top: $job-offer-input-field-margin-top;
+  margin-top: $input-field-margin-top;
 
   &__label {
 
-    font-size: $job-offer-label-font-size;
-    color: $job-offer-label-color;
-    margin-bottom: $job-offer-label-margin-bottom;
+    font-size: $label-font-size;
+    color: $label-color;
+    margin-bottom: $label-margin-bottom;
   }
 
   &__input {
 
-    height: $job-offer-input-height;
+    height: $input-height;
     width: inherit;
     font-size: 1.7rem;
-    border-radius: $job-offer-input-border-radius;
-    border: $job-offer-input-border;
+    border-radius: $input-border-radius;
+    border: $input-border;
 
     &:focus {
 
@@ -33,7 +33,7 @@
   &__error {
 
     color: $burntSienna;
-    margin: $job-offer-error-margin;
-    font-size: $job-offer-error-font-size;
+    margin: $error-margin;
+    font-size: $error-font-size;
   }
 }

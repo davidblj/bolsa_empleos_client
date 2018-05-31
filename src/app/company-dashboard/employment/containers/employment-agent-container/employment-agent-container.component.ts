@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Link } from '../../../../shared/interfaces/link.interface';
 import { CompanyUserService, jobTypes } from '../../../../core/services/company-user.service';
 
 @Component({
@@ -12,9 +11,8 @@ export class EmploymentAgentContainerComponent implements OnInit {
   EN_RECLUTAMIENTO = 'EN RECLUTAMIENTO';
   FINALIZADAS = 'FINALIZADAS';
 
-  links: Link[];
+  links;
   pageLimit = 1;
-
   jobs$ = this.companyUserService.getPostedJobs(jobTypes.active);
 
   constructor(private companyUserService: CompanyUserService) { }
@@ -24,16 +22,7 @@ export class EmploymentAgentContainerComponent implements OnInit {
   }
 
   getPanelLinks() {
-
-    this.links = [
-      {
-        name: this.EN_RECLUTAMIENTO,
-        status: true
-      },
-      {
-        name: this.FINALIZADAS,
-        status: false
-      }];
+    this.links = [this.EN_RECLUTAMIENTO, this.FINALIZADAS]
   }
 
   onLinkChangedHandler(name: string) {

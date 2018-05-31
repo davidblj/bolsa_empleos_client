@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Link } from '../../../shared/interfaces/link.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -12,7 +11,7 @@ export class CandidateDashboardComponent implements OnInit {
   OFERTAS = 'Ofertas';
   PERFIL = 'Perfil';
 
-  links: Link[];
+  links;
   panelPosition = 'center';
 
   constructor(private router: Router,
@@ -24,15 +23,7 @@ export class CandidateDashboardComponent implements OnInit {
   }
 
   getPanelLinks() {
-    this.links = [
-      {
-        name: this.OFERTAS,
-        status: true
-      },
-      {
-        name: this.PERFIL,
-        status: false
-      }];
+    this.links = [this.OFERTAS, this.PERFIL];
   }
 
   setRedirection() {

@@ -4,8 +4,8 @@
 
   <span class="navigation__item"
         *ngFor="let link of links; let index = index"
-        [ngClass]="{'navigation__item_active': link.status}"
-        (click)="navigateTo(link.name)">
-    {{link.name}}
+        [ngClass]="{'navigation__item_active': isActive(link)}"
+        (click)="navigateTo(link)">
+    {{link}}
   </span>
 </div>

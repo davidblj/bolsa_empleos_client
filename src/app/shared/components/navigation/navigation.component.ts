@@ -1,8 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-// interfaces
-import { Link } from '../../interfaces/link.interface';
-
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -11,17 +8,24 @@ import { Link } from '../../interfaces/link.interface';
 export class NavigationComponent implements OnInit {
 
   @Input()
-  links: Link[];
+  links;
 
   @Input()
   panelPosition = 'left';
+
+  @Input()
+  currentTab;
 
   @Output()
   onLinkChanged = new EventEmitter<string>();
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (!this.currentTab) {
+      this.currentTab = this.links[0];
+    }
+  }
 
   getPositionStatus(position: string) {
     return position === this.panelPosition;
@@ -29,5 +33,10 @@ export class NavigationComponent implements OnInit {
 
   navigateTo(name: string) {
     this.onLinkChanged.emit(name);
+    this.currentTab = name;
+  }
+
+  isActive(tabName: string) {
+    return this.currentTab === tabName;
   }
 }
