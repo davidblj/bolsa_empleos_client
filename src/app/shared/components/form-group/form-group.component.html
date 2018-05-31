@@ -1,19 +1,19 @@
 
-<div class="job-input-field">
+<div class="input-field">
 
-  <label class="job-input-field__label">
+  <label class="input-field__label">
     {{fieldName}}
   </label>
 
-  <input class="job-input-field__input
-                job-input-field__input_type_default
+  <input class="input-field__input
+                input-field__input_type_default
                 form-control"
          *ngIf="isType('input')"
          [placeholder]="placeHolder"
          [formControl]="control">
 
-  <textarea class="job-input-field__input
-                   job-input-field__input_type_text
+  <textarea class="input-field__input
+                   input-field__input_type_text
                    form-control"
             rows="7"
             *ngIf="isType('text-area')"
@@ -22,7 +22,7 @@
   </textarea>
 
   <div *ngFor="let warning of warnings">
-    <div class="job-input-field__error"
+    <div class="input-field__error"
          *ngIf="!warning.resolved && showMessages">
       {{warning.message}}
     </div>

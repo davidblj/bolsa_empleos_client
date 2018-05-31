@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Manager } from '../../../../shared/classes/manager.class';
+import { Manager } from '../../classes/manager.class';
 
 @Component({
-  selector: 'app-job-offer-input',
-  templateUrl: './job-offer-input.component.html',
-  styleUrls: ['./job-offer-input.component.scss']
+  selector: 'app-form-group',
+  templateUrl: './form-group.component.html',
+  styleUrls: ['./form-group.component.scss']
 })
-export class JobOfferInputComponent implements OnInit {
+export class FormGroupComponent implements OnInit {
 
   @Input()
   fieldName: string;

@@ -25,6 +25,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { HeaderProfileComponent } from './components/header-profile/header-profile.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { FormGroupComponent } from './components/form-group/form-group.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     HeaderComponent,
     NotificationComponent,
     HeaderProfileComponent,
-    NavigationComponent
+    NavigationComponent,
+    FormGroupComponent
   ],
   declarations: [
     PopoverComponent,
@@ -72,7 +74,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     HeaderComponent,
     NotificationComponent,
     HeaderProfileComponent,
-    NavigationComponent
+    NavigationComponent,
+    FormGroupComponent
   ]
 })
 export class SharedModule { }
