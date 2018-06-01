@@ -9,7 +9,7 @@ $item-vertical-padding: 3rem;
   margin-top: $dashboard-top-spacing;
   margin-left: $dashboard-left-spacing;
   background: $azure;
-  @include shadow;
+  box-shadow: $shadow;
 
   &__item {
 

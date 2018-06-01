@@ -42,7 +42,7 @@ $card-margin-bottom: 5rem;
 
   &:hover {
 
-    @include strong-shadow;
+    box-shadow: $strong-shadow;
     transform: translateY(-4px);
     border-left: 10px solid $mantis;
 

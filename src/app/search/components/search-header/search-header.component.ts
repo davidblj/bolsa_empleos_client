@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-header',
@@ -14,11 +13,7 @@ export class SearchHeaderComponent {
   @Input()
   insignia: string;
 
-  constructor(private router: Router) {}
-
-  onClick() {
-    this.router.navigate(['/ingresar']);
-  }
+  constructor() {}
 
   get notificationStatus() {
     return (

@@ -1,5 +1,7 @@
 
-<div class="header ">
+<div class="header"
+     [ngClass]="{'header_style_solid': getStyle('solid'),
+                 'header_style_transparent': getStyle('transparent') }" >
 
   <div class="header__logo">
     <img src="assets/icons/company-dashboard/bag.svg"/>

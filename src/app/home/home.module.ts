@@ -9,6 +9,8 @@ import { HomeFeatureComponent } from './components/home-feature/home-feature.com
 import { SharedModule } from '../shared/shared.module';
 import { HomeFooterComponent } from './components/home-footer/home-footer.component';
 import { HomeSearchComponent } from './components/home-search/home-search.component';
+import { HomeHeaderComponent } from './components/home-header/home-header.component';
+import { HomeHeaderContainerComponent } from './containers/home-header-container/home-header-container.component';
 
 @NgModule({
   imports: [
@@ -23,7 +25,9 @@ import { HomeSearchComponent } from './components/home-search/home-search.compon
     HomeFeaturesComponent,
     HomeFeatureComponent,
     HomeFooterComponent,
-    HomeSearchComponent
+    HomeSearchComponent,
+    HomeHeaderComponent,
+    HomeHeaderContainerComponent
   ]
 })
 export class HomeModule { }

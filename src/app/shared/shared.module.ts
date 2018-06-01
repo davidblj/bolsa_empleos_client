@@ -28,6 +28,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { FormGroupComponent } from './components/form-group/form-group.component';
 import { DropdownFormGroupComponent } from './components/dropdown-form-group/dropdown-form-group.component';
 import { BsDropdownModule } from 'ngx-bootstrap';
+import { HeaderSessionComponent } from './components/header-session/header-session.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { BsDropdownModule } from 'ngx-bootstrap';
     HeaderProfileComponent,
     NavigationComponent,
     FormGroupComponent,
-    DropdownFormGroupComponent
+    DropdownFormGroupComponent,
+    HeaderSessionComponent
   ],
   declarations: [
     PopoverComponent,
@@ -80,7 +82,8 @@ import { BsDropdownModule } from 'ngx-bootstrap';
     HeaderProfileComponent,
     NavigationComponent,
     FormGroupComponent,
-    DropdownFormGroupComponent
+    DropdownFormGroupComponent,
+    HeaderSessionComponent
   ]
 })
 export class SharedModule { }

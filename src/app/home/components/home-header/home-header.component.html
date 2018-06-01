@@ -1,0 +1,19 @@
+
+<div class="header">
+
+  <app-header
+    [style]="headerStyle">
+
+    <div *ngIf="userIsUnLogged; else loggedUserTemplated">
+      <app-header-session>
+      </app-header-session>
+    </div>
+
+  </app-header>
+
+  <ng-template #loggedUserTemplated>
+    <app-button>
+      dashboard
+    </app-button>
+  </ng-template>
+</div>

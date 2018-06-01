@@ -3,12 +3,21 @@
 
 .header {
 
-  @include shadow;
-
   height: $header-height;
-  background: $azure;
   position: relative;
   z-index: 10;
+  background: $azure;
+
+  &_style_transparent {
+
+    border: solid 2px white;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+
+  &_style_solid {
+    box-shadow: $shadow;
+  }
 
   &__logo {
 

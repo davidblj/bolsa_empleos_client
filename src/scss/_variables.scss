@@ -35,6 +35,7 @@ $strong-shadow: 0 0 15px -2px $geyser;
 
 $header-height: 6.74rem;
 $logo-height: 3.3rem;
+$header-margin-component: 2rem;
 
 // job offer component variables
 
@@ -55,7 +56,7 @@ $body-height: calc(100vh - #{$header-height});
 $side-margin: 8rem;
 $dashboard-top-spacing: 6rem;
 $dashboard-left-spacing: 6rem;
-$dashboard-right-spacing: 8rem;
+$dashboard-right-spacing: 6rem;
 $table-bottom-spacing: 4rem;
 
 // search module variables
