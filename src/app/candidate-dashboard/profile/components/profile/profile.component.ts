@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  buttonColor = 'dark';
+  buttonShape = 'square';
+
   constructor() { }
 
   ngOnInit() {

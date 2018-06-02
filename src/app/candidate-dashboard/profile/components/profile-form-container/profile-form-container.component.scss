@@ -1,6 +1,9 @@
+@import "variables";
 
 .form-container {
   background: white;
   border-radius: 5px;
+  border: solid 2px $mischka;
+  margin-bottom: 2rem;
   padding: 2rem 3rem;
 }

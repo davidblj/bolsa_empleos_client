@@ -10,6 +10,7 @@ import { NameComponent } from './components/inputs/name/name.component';
 import { EmailComponent } from './components/inputs/email/email.component';
 import { ContactComponent } from './components/inputs/contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProfileFileInputComponent } from './components/profile-file-input/profile-file-input.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProfileFormContainerComponent,
     NameComponent,
     EmailComponent,
-    ContactComponent
+    ContactComponent,
+    ProfileFileInputComponent
   ]
 })
 export class ProfileModule { }
