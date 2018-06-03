@@ -15,6 +15,9 @@ export class DropdownFormGroupComponent implements OnInit {
   @Input()
   control: AbstractControl;
 
+  @Input()
+  editable = false;
+
   placeholder;
   disabled = false;
   isUntouched = true;
@@ -31,9 +34,11 @@ export class DropdownFormGroupComponent implements OnInit {
   }
 
   onEditHandler() {
+
     if (this.control.value !== '') {
       this.placeholder = this.control.value;
-      this.disabled = true;
+      this.disabled = !this.editable;
+      this.isUntouched = this.disabled;
     }
   }
 

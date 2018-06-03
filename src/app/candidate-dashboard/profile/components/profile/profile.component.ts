@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Candidate } from '../../../../shared/interfaces/candidate.interface';
 
 @Component({
   selector: 'app-profile',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  @Input()
+  userDetails: Candidate;
+
   buttonColor = 'dark';
   buttonShape = 'square';
 
@@ -14,5 +18,4 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

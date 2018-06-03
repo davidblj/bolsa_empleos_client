@@ -1,0 +1,8 @@
+
+<div *ngIf="(userDetails$ | async) as userInfo">
+  <app-profile
+    [userDetails]="userInfo">
+  </app-profile>
+</div>
+
+<!-- else, loading-->

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 // interfaces
 import { JobCandidates } from '../../shared/job-candidate.interface';
-import { Candidate } from '../../shared/candidate.interface';
+import { CandidateSnippet } from '../../shared/candidate.interface';
 import { CompanyUserService } from '../../../../core/services/company-user.service';
 
 @Component({
@@ -14,7 +14,7 @@ import { CompanyUserService } from '../../../../core/services/company-user.servi
 export class EmploymentJobDetailsContainerComponent {
 
   amount: number;
-  candidates: Candidate[];
+  candidates: CandidateSnippet[];
 
   constructor(private route: ActivatedRoute,
               private companyUserService: CompanyUserService) {
@@ -27,7 +27,7 @@ export class EmploymentJobDetailsContainerComponent {
       })
   }
 
-  onDownload(candidate: Candidate) {
+  onDownload(candidate: CandidateSnippet) {
     this.companyUserService.getCV(candidate);
   }
 }

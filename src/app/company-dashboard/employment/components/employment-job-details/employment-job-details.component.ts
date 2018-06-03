@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 // interfaces
-import { Candidate } from '../../shared/candidate.interface';
+import { CandidateSnippet } from '../../shared/candidate.interface';
 
 @Component({
   selector: 'app-employment-job-details',
@@ -11,10 +11,10 @@ import { Candidate } from '../../shared/candidate.interface';
 export class EmploymentJobDetailsComponent {
 
   @Input()
-  candidates: Candidate[];
+  candidates: CandidateSnippet[];
 
   @Output()
-  download = new EventEmitter<Candidate>();
+  download = new EventEmitter<CandidateSnippet>();
 
   onClick(index: number) {
     const candidate = this.candidates[index];

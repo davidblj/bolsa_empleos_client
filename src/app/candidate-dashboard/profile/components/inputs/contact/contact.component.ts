@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { Manager } from '../../../../../shared/classes/manager.class';
 import { Error } from '../../../../../shared/interfaces/error.interface';
+import { definitions } from '../../../../../shared/utils/definitions.variables';
 
 @Component({
   selector: 'app-contact',
@@ -19,8 +20,12 @@ export class ContactComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
     const hints: Error[] = [];
-    const warnings: Error[] = [];
+    const warnings: Error[] = [
+      definitions.required()
+    ];
+
     this.validationManager = new Manager(
       hints,
       warnings,

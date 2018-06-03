@@ -11,11 +11,14 @@ import { JobSnippet } from '../../search/shared/job-snippet.interface';
 // services
 import { AuthService } from './auth.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Candidate } from '../../shared/interfaces/candidate.interface';
 
 @Injectable()
 export class CandidateUserService extends Service {
 
   baseUrl = 'candidate';
+  publicUrl = 'candidates';
+
   private appliedJobsSource = new BehaviorSubject<JobSnippet[]>([]);
   appliedJobs$ = this.appliedJobsSource.asObservable();
 
@@ -65,6 +68,18 @@ export class CandidateUserService extends Service {
 
       return this.pipe();
     }
+  }
+
+  getProfile(): Observable<Candidate> | null {
+
+    const userIsLogged = this.serviceGuard();
+
+    if (userIsLogged) {
+      const id = this.authService.getUser()._id;
+      return this.http.get(`${this.publicUrl}/${id}`);
+    }
+
+    return null;
   }
 
   // utils

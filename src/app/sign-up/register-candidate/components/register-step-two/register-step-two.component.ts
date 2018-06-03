@@ -35,7 +35,7 @@ export class RegisterStepTwoComponent {
         [
           Validators.required,
           Validators.minLength(3),
-          Validators.maxLength(30)
+          Validators.maxLength(50)
         ]
       ],
       pid: [

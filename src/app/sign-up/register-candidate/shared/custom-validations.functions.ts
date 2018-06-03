@@ -1,7 +1,7 @@
 import { FormControl } from '@angular/forms';
 
 const typeSelection = (control: FormControl): { [s: string]: boolean } => {
-  if (control.value !== 'student' && control.value !== 'graduate') {
+  if (control.value !== 'Estudiante' && control.value !== 'Egresado') {
     return {type: true}
   }
 };

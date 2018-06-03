@@ -10,7 +10,7 @@ import { Service } from '../../shared/classes/service.class';
 // interfaces
 import { Job } from '../../shared/interfaces/job.interface';
 import { JobCandidates } from '../../company-dashboard/employment/shared/job-candidate.interface';
-import { Candidate } from '../../company-dashboard/employment/shared/candidate.interface';
+import { CandidateSnippet } from '../../company-dashboard/employment/shared/candidate.interface';
 
 export enum jobTypes {
   active = 'active',
@@ -63,7 +63,7 @@ export class CompanyUserService extends Service {
       .pipe(catchError(this.handleError(message)));
   }
 
-  getCV(candidate: Candidate) {
+  getCV(candidate: CandidateSnippet) {
 
     const message = 'No se pudo completar la descarga';
     const id = candidate._id;

@@ -1,8 +1,8 @@
-import { Candidate } from './candidate.interface';
+import { CandidateSnippet } from './candidate.interface';
 
 export interface JobCandidates {
 
   amount: number,
-  users: Candidate[]
+  users: CandidateSnippet[]
 }
 

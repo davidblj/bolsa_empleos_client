@@ -28,6 +28,7 @@ export class EmailComponent implements OnInit {
     const hints: Error[] = [];
 
     const warnings: Error[] = [
+      definitions.required(),
       definitions.email_v2()
     ];
 

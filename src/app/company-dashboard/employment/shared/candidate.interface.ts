@@ -1,5 +1,5 @@
 
-export interface Candidate {
+export interface CandidateSnippet {
 
   _id: string,
   name: string,

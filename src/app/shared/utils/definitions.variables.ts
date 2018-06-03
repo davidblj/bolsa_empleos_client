@@ -3,14 +3,14 @@ import { Error } from '../interfaces/error.interface';
 const required = (): Error  =>
   ({
     key: 'required',
-    message: 'El campo es requerido.',
+    message: 'El campo es requerido',
     resolved: false
   });
 
 const requirements = (): Error =>
   ({
     key: 'requirements',
-    message: 'Los requisitos no se cumplen.',
+    message: 'Los requisitos no se cumplen',
     resolved: false
   });
 
@@ -69,6 +69,14 @@ const length = (min: number, max: number): Error => {
   })
 };
 
+const length_v2 = (min: number, max: number): Error => {
+  return ({
+    key: 'length',
+    message: `Debe tener entre los ${min} y ${max} caracteres`,
+    resolved: false
+  })
+};
+
 const username = (): Error =>
   ({
     key: 'async-username',
@@ -94,6 +102,7 @@ export const definitions = {
   email,
   email_v2,
   length,
+  length_v2,
   username,
   async
 };

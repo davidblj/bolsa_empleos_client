@@ -11,6 +11,7 @@ import { EmailComponent } from './components/inputs/email/email.component';
 import { ContactComponent } from './components/inputs/contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileFileInputComponent } from './components/profile-file-input/profile-file-input.component';
+import { ProfileContainerComponent } from './containers/profile-container/profile-container.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { ProfileFileInputComponent } from './components/profile-file-input/profi
     NameComponent,
     EmailComponent,
     ContactComponent,
-    ProfileFileInputComponent
+    ProfileFileInputComponent,
+    ProfileContainerComponent
   ]
 })
 export class ProfileModule { }
