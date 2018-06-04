@@ -51,7 +51,7 @@ export class LogInFormContainerComponent {
     const
       role = user.role,
       companyUser = role === 'company',
-      candidateUser = (role === 'student' || role === 'graduate');
+      candidateUser = (role === 'Estudiante' || role === 'Egresado');
 
     if (companyUser) { this.redirectTo('empresas/ofertas'); }
 

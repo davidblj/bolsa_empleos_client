@@ -88,7 +88,6 @@ export class CandidateUserService extends Service {
       const message = 'Error. Tu perfil no se pudo actualizar';
       const form = new Form();
       const formData = form.buildBinaries<UserDetails>(userDetails);
-      console.log(formData.get('name'));
 
       return this.http.put(`${this.baseUrl}`, formData)
         .pipe(catchError(this.handleError(message)));
@@ -108,7 +107,7 @@ export class CandidateUserService extends Service {
     const userInfo = this.authService.getUser();
     const userIsLogged =
       (userInfo &&
-      (userInfo.role === 'student' || userInfo.role === 'graduate'));
+      (userInfo.role === 'Estudiante' || userInfo.role === 'Egresado'));
 
     return userIsLogged;
   }

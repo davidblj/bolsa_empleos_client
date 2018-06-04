@@ -8,7 +8,7 @@ export class CandidateAuthGuard extends BaseGuard {
 
   constructor(authService: AuthService, router: Router) {
     super(authService, router);
-    this.roles.push('student');
-    this.roles.push('graduate');
+    this.roles.push('Estudiante');
+    this.roles.push('Egresado');
   }
 }

@@ -1,8 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Candidate } from '../../../../shared/interfaces/candidate.interface';
 import { UserDetails } from '../../shared/user-details.interface';
-import { Form } from '../../../../shared/classes/form.class';
-import { CandidateUserService } from '../../../../core/services/candidate-user.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,6 +12,12 @@ export class ProfileComponent implements OnInit {
   @Input()
   userDetails: Candidate;
 
+  @Input()
+  loading: boolean;
+
+  @Output()
+  onUpdateProfile = new EventEmitter<UserDetails>();
+
   form: UserDetails;
 
   fileStatus = false;
@@ -23,7 +27,7 @@ export class ProfileComponent implements OnInit {
   buttonColor = 'dark';
   buttonShape = 'square';
 
-  constructor(private candidateUserService: CandidateUserService) { }
+  constructor() { }
 
   ngOnInit() {
     this.name = this.userDetails.name;
@@ -45,10 +49,6 @@ export class ProfileComponent implements OnInit {
 
   onSubmitHandler() {
     this.form.resumee = this.file ? this.file : null;
-    console.log(this.form);
-    this.candidateUserService.updateProfile(this.form).subscribe(
-      () => { console.log('update complete') },
-      (error) => { console.log(error) }
-    );
+    this.onUpdateProfile.emit(this.form);
   }
 }

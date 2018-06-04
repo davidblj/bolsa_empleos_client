@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthService extends Service {
 
+  userInfo: UserAuth;
   sessionUrl = 'session';
   redirectionUrl: string;
 
@@ -27,8 +28,8 @@ export class AuthService extends Service {
 
     return this.http.post(this.sessionUrl, user)
       .map((response: UserAuth) => {
-
-        this.handleAuthentication(response);
+        this.userInfo = response;
+        this.setLocalStorage();
         return;
       })
       .pipe(catchError(this.handleError(message)));
@@ -40,13 +41,17 @@ export class AuthService extends Service {
   }
 
   getUser(): UserAuth | null {
-
     const loggedInUser = localStorage.getItem('be-user');
     return loggedInUser ? JSON.parse(loggedInUser) : null;
   }
 
-  private handleAuthentication(userInfo: UserAuth) {
+  updateUser(name: string, role: string) {
+    this.userInfo.name = name;
+    this.userInfo.role = role;
+    this.setLocalStorage();
+  }
 
-    localStorage.setItem('be-user', JSON.stringify(userInfo));
+  private setLocalStorage() {
+    localStorage.setItem('be-user', JSON.stringify(this.userInfo));
   }
 }

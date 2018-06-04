@@ -24,6 +24,7 @@
               d-flex justify-content-center">
 
     <app-button
+      *ngIf="!loading; else loadingIcon"
       [color]="buttonColor"
       [shape]="buttonShape"
       (submit)="onSubmitHandler()">
@@ -31,6 +32,10 @@
         Guardar
       </div>
     </app-button>
+
+    <ng-template #loadingIcon>
+      <img src="assets/rotate.svg"/>
+    </ng-template>
 
   </div>
 </div>

@@ -1,7 +1,9 @@
 
 <div *ngIf="(userDetails$ | async) as userInfo">
   <app-profile
-    [userDetails]="userInfo">
+    [userDetails]="userInfo"
+    [loading]="loading"
+    (onUpdateProfile)="onUpdateProfileHandler($event)">
   </app-profile>
 </div>
 

@@ -8,6 +8,17 @@
 
   &__update-button {
     margin: 5rem 0 2rem 0;
+
+    img {
+
+      height: 4rem;
+      animation: {
+        duration: 1s;
+        name: rotate;
+        iteration-count: infinite;
+        timing-function: linear;
+      }
+    }
   }
 
   .button-spacing {
