@@ -12,6 +12,8 @@ import { JobSnippet } from '../../search/shared/job-snippet.interface';
 import { AuthService } from './auth.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Candidate } from '../../shared/interfaces/candidate.interface';
+import { UserDetails } from '../../candidate-dashboard/profile/shared/user-details.interface';
+import { Form } from '../../shared/classes/form.class';
 
 @Injectable()
 export class CandidateUserService extends Service {
@@ -55,13 +57,9 @@ export class CandidateUserService extends Service {
 
       return this.http.get<JobSnippet[]>(`${this.baseUrl}/jobs/`)
         .pipe(catchError(this.handleError(message)))
-        .do(
-          (jobs: JobSnippet[]) => {
+        .do((jobs: JobSnippet[]) => {
             this.appliedJobsSource.next(jobs);
             return jobs;
-          },
-          (e_message) => {
-            console.error(e_message)
           });
 
     } else {
@@ -82,20 +80,34 @@ export class CandidateUserService extends Service {
     return null;
   }
 
+  updateProfile(userDetails: UserDetails): Observable<any> | null {
+
+    const userIsLogged = this.serviceGuard();
+    if (userIsLogged) {
+
+      const message = 'Error. Tu perfil no se pudo actualizar';
+      const form = new Form();
+      const formData = form.buildBinaries<UserDetails>(userDetails);
+      console.log(formData.get('name'));
+
+      return this.http.put(`${this.baseUrl}`, formData)
+        .pipe(catchError(this.handleError(message)));
+    }
+
+    return null;
+  }
+
   // utils
 
   addJobLocally(newJob: JobSnippet) {
-
     const oldList: JobSnippet[] = this.appliedJobsSource.value;
     this.appliedJobsSource.next([...oldList, newJob]);
   }
 
   private serviceGuard(): boolean {
-
     const userInfo = this.authService.getUser();
-
-    const userIsLogged = (
-      userInfo &&
+    const userIsLogged =
+      (userInfo &&
       (userInfo.role === 'student' || userInfo.role === 'graduate'));
 
     return userIsLogged;

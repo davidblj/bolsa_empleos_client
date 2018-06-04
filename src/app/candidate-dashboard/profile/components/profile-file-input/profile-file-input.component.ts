@@ -15,7 +15,7 @@ export class ProfileFileInputComponent extends FileInputComponent {
   buttonShape = 'square';
   buttonHoverColor = 'none';
 
-  validationMessage = '';
+  validationMessage = null;
   successMessage = 'El archivo se reemplazo exitosamente. Para efectuar el cambio, actualiza tu perfil';
   failureMessage = 'Solamente archivos .pdf';
   error = false;
@@ -29,11 +29,6 @@ export class ProfileFileInputComponent extends FileInputComponent {
     this.file.nativeElement.click();
   }
 
-  get sanitizedFileName() {
-    const filename = this.name.replace(/\s/g, '_');
-    return filename.concat('.pdf');
-  }
-
   updateMessages(valid: boolean, file) {
 
     if (valid) {
@@ -45,4 +40,9 @@ export class ProfileFileInputComponent extends FileInputComponent {
     }
   }
 
+  get sanitizedFileName() {
+
+    const filename = this.name.toLowerCase().replace(/\s/g, '_');
+    return filename.concat('.pdf');
+  }
 }

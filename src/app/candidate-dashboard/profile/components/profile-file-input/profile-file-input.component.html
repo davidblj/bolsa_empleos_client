@@ -18,6 +18,7 @@
     </div>
 
     <div class="file-input__message"
+         *ngIf="validationMessage"
          [ngClass]="{'file-input__message_error': error}" >
       {{validationMessage}}
     </div>

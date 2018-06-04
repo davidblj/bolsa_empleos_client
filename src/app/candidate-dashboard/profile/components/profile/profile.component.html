@@ -6,7 +6,7 @@
 
     <app-profile-user-details
       [userDetails]="userDetails"
-      (onNameChanged)="onNameChangedHandler($event)">
+      (onFormChanged)="onFormChangedHandler($event)">
     </app-profile-user-details>
 
   </app-profile-form-container>
@@ -25,7 +25,8 @@
 
     <app-button
       [color]="buttonColor"
-      [shape]="buttonShape">
+      [shape]="buttonShape"
+      (submit)="onSubmitHandler()">
       <div class="button-spacing">
         Guardar
       </div>

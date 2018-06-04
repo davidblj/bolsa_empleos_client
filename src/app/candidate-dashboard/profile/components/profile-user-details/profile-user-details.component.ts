@@ -4,6 +4,7 @@ import { DropDown } from '../../../../shared/interfaces/drop-down.interface';
 import { roleType } from './data';
 import { Candidate } from '../../../../shared/interfaces/candidate.interface';
 import { CustomValidators } from '../../../../sign-up/register-candidate/shared/custom-validations.functions';
+import { UserDetails } from '../../shared/user-details.interface';
 
 @Component({
   selector: 'app-profile-user-details',
@@ -16,7 +17,7 @@ export class ProfileUserDetailsComponent implements OnInit {
   userDetails: Candidate;
 
   @Output()
-  onNameChanged = new EventEmitter<string>();
+  onFormChanged = new EventEmitter<UserDetails>();
 
   form: FormGroup;
   roleType: DropDown;
@@ -60,8 +61,8 @@ export class ProfileUserDetailsComponent implements OnInit {
   }
 
   watchFormChanges() {
-   this.form.valueChanges.subscribe(({name}) => {
-     this.onNameChanged.emit(name);
+   this.form.valueChanges.subscribe((form: UserDetails) => {
+     this.onFormChanged.emit(form);
    })
   }
 }

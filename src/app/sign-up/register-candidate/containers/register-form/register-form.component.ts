@@ -45,7 +45,6 @@ export class RegisterFormComponent {
   }
 
   submit() {
-    console.log(this.user);
     this.registerService.addUser(this.user).subscribe(
       () => { console.log('sent') },
       (error) => { console.log(error) }
