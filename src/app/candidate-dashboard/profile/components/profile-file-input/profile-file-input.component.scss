@@ -1,3 +1,4 @@
+@import "variables";
 
 .file-input {
 
@@ -9,7 +10,20 @@
     text-align: center;
   }
 
-  &__file-name { }
+  &__file-name {
+    font-size: 1.6rem;
+    color: $stormGray;
+  }
+
+  &__message {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    &_error {
+      color: $burntSienna-light;
+    }
+  }
 
   &__icon {
 

@@ -76,7 +76,7 @@ export class CandidateUserService extends Service {
 
     if (userIsLogged) {
       const id = this.authService.getUser()._id;
-      return this.http.get(`${this.publicUrl}/${id}`);
+      return this.http.get<Candidate>(`${this.publicUrl}/${id}`);
     }
 
     return null;

@@ -5,14 +5,17 @@
   <app-profile-form-container>
 
     <app-profile-user-details
-      [userDetails]="userDetails">
+      [userDetails]="userDetails"
+      (onNameChanged)="onNameChangedHandler($event)">
     </app-profile-user-details>
 
   </app-profile-form-container>
 
   <app-profile-form-container>
 
-    <app-profile-file-input>
+    <app-profile-file-input
+      [name]="name"
+      (upload)="onUploadHandler($event)">
     </app-profile-file-input>
 
   </app-profile-form-container>

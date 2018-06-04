@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DropDown } from '../../../../shared/interfaces/drop-down.interface';
 import { roleType } from './data';
@@ -15,6 +15,9 @@ export class ProfileUserDetailsComponent implements OnInit {
   @Input()
   userDetails: Candidate;
 
+  @Output()
+  onNameChanged = new EventEmitter<string>();
+
   form: FormGroup;
   roleType: DropDown;
   roleTypeEditStatus = true;
@@ -24,6 +27,7 @@ export class ProfileUserDetailsComponent implements OnInit {
   ngOnInit() {
     this.roleType = roleType;
     this.createForm();
+    this.watchFormChanges();
   }
 
   createForm() {
@@ -53,6 +57,11 @@ export class ProfileUserDetailsComponent implements OnInit {
         CustomValidators.typeSelection
       ]
     });
+  }
 
+  watchFormChanges() {
+   this.form.valueChanges.subscribe(({name}) => {
+     this.onNameChanged.emit(name);
+   })
   }
 }

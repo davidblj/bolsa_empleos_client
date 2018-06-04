@@ -1,17 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { FileInputComponent } from '../../../../shared/components/file-input/file-input.component';
+import { templateJitUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-profile-file-input',
   templateUrl: './profile-file-input.component.html',
   styleUrls: ['./profile-file-input.component.scss']
 })
-export class ProfileFileInputComponent implements OnInit {
+export class ProfileFileInputComponent extends FileInputComponent {
+
+  @Input()
+  name: string;
 
   buttonShape = 'square';
+  buttonHoverColor = 'none';
 
-  constructor() { }
+  validationMessage = '';
+  successMessage = 'El archivo se reemplazo exitosamente. Para efectuar el cambio, actualiza tu perfil';
+  failureMessage = 'Solamente archivos .pdf';
+  error = false;
 
-  ngOnInit() {
+  @ViewChild('fileInput')
+  file: ElementRef;
+
+  regex = /^application\/pdf/;
+
+  onSubmitHandler() {
+    this.file.nativeElement.click();
+  }
+
+  get sanitizedFileName() {
+    const filename = this.name.replace(/\s/g, '_');
+    return filename.concat('.pdf');
+  }
+
+  updateMessages(valid: boolean, file) {
+
+    if (valid) {
+      this.validationMessage = this.successMessage;
+      this.error = false;
+    } else {
+      this.validationMessage = this.failureMessage;
+      this.error = true;
+    }
   }
 
 }

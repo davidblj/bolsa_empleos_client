@@ -1,3 +1,8 @@
+<input type="file"
+       accept=".pdf"
+       #fileInput
+       style="display: none"
+       (change)="onFileUpload($event)">
 
 <div class="file-input
             d-flex justify-content-center">
@@ -9,14 +14,21 @@
     </div>
 
     <div class="file-input__file-name">
-      cv owner.pdf
+      {{sanitizedFileName}}
+    </div>
+
+    <div class="file-input__message"
+         [ngClass]="{'file-input__message_error': error}" >
+      {{validationMessage}}
     </div>
 
     <div class="file-input__update">
       <app-button
-        [shape]="buttonShape">
+        [shape]="buttonShape"
+        [hoverColor]="buttonHoverColor"
+        (submit)="onSubmitHandler()">
         <div class="button-spacing">
-          actualizar
+          reemplazar
         </div>
       </app-button>
     </div>
