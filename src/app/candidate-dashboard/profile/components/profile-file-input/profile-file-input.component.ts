@@ -12,12 +12,10 @@ export class ProfileFileInputComponent extends FileInputComponent {
   @Input()
   name: string;
 
-  @Input()
-  validationMessage = null;
-
   buttonShape = 'square';
   buttonHoverColor = 'none';
 
+  validationMessage = null;
   successMessage = 'El archivo se reemplazo exitosamente. Para efectuar el cambio, actualiza tu perfil';
   failureMessage = 'Solamente archivos .pdf';
   error = false;
@@ -46,5 +44,9 @@ export class ProfileFileInputComponent extends FileInputComponent {
 
     const filename = this.name.toLowerCase().replace(/\s/g, '_');
     return filename.concat('.pdf');
+  }
+
+  resetMessaging() {
+    this.validationMessage = null;
   }
 }

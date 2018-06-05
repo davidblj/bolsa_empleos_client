@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Candidate } from '../../../../shared/interfaces/candidate.interface';
 import { UserDetails } from '../../shared/user-details.interface';
+import { ProfileFileInputComponent } from '../profile-file-input/profile-file-input.component';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +11,7 @@ import { UserDetails } from '../../shared/user-details.interface';
 export class ProfileComponent implements OnInit {
 
   @Input()
-  userDetails: Candidate;
+  profileInformation: Candidate;
 
   @Input()
   loading: boolean;
@@ -18,11 +19,13 @@ export class ProfileComponent implements OnInit {
   @Output()
   onUpdateProfile = new EventEmitter<UserDetails>();
 
+  @ViewChild(ProfileFileInputComponent)
+  fileInputComponent: ProfileFileInputComponent;
+
   form: UserDetails;
 
   file: File;
   fileStatus = false;
-  fileValidationMessage;
 
   name;
   buttonColor = 'dark';
@@ -31,7 +34,8 @@ export class ProfileComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.name = this.userDetails.name;
+    this.form = this.profileInformation;
+    this.name = this.profileInformation.name;
   }
 
   onFormChangedHandler(form: UserDetails) {
@@ -49,7 +53,12 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmitHandler() {
-    this.fileValidationMessage = null;
+
+    // Angular OnChangeDetection wont update the message
+    // twice if its value has not changed on this component
+    // (null)
+
+    this.fileInputComponent.resetMessaging();
     this.form.resumee = this.file ? this.file : null;
     this.onUpdateProfile.emit(this.form);
   }
