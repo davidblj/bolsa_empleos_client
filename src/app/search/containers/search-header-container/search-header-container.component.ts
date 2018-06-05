@@ -30,14 +30,14 @@ export class SearchHeaderContainerComponent implements OnInit {
 
     switch (role) {
 
-      case 'student':
+      case 'Estudiante':
         this.username = userInfo.name;
-        this.insignia = 'Estudiante';
+        this.insignia = userInfo.role;
         break;
 
-      case 'graduate':
+      case 'Graduado':
         this.username = userInfo.name;
-        this.insignia = 'Egresado';
+        this.insignia = userInfo.role;
         break;
 
       case 'company':

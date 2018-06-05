@@ -32,7 +32,6 @@ export class CandidateUserService extends Service {
   addJob(id: string): Observable<boolean> {
 
     const userIsLogged = this.serviceGuard();
-
     if (userIsLogged) {
 
       const message = 'Operacion invalida. Verifica que ya no estés aplicando o que la oferta exista';
@@ -47,10 +46,23 @@ export class CandidateUserService extends Service {
     }
   }
 
+  deleteJob(id: string): Observable<any> | null {
+
+    const userIsLogged = this.serviceGuard();
+    if (userIsLogged) {
+
+      const message = 'Operacion invalida. Verifica si estas aplicando o que la oferta exista';
+
+      return this.http.delete(`${this.baseUrl}/jobs/${id}`)
+        .pipe(catchError(this.handleError(message)));
+    }
+
+    return null;
+  }
+
   getJobs(): Observable<any> {
 
     const userIsLogged = this.serviceGuard();
-
     if (userIsLogged) {
 
       const message = 'Error. No pudimos extraer la información asociada a tu sesion';
@@ -71,7 +83,6 @@ export class CandidateUserService extends Service {
   getProfile(): Observable<Candidate> | null {
 
     const userIsLogged = this.serviceGuard();
-
     if (userIsLogged) {
       const id = this.authService.getUser()._id;
       return this.http.get<Candidate>(`${this.publicUrl}/${id}`);

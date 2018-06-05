@@ -20,8 +20,9 @@ export class ProfileComponent implements OnInit {
 
   form: UserDetails;
 
-  fileStatus = false;
   file: File;
+  fileStatus = false;
+  fileValidationMessage;
 
   name;
   buttonColor = 'dark';
@@ -48,6 +49,7 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmitHandler() {
+    this.fileValidationMessage = null;
     this.form.resumee = this.file ? this.file : null;
     this.onUpdateProfile.emit(this.form);
   }

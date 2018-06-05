@@ -46,8 +46,12 @@ export class AuthService extends Service {
   }
 
   updateUser(name: string, role: string) {
-    this.userInfo.name = name;
-    this.userInfo.role = role;
+
+    const userInfo: UserAuth = this.getUser();
+    userInfo.name = name;
+    userInfo.role = role;
+    this.userInfo = userInfo;
+
     this.setLocalStorage();
   }
 

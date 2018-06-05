@@ -14,6 +14,7 @@
   <app-profile-form-container>
 
     <app-profile-file-input
+      [validationMessage]="fileValidationMessage"
       [name]="name"
       (upload)="onUploadHandler($event)">
     </app-profile-file-input>
