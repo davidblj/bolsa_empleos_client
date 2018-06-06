@@ -1,8 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { CompanyUserService } from '../../../../core/services/company-user.service';
 
 // utils
 import { CustomValidators } from '../../../../shared/utils/custom-validators.functions';
@@ -20,6 +17,11 @@ export class JobOfferComponent implements OnInit {
   @Input()
   job: Job;
 
+  @Output()
+  onSubmit = new EventEmitter<Job>();
+
+  editingState = false;
+
   jobTypeConfig = jobType;
   jobAudienceConfig = jobAudience;
 
@@ -33,11 +35,8 @@ export class JobOfferComponent implements OnInit {
   reset = false;
 
   form: FormGroup;
-  modal: BsModalRef;
 
-  constructor(private fb: FormBuilder,
-              private companyUserService: CompanyUserService,
-              private modalService: BsModalService) {
+  constructor(private fb: FormBuilder) {
 
     this.createForm();
   }
@@ -45,6 +44,8 @@ export class JobOfferComponent implements OnInit {
   ngOnInit() {
 
     if (this.job) {
+
+      this.editingState = true;
 
       this.form.patchValue({
         name: this.job.name,
@@ -100,38 +101,12 @@ export class JobOfferComponent implements OnInit {
     })
   }
 
-  // todo: move this responsibility in to the container
   onSubmitHandler() {
-
     const job: Job = this.form.value;
-    this.companyUserService.addJob(job)
-      .subscribe(
-        (res) => {
-          this.resetFormValues();
-          const config = this.setModalMessage(res, false);
-          this.modal = this.modalService.show(JobOfferModalComponent, config);
-        },
-        (error) => {
-          const config = this.setModalMessage(error, true);
-          this.modal = this.modalService.show(JobOfferModalComponent, config);
-        }
-      )
-  }
-
-  setModalMessage(message: string, error: boolean) {
-
-    return {
-      class: 'modal-dialog-centered',
-      animated: false,
-      initialState: {
-        message: message,
-        error: error
-      }
-    };
+    this.onSubmit.emit(job);
   }
 
   resetFormValues() {
-
     // the expiry field needs to be an string, and not a null value
     this.form.reset({expiry: ''});
   }

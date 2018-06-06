@@ -11,6 +11,7 @@ import { Service } from '../../shared/classes/service.class';
 import { Job } from '../../shared/interfaces/job.interface';
 import { JobCandidates } from '../../company-dashboard/employment/shared/job-candidate.interface';
 import { CandidateSnippet } from '../../company-dashboard/employment/shared/candidate.interface';
+import { JobDetails } from '../../company-dashboard/job-offer/shared/job-details.interface';
 
 export enum jobTypes {
   active = 'active',
@@ -44,6 +45,14 @@ export class CompanyUserService extends Service {
       .map(() => {
         return 'La oferta se ha publicado exitosamente'
       });
+  }
+
+  updateJob(job: JobDetails, jobId: string): Observable<any> {
+
+    const message = 'Error. La oferta no se pudo actualizar';
+
+    return this.http.put(`${this.baseUrl}/jobs/${jobId}`, job)
+      .pipe(catchError(this.handleError(message)));
   }
 
   checkJobExistence(name, value): Observable<boolean> {
