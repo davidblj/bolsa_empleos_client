@@ -22,10 +22,12 @@ export class ProfileComponent implements OnInit {
   @ViewChild(ProfileFileInputComponent)
   fileInputComponent: ProfileFileInputComponent;
 
+  initialFormState: UserDetails;
   form: UserDetails;
+  shouldHideUpdateStatus = true;
+  shouldButtonBeEnabled = false;
 
   file: File;
-  fileStatus = false;
 
   name;
   buttonColor = 'dark';
@@ -34,32 +36,45 @@ export class ProfileComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.form = this.profileInformation;
+    this.initialFormState = this.profileInformation;
     this.name = this.profileInformation.name;
   }
 
   onFormChangedHandler(form: UserDetails) {
+
     this.name = form.name;
-    this.form = form;
+
+    if (!this.formsAreEqual(form)) {
+      this.shouldButtonBeEnabled = true;
+      this.form = form;
+    } else {
+      this.shouldButtonBeEnabled = false;
+    }
   }
 
   onUploadHandler(file: File) {
     if (file) {
       this.file = file;
-      this.fileStatus = true;
-    } else {
-      this.fileStatus = false;
+      this.shouldButtonBeEnabled = true;
     }
   }
 
   onSubmitHandler() {
-
-    // Angular OnChangeDetection wont update the message
-    // twice if its value has not changed on this component
-    // (null)
-
     this.fileInputComponent.resetMessaging();
     this.form.resumee = this.file ? this.file : null;
     this.onUpdateProfile.emit(this.form);
+  }
+
+  showUpdateStatus() {
+    this.shouldHideUpdateStatus = false;
+    setTimeout(() => {this.shouldHideUpdateStatus = true}, 4000);
+  }
+
+  private formsAreEqual(newForm: UserDetails) {
+    return (
+      this.initialFormState.role === newForm.role &&
+      this.initialFormState.name === newForm.name &&
+      this.initialFormState.contact === newForm.contact &&
+      this.initialFormState.email === newForm.email);
   }
 }

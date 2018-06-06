@@ -20,6 +20,11 @@
 
   </app-profile-form-container>
 
+  <div class="profile__update-status text-center"
+       [ngClass]="{'profile__update-status_hidden': shouldHideUpdateStatus}">
+    Tu perfil se ha actualizado.
+  </div>
+
   <div class="profile__update-button
               d-flex justify-content-center">
 
@@ -27,6 +32,7 @@
       *ngIf="!loading; else loadingIcon"
       [color]="buttonColor"
       [shape]="buttonShape"
+      [enabled]="shouldButtonBeEnabled"
       (submit)="onSubmitHandler()">
       <div class="button-spacing">
         Guardar

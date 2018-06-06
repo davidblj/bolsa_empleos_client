@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CandidateUserService } from '../../../../core/services/candidate-user.service';
 import { UserDetails } from '../../shared/user-details.interface';
 import { AuthService } from '../../../../core/services/auth.service';
+import { ProfileComponent } from '../../components/profile/profile.component';
 
 @Component({
   selector: 'app-profile-container',
@@ -9,6 +10,9 @@ import { AuthService } from '../../../../core/services/auth.service';
   styleUrls: ['./profile-container.component.scss']
 })
 export class ProfileContainerComponent implements OnInit {
+
+  @ViewChild(ProfileComponent)
+  profileComponent: ProfileComponent;
 
   userDetails$ = this.candidateUserService.getProfile();
   loading: boolean;
@@ -26,7 +30,7 @@ export class ProfileContainerComponent implements OnInit {
       () => {
         this.loading = false;
         this.authService.updateUser(userDetails.name, userDetails.role);
-        console.log('update complete')
+        this.profileComponent.showUpdateStatus();
       },
       (error) => { console.log(error) }
     );

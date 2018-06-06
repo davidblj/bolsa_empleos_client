@@ -7,7 +7,8 @@
   border-radius: 10px;
 
   &__update-button {
-    margin: 5rem 0 2rem 0;
+
+    margin: 1rem 0 2rem 0;
 
     img {
 
@@ -19,9 +20,21 @@
         timing-function: linear;
       }
     }
+
+    .button-spacing {
+      padding: 1.5rem 4rem;
+    }
   }
 
-  .button-spacing {
-    padding: 1.5rem 4rem;
+  &__update-status {
+
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all .5s;
+
+    &_hidden {
+      opacity: 0;
+    }
   }
 }
