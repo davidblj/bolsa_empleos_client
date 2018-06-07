@@ -55,25 +55,36 @@
 
   </div>
 
+  <div class="job-form__update-status text-center"
+       [ngClass]="{'job-form__update-status_hidden': shouldHideUpdateStatus}">
+    Actualizacion completa.
+  </div>
+
   <div class="job-form__footer
               d-flex justify-content-center">
 
     <div class="job-form__submit-button">
+
       <app-button
+        *ngIf="!loading; else loadingIcon"
         [color]="buttonColor"
         [shape]="buttonShape"
-        [enabled]="formStatus"
-        (submit)="onSubmitHandler()">
+        [enabled]="shouldButtonBeEnabled"
+        (submit)="onClickHandler()">
         <div class="button-spacing">
           {{buttonTitle}}
         </div>
       </app-button>
+
+      <ng-template #loadingIcon>
+        <img src="assets/rotate.svg"/>
+      </ng-template>
     </div>
 
   </div>
 
-  <button (click)="resetFormValues()">
+  <!--<button (click)="resetFormValues()">
     trigger
-  </button>
+  </button>-->
 
 </div>

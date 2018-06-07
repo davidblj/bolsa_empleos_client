@@ -33,8 +33,20 @@ $input-section-spacing: 8rem;
     }
   }
 
+  &__update-status {
+
+    margin-top: 3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all .5s;
+
+    &_hidden {
+      opacity: 0;
+    }
+  }
+
   &__footer {
-    margin: 4rem $input-section-spacing 2rem;
+    margin: 1rem $input-section-spacing 2rem;
   }
 
   &__submit-button {

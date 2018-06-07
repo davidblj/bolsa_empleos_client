@@ -44,7 +44,8 @@ export class ProfileComponent implements OnInit {
 
     this.name = form.name;
 
-    if (!this.formsAreEqual(form)) {
+    // do check if the form is also valid
+    if (!this.statesAreIdentical(form)) {
       this.shouldButtonBeEnabled = true;
       this.form = form;
     } else {
@@ -70,7 +71,7 @@ export class ProfileComponent implements OnInit {
     setTimeout(() => {this.shouldHideUpdateStatus = true}, 4000);
   }
 
-  private formsAreEqual(newForm: UserDetails) {
+  private statesAreIdentical(newForm: UserDetails) {
     return (
       this.initialFormState.role === newForm.role &&
       this.initialFormState.name === newForm.name &&

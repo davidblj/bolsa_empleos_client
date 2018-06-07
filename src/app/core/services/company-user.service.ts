@@ -47,7 +47,7 @@ export class CompanyUserService extends Service {
       });
   }
 
-  updateJob(job: JobDetails, jobId: string): Observable<any> {
+  updateJob(job: Job, jobId: string): Observable<any> {
 
     const message = 'Error. La oferta no se pudo actualizar';
 

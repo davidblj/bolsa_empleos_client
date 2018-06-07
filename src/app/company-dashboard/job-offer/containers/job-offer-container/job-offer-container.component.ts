@@ -18,6 +18,7 @@ export class JobOfferContainerComponent implements OnInit {
   jobOfferComponent: JobOfferComponent;
 
   job: Job;
+  loading = false;
   modal: BsModalRef;
 
   constructor(private route: ActivatedRoute,
@@ -35,21 +36,38 @@ export class JobOfferContainerComponent implements OnInit {
 
   onSubmitHandler(job: Job) {
 
+    this.loading = true;
     this.companyUserService.addJob(job)
       .subscribe(
         (res) => {
           this.jobOfferComponent.resetFormValues();
-          const config = this.setModalMessage(res, false);
+          this.loading = false;
+          const config = this.setModalConfig(res, false);
           this.modal = this.modalService.show(JobOfferModalComponent, config);
         },
         (error) => {
-          const config = this.setModalMessage(error, true);
+          this.loading = false;
+          const config = this.setModalConfig(error, true);
           this.modal = this.modalService.show(JobOfferModalComponent, config);
         }
       )
   }
 
-  setModalMessage(message: string, error: boolean) {
+  onSaveHandler(job: Job) {
+
+    this.loading = true;
+    this.companyUserService.updateJob(job, this.job._id)
+      .subscribe(() => {
+          this.loading = false;
+          this.jobOfferComponent.showUpdateStatus()
+        },
+        (error) => {
+          this.loading = false;
+          console.error(error);
+        })
+  }
+
+  setModalConfig(message: string, error: boolean) {
 
     return {
       class: 'modal-dialog-centered',

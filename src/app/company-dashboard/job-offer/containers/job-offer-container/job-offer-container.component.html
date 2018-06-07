@@ -1,5 +1,7 @@
 
 <app-job-offer
   [job]="job"
-  (onSubmit)="onSubmitHandler($event)">
+  [loading]="loading"
+  (onSubmit)="onSubmitHandler($event)"
+  (onSave)="onSaveHandler($event)">
 </app-job-offer>
