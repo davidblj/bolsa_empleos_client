@@ -9,7 +9,8 @@
   <div class="job-card__date">
     {{appliedDate}}
   </div>
-  <div class="job-card__options">
+  <div class="job-card__options"
+       (click)="onDeleteHandler()" >
     <img src="assets/icons/candidate-dashboard/delete.svg" alt="">
   </div>
 </div>

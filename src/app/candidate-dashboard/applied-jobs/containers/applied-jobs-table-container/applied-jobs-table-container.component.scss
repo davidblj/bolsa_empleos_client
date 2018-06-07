@@ -1,0 +1,29 @@
+@import "variables";
+
+.custom-modal {
+
+  &__body {
+    padding: 4rem;
+    font-size: 1.8rem;
+    border-bottom: solid 1px $mischka;
+  }
+
+  &__footer {
+
+    padding: 2rem;
+
+    .button-spacing {
+      width: 6rem;
+      padding: .7rem 0;
+    }
+  }
+
+  &__option {
+
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+}

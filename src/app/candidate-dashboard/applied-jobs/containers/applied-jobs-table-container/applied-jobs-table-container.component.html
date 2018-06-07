@@ -1,6 +1,40 @@
 
 <div *ngIf="(jobs$ | async) as jobs">
   <app-applied-jobs-table
-    [jobs]="jobs">
+    [jobs]="jobs"
+    (onDelete)="onDeleteHandler($event)">
   </app-applied-jobs-table>
 </div>
+
+<ng-template #confirmationModal>
+  <div class="custom-modal text-center">
+    <div class="custom-modal__body">
+      ¿Estas seguro que deseas retirar tu solicitud hacia esta oferta?
+    </div>
+    <div class="custom-modal__footer">
+
+      <div class="custom-modal__option">
+        <app-button
+          [shape]="buttonShape"
+          [color]="confirmButtonColor"
+          [hoverColor]="buttonHoverColor"
+          (submit)="confirm()">
+          <div class="button-spacing">
+            Si
+          </div>
+        </app-button>
+      </div>
+
+      <div class="custom-modal__option">
+        <app-button
+          [shape]="buttonShape"
+          [hoverColor]="buttonHoverColor"
+          (submit)="decline()">
+          <div class="button-spacing">
+            No
+          </div>
+        </app-button>
+      </div>
+    </div>
+  </div>
+</ng-template>

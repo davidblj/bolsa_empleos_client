@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { JobSnippet } from '../../../../search/shared/job-snippet.interface';
 
 @Component({
@@ -11,10 +11,17 @@ export class AppliedJobsJobCardComponent implements OnInit {
   @Input()
   job: JobSnippet;
 
+  @Output()
+  onDelete = new EventEmitter<string>();
+
   ngOnInit() {
   }
 
   get appliedDate() {
     return  'hoy';
+  }
+
+  onDeleteHandler() {
+    this.onDelete.emit(this.job._id);
   }
 }

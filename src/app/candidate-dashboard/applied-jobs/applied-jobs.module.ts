@@ -5,11 +5,15 @@ import { AppliedJobsTableContainerComponent } from './containers/applied-jobs-ta
 import { AppliedJobsTableComponent } from './components/applied-jobs-table/applied-jobs-table.component';
 import { AppliedJobsRoutingModule } from './applied-jobs-routing.module';
 import { AppliedJobsJobCardComponent } from './components/applied-jobs-job-card/applied-jobs-job-card.component';
+import { ModalModule } from 'ngx-bootstrap';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    AppliedJobsRoutingModule
+    AppliedJobsRoutingModule,
+    SharedModule,
+    ModalModule.forRoot(),
   ],
   declarations: [
     AppliedJobsTableComponent,
