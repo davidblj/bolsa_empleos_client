@@ -29,6 +29,7 @@ import { SearchHeaderContainerComponent } from './containers/search-header-conta
 import { CategoryComponent } from './components/filters/category/category.component';
 import { SearchComponent } from './components/filters/search/search.component';
 import { SalaryComponent } from './components/filters/salary/salary.component';
+import { ModalModule } from 'ngx-bootstrap';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { SalaryComponent } from './components/filters/salary/salary.component';
     SearchRoutingModule,
     CommonModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    ModalModule.forRoot()
   ],
   exports: [
     SearchDashboardComponent

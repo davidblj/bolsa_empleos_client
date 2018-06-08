@@ -1,14 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CandidateUserService } from '../../../../core/services/candidate-user.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { AppliedJobsModalComponent } from '../../components/applied-jobs-modal/applied-jobs-modal.component';
 import { AppliedJobsTableComponent } from '../../components/applied-jobs-table/applied-jobs-table.component';
 import { BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-applied-jobs-table-container',
-  templateUrl: './applied-jobs-table-container.component.html',
-  styleUrls: ['./applied-jobs-table-container.component.scss']
+  templateUrl: './applied-jobs-table-container.component.html'
 })
 export class AppliedJobsTableContainerComponent implements OnInit {
 
@@ -34,18 +32,21 @@ export class AppliedJobsTableContainerComponent implements OnInit {
   }
 
   onDeleteHandler(id: string) {
+
     this.jobIdToDelete = id;
     this.modalReference = this.modalService.show(this.confirmationModal, this.setModalConfig());
   }
 
   setModalConfig() {
+
     return {
       class: 'modal-dialog-centered',
-      animated: false
+      animated: true
     };
   }
 
   confirm() {
+
     this.candidateUserService.deleteJob(this.jobIdToDelete).subscribe(
       () => {
         this.appliedJobsTableComponent.deleteJobFromList(this.jobIdToDelete);

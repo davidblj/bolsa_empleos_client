@@ -14,6 +14,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Candidate } from '../../shared/interfaces/candidate.interface';
 import { UserDetails } from '../../candidate-dashboard/profile/shared/user-details.interface';
 import { Form } from '../../shared/classes/form.class';
+import { Job } from '../../shared/interfaces/job.interface';
+import { UserAuth } from '../../log-in/shared/user-auth.interface';
 
 @Injectable()
 export class CandidateUserService extends Service {
@@ -29,14 +31,16 @@ export class CandidateUserService extends Service {
     super();
   }
 
-  addJob(id: string): Observable<boolean> {
+  addJob(job: Job): Observable<boolean> {
 
-    const userIsLogged = this.serviceGuard();
-    if (userIsLogged) {
+    const userCanApply = (this.serviceGuard() &&
+                         this.addJobGuard(job.to));
+
+    if (userCanApply) {
 
       const message = 'Operacion invalida. Verifica que ya no estés aplicando o que la oferta exista';
 
-      return this.http.post(`${this.baseUrl}/jobs/${id}`, null, { observe: 'response' })
+      return this.http.post(`${this.baseUrl}/jobs/${job._id}`, null, { observe: 'response' })
         .map((res: HttpResponse<any>) => res.status === 204)
         .pipe(catchError(this.handleError(message)));
 
@@ -49,6 +53,7 @@ export class CandidateUserService extends Service {
   deleteJob(id: string): Observable<any> | null {
 
     const userIsLogged = this.serviceGuard();
+
     if (userIsLogged) {
 
       const message = 'Operacion invalida. Verifica si estas aplicando o que la oferta exista';
@@ -63,6 +68,7 @@ export class CandidateUserService extends Service {
   getJobs(): Observable<any> {
 
     const userIsLogged = this.serviceGuard();
+
     if (userIsLogged) {
 
       const message = 'Error. No pudimos extraer la información asociada a tu sesion';
@@ -76,13 +82,14 @@ export class CandidateUserService extends Service {
 
     } else {
 
-      return this.pipe();
+      return this.forwardRequest();
     }
   }
 
   getProfile(): Observable<Candidate> | null {
 
     const userIsLogged = this.serviceGuard();
+
     if (userIsLogged) {
       const id = this.authService.getUser()._id;
       return this.http.get<Candidate>(`${this.publicUrl}/${id}`);
@@ -110,11 +117,13 @@ export class CandidateUserService extends Service {
   // utils
 
   addJobLocally(newJob: JobSnippet) {
+
     const oldList: JobSnippet[] = this.appliedJobsSource.value;
     this.appliedJobsSource.next([...oldList, newJob]);
   }
 
   private serviceGuard(): boolean {
+
     const userInfo = this.authService.getUser();
     const userIsLogged =
       (userInfo &&
@@ -123,7 +132,24 @@ export class CandidateUserService extends Service {
     return userIsLogged;
   }
 
-  private pipe(): Observable<any> {
+  private addJobGuard(audience: string): boolean {
+
+    const user = this.authService.getUser();
+    const userRole = user.role;
+
+    if (audience === 'Ambos') {
+      return true
+    }
+
+    if (audience === 'Practicante' && userRole === 'Estudiante') {
+      return true
+    }
+
+    return audience === 'Egresado' && userRole === 'Egresado';
+  }
+
+  private forwardRequest(): Observable<any> {
+
     return new Observable(function (observer) {
       observer.next();
     });

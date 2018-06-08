@@ -36,11 +36,13 @@ export class AuthService extends Service {
   }
 
   logOut() {
+
     localStorage.removeItem('be-user');
     this.router.navigate(['/']);
   }
 
   getUser(): UserAuth | null {
+
     const loggedInUser = localStorage.getItem('be-user');
     return loggedInUser ? JSON.parse(loggedInUser) : null;
   }
@@ -56,6 +58,7 @@ export class AuthService extends Service {
   }
 
   private setLocalStorage() {
+
     localStorage.setItem('be-user', JSON.stringify(this.userInfo));
   }
 }

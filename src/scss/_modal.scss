@@ -2,15 +2,32 @@
 
 .custom-modal {
 
-  &__body {
-    padding: 4rem;
+  text-align: center;
+
+  &__header {
+
+    background: $mantis-light;
+    color: $white;
+    padding: 1.6rem;
     font-size: 1.8rem;
-    border-bottom: solid 1px $mischka;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    &_error {
+
+      background: $burntSienna-light;
+    }
+  }
+
+  &__body {
+
+    padding: 4rem;
   }
 
   &__footer {
 
     padding: 2rem;
+    border-top: solid 1px $mischka;
 
     .button-spacing {
       width: 6rem;

@@ -1,7 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { CandidateUserService } from '../../../core/services/candidate-user.service';
 import { Job } from '../../../shared/interfaces/job.interface';
 import { JobSnippet } from '../../shared/job-snippet.interface';
+import { AuthService } from '../../../core/services/auth.service';
+import { Router } from '@angular/router';
+import { BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-search-apply-container',
@@ -9,6 +12,9 @@ import { JobSnippet } from '../../shared/job-snippet.interface';
   styleUrls: ['./search-apply-container.component.scss']
 })
 export class SearchApplyContainerComponent implements OnInit {
+
+  @ViewChild('warningModal')
+  warningModal;
 
   @Input()
   set job(job: Job) {
@@ -24,7 +30,12 @@ export class SearchApplyContainerComponent implements OnInit {
   applyingStatus = false;
   _job: Job;
 
-  constructor(private candidateUserService: CandidateUserService) {
+  userRole: string;
+
+  constructor(private candidateUserService: CandidateUserService,
+              private authService: AuthService,
+              private modalService: BsModalService,
+              private router: Router) {
 
     // do get the applying jobs before the change
     // detection tries to update (in our setter)
@@ -39,13 +50,13 @@ export class SearchApplyContainerComponent implements OnInit {
 
   onApply() {
 
-    this.candidateUserService.addJob(this.job._id)
+    this.candidateUserService.addJob(this.job)
       .subscribe(
         (res: boolean) => {
           this.handleResponse(res);
         },
         (message) => {
-          this.handleError(message)
+          console.error(message);
         })
   }
 
@@ -58,14 +69,15 @@ export class SearchApplyContainerComponent implements OnInit {
 
     } else {
 
-      const message = 'Si quieres aplicar, ¡ tu sesión deberás iniciar !';
-      this.handleError(message);
+      const user = this.authService.getUser();
+
+      if (user) {
+        this.userRole = user.role;
+        this.modalService.show(this.warningModal, this.setModalConfig());
+      } else {
+        this.router.navigate(['./ingresar']);
+      }
     }
-  }
-
-  handleError(message: string) {
-
-    console.error(message);
   }
 
   addJobLocally() {
@@ -86,6 +98,14 @@ export class SearchApplyContainerComponent implements OnInit {
     });
 
     this.applyingStatus = status;
+  }
+
+  setModalConfig() {
+
+    return {
+      class: 'modal-dialog-centered',
+      animated: true
+    };
   }
 
   get job() {

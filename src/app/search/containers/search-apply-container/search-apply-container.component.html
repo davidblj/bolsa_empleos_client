@@ -4,3 +4,15 @@
   [applyingStatus]="applyingStatus"
   (apply)="onApply()">
 </app-search-apply>
+
+<ng-template #warningModal>
+  <div class="custom-modal">
+    <div class="custom-modal__header custom-modal__header_error">
+      ¡Oops!
+    </div>
+    <div class="custom-modal__body">
+      Un {{userRole | lowercase }} no puede aplicar a esta oferta. Revisa que el tipo de audiencia
+      coincida con el rol actual de tu cuenta.
+    </div>
+  </div>
+</ng-template>
