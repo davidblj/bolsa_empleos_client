@@ -15,9 +15,8 @@
     (onOptionSelected)="onFilterSetHandler($event, 'type')">
   </app-category>
 
-  <app-category
-    [category]="audienceCategory"
-    [options]="audienceCategoryOptions"
+  <app-search-audience-filter-container
     (onOptionSelected)="onFilterSetHandler($event, 'audience')">
-  </app-category>
+  </app-search-audience-filter-container>
+
 </div>

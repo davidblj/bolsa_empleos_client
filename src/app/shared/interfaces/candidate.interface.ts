@@ -1,3 +1,4 @@
+import { Roles } from '../utils/globals.variables';
 
 export interface Candidate {
   username: string;
@@ -5,6 +6,6 @@ export interface Candidate {
   pid: string;
   email: string;
   contact: string;
-  role: string;
+  role: Roles;
   skills: string[];
 }

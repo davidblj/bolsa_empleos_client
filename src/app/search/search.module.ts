@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 // modules
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SearchRoutingModule } from './search-routing.module';
+import { ModalModule } from 'ngx-bootstrap';
 
 // components
 import { SearchAgentComponent } from './containers/search-agent/search-agent.component';
@@ -15,12 +18,10 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { SearchDashboardComponent } from './components/search-dashboard/search-dashboard.component';
 import { SearchHeaderComponent } from './components/search-header/search-header.component';
 import { SearchJobComponent } from './containers/search-job/search-job.component';
-import { SearchRoutingModule } from './search-routing.module';
 import { SearchApplyComponent } from './components/search-apply/search-apply.component';
 import { SearchApplyContainerComponent } from './containers/search-apply-container/search-apply-container.component';
 import { SearchRowContainerComponent } from './containers/search-row-container/search-row-container.component';
 import { SearchPaginatorComponent } from './components/search-paginator/search-paginator.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 // services
 import { SearchJobsService } from './shared/search-jobs.service';
@@ -29,7 +30,7 @@ import { SearchHeaderContainerComponent } from './containers/search-header-conta
 import { CategoryComponent } from './components/filters/category/category.component';
 import { SearchComponent } from './components/filters/search/search.component';
 import { SalaryComponent } from './components/filters/salary/salary.component';
-import { ModalModule } from 'ngx-bootstrap';
+import { SearchAudienceFilterContainerComponent } from './containers/search-audience-filter-container/search-audience-filter-container.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { ModalModule } from 'ngx-bootstrap';
     SearchHeaderContainerComponent,
     CategoryComponent,
     SearchComponent,
-    SalaryComponent
+    SalaryComponent,
+    SearchAudienceFilterContainerComponent
   ],
   providers: [
     SearchJobsService,

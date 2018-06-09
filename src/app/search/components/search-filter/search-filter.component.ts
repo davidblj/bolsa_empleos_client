@@ -21,13 +21,6 @@ export class SearchFilterComponent implements OnInit {
     {name: 'Temporal', selected: false },
   ];
 
-  audienceCategory = 'Audiencia';
-  audienceCategoryOptions: Option[] = [
-    {name: 'Practicante', selected: false },
-    {name: 'Egresado', selected: false },
-    {name: 'Ambos', selected: false }
-  ];
-
   constructor() {}
 
   ngOnInit() {}

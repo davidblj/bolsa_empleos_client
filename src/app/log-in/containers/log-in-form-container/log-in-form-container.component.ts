@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 import { UserCredentials } from '../../shared/user-credentials.model';
 import { UserAuth } from '../../shared/user-auth.interface';
+import { Roles } from '../../../shared/utils/globals.variables';
 
 @Component({
   selector: 'app-log-in-form-container',
@@ -50,8 +51,8 @@ export class LogInFormContainerComponent {
 
     const
       role = user.role,
-      companyUser = role === 'company',
-      candidateUser = (role === 'Estudiante' || role === 'Egresado');
+      companyUser = role === Roles.Company,
+      candidateUser = (role === Roles.Student || role === Roles.Graduate);
 
     if (companyUser) { this.redirectTo('empresas/ofertas'); }
 

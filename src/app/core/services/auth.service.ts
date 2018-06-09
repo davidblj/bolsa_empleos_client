@@ -9,6 +9,7 @@ import { UserCredentials } from '../../log-in/shared/user-credentials.model';
 import { UserAuth } from '../../log-in/shared/user-auth.interface';
 import { Service } from '../../shared/classes/service.class';
 import { Router } from '@angular/router';
+import { Roles } from '../../shared/utils/globals.variables';
 
 @Injectable()
 export class AuthService extends Service {
@@ -47,7 +48,13 @@ export class AuthService extends Service {
     return loggedInUser ? JSON.parse(loggedInUser) : null;
   }
 
-  updateUser(name: string, role: string) {
+  getRole(): Roles | null {
+
+    const currentUser = this.getUser();
+    return currentUser ? currentUser.role : null;
+  }
+
+  updateUser(name: string, role: Roles) {
 
     const userInfo: UserAuth = this.getUser();
     userInfo.name = name;

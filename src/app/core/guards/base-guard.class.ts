@@ -3,11 +3,12 @@ import { UserAuth } from '../../log-in/shared/user-auth.interface';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../services/auth.service';
 import { Injectable } from '@angular/core';
+import { Roles } from '../../shared/utils/globals.variables';
 
 @Injectable()
 export class BaseGuard implements CanActivate, CanLoad {
 
-  roles: string[] = [];
+  roles: Roles[] = [];
 
   constructor(private authService: AuthService,
               private router: Router) {}

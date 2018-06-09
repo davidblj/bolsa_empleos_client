@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
+import { Roles } from '../../../shared/utils/globals.variables';
 
 @Component({
   selector: 'app-search-header-container',
@@ -9,7 +10,7 @@ import { AuthService } from '../../../core/services/auth.service';
 export class SearchHeaderContainerComponent implements OnInit {
 
   username: string;
-  insignia: string;
+  insignia: Roles | string;
 
   constructor(private authService: AuthService) { }
 
@@ -28,22 +29,14 @@ export class SearchHeaderContainerComponent implements OnInit {
 
     const role = userInfo.role;
 
-    switch (role) {
+    if (role === Roles.Graduate || role === Roles.Student) {
+      this.username = userInfo.name;
+      this.insignia = userInfo.role;
+    }
 
-      case 'Estudiante':
-        this.username = userInfo.name;
-        this.insignia = userInfo.role;
-        break;
-
-      case 'Graduado':
-        this.username = userInfo.name;
-        this.insignia = userInfo.role;
-        break;
-
-      case 'company':
-        this.username = userInfo.admin;
-        this.insignia = userInfo.name;
-        break;
+    if (role === Roles.Company) {
+      this.username = userInfo.admin;
+      this.insignia = userInfo.name;
     }
   }
 

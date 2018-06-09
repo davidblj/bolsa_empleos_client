@@ -5,6 +5,7 @@ import { JobSnippet } from '../../shared/job-snippet.interface';
 import { AuthService } from '../../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { Roles } from '../../../shared/utils/globals.variables';
 
 @Component({
   selector: 'app-search-apply-container',
@@ -30,7 +31,7 @@ export class SearchApplyContainerComponent implements OnInit {
   applyingStatus = false;
   _job: Job;
 
-  userRole: string;
+  userRole: Roles;
 
   constructor(private candidateUserService: CandidateUserService,
               private authService: AuthService,

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { JobSnippet } from '../../shared/job-snippet.interface';
-
-// services
 import { SearchJobsService } from '../../shared/search-jobs.service';
 import { CandidateUserService } from '../../../core/services/candidate-user.service';
 import { JobSearch } from '../../shared/job-search-interface';
 import { Query } from '../../shared/query.interface';
-import { JobService } from '../../../core/services/job.service';
+import { AuthService } from '../../../core/services/auth.service';
+import { APPRENTICE, BOTH, GRADUATE, Roles, STUDENT } from '../../../shared/utils/globals.variables';
 
 @Component({
   selector: 'app-search-agent',
@@ -24,12 +23,13 @@ export class SearchAgentComponent implements OnInit {
   loading: boolean;
 
   constructor(private searchJobsService: SearchJobsService,
-              private candidateUserService: CandidateUserService) { }
+              private candidateUserService: CandidateUserService,
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.candidateUserService.getJobs()
       .subscribe(() => {
-        this.getFirstPage(null);
+        this.getFirstPage(this.setDefaultAudienceQuery());
       });
   }
 
@@ -48,6 +48,29 @@ export class SearchAgentComponent implements OnInit {
 
   getNewPage(offset) {
     this.searchJobs(offset, null);
+  }
+
+  setDefaultAudienceQuery(): Query | null {
+
+    const userRole = this.authService.getRole();
+    let value;
+
+    if (!userRole) {
+      return null;
+    }
+
+    if (userRole === Roles.Graduate) {
+      value = `${GRADUATE},${BOTH}`;
+    }
+
+    if (userRole === Roles.Student) {
+      value = `${APPRENTICE},${BOTH}`;
+    }
+
+    return {
+      name: 'audience',
+      value: value
+    }
   }
 
   searchJobs(offset, query: Query) {

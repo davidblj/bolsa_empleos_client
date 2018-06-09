@@ -15,7 +15,7 @@ import { Candidate } from '../../shared/interfaces/candidate.interface';
 import { UserDetails } from '../../candidate-dashboard/profile/shared/user-details.interface';
 import { Form } from '../../shared/classes/form.class';
 import { Job } from '../../shared/interfaces/job.interface';
-import { UserAuth } from '../../log-in/shared/user-auth.interface';
+import { APPRENTICE, BOTH, GRADUATE, Roles } from '../../shared/utils/globals.variables';
 
 @Injectable()
 export class CandidateUserService extends Service {
@@ -127,7 +127,7 @@ export class CandidateUserService extends Service {
     const userInfo = this.authService.getUser();
     const userIsLogged =
       (userInfo &&
-      (userInfo.role === 'Estudiante' || userInfo.role === 'Egresado'));
+      (userInfo.role === Roles.Student || userInfo.role === Roles.Graduate));
 
     return userIsLogged;
   }
@@ -137,15 +137,15 @@ export class CandidateUserService extends Service {
     const user = this.authService.getUser();
     const userRole = user.role;
 
-    if (audience === 'Ambos') {
+    if (audience === BOTH) {
       return true
     }
 
-    if (audience === 'Practicante' && userRole === 'Estudiante') {
+    if (audience === APPRENTICE && userRole === Roles.Student) {
       return true
     }
 
-    return audience === 'Egresado' && userRole === 'Egresado';
+    return audience === GRADUATE && userRole === Roles.Graduate;
   }
 
   private forwardRequest(): Observable<any> {
