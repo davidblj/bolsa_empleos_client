@@ -4,6 +4,7 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/distinctUntilChanged';
+import { DataService } from '../../../../core/services/data.service';
 
 @Component({
   selector: 'app-search',
@@ -17,10 +18,20 @@ export class SearchComponent implements OnInit {
 
   control = new FormControl();
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+
+    this.getInitialState();
     this.watchFormControl();
+  }
+
+  getInitialState() {
+
+    const searchInputState = this.dataService.searchQuery;
+    if (searchInputState) {
+      this.control.setValue(searchInputState);
+    }
   }
 
   watchFormControl() {

@@ -10,7 +10,7 @@ import { Query } from '../../shared/query.interface';
 export class SearchFilterComponent implements OnInit {
 
   @Output()
-  onQuery = new EventEmitter<Query>();
+  onQuery = new EventEmitter<Query[]>();
 
   // todo: create a new class
   typeCategory = 'Tipo';
@@ -26,7 +26,11 @@ export class SearchFilterComponent implements OnInit {
   ngOnInit() {}
 
   onFilterSetHandler(value: string, queryName: string) {
-    const query: Query = {name: queryName, value: value};
+
+    const query: Query[] = [];
+    const queryItem: Query = {name: queryName, value: value};
+    query.push(queryItem);
+
     this.onQuery.emit(query);
   }
 }

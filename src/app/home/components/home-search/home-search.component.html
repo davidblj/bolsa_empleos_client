@@ -1,11 +1,14 @@
 
 <div class="home-search">
   <input class="home-search__input"
-         placeholder="Titulo del empleo o nombre de la empresa" >
+         [formControl]="searchInput"
+         (keydown.enter)="onSubmitHandler()"
+         placeholder="Titulo del empleo o nombre de la empresa">
   <app-button
     [shape]="buttonShape"
     [color]="buttonColor"
-    [hoverColor]="buttonHoverColor">
+    [hoverColor]="buttonHoverColor"
+    (submit)="onSubmitHandler()">
     <div class="button-spacing">
       buscar
     </div>

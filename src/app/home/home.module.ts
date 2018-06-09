@@ -11,11 +11,13 @@ import { HomeFooterComponent } from './components/home-footer/home-footer.compon
 import { HomeSearchComponent } from './components/home-search/home-search.component';
 import { HomeHeaderComponent } from './components/home-header/home-header.component';
 import { HomeHeaderContainerComponent } from './containers/home-header-container/home-header-container.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     HomeRoutingModule,
+    ReactiveFormsModule,
     SharedModule
   ],
   declarations: [

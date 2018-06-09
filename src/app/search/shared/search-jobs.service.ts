@@ -28,7 +28,7 @@ export class SearchJobsService extends Service {
     super();
   }
 
-  getJobs(currentId: string, offset: number, pageSize: number, query: Query): Observable<JobSearch> {
+  getJobs(currentId: string, offset: number, pageSize: number, query: Query[]): Observable<JobSearch> {
 
     this.buildParams(currentId, offset, pageSize, query);
 
@@ -41,7 +41,7 @@ export class SearchJobsService extends Service {
 
   // utils
 
-  private buildParams(currentId: string, offset: number, pageSize: number, query: Query) {
+  private buildParams(currentId: string, offset: number, pageSize: number, query: Query[]) {
 
     if (!this.params) {
       this.params = new HttpParams().set('size', pageSize.toString());
@@ -57,18 +57,21 @@ export class SearchJobsService extends Service {
 
     if (query) {
 
-      const isNotEmpty = query.value.length > 0;
+      query.forEach((queryItem) => {
 
-      if (isNotEmpty) {
+        const isNotEmpty = queryItem.value.length > 0;
 
-        const queryName = `q[${query.name}]`;
-        this.params = this.params.set(queryName, query.value);
+        if (isNotEmpty) {
 
-      } else {
+          const queryName = `q[${queryItem.name}]`;
+          this.params = this.params.set(queryName, queryItem.value);
 
-        const queryName = `q[${query.name}]`;
-        this.params = this.params.delete(queryName);
-      }
+        } else {
+
+          const queryName = `q[${queryItem.name}]`;
+          this.params = this.params.delete(queryName);
+        }
+      });
     }
   }
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { DataService } from '../../../core/services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-search',
@@ -11,9 +14,16 @@ export class HomeSearchComponent implements OnInit {
   buttonColor = 'gray';
   buttonHoverColor = 'black';
 
-  constructor() { }
+  searchInput = new FormControl();
+
+  constructor(private dataService: DataService,
+              private router: Router) { }
 
   ngOnInit() {
   }
 
+  onSubmitHandler() {
+    this.dataService.search = this.searchInput.value;
+    this.router.navigate(['./buscar']);
+  }
 }

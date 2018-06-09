@@ -6,6 +6,7 @@ import { JobSearch } from '../../shared/job-search-interface';
 import { Query } from '../../shared/query.interface';
 import { AuthService } from '../../../core/services/auth.service';
 import { APPRENTICE, BOTH, GRADUATE, Roles, STUDENT } from '../../../shared/utils/globals.variables';
+import { DataService } from '../../../core/services/data.service';
 
 @Component({
   selector: 'app-search-agent',
@@ -24,6 +25,7 @@ export class SearchAgentComponent implements OnInit {
 
   constructor(private searchJobsService: SearchJobsService,
               private candidateUserService: CandidateUserService,
+              private dataService: DataService,
               private authService: AuthService) { }
 
   ngOnInit() {
@@ -37,11 +39,11 @@ export class SearchAgentComponent implements OnInit {
     this.getNewPage(offset);
   }
 
-  onQueryHandler(query: Query) {
+  onQueryHandler(query: Query[]) {
     this.getFirstPage(query);
   }
 
-  getFirstPage(query: Query) {
+  getFirstPage(query: Query[]) {
     this.currentId = null;
     this.searchJobs(null, query);
   }
@@ -50,7 +52,25 @@ export class SearchAgentComponent implements OnInit {
     this.searchJobs(offset, null);
   }
 
-  setDefaultAudienceQuery(): Query | null {
+  setDefaultAudienceQuery(): Query[] | null {
+
+    const defaultQuery: Query[] = [];
+    const audienceQuery = this.getDefaultAudienceQuery();
+
+    if (audienceQuery) {
+      defaultQuery.push(audienceQuery);
+    }
+
+    const searchInputQuery = this.getDefaultSearchInputQuery();
+
+    if (searchInputQuery) {
+      defaultQuery.push(searchInputQuery);
+    }
+
+    return defaultQuery.length > 0 ? defaultQuery : null;
+  }
+
+  getDefaultAudienceQuery(): Query | null {
 
     const userRole = this.authService.getRole();
     let value;
@@ -73,7 +93,17 @@ export class SearchAgentComponent implements OnInit {
     }
   }
 
-  searchJobs(offset, query: Query) {
+  getDefaultSearchInputQuery(): Query | null {
+
+    const searchQuery = this.dataService.searchQuery;
+
+    if (searchQuery) {
+      return {name: 'search', value: searchQuery};
+    }
+    return null;
+  }
+
+  searchJobs(offset, query: Query[]) {
 
     this.loading = true;
     this.searchJobsService.getJobs(this.currentId, offset, this.pageSize, query)
