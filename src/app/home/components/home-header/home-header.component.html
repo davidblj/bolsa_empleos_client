@@ -12,8 +12,12 @@
   </app-header>
 
   <ng-template #loggedUserTemplated>
-    <app-button>
-      dashboard
+    <app-button
+      [shape]="buttonShape"
+      (submit)="onSubmitHandler()">
+      <div class="button-spacing">
+        entrar
+      </div>
     </app-button>
   </ng-template>
 </div>

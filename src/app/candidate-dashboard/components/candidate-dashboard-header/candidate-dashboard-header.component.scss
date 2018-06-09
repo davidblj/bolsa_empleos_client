@@ -1,0 +1,19 @@
+@import "variables";
+
+.header {
+
+  &__search-jobs {
+
+    margin-right: $header-margin-component;
+    display: inline-block;
+    cursor: pointer;
+
+    img {
+      height: 2.1rem;
+    }
+  }
+
+  &__profile-box {
+    display: inline-block;
+  }
+}

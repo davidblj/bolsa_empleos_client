@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-candidate-dashboard-header',
@@ -12,4 +13,11 @@ export class CandidateDashboardHeaderComponent {
 
   @Input()
   insignia;
+
+  constructor(private router: Router) {
+  }
+
+  onSearchClick() {
+    this.router.navigate(['/buscar']);
+  }
 }

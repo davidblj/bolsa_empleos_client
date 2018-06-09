@@ -1,7 +1,16 @@
 
 <app-header>
-  <app-header-profile
-    [username]="username"
-    [insignia]="insignia">
-  </app-header-profile>
+
+  <div class="header__search-jobs"
+       (click)="onSearchClick()">
+    <img src="assets/icons/candidate-dashboard/loupe.svg">
+  </div>
+
+  <div class="header__profile-box">
+    <app-header-profile
+      [username]="username"
+      [insignia]="insignia">
+    </app-header-profile>
+  </div>
+
 </app-header>

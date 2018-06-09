@@ -13,7 +13,11 @@ export class HeaderSessionComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick() {
+  onSignUpClick() {
+    this.router.navigate(['/registro']);
+  }
+
+  onLogInClick() {
     this.router.navigate(['/ingresar']);
   }
 }

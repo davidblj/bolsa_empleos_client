@@ -1,5 +1,11 @@
+@import "variables";
 
 .header {
   padding: 0 15rem;
   background: transparent;
+}
+
+.button-spacing {
+  font-size: $header-button-font-size;
+  padding: $header-button-padding;
 }
