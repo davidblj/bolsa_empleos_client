@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { JobSnippet } from '../../shared/job-snippet.interface';
+import { SearchListComponent } from '../search-list/search-list.component';
 
 @Component({
   selector: 'app-search-results',
@@ -8,8 +9,15 @@ import { JobSnippet } from '../../shared/job-snippet.interface';
 })
 export class SearchResultsComponent {
 
+  _jobs: JobSnippet[];
+
+  @ViewChild(SearchListComponent)
+  searchListComponent: SearchListComponent;
+
   @Input()
-  jobs: JobSnippet[];
+  set jobs(jobs: JobSnippet[]) {
+    this.onJobsFetched(jobs);
+  }
 
   @Input()
   pageLimit: number;
@@ -21,6 +29,16 @@ export class SearchResultsComponent {
   page = new EventEmitter<number>();
 
   currentJobId: string;
+
+  onJobsFetched(jobs: JobSnippet[]) {
+
+    this._jobs = jobs;
+
+    if (jobs) {
+      this.currentJobId = jobs[0]._id;
+      this.searchListComponent.onSelect(this.currentJobId);
+    }
+  }
 
   onSelect(id: string) {
     this.currentJobId = id;
