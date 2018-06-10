@@ -10,9 +10,19 @@ export class SignUpCardComponent {
   @Input()
   size: string;
 
+  @Input()
+  shape: string;
+
   getCardType(type) {
 
     if (this.size === type) {
+      return true;
+    }
+  }
+
+  getCardShape(shape) {
+
+    if (this.shape === shape) {
       return true;
     }
   }

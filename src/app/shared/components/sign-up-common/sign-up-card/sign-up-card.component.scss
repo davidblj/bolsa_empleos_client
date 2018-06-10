@@ -23,11 +23,20 @@
     padding: 4.3rem;
   }
 
-  &__size-big {
+  &_size_big {
     width: 900px;
   }
 
-  &__size-small {
+  &_size_small {
     width: 550px;
+  }
+
+  &_size_extra-small {
+    width: 500px;
+  }
+
+  &_rounded-corners {
+    border-radius: 20px;
+    overflow: hidden;
   }
 }

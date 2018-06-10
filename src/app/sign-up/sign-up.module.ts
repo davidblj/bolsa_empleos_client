@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { SignUpRoutingModule } from './sign-up-routing.module';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SignUpPickProfileComponent } from './components/sign-up-pick-profile/sign-up-pick-profile.component';
+import { SubmitStatusService } from './shared/submit-status.service';
 
 @NgModule({
   imports: [
@@ -17,6 +18,12 @@ import { SignUpPickProfileComponent } from './components/sign-up-pick-profile/si
     RegisterCandidateModule,
     SharedModule
   ],
-  declarations: [SignUpComponent, SignUpPickProfileComponent]
+  declarations: [
+    SignUpComponent,
+    SignUpPickProfileComponent
+  ],
+  providers: [
+    SubmitStatusService
+  ]
 })
 export class SignUpModule { }

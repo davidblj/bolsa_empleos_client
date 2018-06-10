@@ -2,8 +2,11 @@
 <div class="sign-up-content">
 
   <div class="sign-up-card"
-  [ngClass]="{'sign-up-card__size-big': getCardType('big'),
-              'sign-up-card__size-small': getCardType('small')}">
+  [ngClass]="{'sign-up-card_size_big': getCardType('big'),
+              'sign-up-card_size_small': getCardType('small'),
+              'sign-up-card_size_extra-small': getCardType('extra-small'),
+
+              'sign-up-card_rounded-corners': getCardShape('rounded')}">
 
     <ng-content></ng-content>
 

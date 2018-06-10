@@ -7,6 +7,7 @@ import { SignUpService } from '../../shared/sign-up-service.class';
 export class RegisterService extends SignUpService {
 
   addUserUrl = 'candidates';
+  responseStatus;
 
   constructor(http: HttpClient) {
     super(http);

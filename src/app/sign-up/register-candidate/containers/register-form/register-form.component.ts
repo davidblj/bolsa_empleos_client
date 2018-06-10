@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-
-// classes
 import { Candidate } from '../../shared/candidate.model';
 import { RegisterService } from '../../shared/register.service';
+import { failure, success } from '../../components/register-candidate-entry-point/data';
+import { SubmitStatus } from '../../../shared/submit-status.interface';
 
 @Component({
   selector: 'app-register-form',
@@ -25,15 +25,14 @@ export class RegisterFormComponent {
     this.user.setPassword(password);
   }
 
-  addStepTwo({type, name, pid}) {
+  addStepTwo({role, name, pid}) {
     this.nextStep();
-    this.user.setType(type);
+    this.user.setRole(role);
     this.user.setName(name);
     this.user.setPid(pid);
   }
 
   addStepThree({resumee, email, contact}) {
-    this.nextStep();
     this.user.setEmail(email);
     this.user.setContact(contact);
 
@@ -46,8 +45,14 @@ export class RegisterFormComponent {
 
   submit() {
     this.registerService.addUser(this.user).subscribe(
-      () => { console.log('sent') },
-      (error) => { console.log(error) }
+      () => {
+        this.registerService.responseStatus = true;
+        this.nextStep();
+      },
+      (error) => {
+        this.registerService.responseStatus = false;
+        this.nextStep();
+      }
     )
   }
 

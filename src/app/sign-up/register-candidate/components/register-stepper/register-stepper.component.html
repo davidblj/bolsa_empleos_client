@@ -1,5 +1,6 @@
 
-<div class="stepper">
+<div class="stepper"
+     *ngIf="!shouldHide">
   <span *ngFor="let i of steps"
         [ngClass]="{'stepper__dot_size_default': !isSelected(i), 'stepper__dot_size_big': isSelected(i)} "
         class="stepper__dot"></span>

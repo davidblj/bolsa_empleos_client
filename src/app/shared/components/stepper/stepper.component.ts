@@ -14,5 +14,4 @@ export class StepperComponent {
   isSelected(step: number): boolean {
     return step === this.step;
   }
-
 }

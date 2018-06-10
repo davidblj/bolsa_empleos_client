@@ -26,7 +26,7 @@ export class RegisterStepTwoComponent {
 
   private createForm() {
     this.form = this.fb.group({
-      type: [
+      role: [
         '',
         CustomValidators.typeSelection
       ],

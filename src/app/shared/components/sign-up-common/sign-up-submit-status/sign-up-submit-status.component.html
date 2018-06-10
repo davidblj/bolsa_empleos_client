@@ -1,0 +1,54 @@
+
+<app-sign-up-card
+  [size]="cardSize"
+  [shape]="cardShape">
+
+  <div class="submit-status">
+
+    <div class="submit-status-body"
+         [ngClass]="{'submit-status-body_color_green': status,
+                     'submit-status-body_color_red': !status}">
+
+      <div class="submit-status-body__icon">
+        <div *ngIf="status; else errorIcon">
+          <img src="assets/icons/sign-up/happy.svg"/>
+        </div>
+
+        <ng-template #errorIcon>
+          <img src="assets/icons/sign-up/embarrassed.svg"/>
+        </ng-template>
+      </div>
+
+      <div class="submit-status-body-message">
+
+        <div class="submit-status-body-message__header">
+          <div *ngIf="status; else errorTitle">
+            ¡ GRACIAS !
+          </div>
+
+          <ng-template #errorTitle>
+            ¡ ERROR !
+          </ng-template>
+        </div>
+
+        <div class="submit-status-body-message__body">
+          {{message}}
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="submit-status-footer">
+      <div class="submit-status-footer__hint"
+           [ngClass]="{'submit-status-footer__hint_color_green': status,
+                     'submit-status-footer__hint_color_red': !status}"
+           (click)="onClickHandler()">
+        {{footerTitle}}
+      </div>
+
+    </div>
+
+  </div>
+
+</app-sign-up-card>

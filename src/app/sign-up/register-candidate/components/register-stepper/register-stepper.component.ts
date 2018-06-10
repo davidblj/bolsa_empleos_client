@@ -9,4 +9,8 @@ import { StepperComponent } from '../../../../shared/components/stepper/stepper.
 export class RegisterStepperComponent extends StepperComponent {
 
   steps = [1, 2, 3];
+
+  get shouldHide() {
+    return this.step > 3;
+  }
 }

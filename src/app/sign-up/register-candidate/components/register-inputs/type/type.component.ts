@@ -11,17 +11,17 @@ export class TypeComponent implements OnInit {
   @Input()
   parent: FormGroup;
 
-  type: AbstractControl;
+  role: AbstractControl;
   currentType: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.type = this.parent.get('type');
+    this.role = this.parent.get('role');
   }
 
   onClick(type: string) {
-    this.type.setValue(type);
+    this.role.setValue(type);
     this.currentType = type;
   }
 

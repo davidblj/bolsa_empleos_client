@@ -2,7 +2,7 @@ import { User } from '../../shared/user.class';
 
 export class Candidate extends User {
 
-  private type: string;
+  private role: string;
   private pid: string;
   private resumee: File;
 
@@ -10,8 +10,8 @@ export class Candidate extends User {
     super()
   }
 
-  setType(value: string) {
-    this.type = value;
+  setRole(value: string) {
+    this.role = value;
   }
 
   setPid(value: string) {
