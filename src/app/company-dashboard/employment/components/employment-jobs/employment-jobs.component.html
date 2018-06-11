@@ -24,7 +24,7 @@
        *ngFor="let job of jobs; let i = index">
 
     <div class="table-row__details-target-box"
-         (click)="onViewDetailsHandler(job._id)">
+         (click)="onViewDetailsHandler(job._id, job.name)">
       <div class="table-row__item table-row__item_color_grey size_small">
         {{i}}
       </div>
@@ -48,7 +48,6 @@
 
     <div class="table-row__item table-row__item_config"
       (click)="onEditHandler(job._id)">
-      <!--<img src="assets/icons/company-dashboard/more-options.svg"/>-->
       <img src="assets/icons/company-dashboard/edit.svg"/>
     </div>
 

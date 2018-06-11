@@ -28,7 +28,7 @@ export class SearchComponent implements OnInit {
 
   getInitialState() {
 
-    const searchInputState = this.dataService.searchQuery;
+    const searchInputState = this.dataService._searchQuery;
     if (searchInputState) {
       this.control.setValue(searchInputState);
     }

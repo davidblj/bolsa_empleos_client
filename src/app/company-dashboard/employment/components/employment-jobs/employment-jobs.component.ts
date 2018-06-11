@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 // interfaces
 import { Job } from '../../../../shared/interfaces/job.interface';
+import { DataService } from '../../../../core/services/data.service';
 
 @Component({
   selector: 'app-employment-jobs',
@@ -14,7 +15,8 @@ export class EmploymentJobsComponent implements OnInit {
   @Input()
   jobs: Job[];
 
-  constructor(private router: Router,
+  constructor(private dataService: DataService,
+              private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit() { }
@@ -29,7 +31,8 @@ export class EmploymentJobsComponent implements OnInit {
       0
   }
 
-  onViewDetailsHandler(id: string) {
+  onViewDetailsHandler(id: string, jobName: string) {
+    this.dataService.jobTitle = jobName;
     this.router.navigate(['./', id], {relativeTo: this.route });
   }
 

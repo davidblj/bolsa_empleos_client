@@ -8,6 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 export class EmploymentJobDetailsHeaderComponent implements OnInit {
 
   @Input()
+  jobTitle: string;
+
+  @Input()
   amount: number;
 
   buttonColor = 'dark';

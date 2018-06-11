@@ -95,7 +95,7 @@ export class SearchAgentComponent implements OnInit {
 
   getDefaultSearchInputQuery(): Query | null {
 
-    const searchQuery = this.dataService.searchQuery;
+    const searchQuery = this.dataService._searchQuery;
 
     if (searchQuery) {
       return {name: 'search', value: searchQuery};

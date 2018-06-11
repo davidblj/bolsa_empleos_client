@@ -23,7 +23,7 @@ export class HomeSearchComponent implements OnInit {
   }
 
   onSubmitHandler() {
-    this.dataService.search = this.searchInput.value;
+    this.dataService.searchQuery = this.searchInput.value;
     this.router.navigate(['./buscar']);
   }
 }

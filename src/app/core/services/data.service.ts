@@ -3,11 +3,16 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class DataService {
 
-  searchQuery: string;
+  _searchQuery: string;
+  _jobTitle: string;
 
   constructor() { }
 
-  set search(inputValue: string) {
-    this.searchQuery = inputValue;
+  set searchQuery(inputValue: string) {
+    this._searchQuery = inputValue;
+  }
+
+  set jobTitle(jobTitle: string) {
+    this._jobTitle = jobTitle;
   }
 }

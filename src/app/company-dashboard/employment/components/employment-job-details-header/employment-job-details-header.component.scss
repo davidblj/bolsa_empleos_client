@@ -9,26 +9,17 @@ $applicants-header-height: 9rem;
 
   &-title {
 
-    position: absolute;
-    left: 0;
-
     &__job {
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
 
     &__applicants {
 
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       color: $mountainMist;
     }
   }
 
-
-  &__download {
-
-    position: absolute;
-    right: 0;
-  }
 }
 
 .button-spacing {
