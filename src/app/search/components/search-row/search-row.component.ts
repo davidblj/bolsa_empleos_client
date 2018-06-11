@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { JobSnippet } from '../../shared/job-snippet.interface';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-search-row',
@@ -20,6 +21,7 @@ export class SearchRowComponent implements OnInit {
   @Output()
   select = new EventEmitter<string>();
 
+  baseURL = environment.baseURL;
   highlight = false;
   rowId: string;
 
@@ -34,5 +36,9 @@ export class SearchRowComponent implements OnInit {
 
   get status() {
     return this.rowId === this.currentId;
+  }
+
+  get iconUrl() {
+    return `${this.baseURL}/companies/${this.job.owner}/icon`;
   }
 }
