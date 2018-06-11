@@ -47,6 +47,17 @@ $input-section-spacing: 8rem;
 
   &__footer {
     margin: 1rem $input-section-spacing 2rem;
+
+    img {
+
+      height: 4rem;
+      animation: {
+        duration: 1s;
+        name: rotate;
+        iteration-count: infinite;
+        timing-function: linear;
+      }
+    }
   }
 
   &__submit-button {

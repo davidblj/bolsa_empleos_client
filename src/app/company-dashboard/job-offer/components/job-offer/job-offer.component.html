@@ -66,7 +66,7 @@
     <div class="job-form__submit-button">
 
       <app-button
-        *ngIf="!loading; else loadingIcon"
+        *ngIf="!loading"
         [color]="buttonColor"
         [shape]="buttonShape"
         [enabled]="shouldButtonBeEnabled"
@@ -76,15 +76,8 @@
         </div>
       </app-button>
 
-      <ng-template #loadingIcon>
-        <img src="assets/rotate.svg"/>
-      </ng-template>
     </div>
 
   </div>
-
-  <!--<button (click)="resetFormValues()">
-    trigger
-  </button>-->
 
 </div>

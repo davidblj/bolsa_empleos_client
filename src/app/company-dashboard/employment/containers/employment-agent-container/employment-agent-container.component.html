@@ -4,21 +4,38 @@
   (onLinkChanged)="onLinkChangedHandler($event)">
 </app-navigation>
 
-<div *ngIf="(jobs$ | async) as job; else loading">
-  <app-employment-jobs
-    [jobs]="job">
-  </app-employment-jobs>
+<!--<div *ngIf="(jobs$ | async) as job; else loading">-->
+<div *ngIf="(jobs$ | async) as jobs; else loading">
 
-  <div class="paginator-box">
-    <app-employment-pagination
-      [pageLimit]="pageLimit"
-      (page)="onPageChangedHandler($event)">
-    </app-employment-pagination>
+  <div *ngIf="jobs.length !== 0; else hint">
+    <app-employment-jobs
+      [jobs]="jobs">
+    </app-employment-jobs>
+
+    <div class="paginator-box">
+      <app-employment-pagination
+        [pageLimit]="pageLimit"
+        (page)="onPageChangedHandler($event)">
+      </app-employment-pagination>
+    </div>
   </div>
+
+  <ng-template #hint>
+    <div class="hint heading-tertiary
+                text-center">
+      <div class="heading-tertiary_main">
+        {{hintTitle}}
+      </div>
+      <div class="heading-tertiary_sub">
+        {{hintMessage}}
+      </div>
+    </div>
+  </ng-template>
+
 </div>
 
-<ng-template #loading>
+<!--<ng-template #loading>
   <div>
     loading staff
   </div>
-</ng-template>
+</ng-template>-->
