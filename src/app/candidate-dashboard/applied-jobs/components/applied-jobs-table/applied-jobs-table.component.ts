@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { JobSnippet } from '../../../../search/shared/job-snippet.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-applied-jobs-table',
@@ -14,7 +15,7 @@ export class AppliedJobsTableComponent implements OnInit {
   @Output()
   onDelete = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() { }
 
@@ -34,5 +35,9 @@ export class AppliedJobsTableComponent implements OnInit {
     if (jobPosition >= 0) {
       this.jobs.splice(jobPosition, 1);
     }
+  }
+
+  onClickHandler() {
+    this.router.navigate(['/buscar'])
   }
 }

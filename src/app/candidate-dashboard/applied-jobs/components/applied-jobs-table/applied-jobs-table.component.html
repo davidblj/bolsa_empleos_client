@@ -10,4 +10,18 @@
       </app-applied-jobs-job-card>
     </div>
   </div>
+
+  <div *ngIf="jobs.length === 0">
+
+    <div class="hint heading-tertiary
+                text-center">
+      <div class="heading-tertiary_main">
+        No este suscrito a ninguna oferta.
+      </div>
+      <div class="heading-tertiary_sub">
+        buscalas <span class="u-text-underline" (click)="onClickHandler()">aquí</span>
+      </div>
+    </div>
+
+  </div>
 </div>
