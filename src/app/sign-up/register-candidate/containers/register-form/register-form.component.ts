@@ -1,8 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Candidate } from '../../shared/candidate.model';
 import { RegisterService } from '../../shared/register.service';
-import { failure, success } from '../../components/register-candidate-entry-point/data';
-import { SubmitStatus } from '../../../shared/submit-status.interface';
 
 @Component({
   selector: 'app-register-form',

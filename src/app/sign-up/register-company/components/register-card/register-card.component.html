@@ -1,21 +1,27 @@
 
-<app-sign-up-card [size]="size">
+<div *ngIf="currentStep <= 3; else submitStatus">
+  <app-sign-up-card [size]="size">
+    <div class="row no-gutters">
 
-  <div class="row no-gutters">
+      <div class="col">
+        <app-register-form
+          (next)="onNextStep()">
+        </app-register-form>
+      </div>
 
-    <div class="col">
-      <app-register-form
-        (next)="onNextStep()">
-      </app-register-form>
+      <div class="pane
+                  col-md-4">
+        <app-register-side-pane
+          [step]="currentStep">
+        </app-register-side-pane>
+      </div>
+
     </div>
+  </app-sign-up-card>
+</div>
 
-    <div class="pane
-                col-md-4">
-      <app-register-side-pane
-        [step]="currentStep">
-      </app-register-side-pane>
-    </div>
-
-  </div>
-
-</app-sign-up-card>
+<ng-template #submitStatus>
+  <app-sign-up-submit-status
+    [submitStatus]="submitStatusData">
+  </app-sign-up-submit-status>
+</ng-template>

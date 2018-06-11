@@ -57,9 +57,10 @@ export class SearchJobsService extends Service {
 
     if (query) {
 
+      console.log(query);
       query.forEach((queryItem) => {
 
-        const isNotEmpty = queryItem.value.length > 0;
+        const isNotEmpty = queryItem.value && queryItem.value.length > 0;
 
         if (isNotEmpty) {
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SubmitStatus } from '../../../shared/submit-status.interface';
 import { RegisterService } from '../../shared/register.service';
-import { failure, success } from './data';
+import { failure, success } from '../../../shared/data';
 
 @Component({
   selector: 'app-register-candidate-entry-point',

@@ -44,7 +44,6 @@ export class RegisterFormComponent {
   }
 
   addStepThree({admin, contact, email}) {
-    this.nextStep();
     this.user.setAdmin(admin);
     this.user.setContact(contact);
     this.user.setEmail(email);
@@ -58,8 +57,14 @@ export class RegisterFormComponent {
 
   submit() {
     this.registerService.addUser(this.user).subscribe(
-      () => { console.log('sent') },
-      (error) => { console.log(error) }
+      () => {
+        this.registerService.responseStatus = true;
+        this.nextStep();
+      },
+      (error) => {
+        this.registerService.responseStatus = false;
+        this.nextStep();
+      }
     );
   }
 
