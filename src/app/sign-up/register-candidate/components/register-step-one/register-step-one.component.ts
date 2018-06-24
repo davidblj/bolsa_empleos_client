@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-// utils
-import { CustomValidators } from '../../../../shared/utils/custom-validators.functions';
+import { CustomValidators } from '../../../../utils/constants/custom-validators';
+import { FormConfig } from './form-config';
 
 @Component({
   selector: 'app-register-step-one',
@@ -17,12 +16,15 @@ export class RegisterStepOneComponent {
   hint = 'Ingresa la información general de tu sesión';
   button = 'SIGUIENTE';
 
+  formConfig: FormConfig;
   form: FormGroup;
+
   password: string;
   checkPasswordStatus: boolean;
 
   constructor(private fb: FormBuilder) {
     this.createForm();
+    this.formConfig = new FormConfig(this.form);
   }
 
   private createForm() {
@@ -31,17 +33,15 @@ export class RegisterStepOneComponent {
         '',
         [
           Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(15)
+          CustomValidators.isInRange(3, 15)
         ]
       ],
       password: [
         '',
         [
           Validators.required,
-          Validators.minLength(8),
-          Validators.maxLength(16),
-          CustomValidators.containNumbers
+          CustomValidators.isInRange(8, 16),
+          CustomValidators.isAlphanumeric
         ]
       ]
     });

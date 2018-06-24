@@ -5,9 +5,10 @@
   [status]="formStatus"
   (submit)="onSubmit()">
 
-  <app-username
-    [parent]="form">
-  </app-username>
+  <app-form-input-group
+    [inputGroup]="formConfig.username">
+  </app-form-input-group>
+
   <app-password
     [parent]="form"
     (changed)="onPasswordUpdate($event)">

@@ -1,0 +1,39 @@
+@import "variables";
+
+$dot-spacing: 1.4rem;
+
+.warning {
+
+  position: relative;
+  content: "";
+  display: inline-block;
+  width: $dot-spacing;
+  height: $dot-spacing;
+  border-radius: 50%;
+  background-color: $burntSienna;
+}
+
+.dialog {
+
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-105%, -50%);
+
+  width: 25rem;
+  padding: 2rem;
+  box-shadow: 0 0 6px -2px $regentGray;
+  background: $azure;
+
+  border-radius: 5px;
+  border: 0 solid $burntSienna;
+  border-top-width: 5px;
+
+  &__message {
+
+    display: block;
+    font-size: 1.3rem;
+    color: $burntSienna;
+    font-weight: 600;
+  }
+}

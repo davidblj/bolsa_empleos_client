@@ -1,0 +1,30 @@
+
+<div class="sign-up-field">
+
+  <label class="sign-up-field__label
+                label">
+    {{inputGroup.name}}
+  </label>
+  <input  class="sign-up-field__input sign-up-field__input_type-default
+                   form-control"
+          *ngIf="isType('text')"
+          [placeholder]="inputGroup.placeholder"
+          [formControl]="control"
+          (focus)="toggleFocus()"
+          (blur)="toggleFocus()">
+
+  <div class="sign-up-field__warning"
+       *ngIf="warningStatus">
+    <app-sign-up-warnings
+      [inputGroup]="inputGroup"
+      [fieldFocus]="fieldFocus">
+    </app-sign-up-warnings>
+  </div>
+
+</div>
+
+<div *ngIf="fieldFocus">
+  <app-sign-up-hints
+    [inputGroup]="inputGroup">
+  </app-sign-up-hints>
+</div>

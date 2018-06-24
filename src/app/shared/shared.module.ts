@@ -30,6 +30,9 @@ import { DropdownFormGroupComponent } from './components/dropdown-form-group/dro
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { HeaderSessionComponent } from './components/header-session/header-session.component';
 import { SignUpSubmitStatusComponent } from './components/sign-up-common/sign-up-submit-status/sign-up-submit-status.component';
+import { FormInputGroupComponent } from './sign-up-common/form-input-group/form-input-group.component';
+import { SignUpHintsComponent } from './sign-up-common/sign-up-hints/sign-up-hints.component';
+import { SignUpWarningsComponent } from './sign-up-common/sign-up-warnings/sign-up-warnings.component';
 
 
 @NgModule({
@@ -60,7 +63,8 @@ import { SignUpSubmitStatusComponent } from './components/sign-up-common/sign-up
     FormGroupComponent,
     DropdownFormGroupComponent,
     HeaderSessionComponent,
-    SignUpSubmitStatusComponent
+    SignUpSubmitStatusComponent,
+    FormInputGroupComponent
   ],
   declarations: [
     PopoverComponent,
@@ -86,7 +90,10 @@ import { SignUpSubmitStatusComponent } from './components/sign-up-common/sign-up
     FormGroupComponent,
     DropdownFormGroupComponent,
     HeaderSessionComponent,
-    SignUpSubmitStatusComponent
+    SignUpSubmitStatusComponent,
+    FormInputGroupComponent,
+    SignUpHintsComponent,
+    SignUpWarningsComponent
   ]
 })
 export class SharedModule { }

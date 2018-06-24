@@ -1,0 +1,14 @@
+<!-- red dot -->
+<div class="warning">
+
+  <div class="dialog"
+       *ngIf="fieldFocus">
+    <div
+      *ngFor="let warning of warnings"
+      class="dialog__message"
+      [hidden]="!ruleIsFailing(warning)">
+      {{warning.message}}
+    </div>
+  </div>
+
+</div>
