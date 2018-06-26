@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { InputGroup } from '../../../utils/models/input-group.interface';
-import { Validator } from '../../../utils/models/validator.interface';
+import { FormInput } from '../../../utils/models/form-input.interface';
+import { Validator } from '../../../utils/classes/validator.class';
 
 @Component({
   selector: 'app-sign-up-warnings',
@@ -9,26 +9,21 @@ import { Validator } from '../../../utils/models/validator.interface';
 })
 export class SignUpWarningsComponent {
 
-  _inputGroup;
-
   @Input()
-  set inputGroup(inputGroup: InputGroup) {
-    console.log(inputGroup.validationManager.validators);
-    this._inputGroup = inputGroup
-  }
+  inputGroup: FormInput;
 
   @Input()
   fieldFocus: boolean;
 
   ruleIsFailing(validator: Validator): boolean {
-    return this.manager.getValidatorStatus(validator);
+    return validator.getStatus(this.input.control);
   }
 
   get warnings() {
-    return this.manager.warnings;
+    return this.input.warnings;
   }
 
-  get manager() {
-    return this._inputGroup.validationManager;
+  get input() {
+    return this.inputGroup.input;
   }
 }

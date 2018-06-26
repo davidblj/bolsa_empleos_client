@@ -9,10 +9,10 @@
     [inputGroup]="formConfig.username">
   </app-form-input-group>
 
-  <app-password
-    [parent]="form"
-    (changed)="onPasswordUpdate($event)">
-  </app-password>
+  <app-form-input-group
+    [inputGroup]="formConfig.password">
+  </app-form-input-group>
+
   <app-check-password
     [password]="password"
     (status)="onStatusUpdate($event)">

@@ -7,7 +7,8 @@
   </label>
   <input  class="sign-up-field__input sign-up-field__input_type-default
                    form-control"
-          *ngIf="isType('text')"
+          *ngIf="isType('default')"
+          [type]="inputGroup.texType"
           [placeholder]="inputGroup.placeholder"
           [formControl]="control"
           (focus)="toggleFocus()"
@@ -16,7 +17,7 @@
   <div class="sign-up-field__warning"
        *ngIf="warningStatus">
     <app-sign-up-warnings
-      [inputGroup]="inputGroup"
+      [inputGroup]="_inputGroup"
       [fieldFocus]="fieldFocus">
     </app-sign-up-warnings>
   </div>
@@ -25,6 +26,6 @@
 
 <div *ngIf="fieldFocus">
   <app-sign-up-hints
-    [inputGroup]="inputGroup">
+    [inputGroup]="_inputGroup">
   </app-sign-up-hints>
 </div>

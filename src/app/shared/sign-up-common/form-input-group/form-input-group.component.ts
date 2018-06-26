@@ -1,24 +1,29 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { InputGroup } from '../../../utils/models/input-group.interface';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { FormInput } from '../../../utils/models/form-input.interface';
 
 @Component({
   selector: 'app-form-input-group',
   templateUrl: './form-input-group.component.html',
   styleUrls: ['./form-input-group.component.scss']
 })
-export class FormInputGroupComponent implements OnInit {
+export class FormInputGroupComponent implements OnInit, OnDestroy {
 
   @Input()
-  inputGroup: InputGroup;
+  inputGroup: FormInput;
 
   fieldFocus = false;
+  _inputGroup: FormInput;
 
   ngOnInit() {
-    this.manager.setWatchOnCustomValidators();
+
+    this.input.setWatchOnCustomValidators();
+
+    // angular onChangeDetection quirk
+    this._inputGroup = this.inputGroup;
   }
 
   isType(type: string): boolean {
-    return type === this.inputGroup.type;
+    return type === this.inputGroup.inputType;
   }
 
   toggleFocus() {
@@ -26,14 +31,18 @@ export class FormInputGroupComponent implements OnInit {
   }
 
   get control() {
-    return this.manager.control;
+    return this.input.control;
   }
 
-  get manager() {
-    return this.inputGroup.validationManager;
+  get input() {
+    return this.inputGroup.input;
   }
 
   get warningStatus(): boolean {
-    return !this.manager.fieldValidity && this.control.touched;
+    return !this.input.isValid() && this.control.touched;
+  }
+
+  ngOnDestroy(): void {
+    this.input.unsubscribe();
   }
 }

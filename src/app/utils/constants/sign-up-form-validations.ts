@@ -1,26 +1,41 @@
-import { Validator, ValidatorIdentifier, ValidatorType } from '../models/validator.interface';
+import { Validator } from '../classes/validator.class';
 
-const required = (): Validator => ({
-  identifier: ValidatorIdentifier.required,
-  message: 'El campo es requerido',
-  type: ValidatorType.warning
-});
+const required = (): Validator => new Validator(
+    Validator.Identifier.required,
+    'El campo es requerido',
+    Validator.Type.warning,
+    null);
 
-const validity = (): Validator => ({
-  identifier: ValidatorIdentifier.validity,
-  message: 'Los requisitos no se cumplen',
-  errorStatus: true,
-  type: ValidatorType.warning
-});
+const range = (min: number, max: number): Validator => new Validator(
+    Validator.Identifier.range,
+    `tiene entre los ${min} y ${max} caracteres`,
+    Validator.Type.hint,
+    null);
 
-const range = (min: number, max: number): Validator => ({
-  identifier: ValidatorIdentifier.range,
-  message: `tiene entre los ${min} y ${max} caracteres`,
-  type: ValidatorType.hint
-});
+const alphanumeric = (): Validator => new Validator(
+  Validator.Identifier.alphanumeric,
+  'tiene al menos 1 numero',
+  Validator.Type.hint,
+  null);
+
+// custom validations
+
+const validity = (): Validator => new Validator(
+  Validator.Identifier.validity,
+  'Los requisitos no se cumplen',
+  Validator.Type.warning,
+  true);
+
+const matchingPasswords = (): Validator => new Validator(
+  Validator.Identifier.match,
+  'las contrañas son iguales',
+  Validator.Type.hint,
+  true);
 
 export const SignUpFormValidations = {
   required,
   validity,
-  range
+  range,
+  alphanumeric,
+  matchingPasswords
 };

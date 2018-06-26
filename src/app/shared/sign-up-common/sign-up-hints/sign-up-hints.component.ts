@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Validator } from '../../../utils/models/validator.interface';
-import { InputGroup } from '../../../utils/models/input-group.interface';
+import { Component, Input } from '@angular/core';
+import { Validator } from '../../../utils/classes/validator.class';
+import { FormInput } from '../../../utils/models/form-input.interface';
 
 @Component({
   selector: 'app-sign-up-hints',
@@ -10,17 +10,17 @@ import { InputGroup } from '../../../utils/models/input-group.interface';
 export class SignUpHintsComponent {
 
   @Input()
-  inputGroup: InputGroup;
+  inputGroup: FormInput;
 
   ruleIsFailing(validator: Validator): boolean {
-    return this.manager.getValidatorStatus(validator);
+    return validator.getStatus(this.input.control);
   }
 
   get hints() {
-    return this.manager.hints;
+    return this.input.hints;
   }
 
-  get manager() {
-    return this.inputGroup.validationManager;
+  get input() {
+    return this.inputGroup.input;
   }
 }

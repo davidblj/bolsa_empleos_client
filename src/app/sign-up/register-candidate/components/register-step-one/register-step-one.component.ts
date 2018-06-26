@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../../../../utils/constants/custom-validators';
-import { FormConfig } from './form-config';
+import { Form } from './form';
 
 @Component({
   selector: 'app-register-step-one',
@@ -16,7 +16,7 @@ export class RegisterStepOneComponent {
   hint = 'Ingresa la información general de tu sesión';
   button = 'SIGUIENTE';
 
-  formConfig: FormConfig;
+  formConfig: Form;
   form: FormGroup;
 
   password: string;
@@ -24,27 +24,36 @@ export class RegisterStepOneComponent {
 
   constructor(private fb: FormBuilder) {
     this.createForm();
-    this.formConfig = new FormConfig(this.form);
+    this.formConfig = new Form(this.form);
   }
 
   private createForm() {
+
     this.form = this.fb.group({
-      username: [
-        '',
-        [
+      username: [ '', [
           Validators.required,
           CustomValidators.isInRange(3, 15)
         ]
       ],
-      password: [
-        '',
-        [
+      password: [ '', [
           Validators.required,
           CustomValidators.isInRange(8, 16),
           CustomValidators.isAlphanumeric
         ]
       ]
     });
+
+    this.watchPassword();
+  }
+
+  private watchPassword() {
+
+    this.form.controls['password'].valueChanges.subscribe(
+      (originalPassword) => {
+        // get password formInput
+        // get input
+        // update matching password validator
+      });
   }
 
   onPasswordUpdate(password) {
