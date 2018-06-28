@@ -1,11 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-register-form-skeleton',
-  templateUrl: './register-form-skeleton.component.html',
-  styleUrls: ['./register-form-skeleton.component.scss']
+  selector: 'app-register-form-template',
+  templateUrl: './register-form-template.component.html',
+  styleUrls: ['./register-form-template.component.scss']
 })
-export class RegisterFormSkeletonComponent {
+export class RegisterFormTemplateComponent {
 
   @Input()
   headerHint: string;

@@ -1,5 +1,5 @@
 
-<app-register-form-skeleton
+<app-register-form-template
   [headerHint]="hint"
   [buttonMessage]="button"
   [status]="formStatus"
@@ -13,9 +13,8 @@
     [inputGroup]="formConfig.password">
   </app-form-input-group>
 
-  <app-check-password
-    [password]="password"
-    (status)="onStatusUpdate($event)">
-  </app-check-password>
+  <app-form-input-group
+    [inputGroup]="formConfig.confirmPassword">
+  </app-form-input-group>
 
-</app-register-form-skeleton>
+</app-register-form-template>

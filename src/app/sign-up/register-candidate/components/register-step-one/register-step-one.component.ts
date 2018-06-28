@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../../../../utils/constants/custom-validators';
-import { Form } from './form';
+import { FormConfig } from './form-config';
 
 @Component({
   selector: 'app-register-step-one',
@@ -16,15 +16,15 @@ export class RegisterStepOneComponent {
   hint = 'Ingresa la información general de tu sesión';
   button = 'SIGUIENTE';
 
-  formConfig: Form;
+  formConfig: FormConfig;
   form: FormGroup;
 
   password: string;
-  checkPasswordStatus: boolean;
 
   constructor(private fb: FormBuilder) {
     this.createForm();
-    this.formConfig = new Form(this.form);
+    this.setWatchOnMatchingPasswordsValidator();
+    this.formConfig = new FormConfig(this.form);
   }
 
   private createForm() {
@@ -33,42 +33,46 @@ export class RegisterStepOneComponent {
       username: [ '', [
           Validators.required,
           CustomValidators.isInRange(3, 15)
-        ]
-      ],
+      ]],
       password: [ '', [
           Validators.required,
           CustomValidators.isInRange(8, 16),
           CustomValidators.isAlphanumeric
-        ]
-      ]
+      ]],
+      confirm: [ '', [
+          Validators.required,
+      ]]
     });
-
-    this.watchPassword();
   }
 
-  private watchPassword() {
+  private setWatchOnMatchingPasswordsValidator() {
+    this.watchPasswordInput();
+    this.watchConfirmInput();
+  }
 
+  private watchPasswordInput() {
     this.form.controls['password'].valueChanges.subscribe(
-      (originalPassword) => {
-        // get password formInput
-        // get input
-        // update matching password validator
+      (password) => {
+        this.password = password;
+        const confirmPassword = this.formConfig.confirmPassword;
+        confirmPassword.input.updateMatchingPasswordsValidator(this.password);
       });
   }
 
-  onPasswordUpdate(password) {
-    this.password = password;
-  }
-
-  onStatusUpdate(status: boolean) {
-    this.checkPasswordStatus = status;
+  private watchConfirmInput() {
+    this.form.controls['confirm'].valueChanges.subscribe(() => {
+      const confirmPassword = this.formConfig.confirmPassword;
+      confirmPassword.input.updateMatchingPasswordsValidator(this.password);
+    })
   }
 
   onSubmit() {
     this.submit.emit(this.form.value);
   }
 
+  // unsubscribe
+
   get formStatus() {
-    return (this.form.valid && this.checkPasswordStatus);
+    return (this.form.valid);
   }
 }

@@ -10,7 +10,7 @@ import { RegisterStepOneComponent } from './components/register-step-one/registe
 import { RegisterStepTwoComponent } from './components/register-step-two/register-step-two.component';
 import { RegisterStepThreeComponent } from './components/register-step-three/register-step-three.component';
 import { RegisterFormComponent } from './containers/register-form/register-form.component';
-import { RegisterFormSkeletonComponent } from './components/register-form-skeleton/register-form-skeleton.component';
+import { RegisterFormTemplateComponent } from './components/register-form-template/register-form-template.component';
 import { RegisterStepperComponent } from './components/register-stepper/register-stepper.component';
 import { UsernameComponent } from './components/register-inputs/username/username.component';
 import { CheckPasswordComponent } from './components/register-inputs/check-password/check-password.component';
@@ -37,7 +37,7 @@ import { RegisterCandidateEntryPointComponent } from './components/register-cand
     RegisterStepTwoComponent,
     RegisterStepThreeComponent,
     RegisterFormComponent,
-    RegisterFormSkeletonComponent,
+    RegisterFormTemplateComponent,
     RegisterStepperComponent,
     UsernameComponent,
     CheckPasswordComponent,

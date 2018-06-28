@@ -5,15 +5,21 @@ import { SignUpFormValidations } from '../../../../utils/constants/sign-up-form-
 import { Input } from '../../../../utils/classes/input.class';
 import { FormInput, InputGroupTextType, InputGroupType } from '../../../../utils/models/form-input.interface';
 
-export class Form  {
+export class FormConfig  {
 
-  form: FormGroup;
+  readonly form: FormGroup;
+  private _username: FormInput;
+  private _password: FormInput;
+  private _confirmPassword: FormInput;
 
   constructor(form: FormGroup) {
     this.form = form;
+    this.createUsernameInput();
+    this.createPasswordInput();
+    this.createConfirmPasswordInput();
   }
 
-  get username(): FormInput {
+  createUsernameInput() {
 
     const validators: Validator[] = [
       SignUpFormValidations.required(),
@@ -22,7 +28,7 @@ export class Form  {
     const control = this.form.controls['username'];
     const input = new Input(validators, control);
 
-    return {
+    this._username = {
       input,
       name: 'Nombre de usuario',
       inputType: InputGroupType.default,
@@ -30,7 +36,7 @@ export class Form  {
     }
   }
 
-  get password(): FormInput {
+  createPasswordInput() {
 
     const validators: Validator[] = [
       SignUpFormValidations.required(),
@@ -40,32 +46,44 @@ export class Form  {
     const control = this.form.controls['password'];
     const input = new Input(validators, control);
 
-    return {
+    this._password = {
       input,
       name: 'Contraseña',
       inputType: InputGroupType.default,
       placeholder: '',
       texType: InputGroupTextType.password
     }
+
   }
 
-  get confirmPassword(): FormInput {
-
-    // singleton pattern ?
+  createConfirmPasswordInput() {
 
     const validators: Validator[] = [
       SignUpFormValidations.required(),
       SignUpFormValidations.validity(),
       SignUpFormValidations.matchingPasswords()];
-    const control = new FormControl();
+    const control = this.form.controls['confirm'];
     const input = new Input(validators, control);
 
-    return {
+    this._confirmPassword = {
       input,
       name: 'Confirma tu contraseña',
       inputType: InputGroupType.default,
       placeholder: '',
       texType: InputGroupTextType.password
     }
+
+  }
+
+  get username() {
+    return this._username;
+  }
+
+  get password() {
+    return this._password;
+  }
+
+  get confirmPassword() {
+    return this._confirmPassword;
   }
 }

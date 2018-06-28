@@ -6,7 +6,7 @@ export class Input {
 
   private readonly validators: Validator[];
   private readonly _control: AbstractControl;
-  private valueChanges: Subscription;
+  private subscription: Subscription;
 
   constructor(validators: Validator[], control: AbstractControl) {
     this.validators = validators;
@@ -42,7 +42,7 @@ export class Input {
   // custom validators management
 
   setWatchOnCustomValidators() {
-    this.valueChanges = this._control.valueChanges.subscribe((inputValue) => { this.updateValidityValidator(); })
+    this.subscription = this._control.valueChanges.subscribe(() => { this.updateValidityValidator(); })
   }
 
   updateAsyncValidator(customErrorStatus: boolean) {
@@ -55,7 +55,7 @@ export class Input {
   }
 
   unsubscribe() {
-    if (this.valueChanges) { this.valueChanges.unsubscribe(); }
+    if (this.subscription) { this.subscription.unsubscribe(); }
   }
 
   // utils
@@ -70,6 +70,6 @@ export class Input {
 
   private setValidatorStatus(identifier: string, customErrorStatus: boolean) {
     const selectedValidator = this.validators.find(validator => validator.identifier === identifier);
-    selectedValidator.customErrorStatus = customErrorStatus;
+    if (selectedValidator) { selectedValidator.customErrorStatus = customErrorStatus; }
   }
 }
